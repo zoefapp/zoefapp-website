@@ -1,0 +1,25 @@
+---
+import { useRoutesAstro } from "~/i18n/utils";
+import Layout from "~/layouts/Layout.astro";
+let routes = useRoutesAstro(Astro);
+
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Passenger Page: {routes('passenger')}</h1>
+	</main>
+</Layout>
+
+<style>
+	main {
+		min-height: 200px;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	
+</style>

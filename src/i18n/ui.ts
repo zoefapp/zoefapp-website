@@ -1,4 +1,4 @@
-import { DEFAULT_LANG, type SupportedLanguage } from "./constants";
+import { DEFAULT_LANG, type SupportedLanguage, type SupportedLanguages } from "./constants";
 
 type LanguageMap = { [key in SupportedLanguage]: string }
 
@@ -14,19 +14,17 @@ interface UiTranslations {
   'nav.twitter': string,
 }
 
-type RequireDefaultTranslations = {
-  [K in SupportedLanguage]: K extends 'en' ? UiTranslations : Partial<UiTranslations>;
-};
+// require the default properties' translations but not the other languages as they will fall back to the default translation
+export type UiProperties = { [DEFAULT_LANG] : UiTranslations } & { [K in SupportedLanguages]: Partial<UiTranslations> }
 
-export type UiProperties = RequireDefaultTranslations;
 export const ui: UiProperties = {
   en: {
     'nav.home': 'Home',
     'nav.about': 'About',
-    'nav.twitter': 'Twitter',
+    'nav.twitter': 'Twitter'
   },
   nl: {
     'nav.home': 'Home',
-    'nav.about': 'Over ons',
+    'nav.about': 'Over ons'
   },
 } as const;

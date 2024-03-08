@@ -1,9 +1,10 @@
+import type { AstroGlobal } from 'astro';
 import { DEFAULT_LANG, SUPPORTED_LANGUAGES, type SupportedLanguages } from './constants';
+import { routes } from './routes';
 import { ui } from './ui';
 
 export function getLangFromUrl(url: URL) {
     const [, lang] = url.pathname.split('/');
-    console.log(lang)
     if (SUPPORTED_LANGUAGES.includes(lang)) return lang;
     return DEFAULT_LANG;
 }
@@ -12,4 +13,23 @@ export function useTranslations(lang: SupportedLanguages) {
     return function t(key: keyof typeof ui[typeof DEFAULT_LANG]) {
         return ui[lang][key] || ui[DEFAULT_LANG][key];
     }
+}
+
+export function useRoutes(lang: SupportedLanguages) {
+    return function t<K extends keyof typeof routes[typeof DEFAULT_LANG]>(key: K): typeof routes[typeof DEFAULT_LANG][K] {
+        let value = routes[lang][key] || routes[DEFAULT_LANG][key]
+        let prefix = '/' + lang
+
+        if (typeof value === 'function') {
+            return function () {
+                let result = (value as Function).apply(null, arguments)
+                return prefix + '/' + result
+            } as any
+        }
+        return `${prefix}/${value}` as any;
+    }
+}
+
+export function useRoutesAstro(astro: AstroGlobal) {
+    return useRoutes(getLangFromUrl(astro.url));
 }

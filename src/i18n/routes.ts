@@ -1,19 +1,26 @@
-interface IRoutes {
+import type { DEFAULT_LANG, SupportedLanguages } from "./constants";
+
+/**
+ * please ensure to only use string or function as value type
+ */
+export interface IRoutes {
     passenger: string,
-    company: string,
+    employer: string,
     "ticket-vendor": string,
+    "blog": (slug: string) => string,
 }
 
-export const routes: { [key: string]: IRoutes } = {
+type Routes = { [DEFAULT_LANG]: IRoutes } & { [K in SupportedLanguages]: Partial<IRoutes> }
+export const routes: Routes = {
     en: {
         'passenger': 'passenger',
-        'company': 'company',
+        'employer': 'employer',
         'ticket-vendor': 'ticket-vendor',
-
+        "blog": (slug) => `blog/${slug}`,
     },
     nl: {
         'passenger': 'passagier',
-        'company': 'bedrijf',
+        'employer': 'werkgever',
         'ticket-vendor': 'ticket-verkoper',
     },
 }

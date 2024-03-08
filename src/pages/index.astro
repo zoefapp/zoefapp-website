@@ -1,7 +1,12 @@
 ---
-import { DEFAULT_LANG } from "../i18n/constants"
+import { DEFAULT_LANG } from "../i18n/constants";
+import { useRoutes } from "../i18n/utils";
 
-export const prerender = false
+export const prerender = false;
 
-return Astro.redirect(`/${Astro.preferredLocale ?? DEFAULT_LANG}/passenger`)
+let language = Astro.preferredLocale ?? DEFAULT_LANG;
+let routes = useRoutes(language);
+
+// by default redirect to the localized version of the passenger page
+return Astro.redirect(`${routes("passenger")}`);
 ---
