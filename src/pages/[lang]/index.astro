@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    {params: {lang: 'nl'}},
+    {params: {lang: 'en'}},
+  ];
+}
+
+const { lang } = Astro.params;
+---
+<div>language: {lang}!</div>
