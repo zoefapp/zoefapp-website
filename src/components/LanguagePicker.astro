@@ -8,8 +8,18 @@ import Button from "./ui/button.astro";
 const lang = getLangFromUrl(URL);
 ---
 
-<Dropdown>
-    <p slot="trigger" class="font-bold">{lang.toUpperCase()}</p>
+<Dropdown buttonId="language-picker" menuId="language-menu">
+    <Fragment slot="trigger">
+        <p class="font-bold">{lang.toUpperCase()}</p>
+        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+            >
+            </path>
+        </svg>
+    </Fragment>
     <Fragment slot="menu">
         {
             Object.entries(languages).map(([lang, label]) => (
@@ -20,3 +30,18 @@ const lang = getLangFromUrl(URL);
         }
     </Fragment>
 </Dropdown>
+
+<script itemscope is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("language-picker");
+        const menu = document.getElementById("language-menu");
+
+        button.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+        document.addEventListener("click", (event) => {
+            if (!button.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add("hidden");
+            }
+        });
+    });
+</script>
