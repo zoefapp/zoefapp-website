@@ -17,6 +17,7 @@ export default {
         brand: "var(--brand)",
         passenger: "var(--passenger)",
         passagier: "var(--passagier)",
+        "passenger-text": "var(--passenger-text)",
         employer: "var(--employer)",
         werkgever: "var(--werkgever)",
         "ticket-vendor": "var(--ticket-vendor)",
