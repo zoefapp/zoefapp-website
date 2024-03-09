@@ -1,0 +1,22 @@
+---
+import { languages } from "../i18n/ui";
+import { routes } from "~/i18n/routes";
+const URL = Astro.url;
+import { getLangFromUrl } from "~/i18n/utils";
+import Dropdown from "./ui/dropdown.astro";
+import Button from "./ui/button.astro";
+const lang = getLangFromUrl(URL);
+---
+
+<Dropdown>
+    <p slot="trigger" class="font-bold">{lang.toUpperCase()}</p>
+    <Fragment slot="menu">
+        {
+            Object.entries(languages).map(([lang, label]) => (
+                <li class="px-5 py-1.5">
+                    <a href={`/${lang + "/" + routes[lang].passenger}`}>{label}</a>
+                </li>
+            ))
+        }
+    </Fragment>
+</Dropdown>

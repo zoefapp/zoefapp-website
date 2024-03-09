@@ -1,0 +1,8 @@
+---
+import { Image } from "astro:assets";
+import logo from "~/assets/images/logo.svg";
+---
+
+<a href="/">
+    <Image src={logo} alt="Logo" width={105} loading={"eager"} decoding={"async"} class="w-[90px] md:w-full" />
+</a>

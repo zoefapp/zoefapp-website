@@ -1,25 +1,64 @@
 ---
-import { useRoutesAstro } from "~/i18n/utils";
-import Layout from "~/layouts/Layout.astro";
-let routes = useRoutesAstro(Astro);
+// Utils
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
+// Layout
+import Layout from "~/layouts/Layout.astro";
+// Images
+import PassengerBackgroundImage from "~/assets/images/passenger-bg.svg";
+import TrustPilotStar from "~/assets/images/trustpilot-star.svg";
+// Components
+import Title from "~/components/ui/title.astro";
+import Subtitle from "~/components/ui/subtitle.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Passenger Page: {routes('passenger')}</h1>
-	</main>
+    <main class="px-2 max-md:px-0">
+        <!-- TODO: Use getImage func from astro and generate better images background and use it in tailwind.config -->
+        <section
+            class="flex md:rounded-lg overflow-clip flex-col bg-gradient-to-b lg:bg-gradient-to-r from-passenger via-passenger to-transparent lg:flex-row justify-between"
+        >
+            <aside class="2xl:pl-[calc((100vw-1400px)/2)] px-5 flex flex-col gap-10 w-full lg:w-1/2 py-12 lg:py-32">
+                <Title>
+                    {t("passenger.title")}
+                </Title>
+                <Subtitle>{t("passenger.description")}</Subtitle>
+                <section class="flex flex-wrap gap-4">
+                    <aside class="flex gap-4">
+                        <p class="font-bold">Excellent</p>
+                        <div class="flex items-center gap-1">
+                            {
+                                Array.from({ length: 5 }, (_, i) => (
+                                    <div class="w-7 rounded-md bg-amber-500 p-1">
+                                        <Image
+                                            src={TrustPilotStar}
+                                            alt="TrustPilot Star"
+                                            loading={"lazy"}
+                                            decoding={"async"}
+                                        />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </aside>
+                    <aside class="flex gap-4">
+                        <p><strong>436</strong> reviews on <strong>AppStore</strong></p>
+                    </aside>
+                </section>
+            </aside>
+            <aside class="w-full max-w-xl max-lg:mx-auto lg:w-1/2">
+                <Image
+                    class="w-full"
+                    format="avif"
+                    loading={"eager"}
+                    decoding={"async"}
+                    src={PassengerBackgroundImage}
+                    alt="Passenger Background"
+                />
+            </aside>
+        </section>
+    </main>
 </Layout>
-
-<style>
-	main {
-		min-height: 200px;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	
-</style>

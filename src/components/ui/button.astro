@@ -1,0 +1,15 @@
+---
+import { cn } from "~/lib/utils";
+const { variant = "default", className } = Astro.props as {
+    variant: keyof typeof buttonVariants;
+    className?: string;
+};
+const buttonVariants = {
+    default: "bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm font-semibold w-full",
+    orange: "bg-[#FF9900] hover:bg-[#FF9000] text-[#573400] w-max rounded-md px-3 py-2.5 text-sm font-bold",
+};
+---
+
+<button class={cn(buttonVariants[variant], className)}>
+    <slot />
+</button>

@@ -33,3 +33,9 @@ export function useRoutes(lang: SupportedLanguages) {
 export function useRoutesAstro(astro: AstroGlobal) {
     return useRoutes(getLangFromUrl(astro.url));
 }
+
+export function useTranslatedPath(lang: keyof typeof ui) {
+  return function translatePath(path: string, l: string = lang) {
+    return  `/${l}${path}`;
+  };
+}

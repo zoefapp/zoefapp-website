@@ -1,30 +1,50 @@
-import { DEFAULT_LANG, type SupportedLanguage, type SupportedLanguages } from "./constants";
+import {
+  DEFAULT_LANG,
+  type SupportedLanguage,
+  type SupportedLanguages,
+} from "./constants";
 
-type LanguageMap = { [key in SupportedLanguage]: string }
+export type LanguageMap = { [key in SupportedLanguage]: string };
 
 export const languages: LanguageMap = {
-  en: 'English',
-  nl: 'Nederlands',
+  en: "English",
+  nl: "Nederlands",
 };
 
-
 interface UiTranslations {
-  'nav.home': string,
-  'nav.about': string,
-  'nav.twitter': string,
+  "nav.link.passenger": string;
+  "nav.link.employer": string;
+  "nav.link.ticket-vendor": string;
+  "nav.link.about": string;
+  "nav.cta": string;
+  "passenger.title": string;
+  "passenger.description": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
-export type UiProperties = { [DEFAULT_LANG] : UiTranslations } & { [K in SupportedLanguages]: Partial<UiTranslations> }
+export type UiProperties = { [DEFAULT_LANG]: UiTranslations } & {
+  [K in SupportedLanguages]: Partial<UiTranslations>;
+};
 
 export const ui: UiProperties = {
   en: {
-    'nav.home': 'Home',
-    'nav.about': 'About',
-    'nav.twitter': 'Twitter'
+    "nav.link.passenger": "Passenger",
+    "nav.link.employer": "Employer",
+    "nav.link.ticket-vendor": "Ticket Seller",
+    "nav.link.about": "About Us",
+    "nav.cta": "Check for compensation",
+    "passenger.title": "Train delayed? \n Ask for your money back!",
+    "passenger.description":
+      "The tool for obtaining delayed public transport trips by train",
   },
   nl: {
-    'nav.home': 'Home',
-    'nav.about': 'Over ons'
+    "nav.link.passenger": "Passagier",
+    "nav.link.employer": "Werkgever",
+    "nav.link.ticket-vendor": "Ticketverkoper",
+    "nav.link.about": "Over Ons",
+    "nav.cta": "Check voor vergoeding",
+    "passenger.title": "Trein vertraagd? \n Vraag je geld terug!",
+    "passenger.description":
+      "De tool voor het verkrijgen van vertraagde \n OV-reizen met de trein",
   },
 } as const;
