@@ -1,0 +1,35 @@
+---
+import type { BlogEntry } from "~/i18n/blog";
+import Layout from "~/layouts/Layout.astro";
+
+interface Props {
+    blog: BlogEntry;
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+
+<Layout title="Welcome to Astro.">
+    <main>
+        <h1>Blog: {blog.data.title}</h1>
+        <Content />
+        <ul>
+            {
+                blog.translations.map((translation) => (
+                    <li>
+                        <a href={translation.href}>
+                            {translation.language} - {translation.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+</Layout>
+
+<style>
+    body {
+        background-color: white;
+    }
+</style>

@@ -1,0 +1,11 @@
+---
+import { getBlogPaths } from '~/i18n/blog';
+import BlogPage from '~/page-templates/BlogPage.astro';
+
+export const prerender = true;
+export const getStaticPaths = getBlogPaths.bind(null, 'en');
+
+const { blog } = Astro.props;
+---
+
+<BlogPage blog={blog}></BlogPage>

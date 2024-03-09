@@ -3,8 +3,8 @@ import { DEFAULT_LANG, SUPPORTED_LANGUAGES, type SupportedLanguages } from './co
 import { routes } from './routes';
 import { ui } from './ui';
 
-export function getLangFromUrl(url: URL) {
-    const [, lang] = url.pathname.split('/');
+export function getLangFromUrl(url: URL | string) {
+    let lang = typeof url === 'string' ? url : url.pathname.split('/')[1];
     if (SUPPORTED_LANGUAGES.includes(lang)) return lang;
     return DEFAULT_LANG;
 }
@@ -28,6 +28,12 @@ export function useRoutes(lang: SupportedLanguages) {
         }
         return `${prefix}/${value}` as any;
     }
+}
+
+// translate the current route to a given language 
+export function translateRoute(path: string, toLang: SupportedLanguages) {
+    getLangFromUrl(path)
+    
 }
 
 export function useRoutesAstro(astro: AstroGlobal) {

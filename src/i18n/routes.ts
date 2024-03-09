@@ -14,15 +14,16 @@ type Routes = { [DEFAULT_LANG]: IRoutes } & {
   [K in SupportedLanguages]: Partial<IRoutes>;
 };
 export const routes: Routes = {
-  en: {
-    passenger: "passenger",
-    employer: "employer",
-    "ticket-vendor": "ticket-vendor",
-    blog: (slug) => `blog/${slug}`,
-  },
-  nl: {
-    passenger: "passagier",
-    employer: "werkgever",
-    "ticket-vendor": "ticket-verkoper",
-  },
-};
+    en: {
+        'passenger': 'passenger',
+        'employer': 'employer',
+        'ticket-vendor': 'ticket-vendor',
+        "blog": (slug) => `article/${slug}`,
+    },
+    nl: {
+        'passenger': 'passagier',
+        'employer': 'werkgever',
+      'ticket-vendor': 'ticket-verkoper',
+        "blog": (slug) => `artikel/${slug}`,
+    },
+}
