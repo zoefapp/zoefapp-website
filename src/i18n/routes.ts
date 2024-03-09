@@ -16,11 +16,12 @@ export const routes: Routes = {
         'passenger': 'passenger',
         'employer': 'employer',
         'ticket-vendor': 'ticket-vendor',
-        "blog": (slug) => `blog/${slug}`,
+        "blog": (slug) => `article/${slug}`,
     },
     nl: {
         'passenger': 'passagier',
         'employer': 'werkgever',
         'ticket-vendor': 'ticket-verkoper',
+        "blog": (slug) => `artikel/${slug}`,
     },
 }
