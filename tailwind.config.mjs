@@ -14,8 +14,13 @@ export default {
         },
       },
       colors: {
-        passenger: "var(--passenger)",
         brand: "var(--brand)",
+        passenger: "var(--passenger)",
+        passagier: "var(--passagier)",
+        employer: "var(--employer)",
+        werkgever: "var(--werkgever)",
+        "ticket-vendor": "var(--ticket-vendor)",
+        "ticketverkoper": "var(--ticketverkoper)",
       },
       backgroundImage: {
         BGpassenger:
