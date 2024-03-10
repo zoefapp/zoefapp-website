@@ -11,14 +11,15 @@ export const languages: LanguageMap = {
   nl: "Nederlands",
 };
 
-interface UiTranslations {
-  "nav.link.passenger": string;
-  "nav.link.employer": string;
-  "nav.link.ticket-vendor": string;
-  "nav.link.about": string;
-  "nav.cta": string;
-  "passenger.title": string;
-  "passenger.description": string;
+export interface UiTranslations {
+    "nav.link.passenger": string;
+    "nav.link.employer": string;
+    "nav.link.ticket-vendor": string;
+    "nav.link.about": string;
+    "nav.cta": string;
+    "passenger.title": string;
+    "passenger.description": string;
+    [key: string]: string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
