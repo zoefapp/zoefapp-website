@@ -18,11 +18,12 @@ const { title } = Astro.props;
         <meta name="description" content="Zoef.app" />
         <meta name="lang" />
         <meta name="viewport" content="width=device-width" />
+        <link rel="preload" as="font" type="font/woff2" href="/src/assets/fonts/1Ptvg83HX_SGhgqk3wot.woff2" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{lang} - {title}</title>
     </head>
-    <body>
+    <body class="font-mulish">
         <Header />
         <slot />
     </body>
@@ -69,4 +70,11 @@ const { title } = Astro.props;
         --color-button-accent-hover: 254, 242, 242;
         --color-button-muted: 239, 68, 68;
     } */
+
+    @font-face {
+        font-family: "Mulish";
+        src: url("/src/assets/fonts/1Ptvg83HX_SGhgqk3wot.woff2") format("woff2");
+        font-display: swap;
+        font-weight: 200 1000;
+    }
 </style>

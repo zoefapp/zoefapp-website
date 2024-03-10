@@ -1,15 +1,18 @@
 ---
 import { getLangFromUrl, useTranslations } from "~/i18n/utils";
 import { ui } from "~/i18n/ui";
-import Button from "../ui/button.astro";
 import Dropdown from "../ui/dropdown.astro";
 import { Icon } from "astro-icon/components";
+import { SUPPORTED_LANGUAGES, type SupportedLanguages } from "~/i18n/constants";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentPage = Astro.url.pathname;
 
+type navLinksProps = SupportedLanguages & {
+    [key: string]: string;
+};
 // TODO: Write the type for this OR come up with an better idea
-const navLinks = {};
+const navLinks = {} as navLinksProps;
 
 // Loop through each language in the UI file
 Object.keys(ui).forEach((language) => {
@@ -28,7 +31,9 @@ Object.keys(ui).forEach((language) => {
             navLinks[key][language] = `/${language}/${languageData[key].replace(" ", "-").toLowerCase()}`;
         }
     });
+
 });
+console.log(navLinks);
 ---
 
 <nav class="flex w-full">
