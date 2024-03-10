@@ -3,7 +3,7 @@ import { getLangFromUrl, useTranslations } from "~/i18n/utils";
 import { ui, type UiTranslations } from "~/i18n/ui";
 import Dropdown from "../ui/dropdown.astro";
 import { Icon } from "astro-icon/components";
-import { type SupportedLanguages } from "~/i18n/constants";
+import { SUPPORTED_LANGUAGES, type SupportedLanguages } from "~/i18n/constants";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentPage = Astro.url.pathname;
@@ -42,7 +42,7 @@ Object.keys(ui).forEach((language) => {
         {
             Object.entries(navLinks).map(([key, value]) => (
                 <li
-                    style={`background-color: ${currentPage === value[lang] && `var(--${key.split(".")[2].toLowerCase()})`}`}
+                    style={`background-color: ${currentPage === value[lang] && `hsla(var(--${key.split(".")[2].toLowerCase()}))`}`}
                     class="px-6 py-5"
                 >
                     <a href={`${value[lang]}`}>{t(key)}</a>
@@ -71,6 +71,7 @@ Object.keys(ui).forEach((language) => {
     </Dropdown>
 </nav>
 
+<!-- Dropdown Script -->
 <script itemscope is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const button = document.getElementById("mobilenav-picker");
