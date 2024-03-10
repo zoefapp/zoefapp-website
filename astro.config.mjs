@@ -5,11 +5,11 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  trailingSlash: "ignore",
-  build: {},
-  output: "hybrid",
-  adapter: node({
-    mode: "standalone",
-  }),
-  integrations: [tailwind(), icon()],
+    trailingSlash: "ignore",
+    build: {},
+    output: "hybrid",
+    adapter: node({
+        mode: "standalone",
+    }),
+    integrations: [tailwind({ applyBaseStyles: false }), icon()],
 });

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --brand: #28201a;
+        --orange-light: #FF9900;
+        --orange-dark: #573400;
+        --passenger: #d1edbf;
+        --passagier: #d1edbf;
+        --employer: #dff3f6;
+        --werkgever: #dff3f6;
+        --ticket-vendor: #f8e9e5;
+        --ticketverkoper: #f8e9e5;
+        --blog: #D1EDBF;
+    }
+
+    .theme-passenger {
+        --color-text-base: #112607;
+        --color-text-secondary: #66AE6E;
+    }
+
+    .theme-employer {
+        --color-text-base: #112607;
+        --color-text-secondary: #2D656B;
+    }
+
+    .theme-ticket-vendor {
+        --color-text-base: #5E2111;
+        --color-text-secondary: #9C503C;
+    }
+
+    @font-face {
+        font-family: "Mulish";
+        src: url("/fonts/1Ptvg83HX_SGhgqk3wot.woff2") format("woff2");
+        font-display: swap;
+        font-weight: 200 1000;
+    }
+}

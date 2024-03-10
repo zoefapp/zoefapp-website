@@ -2,27 +2,13 @@
 import { useRoutesAstro } from "~/i18n/utils";
 import Layout from "~/layouts/Layout.astro";
 let routes = useRoutesAstro(Astro);
-
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Employer Page: {routes('employer')}</h1>
-		<ul>
-			<li><a href={routes('passenger')}>Passenger</a></li>
-		</ul>
-	</main>
+    <main class="theme-employer text-skin-base">
+        <h1>Employer Page: {routes("employer")}</h1>
+        <ul>
+            <li><a href={routes("passenger")}>Passenger</a></li>
+        </ul>
+    </main>
 </Layout>
-
-<style>
-	main {
-		min-height: 200px;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	
-</style>

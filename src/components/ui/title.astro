@@ -1,20 +1,10 @@
 ---
-interface Props {
-    variant: keyof typeof variants;
-}
 import { cn } from "~/lib/utils";
-const { variant } = Astro.props;
-const variants = {
-    passenger: "text-passenger-text",
-    employer: "text-employer",
-    ticketVendor: "text-ticket-vendor",
-};
 ---
 
 <h1
     class={cn(
-        "text-[clamp(2.4rem,4vw,3.5rem)] leading-[1.11] font-bold max-lg:text-balance lg:whitespace-pre-line",
-        variants[variant]
+        "text-skin-base text-[clamp(2.4rem,4vw,3.5rem)] leading-[1.11] font-bold max-lg:text-balance lg:whitespace-pre-line"
     )}
 >
     <slot />
