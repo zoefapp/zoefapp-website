@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+import { ui } from "~/i18n/ui";
+import Button from "../ui/button.astro";
+import Dropdown from "../ui/dropdown.astro";
+import { Icon } from "astro-icon/components";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPage = Astro.url.pathname;
+
+// TODO: Write the type for this OR come up with an better idea
+const navLinks = {};
+
+// Loop through each language in the UI file
+Object.keys(ui).forEach((language) => {
+    const languageData = ui[language];
+
+    // Loop through each key in the language data
+    Object.keys(languageData).forEach((key) => {
+        // If the key is a navigation link
+        if (key.startsWith("nav.link.")) {
+            // If the link hasn't been added to the navLinks object yet
+            if (!navLinks[key]) {
+                navLinks[key] = {};
+            }
+            // Add the localized URLs of the navigation links to the navLinks object
+            // The key is the full navigation link name in the UI file
+            navLinks[key][language] = `/${language}/${languageData[key].replace(" ", "-").toLowerCase()}`;
+        }
+    });
+});
+---
+
+<nav class="flex w-full">
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex">
+        {
+            Object.entries(navLinks).map(([key, value]) => (
+                <li
+                    style={`background-color: ${currentPage === value[lang] && `var(--${key.split(".")[2].toLowerCase()})`}`}
+                    class="px-6 py-5"
+                >
+                    <a href={`${value[lang]}`}>{t(key)}</a>
+                </li>
+            ))
+        }
+    </ul>
+    <!-- Mobile Nav -->
+    <Dropdown className="block md:hidden ml-auto" buttonId="mobilenav-picker" menuId="mobilenav-menu">
+        <div slot="trigger" class="bg-brand p-1 text-passenger rounded-md">
+            <span class="sr-only">Menu Toggle</span>
+            <Icon aria-hidden name="lucide:align-justify" class="w-6 h-6" />
+        </div>
+        <ul slot="menu">
+            {
+                Object.entries(navLinks).map(([key, value]) => (
+                    <li
+                        style={`background-color: ${currentPage === value[lang] && `var(--${key.split(".")[2].toLowerCase()})`}`}
+                        class="px-[calc(100vw/4)] py-2 w-full"
+                    >
+                        <a href={`${value[lang]}`}>{t(key)}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </Dropdown>
+</nav>
+
+<script itemscope is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("mobilenav-picker");
+        const menu = document.getElementById("mobilenav-menu");
+
+        button.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+        document.addEventListener("click", (event) => {
+            if (!button.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add("hidden");
+            }
+        });
+    });
+</script>

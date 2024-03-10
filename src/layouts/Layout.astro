@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl } from '~/i18n/utils';
-import Header from "~/components/Header.astro";
+import { getLangFromUrl } from "~/i18n/utils";
+import Header from "~/components/header/Header.astro";
 
 interface Props {
-	title: string;
+    title: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -13,46 +13,60 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Zoef.app" />
-		<meta name="lang" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{lang} - {title}</title>
-	</head>
-	<body>
-		<Header></Header>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Zoef.app" />
+        <meta name="lang" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{lang} - {title}</title>
+    </head>
+    <body>
+        <Header />
+        <slot />
+    </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+    :root {
+        /* Alican */
+        --brand: #28201a;
+        --passenger-text: #112607;
+        --passenger: #d1edbf;
+        --passagier: #d1edbf;
+        --employer: #dff3f6;
+        --werkgever: #dff3f6;
+        --ticket-vendor: #f8e9e5;
+        --ticketverkoper: #f8e9e5;
+        /* Alican */
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background: #f5f5f5;
+    }
+    code {
+        font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
+    }
+    /* .theme-swiss {
+        --color-header: var(--passenger);
+        --color-text-base: 255, 255, 255;
+        --color-text-muted: 254, 202, 202;
+        --color-text-inverted: 220, 38, 38;
+        --color-fill: 185, 28, 28;
+        --color-button-accent: 255, 255, 255;
+        --color-button-accent-hover: 254, 242, 242;
+        --color-button-muted: 239, 68, 68;
+    } */
 </style>

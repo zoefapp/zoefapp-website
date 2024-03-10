@@ -4,13 +4,15 @@ import type { DEFAULT_LANG, SupportedLanguages } from "./constants";
  * please ensure to only use string or function as value type
  */
 export interface IRoutes {
-    passenger: string,
-    employer: string,
-    "ticket-vendor": string,
-    "blog": (slug: string) => string,
+  passenger: string;
+  employer: string;
+  "ticket-vendor": string;
+  blog: (slug: string) => string;
 }
 
-type Routes = { [DEFAULT_LANG]: IRoutes } & { [K in SupportedLanguages]: Partial<IRoutes> }
+type Routes = { [DEFAULT_LANG]: IRoutes } & {
+  [K in SupportedLanguages]: Partial<IRoutes>;
+};
 export const routes: Routes = {
     en: {
         'passenger': 'passenger',
@@ -21,7 +23,7 @@ export const routes: Routes = {
     nl: {
         'passenger': 'passagier',
         'employer': 'werkgever',
-        'ticket-vendor': 'ticket-verkoper',
+      'ticket-vendor': 'ticket-verkoper',
         "blog": (slug) => `artikel/${slug}`,
     },
 }

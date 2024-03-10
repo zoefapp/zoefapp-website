@@ -1,0 +1,47 @@
+---
+import { cn } from "~/lib/utils";
+import type { ClassValue } from "clsx";
+const { buttonId, menuId, className } = Astro.props as {
+    buttonId: string;
+    menuId: string;
+    className: ClassValue;
+};
+---
+
+<div class={cn("relative inline-block text-left", className)}>
+    <div>
+        <button
+            id={buttonId}
+            type="button"
+            class="dropdown-btn inline-flex w-full justify-center gap-x-1.5 rounded-md text-sm font-semibold text-gray-900"
+            aria-expanded="true"
+            aria-haspopup="true"
+        >
+            <slot name="trigger" />
+        </button>
+    </div>
+
+    <!--
+    Dropdown menu, show/hide based on menu state.
+
+    Entering: "transition ease-out duration-100"
+      From: "transform opacity-0 scale-95"
+      To: "transform opacity-100 scale-100"
+    Leaving: "transition ease-in duration-75"
+      From: "transform opacity-100 scale-100"
+      To: "transform opacity-0 scale-95"
+  -->
+    <div
+        id={menuId}
+        class="dropdown-menu absolute hidden right-0 z-10 mt-2 w-min origin-top-right rounded-md bg-white shadow-lg shadow-black/20 ring-2 ring-black ring-opacity-5 focus:outline-none"
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="menu-button"
+        tabindex="-1"
+    >
+        <ul class="py-0" role="none">
+            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+            <slot name="menu" />
+        </ul>
+    </div>
+</div>

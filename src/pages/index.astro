@@ -3,10 +3,17 @@ import { DEFAULT_LANG } from "../i18n/constants";
 import { useRoutes } from "../i18n/utils";
 
 export const prerender = false;
-
 let language = Astro.preferredLocale ?? DEFAULT_LANG;
 let routes = useRoutes(language);
 
 // by default redirect to the localized version of the passenger page
-return Astro.redirect(`${routes("passenger")}`);
+// return Astro.redirect(`${routes("passenger")}`);
+
+// Let's return the user /en first as default language
 ---
+
+<html>
+    <head>
+        <meta http-equiv="refresh" content={`0;url=${routes("passenger")}`} />
+    </head>
+</html>
