@@ -13,12 +13,19 @@ import Subtitle from "~/components/ui/subtitle.astro";
 import TrustPilotRatings from "~/components/trust-pilot-ratings.astro";
 import CompensationCheck from "~/components/compensation-check.astro";
 import Hero from "~/components/hero.astro";
+import { getFaqs } from "~/lib/faq";
+import { getTestimonials } from "~/lib/testimonial";
+import { fade } from "astro:transitions";
 
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
     review_market: "AppStore",
 };
+
+const faqs = await getFaqs("passenger", lang);
+const testimonials = await getTestimonials("passenger", lang);
+console.log(faqs, testimonials);
 ---
 
 <Layout title="Welcome to Astro.">

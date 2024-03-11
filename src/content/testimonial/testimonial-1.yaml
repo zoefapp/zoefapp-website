@@ -1,0 +1,8 @@
+person: some Person
+company: Some Company
+stars: 5
+date: 2024-01-01T10:00:00.000Z
+homepageOrder: 10
+testimonial: 
+  en: "Some testimonial"
+  nl: "Een testimonial"
