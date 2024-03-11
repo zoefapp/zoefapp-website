@@ -4,12 +4,22 @@ import { routes } from "~/i18n/routes";
 const URL = Astro.url;
 import { getLangFromUrl } from "~/i18n/utils";
 import Dropdown from "./ui/dropdown.astro";
+import { Icon } from "astro-icon/components";
 const lang = getLangFromUrl(URL);
 ---
 
 <Dropdown buttonId="language-picker" menuId="language-menu">
     <Fragment slot="trigger">
-        <p class="font-bold">{lang.toUpperCase()}</p>
+        <p class="flex items-center gap-2 font-bold">
+            {lang.toUpperCase()}
+            {
+                lang === "en" ? (
+                    <Icon name="openmoji:flag-united-kingdom" class="w-6 h-6" />
+                ) : (
+                    <Icon name="openmoji:flag-netherlands" class="w-6 h-6" />
+                )
+            }
+        </p>
         <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path
                 fill-rule="evenodd"

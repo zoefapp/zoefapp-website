@@ -45,6 +45,11 @@ dependencies:
     specifier: ^5.4.2
     version: 5.4.2
 
+devDependencies:
+  '@iconify-json/openmoji':
+    specifier: ^1.1.49
+    version: 1.1.49
+
 packages:
 
   /@alloc/quick-lru@5.2.0:
@@ -680,6 +685,12 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
+  /@iconify-json/openmoji@1.1.49:
+    resolution: {integrity: sha512-iSsr4xe2OTfmn7BNBGtvSxolWdJi1i+XNZ80X+i2zlUkJqXQkDbtIv4Ekhezd/CIPxkEP7eKZyqMHf3yY5XLaw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/tools@3.0.7:
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
     dependencies:
@@ -699,7 +710,6 @@ packages:
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: false
 
   /@iconify/utils@2.1.22:
     resolution: {integrity: sha512-6UHVzTVXmvO8uS6xFF+L/QTSpTzA/JZxtgU+KYGFyDYMEObZ1bu/b5l+zNJjHy+0leWjHI+C0pXlzGvv3oXZMA==}

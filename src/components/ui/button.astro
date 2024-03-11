@@ -1,9 +1,10 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"button"> {
     variant?: "orange" | "default";
-    className?: ClassValue[];
+    className?: ClassValue;
 }
-const { variant = "default", className } = Astro.props;
+const { variant = "default", className, ...props } = Astro.props;
 import { cn } from "~/lib/utils";
 import type { ClassValue } from "clsx";
 import { cx } from "class-variance-authority";
@@ -20,6 +21,6 @@ const buttonVariants: ButtonVariants = {
 };
 ---
 
-<button class={cn(buttonVariants[variant], className)}>
+<button class={cn(buttonVariants[variant], className)} {...props}>
     <slot />
 </button>
