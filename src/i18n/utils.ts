@@ -1,21 +1,14 @@
 import type { AstroGlobal } from "astro";
 import { DEFAULT_LANG, SUPPORTED_LANGUAGES, type SupportedLanguages } from "./constants";
 import { routes } from "./routes";
-import { ui, CombinedUITranslations } from "./ui";
+import { ui } from "./ui";
 
 export function getLangFromUrl(url: URL | string) {
     let lang = typeof url === "string" ? url : url.pathname.split("/")[1];
     if (SUPPORTED_LANGUAGES.includes(lang)) return lang;
     return DEFAULT_LANG;
 }
-/*
- * useTranslation function for Combined UI translations
- */
-export function useTranslationsTest(lang: SupportedLanguages) {
-    return function m(key: keyof (typeof CombinedUITranslations)[typeof DEFAULT_LANG]) {
-        return CombinedUITranslations[lang][key] || CombinedUITranslations[DEFAULT_LANG][key];
-    };
-}
+
 export function useTranslations(lang: SupportedLanguages) {
     return function t(key: keyof (typeof ui)[typeof DEFAULT_LANG]) {
         return ui[lang][key] || ui[DEFAULT_LANG][key];
