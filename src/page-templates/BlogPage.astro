@@ -1,5 +1,6 @@
 ---
 import type { BlogEntry } from "~/i18n/blog";
+import { useRoutesAstro } from "~/i18n/utils";
 import Layout from "~/layouts/Layout.astro";
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 
 const { blog } = Astro.props;
 const { Content } = await blog.render();
+
+const routes = useRoutesAstro(Astro)
 ---
 
 <Layout title="Welcome to Astro.">
@@ -21,6 +24,15 @@ const { Content } = await blog.render();
                         <a href={translation.href}>
                             {translation.language} - {translation.title}
                         </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <ul>
+            {
+                blog.data.tags.map((tag) => (
+                    <li>
+                        <a href={routes('blogTag')(tag)}>{tag}</a>
                     </li>
                 ))
             }

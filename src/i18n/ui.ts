@@ -11,6 +11,7 @@ export interface UiTranslations {
     "nav.link.passenger": string;
     "nav.link.employer": string;
     "nav.link.ticket-vendor": string;
+    "nav.link.about": string;
     "nav.link.blog": string;
     "nav.cta": string;
     "passenger.title": string;
@@ -39,6 +40,7 @@ export const ui: UiProperties = {
         "nav.link.passenger": "Passenger",
         "nav.link.employer": "Employer",
         "nav.link.ticket-vendor": "Ticket Vendor",
+        "nav.link.about": "About Us",
         "nav.link.blog": "Blog",
         "nav.cta": "Check for compensation",
         "passenger.title": "Train delayed? \n Ask for your money back!",
@@ -60,6 +62,7 @@ export const ui: UiProperties = {
         "nav.link.passenger": "Passagier",
         "nav.link.employer": "Werkgever",
         "nav.link.ticket-vendor": "Ticketverkoper",
+        "nav.link.about": "Over Ons",
         "nav.link.blog": "Blog",
         "nav.cta": "Check voor vergoeding",
         "passenger.title": "Trein vertraagd? \n Vraag je geld terug!",

@@ -23,14 +23,23 @@ export interface BlogEntry extends BlogContentEntry {
 interface Paths {
     params: { slug: string };
     props: {
-        blog: BlogEntry;
+        blog?: BlogEntry,
+        tag?: string
     };
 }
 
 export async function getBlogPaths(lang: string): Promise<Paths[]> {
-    console.log(lang)
     const blogEntries: BlogContentEntry[] = await getCollection("blog")
-    return blogEntries.filter(e => e.data.language == lang).map((entry) => ({
+
+    let allTags = [...(new Set(blogEntries.flatMap(e => e.data.tags)))]
+
+    let tagPages = allTags
+        .map((tag) => ({
+            params: { slug: `@${tag}` },
+            props: { tag }
+        }))
+
+    let blogPages = blogEntries.filter(e => e.data.language == lang).map((entry) => ({
         params: { slug: entry.slug },
         props: {
             blog: {
@@ -51,4 +60,10 @@ export async function getBlogPaths(lang: string): Promise<Paths[]> {
             },
         },
     }));
+
+    return [
+        ...blogPages,
+        ...tagPages
+    ]
+
 }

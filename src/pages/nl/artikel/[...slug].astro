@@ -1,11 +1,13 @@
 ---
 import { getBlogPaths } from '~/i18n/blog';
 import BlogPage from '~/page-templates/BlogPage.astro';
+import BlogTagPage from '~/page-templates/BlogTagPage.astro';
 
 export const prerender = true;
 export const getStaticPaths = getBlogPaths.bind(null, 'nl');
 
-const { blog } = Astro.props;
+const { blog, tag } = Astro.props;
 ---
 
-<BlogPage blog={blog}></BlogPage>
+{blog && <BlogPage blog={blog}></BlogPage>}
+{tag && <BlogTagPage tag={tag}></BlogTagPage>

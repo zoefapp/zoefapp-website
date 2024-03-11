@@ -9,6 +9,7 @@ import TrustPilotRatings from "~/components/trust-pilot-ratings.astro";
 import Subtitle from "~/components/ui/subtitle.astro";
 import Title from "~/components/ui/title.astro";
 import Layout from "~/layouts/Layout.astro";
+import Stats from "~/components/stats.astro";
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
@@ -26,7 +27,7 @@ const TrustPilotData = {
                 <Subtitle>{t("employer.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
-            <CompensationCheck slot="floating" />
+            <Stats slot="floating" />
         </Hero>
     </main>
 </Layout>

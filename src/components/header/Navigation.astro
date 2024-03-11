@@ -1,51 +1,43 @@
 ---
-import { getLangFromUrl, useTranslations } from "~/i18n/utils";
-import { ui, type UiTranslations } from "~/i18n/ui";
-import Dropdown from "../ui/dropdown.astro";
 import { Icon } from "astro-icon/components";
-import { SUPPORTED_LANGUAGES, type SupportedLanguages } from "~/i18n/constants";
+import { getLangFromUrl, useRoutes, useTranslations } from "~/i18n/utils";
+import Dropdown from "../ui/dropdown.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const routes = useRoutes(lang);
 const currentPage = Astro.url.pathname;
 
-// TODO: Write the type for this OR come up with an better idea
-
-type NavLinks = {
-    [key: string]: { [lang in SupportedLanguages]: string };
-};
-
-const navLinks = {} as NavLinks;
-
-// Loop through each language in the UI file
-Object.keys(ui).forEach((language) => {
-    const languageData = ui[language] as UiTranslations;
-
-    // Loop through each key in the language data
-    Object.keys(languageData).forEach((key) => {
-        // If the key is a navigation link
-        if (key.startsWith("nav.link.")) {
-            // If the link hasn't been added to the navLinks object yet
-            if (!navLinks[key]) {
-                navLinks[key] = {};
-            }
-            // Add the localized URLs of the navigation links to the navLinks object
-            // The key is the full navigation link name in the UI file
-            navLinks[key][language] = `/${language}/${languageData[key].replace(" ", "-").toLowerCase()}`;
-        }
-    });
-});
+const navLinks = [
+    {
+        title: t("nav.link.passenger"),
+        url: routes("passenger"),
+        class: "bg-passenger",
+    },
+    {
+        title: t("nav.link.employer"),
+        url: routes("employer"),
+        class: "bg-employer",
+    },
+    {
+        title: t("nav.link.ticket-vendor"),
+        url: routes("ticket-vendor"),
+        class: "bg-ticket-vendor",
+    },
+    {
+        title: t("nav.link.about"),
+        url: routes("aboutUs"),
+        class: "bg-passenger",
+    },
+];
 ---
 
 <nav class="flex w-full">
     <!-- Desktop Nav -->
     <ul class="hidden md:flex">
         {
-            Object.entries(navLinks).map(([key, value]) => (
-                <li
-                    style={`background-color: ${currentPage === value[lang] && `hsla(var(--${key.split(".")[2].toLowerCase()}))`}`}
-                    class="px-6 py-5"
-                >
-                    <a href={`${value[lang]}`}>{t(key)}</a>
+            navLinks.map((link) => (
+                <li class={`px-6 py-5 ${currentPage === link.url && `${link.class}`}`}>
+                    <a href={link.url}>{link.title}</a>
                 </li>
             ))
         }
@@ -58,12 +50,12 @@ Object.keys(ui).forEach((language) => {
         </div>
         <ul slot="menu">
             {
-                Object.entries(navLinks).map(([key, value]) => (
+                navLinks.map((link) => (
                     <li
-                        style={`background-color: ${currentPage === value[lang] && `var(--${key.split(".")[2].toLowerCase()})`}`}
+                        style={`background-color: ${currentPage === link.url && `var(--${link.class})`}`}
                         class="px-[calc(100vw/4)] py-2 w-full"
                     >
-                        <a href={`${value[lang]}`}>{t(key)}</a>
+                        <a href={link.url}>{link.title}</a>
                     </li>
                 ))
             }
