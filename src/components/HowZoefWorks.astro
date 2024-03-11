@@ -50,9 +50,27 @@ const HowZoefWorksData = {
 
 <section class="container py-24">
     <section class="flex flex-col gap-6 w-[90%] mx-auto">
-        <Subtitle variant="secondary" className="font-bold">{t("howzoefworks.title")}</Subtitle>
-        <section class="flex flex-col-reverse lg:flex-row gap-10 items-center">
+        <section class="flex flex-col lg:flex-row-reverse gap-10 items-center">
+            <Subtitle variant="secondary" className="font-bold self-start lg:hidden">
+                {t("howzoefworks.title")}
+            </Subtitle>
+            <aside class="flex w-full lg:w-1/2 overflow-clip">
+                {
+                    HowZoefWorksData.images.map((image) => (
+                        <div
+                            id={image.id}
+                            data-state={image.initialState}
+                            class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
+                        >
+                            <Image src={image.image} alt="How Zoef Works Image" class="mx-auto" />
+                        </div>
+                    ))
+                }
+            </aside>
             <aside class="flex lg:flex-col w-full lg:w-1/2 overflow-x-scroll lg:overflow-x-auto py-4">
+                <Subtitle variant="secondary" className="font-bold max-lg:hidden py-4">
+                    {t("howzoefworks.title")}
+                </Subtitle>
                 {
                     HowZoefWorksData.buttons.map((button) => (
                         <button
@@ -66,29 +84,6 @@ const HowZoefWorksData = {
                     ))
                 }
             </aside>
-            <aside class="flex w-full lg:w-1/2 overflow-clip">
-                <div
-                    id="first"
-                    data-state="active"
-                    class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
-                >
-                    <Image src={HowZoefWorksImage} alt="How Zoef Works Image" class="mx-auto" />
-                </div>
-                <div
-                    id="second"
-                    data-state="inactive"
-                    class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
-                >
-                    <Image src={HowZoefWorksImage} alt="How Zoef Works Image" class="mx-auto" />
-                </div>
-                <div
-                    id="third"
-                    data-state="inactive"
-                    class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
-                >
-                    <Image src={HowZoefWorksImage} alt="How Zoef Works Image" class="mx-auto" />
-                </div>
-            </aside>
         </section>
     </section>
 </section>
@@ -98,7 +93,7 @@ const HowZoefWorksData = {
     const divs = document.querySelectorAll(".divs");
     btns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const correspondingDiv = document.querySelector(`#${btn.id.toLowerCase()}`);
+            const correspondingDiv = document.getElementById(btn.id.toLowerCase());
             const correspondingButton = document.getElementById(btn.id);
             btns.forEach((btn) => {
                 btn.setAttribute("data-state", "inactive");
