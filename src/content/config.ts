@@ -6,6 +6,7 @@ const blogSchema = z.object({
   translationCode: z.string().optional(),
   date: z.date(),
   language: z.enum(['nl', 'en']), // todo: use SUPPORTED_LANGUAGE˜S
+  tags: z.array(z.string()),
 })
 
 const blogCollection = defineCollection({
