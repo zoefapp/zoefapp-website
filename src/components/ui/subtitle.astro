@@ -1,7 +1,16 @@
 ---
+interface Props extends HTMLAttributes<"h3"> {
+    className?: ClassValue;
+}
+const { className } = Astro.props;
+import type { HTMLAttributes } from "astro/types";
+import type { ClassValue } from "clsx";
 import { cn } from "~/lib/utils";
 ---
 
-<p class={cn("text-black text-[clamp(1.3rem,2vw,1.5rem)] lg:whitespace-pre-line max-lg:text-pretty")}>
+<h3
+    class={cn("text-black text-[clamp(1.3rem,2vw,1.5rem)] lg:whitespace-pre-line max-lg:text-pretty", className)}
+    {...Astro.props}
+>
     <slot />
-</p>
+</h3>

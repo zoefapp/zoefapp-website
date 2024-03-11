@@ -1,5 +1,4 @@
 import { DEFAULT_LANG, type SupportedLanguage, type SupportedLanguages } from "./constants";
-
 export type LanguageMap = { [key in SupportedLanguage]: string };
 
 export const languages: LanguageMap = {

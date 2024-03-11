@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useRoutes, useTranslations } from "~/i18n/utils";
-import Dropdown from "../ui/dropdown.astro";
+import Dropdown from "../ui/Dropdown.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
