@@ -31,6 +31,13 @@ export interface UiTranslations {
     "accompaniment.first": string;
     "accompaniment.second": string;
     "accompaniment.third": string;
+    "howzoefworks.title": string;
+    "howzoefworks.first.title": string;
+    "howzoefworks.first.description": string;
+    "howzoefworks.second.title": string;
+    "howzoefworks.second.description": string;
+    "howzoefworks.third.title": string;
+    "howzoefworks.third.description": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -64,6 +71,16 @@ export const ui: UiProperties = {
         "accompaniment.first": "Euros paid back to our users",
         "accompaniment.second": "People who have filed a claim with Zoef",
         "accompaniment.third": "Fixed minute delay with Zoef since November",
+        "howzoefworks.title": "How Zoef works",
+        "howzoefworks.first.title": "Carry they single-origin",
+        "howzoefworks.first.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "howzoefworks.second.title": "Carry they single-origin ",
+        "howzoefworks.second.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "howzoefworks.third.title": "Carry they single-origin ",
+        "howzoefworks.third.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -90,5 +107,15 @@ export const ui: UiProperties = {
         "accompaniment.first": "Euro terug gestort naar onze gebruikers",
         "accompaniment.second": "Mensen die een claim hebben ingediend bij Zoef",
         "accompaniment.third": "Minuten ertraging verholpen met Zoef sinds November",
+        "howzoefworks.title": "Hoe Zoef werkt",
+        "howzoefworks.first.title": "Carry they single-origin",
+        "howzoefworks.first.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "howzoefworks.second.title": "Carry they single-origin ",
+        "howzoefworks.second.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "howzoefworks.third.title": "Carry they single-origin ",
+        "howzoefworks.third.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
     },
 } as const;

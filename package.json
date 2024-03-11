@@ -25,6 +25,7 @@
     "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "@iconify-json/openmoji": "^1.1.49"
+    "@iconify-json/openmoji": "^1.1.49",
+    "tailwindcss-animate": "^1.0.7"
   }
 }

@@ -21,6 +21,7 @@ import Accomplisments from "~/components/Accomplisments.astro";
 import { getFaqs } from "~/lib/faq";
 import { getTestimonials } from "~/lib/testimonial";
 import { fade } from "astro:transitions";
+import HowZoefWorks from "~/components/HowZoefWorks.astro";
 
 const TrustPilotData = {
     review_count: 336,
@@ -46,7 +47,6 @@ const AccomplishmentsData = [
 ];
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
-console.log(faqs, testimonials);
 ---
 
 <Layout title="Welcome to Astro.">
@@ -62,5 +62,6 @@ console.log(faqs, testimonials);
             <CompensationCheck slot="floating" />
         </Hero>
         <Accomplisments data={AccomplishmentsData} />
+        <HowZoefWorks />
     </main>
 </Layout>

@@ -19,8 +19,6 @@ const TrustPilotData = {
 
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
-console.log(faqs, testimonials);
-
 ---
 
 <Layout title="Welcome to Astro.">
@@ -30,7 +28,7 @@ console.log(faqs, testimonials);
                 <Title>
                     {t("employer.title")}
                 </Title>
-                <Subtitle>{t("employer.description")}</Subtitle>
+                <Subtitle variant="default">{t("employer.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <Stats slot="floating" />
