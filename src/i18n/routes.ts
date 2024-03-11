@@ -7,6 +7,7 @@ export interface IRoutes {
   passenger: string;
   employer: string;
   "ticket-vendor": string;
+  aboutUs: string;
   blog: (slug: string) => string;
   blogTag: (tag: string) => string;
 }
@@ -19,6 +20,7 @@ export const routes: Routes = {
     'passenger': 'passenger',
     'employer': 'employer',
     'ticket-vendor': 'ticket-vendor',
+    'aboutUs': 'about-us',
     "blog": (slug) => `article/${slug}`,
     blogTag: (tag) => `article/@${tag}`,
   },
@@ -26,6 +28,7 @@ export const routes: Routes = {
     'passenger': 'passagier',
     'employer': 'werkgever',
     'ticket-vendor': 'ticket-verkoper',
+    'aboutUs': 'over-ons',
     "blog": (slug) => `artikel/${slug}`,
     blogTag: (tag) => `artikel/@${tag}`,
   },
