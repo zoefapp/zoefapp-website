@@ -27,6 +27,10 @@ export interface UiTranslations {
     "compensation.time": string;
     "compensation.time.placeholder": string;
     "compensation.cta": string;
+    "accompaniment.title": string;
+    "accompaniment.first": string;
+    "accompaniment.second": string;
+    "accompaniment.third": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -56,6 +60,10 @@ export const ui: UiProperties = {
         "compensation.time": "Time",
         "compensation.time.placeholder": "e.g. Maastricht North",
         "compensation.cta": "Get Compensation",
+        "accompaniment.title": "What we <strong>already accomplished</strong>",
+        "accompaniment.first": "Euros paid back to our users",
+        "accompaniment.second": "People who have filed a claim with Zoef",
+        "accompaniment.third": "Fixed minute delay with Zoef since November",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -78,5 +86,9 @@ export const ui: UiProperties = {
         "compensation.time": "Tijd",
         "compensation.time.placeholder": "Vrijdag 15 Feb. 11:05",
         "compensation.cta": "Check mijn vergoeding",
+        "accompaniment.title": "Wat we al <strong>bereikt hebben</strong>",
+        "accompaniment.first": "Euro terug gestort naar onze gebruikers",
+        "accompaniment.second": "Mensen die een claim hebben ingediend bij Zoef",
+        "accompaniment.third": "Minuten ertraging verholpen met Zoef sinds November",
     },
 } as const;

@@ -1,16 +1,22 @@
 ---
 interface Props extends HTMLAttributes<"h3"> {
     className?: ClassValue;
+    variant: "secondary" | "default";
 }
-const { className } = Astro.props;
+const { className, variant = "default" } = Astro.props;
 import type { HTMLAttributes } from "astro/types";
 import type { ClassValue } from "clsx";
 import { cn } from "~/lib/utils";
+
+type SubtitleVariants = {
+    [key in "default" | "secondary"]: string;
+};
+const variants: SubtitleVariants = {
+    default: "text-[clamp(1.3rem,2vw,1.5rem)] text-black",
+    secondary: "text-[clamp(22px,4vw,26px)] text-skin-secondary",
+};
 ---
 
-<h3
-    class={cn("text-black text-[clamp(1.3rem,2vw,1.5rem)] lg:whitespace-pre-line max-lg:text-pretty", className)}
-    {...Astro.props}
->
+<h3 class={cn("lg:whitespace-pre-line max-lg:text-pretty", variants[variant], className)} {...Astro.props}>
     <slot />
 </h3>

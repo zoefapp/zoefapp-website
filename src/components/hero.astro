@@ -26,6 +26,18 @@ import { Image } from "astro:assets";
     </aside>
     <slot name="floating" />
 </section>
-<div class="w-full h-0 bg-transparent pt-[calc(var(--compensation-height)/2)]">
+<div id="layoutFixer" class="w-full h-0 bg-transparent">
     <!-- I need to be there to fix layout -->
 </div>
+
+<script>
+    document.addEventListener("scroll", () => {
+        const layoutFixer = document.getElementById("layoutFixer");
+        const floatingElement = document.getElementById("floating");
+        const heightOfFloatingElement = floatingElement?.offsetHeight;
+        if (!heightOfFloatingElement || !layoutFixer) {
+            return;
+        }
+        layoutFixer.style.paddingTop = `${heightOfFloatingElement}px`;
+    });
+</script>

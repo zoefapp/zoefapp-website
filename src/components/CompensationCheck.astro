@@ -8,7 +8,8 @@ const t = useTranslations(lang);
 ---
 
 <section
-    class="absolute left-1/2 w-11/12 z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/2))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/2))] top-[calc(100%-10px)]"
+    id="floating"
+    class="absolute left-1/2 w-11/12 z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
 >
     <h2 class="text-skin-secondary text-[clamp(1.4rem,4vw,1.7rem)]" set:html={t("compensation.title")} />
     <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end">
