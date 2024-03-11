@@ -27,7 +27,7 @@ export const routes: Routes = {
   nl: {
     'passenger': 'passagier',
     'employer': 'werkgever',
-    'ticket-vendor': 'ticket-verkoper',
+    'ticket-vendor': 'ticketverkoper',
     'aboutUs': 'over-ons',
     "blog": (slug) => `artikel/${slug}`,
     blogTag: (tag) => `artikel/@${tag}`,
