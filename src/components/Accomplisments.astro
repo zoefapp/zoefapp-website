@@ -16,19 +16,21 @@ const t = useT(Astro);
 import Subtitle from "./ui/Subtitle.astro";
 ---
 
-<section class="flex flex-col gap-6 container">
-    <Subtitle variant="secondary" set:html={t("accompaniment.title")} />
-    <section class="flex flex-col lg:flex-row gap-4">
-        {
-            data.map((accomplishment) => (
-                <aside class="flex flex-col gap-2 w-full rounded-2xl bg-gray-50 p-8">
-                    <div class="flex gap-3 items-center">
-                        <Image src={accomplishment.icon} alt="Euro Icon" width={35} />
-                        <p class="font-black text-[clamp(2rem,2vw,3rem)]">{accomplishment.count}</p>
-                    </div>
-                    <p class="text-[clamp(1rem,1vw,1.2rem)] text-pretty">{accomplishment.description}</p>
-                </aside>
-            ))
-        }
+<section class="container p-0">
+    <section class="flex flex-col gap-6 w-[90%] mx-auto">
+        <Subtitle variant="secondary" set:html={t("accompaniment.title")} />
+        <section class="flex flex-col lg:flex-row gap-4">
+            {
+                data.map((accomplishment) => (
+                    <aside class="flex flex-col gap-2 w-full rounded-2xl bg-gray-50 p-8">
+                        <div class="flex gap-3 items-center">
+                            <Image src={accomplishment.icon} alt="Euro Icon" width={35} />
+                            <p class="font-black text-[clamp(2rem,2vw,3rem)]">{accomplishment.count}</p>
+                        </div>
+                        <p class="text-[clamp(1rem,1vw,1.2rem)] text-pretty">{accomplishment.description}</p>
+                    </aside>
+                ))
+            }
+        </section>
     </section>
 </section>
