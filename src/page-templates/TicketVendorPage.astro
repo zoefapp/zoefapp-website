@@ -3,12 +3,12 @@ import { getLangFromUrl, useTranslations } from "~/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 import TicketVendorBackgroundImage from "~/assets/images/ticket-vendor-bg.png";
-import Hero from "~/components/hero.astro";
-import TrustPilotRatings from "~/components/trust-pilot-ratings.astro";
-import Subtitle from "~/components/ui/subtitle.astro";
-import Title from "~/components/ui/title.astro";
+import Hero from "~/components/Hero.astro";
+import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
+import Subtitle from "~/components/ui/Subtitle.astro";
+import Title from "~/components/ui/Title.astro";
 import Layout from "~/layouts/Layout.astro";
-import Stats from "~/components/stats.astro";
+import Stats from "~/components/Stats.astro";
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
