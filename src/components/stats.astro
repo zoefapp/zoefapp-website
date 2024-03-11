@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import EuroIcon from "~/assets/images/euro-icon.png";
+---
+
+<section
+    class="absolute left-1/2 z-10 rounded-2xl gap-4 transform -translate-x-1/2 container flex flex-col justify-center min-h-compensation bg-transparent md:top-[calc(100%-(var(--compensation-height)/2+30px))] top-[calc(100%+20px)]"
+>
+    <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Testing</h2>
+    <aside class="flex flex-col md:flex-row gap-4">
+        <div
+            class="flex flex-col gap-4 items-center justify-center p-5 w-full bg-white shadow-lg shadow-black/20 rounded-md border"
+        >
+            <Image class="w-20 h-20" format="avif" loading="eager" decoding="async" src={EuroIcon} alt="Euro Icon" />
+            <p>Placeholder</p>
+        </div>
+        <div
+            class="flex flex-col gap-4 items-center justify-center p-5 w-full bg-white shadow-lg shadow-black/20 rounded-md border"
+        >
+            <Image class="w-20 h-20" format="avif" loading="eager" decoding="async" src={EuroIcon} alt="Euro Icon" />
+            <p>Placeholder</p>
+        </div>
+        <div
+            class="flex flex-col gap-4 items-center justify-center p-5 w-full bg-white shadow-lg shadow-black/20 rounded-md border"
+        >
+            <Image class="w-20 h-20" format="avif" loading="eager" decoding="async" src={EuroIcon} alt="Euro Icon" />
+            <p>Placeholder</p>
+        </div>
+    </aside>
+</section>

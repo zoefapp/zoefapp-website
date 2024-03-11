@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends Omit<HTMLAttributes<"label">, "class"> {
+    className?: string;
+}
+import { cn } from "~/lib/utils";
+const { className, ...props } = Astro.props;
+---
+
+<label class={cn("text-brand", className)} {...props}>
+    <slot />
+</label>

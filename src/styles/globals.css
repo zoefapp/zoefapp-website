@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --brand: 26, 21%, 13%;
+        --orange-light: 36, 100%, 50%;
+        --orange-dark: 36, 100%, 17%;
+        --passenger: 97, 56%, 84%;
+        --passagier: 97, 56%, 84%;
+        --employer: 188, 56%, 92%;
+        --werkgever: 188, 56%, 92%;
+        --ticket-vendor: 13, 58%, 94%;
+        --ticketverkoper: 13, 58%, 94%;
+        --blog: 97, 56%, 84%;
+        --compensation-height: 215px;
+    }
+
+    .theme-passenger {
+        --color-text-base: 101, 69%, 9%;
+        --color-text-secondary: 127, 31%, 54%;
+        --color-gradient: 97, 56%, 84%;
+
+    }
+
+    .theme-employer {
+        --color-text-base: 101, 69%, 9%;
+        --color-text-secondary: 186, 41%, 30%;
+        --color-gradient: 188, 56%, 92%;
+    }
+
+    .theme-ticket-vendor {
+        --color-text-base: 12, 69%, 22%;
+        --color-text-secondary: 12, 44%, 42%;
+        --color-gradient: 13, 61%, 94%;
+    }
+
+    @font-face {
+        font-family: "Mulish";
+        src: url("/fonts/1Ptvg83HX_SGhgqk3wot.woff2") format("woff2");
+        font-display: swap;
+        font-weight: 200 1000;
+    }
+}

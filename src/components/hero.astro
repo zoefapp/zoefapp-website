@@ -1,0 +1,31 @@
+---
+interface Props {
+    heroImage: ImageMetadata;
+}
+const { heroImage } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<section
+    class="relative flex gap-6 md:rounded-lg flex-col bg-gradient-to-b lg:bg-gradient-to-r from-skin-gradient from-45% to-transparent to-60% lg:flex-row justify-between"
+>
+    <aside class="2xl:pl-[calc((100vw-1400px)/2)] px-5 flex flex-col gap-10 w-full lg:w-1/2 py-2 lg:py-32">
+        <slot name="left" />
+    </aside>
+    <aside class="w-full max-h-[700px] max-w-2xl max-lg:mx-auto lg:w-1/2">
+        <Image
+            class="w-full h-full object-bottom object-cover"
+            format="avif"
+            loading="eager"
+            width={800}
+            height={700}
+            decoding="async"
+            src={heroImage}
+            alt="Passenger Background"
+        />
+    </aside>
+    <slot name="floating" />
+</section>
+<div class="w-full h-0 bg-transparent pt-[calc(var(--compensation-height)/2)]">
+    <!-- I need to be there to fix layout -->
+</div>

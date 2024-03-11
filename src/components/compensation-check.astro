@@ -1,0 +1,36 @@
+---
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+import Input from "./ui/input.astro";
+import Label from "./ui/label.astro";
+import Button from "./ui/button.astro";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+    class="absolute left-1/2 z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/2))] top-[calc(100%-10px)]"
+>
+    <h2 class="text-skin-secondary text-[clamp(1.4rem,4vw,1.7rem)]" set:html={t("compensation.title")} />
+    <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end">
+        <div class="relative flex flex-col gap-2 w-full">
+            <Label className="font-bold" for="departure">{t("compensation.departure")}</Label>
+            <Input name="departure" id="departure" type="text" placeholder={t("compensation.departure.placeholder")} />
+        </div>
+        <div class="relative flex flex-col gap-2 w-full">
+            <Label className="font-bold" for="arrival">{t("compensation.arrival")}</Label>
+            <Input name="arrival" id="arrival" type="text" placeholder={t("compensation.arrival.placeholder")} />
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+            <Label className="font-bold" for="time">{t("compensation.time")}</Label>
+            <Input
+                name="time"
+                id="time"
+                onfocus="this.type = 'time'"
+                onblur="this.type = 'text'"
+                step="1"
+                placeholder={t("compensation.time.placeholder")}
+            />
+        </div>
+        <Button type="submit" variant="orange" className="w-1/2">{t("compensation.cta")}</Button>
+    </form>
+</section>

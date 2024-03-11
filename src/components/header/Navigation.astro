@@ -11,22 +11,22 @@ const navLinks = [
     {
         title: t("nav.link.passenger"),
         url: routes("passenger"),
-        class: "passenger",
+        class: "bg-passenger",
     },
     {
         title: t("nav.link.employer"),
         url: routes("employer"),
-        class: "employer",
+        class: "bg-employer",
     },
     {
         title: t("nav.link.ticket-vendor"),
         url: routes("ticket-vendor"),
-        class: "ticketvendor",
+        class: "bg-ticket-vendor",
     },
     {
         title: t("nav.link.about"),
         url: routes("aboutUs"),
-        class: "aboutus",
+        class: "bg-passenger",
     },
 ];
 ---
@@ -36,7 +36,7 @@ const navLinks = [
     <ul class="hidden md:flex">
         {
             navLinks.map((link) => (
-                <li style={`background-color: ${currentPage === link.url && `var(--${link.class})`}`} class="px-6 py-5">
+                <li class={`px-6 py-5 ${currentPage === link.url && `${link.class}`}`}>
                     <a href={link.url}>{link.title}</a>
                 </li>
             ))
@@ -63,6 +63,7 @@ const navLinks = [
     </Dropdown>
 </nav>
 
+<!-- Dropdown Script -->
 <script itemscope is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const button = document.getElementById("mobilenav-picker");

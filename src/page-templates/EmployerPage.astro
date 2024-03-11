@@ -1,28 +1,32 @@
 ---
-import { useRoutesAstro } from "~/i18n/utils";
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import Hero from "~/components/hero.astro";
+import Title from "~/components/ui/title.astro";
 import Layout from "~/layouts/Layout.astro";
-let routes = useRoutesAstro(Astro);
-
+import EmployerBackgroundImage from "~/assets/images/employer-bg.png";
+import Subtitle from "~/components/ui/subtitle.astro";
+import TrustPilotRatings from "~/components/trust-pilot-ratings.astro";
+import Stats from "~/components/stats.astro";
+const TrustPilotData = {
+    review_count: 336,
+    star_count: 5,
+    review_market: "AppStore",
+};
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Employer Page: {routes('employer')}</h1>
-		<ul>
-			<li><a href={routes('passenger')}>Passenger</a></li>
-		</ul>
-	</main>
+    <main class="theme-employer px-2 max-md:px-0">
+        <Hero heroImage={EmployerBackgroundImage}>
+            <Fragment slot="left">
+                <Title>
+                    {t("employer.title")}
+                </Title>
+                <Subtitle>{t("employer.description")}</Subtitle>
+                <TrustPilotRatings data={TrustPilotData} />
+            </Fragment>
+            <Stats slot="floating" />
+        </Hero>
+    </main>
 </Layout>
-
-<style>
-	main {
-		min-height: 200px;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	
-</style>
