@@ -1,14 +1,18 @@
 ---
+import Hero from "~/components/hero.astro";
+import Title from "~/components/ui/title.astro";
 import { useRoutesAstro } from "~/i18n/utils";
 import Layout from "~/layouts/Layout.astro";
 let routes = useRoutesAstro(Astro);
+import EmployerBackgroundImage from "~/assets/images/passenger-bg.png";
 ---
 
 <Layout title="Welcome to Astro.">
-    <main class="theme-employer text-skin-base">
-        <h1>Employer Page: {routes("employer")}</h1>
-        <ul>
-            <li><a href={routes("passenger")}>Passenger</a></li>
-        </ul>
+    <main class="theme-employer px-2 max-md:px-0">
+        <Hero heroImage={EmployerBackgroundImage}>
+            <Fragment slot="left">
+                <Title>Pasenger Page Title</Title>
+            </Fragment>
+        </Hero>
     </main>
 </Layout>

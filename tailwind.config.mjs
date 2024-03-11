@@ -27,12 +27,20 @@ export default {
                 "ticket-vendor": "hsla(var(--ticket-vendor))",
                 ticketverkoper: "hsla(var(--ticketverkoper))",
                 blog: "hsla(var(--blog))",
+                skin: {
+                    base: "hsla(var(--color-text-base))",
+                    secondary: "hsla(var(--color-text-secondary))",
+                    gradient: "hsla(var(--color-gradient))",
+                },
             },
             textColor: {
                 skin: {
                     base: "hsla(var(--color-text-base))",
                     secondary: "hsla(var(--color-text-secondary))",
                 },
+            },
+            height: {
+                compensation: "var(--compensation-height)",
             },
         },
     },
