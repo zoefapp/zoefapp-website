@@ -5,6 +5,7 @@ const t = useT(Astro);
 import { Image } from "astro:assets";
 // Images
 import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
+// Components
 import Subtitle from "./ui/Subtitle.astro";
 
 const HowZoefWorksData = {
@@ -62,7 +63,7 @@ const HowZoefWorksData = {
                             data-state={image.initialState}
                             class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
                         >
-                            <Image src={image.image} alt="How Zoef Works Image" class="mx-auto" />
+                            <Image src={image.image} alt="How Zoef Works" class="mx-auto" />
                         </div>
                     ))
                 }
