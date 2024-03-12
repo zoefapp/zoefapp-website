@@ -45,6 +45,8 @@ export interface UiTranslations {
     "faqs.side.cta": string;
     "blogs.title": string;
     "blogs.cta": string;
+    "store.title": string;
+    "store.description": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -96,6 +98,9 @@ export const ui: UiProperties = {
         "faqs.side.cta": "Contact us",
         "blogs.title": "Stay up to <strong>date with the NS</strong>",
         "blogs.cta": "Read our blogs",
+        "store.title": "Cold-pressed biodiesel",
+        "store.description":
+            "Raclette shabby belly cornhole subway. Heirloom hella next gastropub enamel chillwave bicycle. Cronut butcher sartorial it normcore seitan cray.",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -140,5 +145,8 @@ export const ui: UiProperties = {
         "faqs.side.cta": "Neem contact op",
         "blogs.title": "Stuur <strong>updates naar de NS</strong>",
         "blogs.cta": "Bekijk all blogs",
+        "store.title": "Koude kruiden",
+        "store.description":
+            "Raclette shabby belly cornhole subway. Heirloom hella next gastropub enamel chillwave bicycle. Cronut butcher sartorial it normcore seitan cray.",
     },
 } as const;
