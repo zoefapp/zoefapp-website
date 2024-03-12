@@ -1,22 +1,13 @@
 import { defineCollection, z } from 'astro:content';
+import { BlogSchema } from '~/lib/blog';
 import { FaqSchema } from '~/lib/faq';
 import { TestimonialSchema } from '~/lib/testimonial';
 
 
 /// BLOG
-const blogSchema = z.object({
-  title: z.string(),
-  author: z.string(),
-  translationCode: z.string().optional(),
-  date: z.date(),
-  language: z.enum(['nl', 'en']), // todo: use SUPPORTED_LANGUAGE˜S
-  tags: z.array(z.string()),
-})
-export type Blog = z.infer<typeof blogSchema>;
-
 const blogCollection = defineCollection({
   type: 'content',
-  schema: blogSchema
+  schema: BlogSchema
 });
 
 /// FAQ

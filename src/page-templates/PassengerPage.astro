@@ -20,7 +20,7 @@ import Hero from "~/components/Hero.astro";
 import Accomplisments from "~/components/Accomplisments.astro";
 import { getFaqs } from "~/lib/faq";
 import { getTestimonials } from "~/lib/testimonial";
-import { fade } from "astro:transitions";
+import { getRecentBlogs } from "~/lib/blog";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
 import Faqs from "~/components/Faqs.astro";
@@ -49,6 +49,8 @@ const AccomplishmentsData = [
 ];
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
+const blogs = await getRecentBlogs(lang, 5)
+
 console.log(testimonials);
 ---
 
