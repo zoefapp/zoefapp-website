@@ -1,7 +1,7 @@
 
 import { getCollection, z } from "astro:content";
-import type { Blog } from "~/content/config";
 import { useRoutes } from "./utils";
+import type { Blog } from "~/lib/blog";
 
 interface BlogContentEntry {
     id: string;
