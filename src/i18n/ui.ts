@@ -38,6 +38,7 @@ export interface UiTranslations {
     "howzoefworks.second.description": string;
     "howzoefworks.third.title": string;
     "howzoefworks.third.description": string;
+    "testimonials.title": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -81,6 +82,7 @@ export const ui: UiProperties = {
         "howzoefworks.third.title": "Carry they single-origin ",
         "howzoefworks.third.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "testimonials.title": "What our customers say",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -117,5 +119,6 @@ export const ui: UiProperties = {
         "howzoefworks.third.title": "Carry they single-origin ",
         "howzoefworks.third.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
+        "testimonials.title": "Wat onze klanten noemen",
     },
 } as const;
