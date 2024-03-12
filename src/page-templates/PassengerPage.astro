@@ -24,6 +24,7 @@ import { getRecentBlogs } from "~/lib/blog";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
 import Faqs from "~/components/Faqs.astro";
+import Blogs from "~/components/Blogs.astro";
 
 const TrustPilotData = {
     review_count: 336,
@@ -49,7 +50,7 @@ const AccomplishmentsData = [
 ];
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
-const blogs = await getRecentBlogs(lang, 5)
+const blogs = await getRecentBlogs(lang, 5);
 
 console.log(testimonials);
 ---
@@ -70,5 +71,6 @@ console.log(testimonials);
         <HowZoefWorks />
         <Testimonials />
         <Faqs />
+        <Blogs />
     </main>
 </Layout>

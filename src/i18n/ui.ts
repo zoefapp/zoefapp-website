@@ -43,6 +43,8 @@ export interface UiTranslations {
     "faqs.side.title": string;
     "faqs.side.description": string;
     "faqs.side.cta": string;
+    "blogs.title": string;
+    "blogs.cta": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -92,6 +94,8 @@ export const ui: UiProperties = {
         "faqs.side.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh.",
         "faqs.side.cta": "Contact us",
+        "blogs.title": "Stay up to <strong>date with the NS</strong>",
+        "blogs.cta": "Read our blogs",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -134,5 +138,7 @@ export const ui: UiProperties = {
         "faqs.side.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. ",
         "faqs.side.cta": "Neem contact op",
+        "blogs.title": "Stuur <strong>updates naar de NS</strong>",
+        "blogs.cta": "Bekijk all blogs",
     },
 } as const;
