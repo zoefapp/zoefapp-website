@@ -1,0 +1,31 @@
+---
+// Utils
+import { getFaqs } from "~/lib/faq";
+import { getLangFromUrl, useT } from "~/i18n/utils";
+import { Image } from "astro:assets";
+const lang = getLangFromUrl(Astro.url);
+const t = useT(Astro);
+// Images
+import FaqsGreenImage from "~/assets/images/faqs-green.png";
+// Components
+import Accordion from "./ui/Accordion.astro";
+import Button from "./ui/Button.astro";
+import Subtitle from "./ui/Subtitle.astro";
+// Data
+const testimonials = await getFaqs("passenger", lang);
+---
+
+<section class="container py-16 flex flex-col gap-12">
+    <Subtitle variant="secondary" set:html={t("faqs.title")} />
+    <section class="flex flex-col lg:flex-row gap-6 justify-between">
+        <aside class="flex items-center w-full lg:w-1/2">
+            <Accordion data={testimonials} />
+        </aside>
+        <aside class="flex flex-col items-center text-center w-full lg:w-1/2 bg-gray-50 rounded-2xl p-6 gap-3">
+            <Image src={FaqsGreenImage} alt="FAQs Background" class="max-w-[300px]" />
+            <h2 class="font-bold">{t("faqs.side.title")}</h2>
+            <p class="text-balance">{t("faqs.side.description")}</p>
+            <Button variant="orange">{t("faqs.side.cta")}</Button>
+        </aside>
+    </section>
+</section>

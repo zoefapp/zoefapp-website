@@ -39,6 +39,10 @@ export interface UiTranslations {
     "howzoefworks.third.title": string;
     "howzoefworks.third.description": string;
     "testimonials.title": string;
+    "faqs.title": string;
+    "faqs.side.title": string;
+    "faqs.side.description": string;
+    "faqs.side.cta": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -83,6 +87,11 @@ export const ui: UiProperties = {
         "howzoefworks.third.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
         "testimonials.title": "What our customers say",
+        "faqs.title": "Frequently <strong>asked questions</strong>",
+        "faqs.side.title": "Need more help?",
+        "faqs.side.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh.",
+        "faqs.side.cta": "Contact us",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -120,5 +129,10 @@ export const ui: UiProperties = {
         "howzoefworks.third.description":
             "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. Yuccie marfa shaman affogato",
         "testimonials.title": "Wat onze klanten noemen",
+        "faqs.title": "Frequently <strong>asked questions</strong>",
+        "faqs.side.title": "Meer hulp nodig?",
+        "faqs.side.description":
+            "Carry they single-origin sold readymade LaCroix. Vexillologist dreamcatcher chic heard tbh. ",
+        "faqs.side.cta": "Neem contact op",
     },
 } as const;

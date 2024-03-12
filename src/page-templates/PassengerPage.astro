@@ -23,6 +23,7 @@ import { getTestimonials } from "~/lib/testimonial";
 import { fade } from "astro:transitions";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
+import Faqs from "~/components/Faqs.astro";
 
 const TrustPilotData = {
     review_count: 336,
@@ -66,5 +67,6 @@ console.log(testimonials);
         <Accomplisments data={AccomplishmentsData} />
         <HowZoefWorks />
         <Testimonials />
+        <Faqs />
     </main>
 </Layout>

@@ -1,18 +1,15 @@
 ---
 // Utils
 import { getTestimonials } from "~/lib/testimonial";
-import { getLangFromUrl } from "~/i18n/utils";
+import { getLangFromUrl, useT } from "~/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
-import { useT } from "~/i18n/utils";
 const t = useT(Astro);
 // Components
-import Carousel from "./ui/carousel.astro";
+import Carousel from "./ui/Carousel.astro";
 // Data
 const testimonials = await getTestimonials("passenger", lang);
 ---
 
 <section class="container bg-gray-50 rounded-2xl p-5 md:p-10 lg:p-20">
-    <section class="">
-        <Carousel title={t("testimonials.title")} data={testimonials} />
-    </section>
+    <Carousel title={t("testimonials.title")} data={testimonials} />
 </section>
