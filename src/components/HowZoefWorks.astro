@@ -114,7 +114,7 @@ import Subtitle from "./ui/Subtitle.astro";
         // Next
         if (delta > threshold) {
             let currentBtn = document.querySelector(".btns[data-state=active]");
-            let currentDiv = document.querySelector(".divs[data-state=active]");
+            let currentImage = document.getElementById(currentBtn.id.toLowerCase());
             if (currentBtn.nextElementSibling && currentBtn.nextElementSibling.hasAttribute("data-state")) {
                 container.scrollBy({
                     left: window.innerWidth * 0.9,
@@ -125,15 +125,15 @@ import Subtitle from "./ui/Subtitle.astro";
                 currentBtn.nextElementSibling.setAttribute("data-state", "active");
                 currentBtn = currentBtn.nextElementSibling;
                 // Images
-                currentDiv.setAttribute("data-state", "inactive");
-                currentDiv.nextElementSibling.setAttribute("data-state", "active");
-                currentDiv = currentDiv.nextElementSibling;
+                currentImage.setAttribute("data-state", "inactive");
+                currentImage.nextElementSibling.setAttribute("data-state", "active");
+                currentImage = currentImage.nextElementSibling;
             }
         }
         // Previous
         if (delta < -threshold) {
             let currentBtn = document.querySelector(".btns[data-state=active]");
-            let currentDiv = document.querySelector(".divs[data-state=active]");
+            let currentImage = document.getElementById(currentBtn.id.toLowerCase());
             if (currentBtn.previousElementSibling.hasAttribute("data-state")) {
                 container.scrollBy({
                     left: -window.innerWidth * 0.9,
@@ -144,9 +144,9 @@ import Subtitle from "./ui/Subtitle.astro";
                 currentBtn.previousElementSibling.setAttribute("data-state", "active");
                 currentBtn = currentBtn.previousElementSibling;
                 // Images
-                currentDiv.setAttribute("data-state", "inactive");
-                currentDiv.previousElementSibling.setAttribute("data-state", "active");
-                currentDiv = currentDiv.previousElementSibling;
+                currentImage.setAttribute("data-state", "inactive");
+                currentImage.previousElementSibling.setAttribute("data-state", "active");
+                currentImage = currentImage.previousElementSibling;
             }
         }
     };
