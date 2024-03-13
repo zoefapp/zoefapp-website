@@ -6,8 +6,8 @@ export const FaqRelevance = z.enum(['passenger', 'ticketvendor', 'employer']);
 export type FaqRelevance = z.infer<typeof FaqRelevance>;
 
 export const FaqSchema = z.object({
-    title: z.string(),
-    description: z.string(),
+    question: z.string(),
+    answer: z.string(),
     homepageOrder: z.number().optional(),
     relevantFor: z.array(FaqRelevance).default(['passenger', 'ticketvendor', 'employer'])
 })
