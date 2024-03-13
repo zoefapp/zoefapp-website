@@ -1,4 +1,5 @@
 ---
+import { clsx } from "clsx";
 import { Icon } from "astro-icon/components";
 import { routes as Routes } from "~/i18n/routes";
 import { languages } from "~/i18n/ui";
@@ -38,7 +39,7 @@ const navLinks = [
     <ul class="hidden md:flex">
         {
             navLinks.map((link) => (
-                <li class={`px-6 py-5 ${currentPage === link.url && `${link.class}`}`}>
+                <li class={clsx("px-6 py-5", currentPage == link.url && link.class)}>
                     <a href={link.url}>{link.title}</a>
                 </li>
             ))
