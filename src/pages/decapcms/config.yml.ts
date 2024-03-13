@@ -1,13 +1,9 @@
+import { BASE_URL, HOSTNAME } from "./oauth/_config"
 
 export const prerender = true
 
 export async function GET() {
-  let baseUrl = 'https://localhost'
-  let domain = 'localhost:4321'
-  if (process.env.VERCEL_URL) {
-    domain = process.env.VERCEL_URL
-    baseUrl = 'https://' + domain
-  }
+
   return new Response(
     `
 backend:
@@ -15,8 +11,8 @@ backend:
   branch: main
   repo: zoefapp/zoefapp-website
   auth_endpoint: decapcms/oauth
-  site_domain: ${domain}
-  base_url: ${baseUrl}
+  site_domain: ${HOSTNAME}
+  base_url: ${BASE_URL}
 
 publish_mode: editorial_workflow
 local_backend: false
