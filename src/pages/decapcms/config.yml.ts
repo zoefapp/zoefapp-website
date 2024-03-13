@@ -2,7 +2,12 @@
 export const prerender = true
 
 export async function GET() {
-  let baseUrl = process.env.VERCEL_URL ?? 'http://localhost:4321'
+  let baseUrl = 'https://localhost'
+  let domain = 'localhost:4321'
+  if (process.env.VERCEL_URL) {
+    domain = process.env.VERCEL_URL
+    baseUrl = 'https://' + domain
+  }
   return new Response(
     `
 backend:
@@ -10,6 +15,7 @@ backend:
   branch: main
   repo: zoefapp/zoefapp-website
   auth_endpoint: decapcms/oauth
+  site_domain: ${domain}
   base_url: ${baseUrl}
 
 publish_mode: editorial_workflow
