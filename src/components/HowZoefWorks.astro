@@ -1,52 +1,29 @@
 ---
+interface Props {
+    data: {
+        buttons: Buttons[];
+        images: Images[];
+    };
+}
+interface Buttons {
+    id: string;
+    initialState: string;
+    title: string;
+    description: string;
+}
+interface Images {
+    id: string;
+    initialState: string;
+    image: ImageMetadata;
+}
+const { data } = Astro.props;
 // Utils
 import { useT } from "~/i18n/utils";
 const t = useT(Astro);
 import { Image } from "astro:assets";
-// Images
-import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
+
 // Components
 import Subtitle from "./ui/Subtitle.astro";
-
-const HowZoefWorksData = {
-    buttons: [
-        {
-            id: "FIRST",
-            initialState: "active",
-            title: t("howzoefworks.first.title"),
-            description: t("howzoefworks.first.description"),
-        },
-        {
-            id: "SECOND",
-            initialState: "inactive",
-            title: t("howzoefworks.second.title"),
-            description: t("howzoefworks.second.description"),
-        },
-        {
-            id: "THIRD",
-            initialState: "inactive",
-            title: t("howzoefworks.third.title"),
-            description: t("howzoefworks.third.description"),
-        },
-    ],
-    images: [
-        {
-            id: "first",
-            initialState: "active",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "second",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "third",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-    ],
-};
 ---
 
 <section class="container py-24">
@@ -57,7 +34,7 @@ const HowZoefWorksData = {
             </Subtitle>
             <aside class="flex w-full lg:w-1/2 overflow-clip">
                 {
-                    HowZoefWorksData.images.map((image) => (
+                    data.images.map((image) => (
                         <div
                             id={image.id}
                             data-state={image.initialState}
@@ -73,7 +50,7 @@ const HowZoefWorksData = {
                     {t("howzoefworks.title")}
                 </Subtitle>
                 {
-                    HowZoefWorksData.buttons.map((button) => (
+                    data.buttons.map((button) => (
                         <button
                             id={button.id}
                             data-state={button.initialState}

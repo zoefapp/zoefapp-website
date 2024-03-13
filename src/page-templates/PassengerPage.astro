@@ -11,6 +11,7 @@ import PassengerBackgroundImage from "~/assets/images/passenger-bg.png";
 import EuroIcon from "~/assets/images/euro-icon-green.png";
 import StarIcon from "~/assets/images/star.png";
 import ClockCheckIcon from "~/assets/images/clock-check.png";
+import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
 // Components
 import Title from "~/components/ui/Title.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
@@ -49,9 +50,48 @@ const AccomplishmentsData = [
         icon: ClockCheckIcon,
     },
 ];
+const HowZoefWorksData = {
+    buttons: [
+        {
+            id: "FIRST",
+            initialState: "active",
+            title: t("howzoefworks.first.title"),
+            description: t("howzoefworks.first.description"),
+        },
+        {
+            id: "SECOND",
+            initialState: "inactive",
+            title: t("howzoefworks.second.title"),
+            description: t("howzoefworks.second.description"),
+        },
+        {
+            id: "THIRD",
+            initialState: "inactive",
+            title: t("howzoefworks.third.title"),
+            description: t("howzoefworks.third.description"),
+        },
+    ],
+    images: [
+        {
+            id: "first",
+            initialState: "active",
+            image: HowZoefWorksImage,
+        },
+        {
+            id: "second",
+            initialState: "inactive",
+            image: HowZoefWorksImage,
+        },
+        {
+            id: "third",
+            initialState: "inactive",
+            image: HowZoefWorksImage,
+        },
+    ],
+};
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
-const blogs = await getRecentBlogs(lang, 5);
+const blogs = await getRecentBlogs(lang, 3);
 ---
 
 <Layout title="Welcome to Astro.">
@@ -67,10 +107,10 @@ const blogs = await getRecentBlogs(lang, 5);
             <CompensationCheck slot="floating" />
         </Hero>
         <Accomplisments data={AccomplishmentsData} />
-        <HowZoefWorks />
-        <Testimonials />
-        <Faqs />
-        <Blogs />
+        <HowZoefWorks data={HowZoefWorksData} />
+        <Testimonials data={testimonials} />
+        <Faqs data={faqs} />
+        <Blogs data={blogs} />
         <StoreBanner />
     </main>
 </Layout>

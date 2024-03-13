@@ -1,4 +1,9 @@
 ---
+interface Props {
+    data: FAQ[];
+}
+const { data } = Astro.props;
+import type { FAQ } from "~/lib/faq";
 // Utils
 import { getFaqs } from "~/lib/faq";
 import { getLangFromUrl, useT } from "~/i18n/utils";
@@ -12,7 +17,6 @@ import Accordion from "./ui/Accordion.astro";
 import Button from "./ui/Button.astro";
 import Subtitle from "./ui/Subtitle.astro";
 // Data
-const testimonials = await getFaqs("passenger", lang);
 ---
 
 <section class="container py-16 flex flex-col gap-12">
@@ -20,7 +24,7 @@ const testimonials = await getFaqs("passenger", lang);
         <Subtitle variant="secondary" set:html={t("faqs.title")} />
         <section class="flex flex-col lg:flex-row gap-6 justify-between">
             <aside class="flex items-center w-full lg:w-1/2">
-                <Accordion data={testimonials} />
+                <Accordion data={data} />
             </aside>
             <aside class="flex flex-col items-center text-center w-full lg:w-1/2 bg-gray-50 rounded-2xl p-6 gap-3">
                 <Image src={FaqsGreenImage} alt="FAQs Background" class="max-w-[300px]" />

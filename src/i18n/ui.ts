@@ -158,7 +158,7 @@ export const ui: UiProperties = {
         "compensation.time.placeholder": "Vrijdag 15 Feb. 11:05",
         "compensation.cta": "Check mijn vergoeding",
         "accompaniment.title": "Wat we al <strong>bereikt hebben</strong>",
-        "accompaniment.first": "Euro terug gestort naar onze gebruiker",
+        "accompaniment.first": "Euro terug gestort naar onze gebruikers",
         "accompaniment.second": "Mensen die een claim hebben ingediend bij Zoef",
         "accompaniment.third": "Minuten ertraging verholpen met Zoef sinds November",
         "howzoefworks.title": "Hoe Zoef werkt",
