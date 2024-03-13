@@ -92,9 +92,13 @@ import Subtitle from "./ui/Subtitle.astro";
     let touchStartXX = 0;
     let touchEndXX = 0;
 
-    document.querySelector(".swipe-container").addEventListener("touchstart", (e) => {
-        touchStartXX = e.touches[0].clientX;
-    });
+    document.querySelector(".swipe-container").addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartXX = e.touches[0].clientX;
+        },
+        { passive: true }
+    );
 
     document.querySelector(".swipe-container").addEventListener("touchend", (e) => {
         touchEndXX = e.changedTouches[0].clientX;
