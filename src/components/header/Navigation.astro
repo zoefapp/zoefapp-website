@@ -39,7 +39,7 @@ const navLinks = [
         {
             navLinks.map((link) => (
                 <li
-                    style={`background-color: hsla(var(--${currentPage == link.url && link.class}));`}
+                    style={`background-color: hsla(var(--${currentPage == link.url ? link.class : ""}));`}
                     class="px-6 py-5"
                 >
                     <a href={link.url}>{link.title}</a>
