@@ -7,6 +7,7 @@ export type TestimonialRelevance = z.infer<typeof TestimonialRelevance>;
 
 export const TestimonialSchema = z.object({
     person: z.string(),
+    avatar: z.string(),
     company: z.string(),
     stars: z.number(),
     date: z.date(),

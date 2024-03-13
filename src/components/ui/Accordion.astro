@@ -1,0 +1,58 @@
+---
+interface Props {
+    data: FAQ[];
+}
+import { Icon } from "astro-icon/components";
+import type { FAQ } from "~/lib/faq";
+const { data } = Astro.props;
+---
+
+<section class="flex flex-col gap-5">
+    {
+        data.map((faq) => (
+            <>
+                <div
+                    data-state={data[0] === faq ? "active" : "inactive"}
+                    class="accordion-container flex group flex-col justify-center data-[state=active]:gap-6"
+                >
+                    <button class="flex justify-between w-full font-bold">
+                        <h2>{faq.title}</h2>
+                        <div class="relative w-6 h-6">
+                            <Icon
+                                name="lucide:minus"
+                                class="absolute text-orange-light left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shrink-0 w-6 h-6 group-data-[state=inactive]:rotate-90 group-data-[state=active]:opacity-0 transition-all duration-500"
+                            />
+                            <Icon
+                                name="lucide:minus"
+                                class="absolute text-orange-light left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shrink-0 w-6 h-6"
+                            />
+                        </div>
+                    </button>
+                    <p class="overflow-hidden max-h-0 group-data-[state=inactive]:max-h-0 group-data-[state=active]:max-h-96 transition-all group-data-[state=active]:duration-1000">
+                        {faq.description}
+                    </p>
+                </div>
+                <div class="border-b w-full" />
+            </>
+        ))
+    }
+</section>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const accordions = document.querySelectorAll(".accordion-container");
+        accordions.forEach((accordion) => {
+            const button = accordion.querySelector("button");
+            button.addEventListener("click", () => {
+                // first set everything to inactive
+                accordions.forEach((accordion) => {
+                    accordion.dataset.state = "inactive";
+                });
+
+                if (accordion.dataset.state === "inactive") {
+                    accordion.dataset.state = "active";
+                }
+            });
+        });
+    });
+</script>

@@ -9,7 +9,7 @@ import { Image } from "astro:assets";
 <section
     class="relative flex container gap-6 md:rounded-2xl flex-col bg-gradient-to-b lg:bg-gradient-to-r from-skin-gradient from-45% to-transparent to-60% lg:flex-row"
 >
-    <aside class="px-2 md:px-5 lg:px-12 flex flex-col gap-10 w-full lg:w-1/2 py-12 justify-center">
+    <aside class="px-2 md:px-5 lg:px-12 flex flex-col gap-10 w-full lg:w-1/2 py-6 justify-center">
         <slot name="left" />
     </aside>
     <aside class="w-full max-h-[700px] max-w-2xl max-lg:mx-auto lg:w-1/2 rounded-[100px] md:rounded-2xl overflow-clip">
@@ -26,6 +26,18 @@ import { Image } from "astro:assets";
     </aside>
     <slot name="floating" />
 </section>
-<div class="w-full h-0 bg-transparent pt-[calc(var(--compensation-height)/2)]">
+<div id="layoutFixer" class="w-full h-0 bg-transparent">
     <!-- I need to be there to fix layout -->
 </div>
+
+<script>
+    document.addEventListener("scroll", () => {
+        const layoutFixer = document.getElementById("layoutFixer");
+        const floatingElement = document.getElementById("floating");
+        const heightOfFloatingElement = floatingElement?.offsetHeight;
+        if (!heightOfFloatingElement || !layoutFixer) {
+            return;
+        }
+        layoutFixer.style.paddingTop = `${heightOfFloatingElement}px`;
+    });
+</script>

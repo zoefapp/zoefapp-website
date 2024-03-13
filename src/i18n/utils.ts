@@ -46,3 +46,9 @@ export function useTranslatedPath(lang: keyof typeof ui) {
         return `/${l}${path}`;
     };
 }
+
+
+export function useT(Astro: AstroGlobal) {
+    const lang = getLangFromUrl(Astro.url);
+    return useTranslations(lang);
+}

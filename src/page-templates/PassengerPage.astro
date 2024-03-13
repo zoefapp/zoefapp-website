@@ -7,25 +7,51 @@ const t = useTranslations(lang);
 import Layout from "~/layouts/Layout.astro";
 // Images
 import PassengerBackgroundImage from "~/assets/images/passenger-bg.png";
+// Icons
+import EuroIcon from "~/assets/images/euro-icon-green.png";
+import StarIcon from "~/assets/images/star.png";
+import ClockCheckIcon from "~/assets/images/clock-check.png";
 // Components
 import Title from "~/components/ui/Title.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import CompensationCheck from "~/components/CompensationCheck.astro";
 import Hero from "~/components/Hero.astro";
+import Accomplisments from "~/components/Accomplisments.astro";
 import { getFaqs } from "~/lib/faq";
 import { getTestimonials } from "~/lib/testimonial";
-import { fade } from "astro:transitions";
+import { getRecentBlogs } from "~/lib/blog";
+import HowZoefWorks from "~/components/HowZoefWorks.astro";
+import Testimonials from "~/components/Testimonials.astro";
+import Faqs from "~/components/Faqs.astro";
+import Blogs from "~/components/Blogs.astro";
+import StoreBanner from "~/components/StoreBanner.astro";
 
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
     review_market: "AppStore",
 };
-
+const AccomplishmentsData = [
+    {
+        count: 2545,
+        description: t("accompaniment.first"),
+        icon: EuroIcon,
+    },
+    {
+        count: 4566,
+        description: t("accompaniment.second"),
+        icon: StarIcon,
+    },
+    {
+        count: 3455,
+        description: t("accompaniment.third"),
+        icon: ClockCheckIcon,
+    },
+];
 const faqs = await getFaqs("passenger", lang);
 const testimonials = await getTestimonials("passenger", lang);
-console.log(faqs, testimonials);
+const blogs = await getRecentBlogs(lang, 5);
 ---
 
 <Layout title="Welcome to Astro.">
@@ -35,10 +61,16 @@ console.log(faqs, testimonials);
                 <Title>
                     {t("passenger.title")}
                 </Title>
-                <Subtitle>{t("passenger.description")}</Subtitle>
+                <Subtitle variant="default">{t("passenger.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <CompensationCheck slot="floating" />
         </Hero>
+        <Accomplisments data={AccomplishmentsData} />
+        <HowZoefWorks />
+        <Testimonials />
+        <Faqs />
+        <Blogs />
+        <StoreBanner />
     </main>
 </Layout>

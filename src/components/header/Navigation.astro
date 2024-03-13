@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { routes as Routes } from "~/i18n/routes";
+import { languages } from "~/i18n/ui";
 import { getLangFromUrl, useRoutes, useTranslations } from "~/i18n/utils";
 import Dropdown from "../ui/Dropdown.astro";
 const lang = getLangFromUrl(Astro.url);
@@ -49,13 +51,23 @@ const navLinks = [
             <Icon aria-hidden name="lucide:align-justify" class="w-6 h-6" />
         </div>
         <ul slot="menu">
+            <li
+                style={`background-color: ${currentPage === navLinks[navLinks.length - 1].url && `var(--${navLinks[navLinks.length - 1].class})`}`}
+                class="px-12 py-2 w-full"
+            >
+                <a class="whitespace-nowrap" href={navLinks[navLinks.length - 1].url}>
+                    {navLinks[navLinks.length - 1].title}
+                </a>
+            </li>
             {
-                navLinks.map((link) => (
-                    <li
-                        style={`background-color: ${currentPage === link.url && `var(--${link.class})`}`}
-                        class="px-[calc(100vw/4)] py-2 w-full"
-                    >
-                        <a href={link.url}>{link.title}</a>
+                Object.entries(languages).map(([lang, label]) => (
+                    <li class="flex gap-2 px-12 py-2 w-full">
+                        {lang === "en" ? (
+                            <Icon name="openmoji:flag-united-kingdom" class="w-6 h-6" />
+                        ) : (
+                            <Icon name="openmoji:flag-netherlands" class="w-6 h-6" />
+                        )}
+                        <a href={`/${lang + "/" + Routes[lang].passenger}`}>{label}</a>
                     </li>
                 ))
             }

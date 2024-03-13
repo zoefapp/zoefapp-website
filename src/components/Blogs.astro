@@ -1,0 +1,50 @@
+---
+// Utils
+import { getRecentBlogs } from "~/lib/blog";
+import { getLangFromUrl, useT } from "~/i18n/utils";
+import { Image } from "astro:assets";
+const lang = getLangFromUrl(Astro.url);
+const t = useT(Astro);
+// Images
+import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
+// Components
+import Subtitle from "./ui/Subtitle.astro";
+import Button from "./ui/Button.astro";
+// Data
+const blogs = await getRecentBlogs(lang, 3);
+---
+
+<section class="container py-16">
+    <section class="flex flex-col gap-20 w-[90%] mx-auto">
+        <aside class="flex flex-col md:flex-row gap-4 justify-between">
+            <Subtitle variant="secondary" set:html={t("blogs.title")} />
+            <Button variant="orange">{t("blogs.cta")}</Button>
+        </aside>
+        <aside class="flex flex-col lg:flex-row gap-0 lg:gap-8">
+            {
+                blogs.map((blog) => (
+                    <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
+                        <div class="relative ">
+                            <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-skin-secondary rounded-[12px]">
+                                {blog.tags.join(", ")}
+                            </p>
+                            <Image src={BlogPlaceholderImage} alt="Blog Placeholder" class="rounded-xl" />
+                        </div>
+                        <div class="bg-white rounded-2xl max-lg:-translate-y-8 max-lg:px-5 max-lg:py-3 max-lg:w-4/5 max-lg:mx-auto">
+                            <p class="opacity-60 text-xs">
+                                {blog.date.toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </p>
+                            <a href={""} class="font-bold text-lg hover:underline w-max">
+                                {blog.title}
+                            </a>
+                        </div>
+                    </section>
+                ))
+            }
+        </aside>
+    </section>
+</section>

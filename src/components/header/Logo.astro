@@ -1,8 +1,19 @@
 ---
+interface Props {
+    isEager?: boolean;
+}
+const { isEager = false } = Astro.props;
 import { Image } from "astro:assets";
 import logo from "~/assets/images/logo.svg";
 ---
 
 <a href="/">
-    <Image src={logo} alt="Logo" width={105} loading={"eager"} decoding={"async"} class="min-w-[90px] md:w-full shrink-0" />
+    <Image
+        src={logo}
+        alt="Logo"
+        width={105}
+        loading={isEager ? "eager" : "lazy"}
+        decoding={"async"}
+        class="min-w-[90px] max-w-[105px] md:w-full shrink-0"
+    />
 </a>
