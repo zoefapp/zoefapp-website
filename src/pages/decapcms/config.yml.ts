@@ -1,4 +1,4 @@
-import { BASE_URL, HOSTNAME } from "./oauth/_config"
+import { BASE_URL, GIT_BRANCH, HOSTNAME } from "./oauth/_config"
 
 export const prerender = true
 
@@ -8,7 +8,7 @@ export async function GET() {
     `
 backend:
   name: github
-  branch: main
+  branch: ${GIT_BRANCH}
   repo: zoefapp/zoefapp-website
   auth_endpoint: decapcms/oauth
   site_domain: ${HOSTNAME}
