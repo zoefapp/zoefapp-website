@@ -56,7 +56,7 @@ const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-t
                 style={`color: hsla(var(--${currentPage}));`}
                 class="flex items-center px-2 text-base gap-2 bg-brand p-1 rounded-md"
             >
-                <p>{currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}</p>
+                <p>{currentPage.charAt(0).toUpperCase() + currentPage.slice(1).split("-").join(" ")}</p>
                 <Icon aria-hidden name="lucide:chevron-down" class="w-4 h-4" />
             </div>
             <ul slot="menu">
@@ -64,7 +64,7 @@ const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-t
                     navLinks.map((link) => (
                         <li
                             style={`background-color: ${currentPage === link.url && `var(--${link.class})`}`}
-                            class="px-8 py-2 w-full"
+                            class="px-6 py-2 w-full whitespace-nowrap"
                         >
                             <a href={link.url}>{link.title}</a>
                         </li>

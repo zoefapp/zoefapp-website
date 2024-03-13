@@ -13,22 +13,26 @@ const navLinks = [
     {
         title: t("nav.link.passenger"),
         url: routes("passenger"),
-        class: "bg-passenger",
+        class: "passenger",
+        state: currentPage === routes("passenger") ? "active" : "inactive",
     },
     {
         title: t("nav.link.employer"),
         url: routes("employer"),
-        class: "bg-employer",
+        class: "employer",
+        state: currentPage === routes("employer") ? "active" : "inactive",
     },
     {
         title: t("nav.link.ticket-vendor"),
         url: routes("ticket-vendor"),
-        class: "bg-ticket-vendor",
+        class: "ticket-vendor",
+        state: currentPage === routes("ticket-vendor") ? "active" : "inactive",
     },
     {
         title: t("nav.link.about"),
         url: routes("aboutUs"),
-        class: "bg-passenger",
+        class: "passenger",
+        state: currentPage === routes("aboutUs") ? "active" : "inactive",
     },
 ];
 ---
@@ -38,7 +42,11 @@ const navLinks = [
     <ul class="hidden md:flex">
         {
             navLinks.map((link) => (
-                <li class={`px-6 py-5 ${currentPage === link.url ? link.class : ""}`}>
+                <li
+                    data-current={link.state}
+                    style={`${link.state === "active" && `background-color: hsla(var(--${link.class}))`}`}
+                    class={`px-6 py-5`}
+                >
                     <a href={link.url}>{link.title}</a>
                 </li>
             ))
