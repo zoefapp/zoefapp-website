@@ -7,6 +7,7 @@ export const languages: LanguageMap = {
 };
 
 export interface UiTranslations {
+    "nav.dropdown.text": string;
     "nav.link.passenger": string;
     "nav.link.employer": string;
     "nav.link.ticket-vendor": string;
@@ -71,6 +72,7 @@ export type UiProperties = { [DEFAULT_LANG]: UiTranslations } & {
 
 export const ui: UiProperties = {
     en: {
+        "nav.dropdown.text": "I am:",
         "nav.link.passenger": "Passenger",
         "nav.link.employer": "Employer",
         "nav.link.ticket-vendor": "Ticket Vendor",
@@ -134,6 +136,7 @@ export const ui: UiProperties = {
         "footer.cookies": "Cookies Settings",
     },
     nl: {
+        "nav.dropdown.text": "Ik ben:",
         "nav.link.passenger": "Passagier",
         "nav.link.employer": "Werkgever",
         "nav.link.ticket-vendor": "Ticketverkoper",
