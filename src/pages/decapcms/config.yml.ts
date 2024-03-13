@@ -72,8 +72,8 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "text" }
       - { label: "Homepage Order", name: "homepageOrder", widget: "number" }
 
   - name: "testimonial" # Used in routes, e.g., /admin/collections/blog
