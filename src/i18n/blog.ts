@@ -39,27 +39,31 @@ export async function getBlogPaths(lang: string): Promise<Paths[]> {
             props: { tag }
         }))
 
-    let blogPages = blogEntries.filter(e => e.data.language == lang).map((entry) => ({
-        params: { slug: entry.slug },
+    let blogPages = blogEntries.filter(e => e.id.endsWith(`.${lang}.md`)).map((entry) => ({
+        params: { slug: entry.slug.substring(0, entry.slug.length - lang.length) },
         props: {
             blog: {
                 ...entry,
+
+                // find translations 
                 translations: blogEntries
-                    .filter(
-                        (e) =>
-                            e.data.translationCode == entry.data.translationCode &&
-                            e.slug != entry.slug,
+                    .filter((translation) =>
+                        translation.data.translationCode == entry.data.translationCode &&
+                        translation.slug != entry.slug,
                     )
-                    .map((e) => {
+                    .map((translation) => {
+                        let blogLang = translation.id.split(".")[1]
                         return {
-                            language: e.data.language,
-                            title: e.data.title,
-                            href: useRoutes(e.data.language)(`blog`)(e.slug),
+                            language: blogLang,
+                            title: translation.data.title,
+                            href: useRoutes(blogLang)(`blog`)(translation.slug),
                         };
                     }),
             },
         },
     }));
+
+    console.log(blogPages);
 
     return [
         ...blogPages,

@@ -49,10 +49,11 @@ collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog entries" # Used in the UI
     i18n:
-      structure: single_file
+      structure: multiple_files
     folder: "src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     format: frontmatter
+    extension: md
     slug: "{{year}}-{{month}}/{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Source", name: "source", widget: "string" }
