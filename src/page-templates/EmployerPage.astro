@@ -1,24 +1,22 @@
 ---
+import EmployerBackgroundImage from "~/assets/images/employer-bg.png";
+import Hero from "~/components/Hero.astro";
+import Stats from "~/components/Stats.astro";
+import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
+import Subtitle from "~/components/ui/Subtitle.astro";
+import Title from "~/components/ui/Title.astro";
 import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+import Layout from "~/layouts/Layout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-import Hero from "~/components/Hero.astro";
-import Title from "~/components/ui/Title.astro";
-import Layout from "~/layouts/Layout.astro";
-import EmployerBackgroundImage from "~/assets/images/employer-bg.png";
-import Subtitle from "~/components/ui/Subtitle.astro";
-import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
-import Stats from "~/components/Stats.astro";
-import { getFaqs } from "~/lib/faq";
-import { getTestimonials } from "~/lib/testimonial";
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
     review_market: "AppStore",
 };
 
-const faqs = await getFaqs("passenger", lang);
-const testimonials = await getTestimonials("passenger", lang);
+// const faqs = await getFaqs("passenger", lang);
+// const testimonials = await getTestimonials("passenger", lang);
 
 ---
 
