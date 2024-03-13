@@ -2,6 +2,7 @@ backend:
   name: github
   branch: main
   repo: zoefapp/zoefapp-website
+  auth_endpoint: decapcms/oauth
 
 publish_mode: editorial_workflow
 local_backend: false
