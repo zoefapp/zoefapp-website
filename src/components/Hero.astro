@@ -31,7 +31,16 @@ import { Image } from "astro:assets";
 </div>
 
 <script>
-    document.addEventListener("scroll", () => {
+    document.addEventListener("DOMContentLoaded", () => {
+        const layoutFixer = document.getElementById("layoutFixer");
+        const floatingElement = document.getElementById("floating");
+        const heightOfFloatingElement = floatingElement?.offsetHeight;
+        if (!heightOfFloatingElement || !layoutFixer) {
+            return;
+        }
+        layoutFixer.style.paddingTop = `${heightOfFloatingElement}px`;
+    });
+    window.addEventListener("resize", () => {
         const layoutFixer = document.getElementById("layoutFixer");
         const floatingElement = document.getElementById("floating");
         const heightOfFloatingElement = floatingElement?.offsetHeight;
