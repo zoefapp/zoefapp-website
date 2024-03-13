@@ -97,4 +97,30 @@ const { data, title } = Astro.props;
             document.querySelectorAll(".carousel-item").length;
         showSlide(currentIndex);
     }
+    // Swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.getElementById("carousel").addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    document.getElementById("carousel").addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Adjust this value based on your preference
+
+        const deltaX = touchEndX - touchStartX;
+
+        if (deltaX > swipeThreshold) {
+            // Swipe left
+            prevSlide();
+        } else if (deltaX < -swipeThreshold) {
+            // Swipe right
+            nextSlide();
+        }
+    }
 </script>
