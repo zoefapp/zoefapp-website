@@ -15,6 +15,9 @@
         --ticketverkoper: 13, 58%, 94%;
         --blog: 97, 56%, 84%;
         --compensation-height: 215px;
+        --bg-passenger: 97, 56%, 84%;
+        --bg-employer: 188, 56%, 92%;
+        --bg-ticket-vendor: 13, 58%, 94%;
     }
 
     .theme-passenger {
