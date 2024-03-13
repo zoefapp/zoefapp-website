@@ -1,8 +1,16 @@
+
+export const prerender = true
+
+export async function GET() {
+  let baseUrl = process.env.VERCEL_URL ?? 'http://localhost:4321'
+  return new Response(
+    `
 backend:
   name: github
   branch: main
   repo: zoefapp/zoefapp-website
   auth_endpoint: decapcms/oauth
+  base_url: ${baseUrl}
 
 publish_mode: editorial_workflow
 local_backend: false
@@ -12,9 +20,9 @@ public_folder: /uploads
 
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file
-  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
-  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
-  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  # multiple_folders - persists files in '<folder>/<locale>/<slug>.<extension>'
+  # multiple_files - persists files in '<folder>/<slug>.<locale>.<extension>'
+  # single_file - persists a single file in '<folder>/<slug>.<extension>'
   structure: multiple_folders
 
   # Required - a list of locales to show in the editor UI
@@ -76,3 +84,6 @@ collections:
       - { label: "Tags", name: "tags", widget: "tags" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
+`
+  )
+}
