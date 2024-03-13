@@ -79,14 +79,20 @@ collections:
   - name: "testimonial" # Used in routes, e.g., /admin/collections/blog
     label: "Testimonials" # Used in the UI
     folder: "src/content/testimonial" # The path to the folder where the documents are stored
-    i18n: true
+    i18n: 
+      structure: single_file
+    extension: yaml
+    format: yaml
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Featured Image", name: "img", widget: "image" }
-      - { label: "Tags", name: "tags", widget: "tags" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+      - { label: "Avatar", name: "avatar", widget: "image", i18n: "duplicate" }
+      - { label: "Person", name: "person", widget: "string", i18n: "duplicate" }
+      - { label: "Company", name: "company", widget: "string", i18n: "duplicate" }
+      - { label: "Stars", name: "stars", widget: "number", i18n: "duplicate" }
+      - { label: "Date", name: "date", widget: "datetime", i18n: "duplicate" }
+      - { label: "Homepage Order", name: "homepageOrder", widget: "number", i18n: "duplicate" }
+      - { label: "Testimonial", name: "testimonial", widget: "markdown", i18n: true }
 `
   )
 }
