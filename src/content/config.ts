@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { BlogSchema } from '~/lib/blog';
 import { FaqSchema } from '~/lib/faq';
 import { TestimonialSchema } from '~/lib/testimonial';

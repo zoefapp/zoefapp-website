@@ -43,7 +43,6 @@ const { data } = Astro.props;
         const accordions = document.querySelectorAll(".accordion-container");
         accordions.forEach((accordion) => {
             const button = accordion.querySelector("button");
-            const content = accordion.querySelector("p");
             button.addEventListener("click", () => {
                 // first set everything to inactive
                 accordions.forEach((accordion) => {

@@ -1,14 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
-import Dropdown from "../ui/Dropdown.astro";
+import { routes as Routes } from "~/i18n/routes";
+import { languages } from "~/i18n/ui";
 import { getLangFromUrl, useRoutes, useTranslations } from "~/i18n/utils";
+import Dropdown from "../ui/Dropdown.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
 const currentPage = Astro.url.pathname;
-import { routes as Routes } from "~/i18n/routes";
-import { languages } from "~/i18n/ui";
-import LanguagePicker from "../LanguagePicker.astro";
 
 const navLinks = [
     {
