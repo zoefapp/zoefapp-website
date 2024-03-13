@@ -7,7 +7,7 @@ import Dropdown from "../ui/Dropdown.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
-const currentPage = Astro.url.pathname;
+const currentPage = Astro.url.pathname.replace(/\/$/, "");
 
 const navLinks = [
     {
