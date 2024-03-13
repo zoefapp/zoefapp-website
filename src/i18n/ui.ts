@@ -47,6 +47,21 @@ export interface UiTranslations {
     "blogs.cta": string;
     "store.title": string;
     "store.description": string;
+    "footer.newsletter.title": string;
+    "footer.newsletter.consent": string;
+    "footer.link.product.title": string;
+    "footer.link.product.first": string;
+    "footer.link.product.second": string;
+    "footer.link.product.third": string;
+    "footer.link.about.title": string;
+    "footer.link.about.first": string;
+    "footer.link.about.second": string;
+    "footer.link.about.third": string;
+    "footer.socials.title": string;
+    "footer.copyright": string;
+    "footer.privacy": string;
+    "footer.terms": string;
+    "footer.cookies": string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -101,6 +116,22 @@ export const ui: UiProperties = {
         "store.title": "Cold-pressed biodiesel",
         "store.description":
             "Raclette shabby belly cornhole subway. Heirloom hella next gastropub enamel chillwave bicycle. Cronut butcher sartorial it normcore seitan cray.",
+        "footer.newsletter.title": "Join our newsletter to stay up to date on features and releases",
+        "footer.newsletter.consent":
+            "By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.",
+        "footer.link.product.title": "The product for:",
+        "footer.link.product.first": "Passengers",
+        "footer.link.product.second": "Companies",
+        "footer.link.product.third": "Ticket Vendors",
+        "footer.link.about.title": "About us:",
+        "footer.link.about.first": "About Us",
+        "footer.link.about.second": "Blog",
+        "footer.link.about.third": "Contact",
+        "footer.socials.title": "Follow us",
+        "footer.copyright": "© 2022 Zoef. All rights reserved",
+        "footer.privacy": "Privacy Policy",
+        "footer.terms": "Terms of Service",
+        "footer.cookies": "Cookies Settings",
     },
     nl: {
         "nav.link.passenger": "Passagier",
@@ -148,5 +179,22 @@ export const ui: UiProperties = {
         "store.title": "Koude kruiden",
         "store.description":
             "Raclette shabby belly cornhole subway. Heirloom hella next gastropub enamel chillwave bicycle. Cronut butcher sartorial it normcore seitan cray.",
+        "footer.newsletter.title":
+            "Schrijf je in voor onze nieuwsbrief om op de hoogte te blijven van features en releases.",
+        "footer.newsletter.consent":
+            "Door u te abonneren gaat u akkoord met ons Privacybeleid en geeft u toestemming om updates van ons bedrijf te ontvangen.",
+        "footer.link.product.title": "Het product voor:",
+        "footer.link.product.first": "Passagiers",
+        "footer.link.product.second": "Bedrijven",
+        "footer.link.product.third": "Ticket Verkopers",
+        "footer.link.about.title": "Over Us",
+        "footer.link.about.first": "Over Us",
+        "footer.link.about.second": "Blog",
+        "footer.link.about.third": "Contact",
+        "footer.socials.title": "Volg Ons",
+        "footer.copyright": "Copyright © 2019 Zoef. Alle rechten voorbehouden.",
+        "footer.privacy": "Privacybeleid",
+        "footer.terms": "Algemene voorwaarden",
+        "footer.cookies": "Cookies",
     },
 } as const;
