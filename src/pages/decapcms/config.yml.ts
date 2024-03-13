@@ -67,13 +67,14 @@ collections:
     folder: "src/content/faq" # The path to the folder where the documents are stored
     i18n:
       structure: multiple_folders
+    extension: yaml
+    format: yaml
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Featured Image", name: "img", widget: "image" }
-      - { label: "Tags", name: "tags", widget: "tags" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Homepage Order", name: "homepageOrder", widget: "number" }
 
   - name: "testimonial" # Used in routes, e.g., /admin/collections/blog
     label: "Testimonials" # Used in the UI

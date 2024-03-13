@@ -5,7 +5,6 @@ interface Props {
 const { data } = Astro.props;
 import type { FAQ } from "~/lib/faq";
 // Utils
-import { getFaqs } from "~/lib/faq";
 import { getLangFromUrl, useT } from "~/i18n/utils";
 import { Image } from "astro:assets";
 const lang = getLangFromUrl(Astro.url);
