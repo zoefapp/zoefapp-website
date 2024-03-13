@@ -40,7 +40,14 @@ import Subtitle from "./ui/Subtitle.astro";
                             data-state={image.initialState}
                             class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
                         >
-                            <Image src={image.image} alt="How Zoef Works" class="mx-auto" />
+                            <Image
+                                src={image.image}
+                                alt="How Zoef Works"
+                                format="avif"
+                                loading="lazy"
+                                decoding="async"
+                                class="mx-auto"
+                            />
                         </div>
                     ))
                 }

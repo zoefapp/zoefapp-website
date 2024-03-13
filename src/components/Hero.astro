@@ -17,11 +17,11 @@ import { Image } from "astro:assets";
             class="w-full h-full object-bottom object-cover"
             format="avif"
             loading="eager"
-            width={800}
-            height={700}
             decoding="async"
+            width={800}
             src={heroImage}
             alt="Passenger Background"
+            quality={80}
         />
     </aside>
     <slot name="floating" />

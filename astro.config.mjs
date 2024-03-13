@@ -12,8 +12,6 @@ export default defineConfig({
     adapter: vercel({
         edgeMiddleware: true,
     }),
-    image: {
-        service: passthroughImageService(),
-    },
+
     integrations: [tailwind({ applyBaseStyles: false }), icon()],
 });

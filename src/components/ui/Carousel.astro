@@ -52,7 +52,15 @@ const { data, title } = Astro.props;
                                 <h2 class="font-bold">{item.person}</h2>
                                 <div class="flex gap-1.5 items-center">
                                     {Array.from({ length: item.stars }, (_, i) => (
-                                        <Image src={StarIcon} alt="Star Icon" class="w-4 h-4" />
+                                        <Image
+                                            width={16}
+                                            height={16}
+                                            format="avif"
+                                            loading="lazy"
+                                            decoding="async"
+                                            src={StarIcon}
+                                            alt="Star Icon"
+                                        />
                                     ))}
                                 </div>
                             </div>
@@ -101,9 +109,13 @@ const { data, title } = Astro.props;
     let touchStartX = 0;
     let touchEndX = 0;
 
-    document.getElementById("carousel").addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-    }, { passive: true });
+    document.getElementById("carousel").addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartX = e.touches[0].clientX;
+        },
+        { passive: true }
+    );
 
     document.getElementById("carousel").addEventListener("touchend", (e) => {
         touchEndX = e.changedTouches[0].clientX;

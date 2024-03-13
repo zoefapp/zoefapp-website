@@ -28,7 +28,14 @@ import Subtitle from "./ui/Subtitle.astro";
             <aside
                 class="flex flex-col items-center text-center w-full lg:w-1/2 bg-gray-50 rounded-2xl px-6 py-10 gap-4"
             >
-                <Image src={FaqsGreenImage} alt="FAQs Background" class="max-w-[300px]" />
+                <Image
+                src={FaqsGreenImage}
+                alt="FAQs Background"
+                    width={300}
+                    loading={"lazy"}
+                    decoding={"async"}
+                    format={"avif"}
+                    />
                 <h2 class="font-bold">{t("faqs.side.title")}</h2>
                 <p class="text-balance">{t("faqs.side.description")}</p>
                 <Button variant="orange">{t("faqs.side.cta")}</Button>
