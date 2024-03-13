@@ -4,6 +4,6 @@ export const clientSecret = "fd67c7b0eaab908df26d6c2c300a765be4a04055"
 export const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=repo,user`;
 export const tokenUrl = "https://github.com/login/oauth/access_token";
 
-export const BASE_URL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:4321";
-export const HOSTNAME = process.env.VERCEL_URL ? process.env.VERCEL_URL : "localhost:4321";
+export const BRANCH_URL = process.env.VERCEL_BRANCH_URL ? `https://${process.env.VERCEL_BRANCH_URL}` : "http://localhost:4321";
+export const BRANCH_HOSTNAME = process.env.VERCEL_BRANCH_URL ? process.env.VERCEL_BRANCH_URL : "localhost:4321";
 export const GIT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF ?? "main";

@@ -1,4 +1,4 @@
-import { BASE_URL, GIT_BRANCH, HOSTNAME } from "./oauth/_config"
+import { BRANCH_URL, GIT_BRANCH, BRANCH_HOSTNAME } from "./oauth/_config"
 
 export const prerender = true
 
@@ -11,8 +11,8 @@ backend:
   branch: ${GIT_BRANCH}
   repo: zoefapp/zoefapp-website
   auth_endpoint: decapcms/oauth
-  site_domain: ${HOSTNAME}
-  base_url: ${BASE_URL}
+  site_domain: ${BRANCH_HOSTNAME}
+  base_url: ${BRANCH_URL}
 
 publish_mode: editorial_workflow
 local_backend: false
