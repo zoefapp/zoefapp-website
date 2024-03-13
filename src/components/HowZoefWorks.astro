@@ -45,7 +45,7 @@ import Subtitle from "./ui/Subtitle.astro";
                     ))
                 }
             </aside>
-            <aside class="flex lg:flex-col w-full lg:w-1/2 overflow-x-scroll lg:overflow-x-auto py-4">
+            <aside class="swipe-container flex lg:flex-col w-full lg:w-1/2 overflow-x-hidden lg:overflow-x-auto py-4">
                 <Subtitle variant="secondary" className="font-bold max-lg:hidden py-4">
                     {t("howzoefworks.title")}
                 </Subtitle>
@@ -54,7 +54,7 @@ import Subtitle from "./ui/Subtitle.astro";
                         <button
                             id={button.id}
                             data-state={button.initialState}
-                            class="btns flex flex-col gap-3 py-8 lg:py-4 px-4 border-b lg:border-l lg:border-b-0 border-amber-300 data-[state=inactive]:border-blue-200 transition-colors min-w-[75vw] lg:min-w-0 w-full text-start data-[state=inactive]:opacity-50"
+                            class="btns flex flex-col gap-3 py-8 lg:py-4 px-4 border-b lg:border-l lg:border-b-0 border-amber-300 data-[state=inactive]:border-blue-200 transition-colors min-w-[calc(90vw)] lg:min-w-0 w-full text-start data-[state=inactive]:opacity-50"
                         >
                             <h4 class="font-bold text-lg">{button.title}</h4>
                             <p class="text-balance">{button.description}</p>
@@ -87,4 +87,63 @@ import Subtitle from "./ui/Subtitle.astro";
             });
         });
     });
+
+    // Swipe
+    let touchStartXX = 0;
+    let touchEndXX = 0;
+
+    document.querySelector(".swipe-container").addEventListener("touchstart", (e) => {
+        touchStartXX = e.touches[0].clientX;
+    });
+
+    document.querySelector(".swipe-container").addEventListener("touchend", (e) => {
+        touchEndXX = e.changedTouches[0].clientX;
+        if (window.innerWidth < 1024) {
+            swipeHandler();
+        }
+    });
+
+    const swipeHandler = () => {
+        const container = document.querySelector(".swipe-container");
+        const threshold = 50;
+        const delta = touchStartXX - touchEndXX;
+        // Next
+        if (delta > threshold) {
+            let currentBtn = document.querySelector(".btns[data-state=active]");
+            let currentDiv = document.querySelector(".divs[data-state=active]");
+            if (currentBtn.nextElementSibling && currentBtn.nextElementSibling.hasAttribute("data-state")) {
+                container.scrollBy({
+                    left: window.innerWidth * 0.9,
+                    behavior: "smooth",
+                });
+                // Button
+                currentBtn.setAttribute("data-state", "inactive");
+                currentBtn.nextElementSibling.setAttribute("data-state", "active");
+                currentBtn = currentBtn.nextElementSibling;
+                // Images
+                currentDiv.setAttribute("data-state", "inactive");
+                currentDiv.nextElementSibling.setAttribute("data-state", "active");
+                currentDiv = currentDiv.nextElementSibling;
+            }
+        }
+        // Previous
+        if (delta < -threshold) {
+            let currentBtn = document.querySelector(".btns[data-state=active]");
+            let currentDiv = document.querySelector(".divs[data-state=active]");
+            if (currentBtn.previousElementSibling.hasAttribute("data-state")) {
+                container.scrollBy({
+                    left: -window.innerWidth * 0.9,
+                    behavior: "smooth",
+                });
+                // Buttons
+                currentBtn.setAttribute("data-state", "inactive");
+                currentBtn.previousElementSibling.setAttribute("data-state", "active");
+                currentBtn = currentBtn.previousElementSibling;
+                // Images
+                currentDiv.setAttribute("data-state", "inactive");
+                currentDiv.previousElementSibling.setAttribute("data-state", "active");
+                currentDiv = currentDiv.previousElementSibling;
+            }
+        }
+    };
 </script>
