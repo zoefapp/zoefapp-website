@@ -1,23 +1,100 @@
 ---
-import EmployerBackgroundImage from "~/assets/images/employer-bg.png";
-import Brands from "~/components/Brands.astro";
-import Hero from "~/components/Hero.astro";
-import Stats from "~/components/Stats.astro";
-import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
-import Subtitle from "~/components/ui/Subtitle.astro";
-import Title from "~/components/ui/Title.astro";
+// Utils
 import { getLangFromUrl, useTranslations } from "~/i18n/utils";
-import Layout from "~/layouts/Layout.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+import { getFaqs } from "~/lib/faq";
+import { getTestimonials } from "~/lib/testimonial";
+import { getRecentBlogs } from "~/lib/blog";
+// Layout
+import Layout from "~/layouts/Layout.astro";
+// Images
+import EmployerBackgroundImage from "~/assets/images/employer-bg.png";
+import BannerBackgroundImage from "~/assets/images/passenger-banner.png";
+import FaqsBlueImage from "~/assets/images/faqs-blue.png";
+// Icons
+import EuroIcon from "~/assets/images/euro-icon-green.png";
+import StarIcon from "~/assets/images/star.png";
+import ClockCheckIcon from "~/assets/images/clock-check.png";
+import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
+// Components
+import Title from "~/components/ui/Title.astro";
+import Subtitle from "~/components/ui/Subtitle.astro";
+import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
+import Hero from "~/components/Hero.astro";
+import Accomplisments from "~/components/Accomplisments.astro";
+import HowZoefWorks from "~/components/HowZoefWorks.astro";
+import Testimonials from "~/components/Testimonials.astro";
+import Faqs from "~/components/Faqs.astro";
+import Blogs from "~/components/Blogs.astro";
+import StoreBanner from "~/components/StoreBanner.astro";
+import Brands from "~/components/Brands.astro";
+import Stats from "~/components/Stats.astro";
+
 const TrustPilotData = {
     review_count: 336,
     star_count: 5,
     review_market: "AppStore",
 };
-
-// const faqs = await getFaqs("passenger", lang);
-// const testimonials = await getTestimonials("passenger", lang);
+const AccomplishmentsData = [
+    {
+        count: 2545,
+        description: t("accompaniment.first"),
+        icon: EuroIcon,
+    },
+    {
+        count: 4566,
+        description: t("accompaniment.second"),
+        icon: StarIcon,
+    },
+    {
+        count: 3455,
+        description: t("accompaniment.third"),
+        icon: ClockCheckIcon,
+    },
+];
+const HowZoefWorksData = {
+    buttons: [
+        {
+            id: "FIRST",
+            initialState: "active",
+            title: t("howzoefworks.first.title"),
+            description: t("howzoefworks.first.description"),
+        },
+        {
+            id: "SECOND",
+            initialState: "inactive",
+            title: t("howzoefworks.second.title"),
+            description: t("howzoefworks.second.description"),
+        },
+        {
+            id: "THIRD",
+            initialState: "inactive",
+            title: t("howzoefworks.third.title"),
+            description: t("howzoefworks.third.description"),
+        },
+    ],
+    images: [
+        {
+            id: "first",
+            initialState: "active",
+            image: HowZoefWorksImage,
+        },
+        {
+            id: "second",
+            initialState: "inactive",
+            image: HowZoefWorksImage,
+        },
+        {
+            id: "third",
+            initialState: "inactive",
+            image: HowZoefWorksImage,
+        },
+    ],
+};
+const faqs = await getFaqs("passenger", lang);
+const testimonials = await getTestimonials("passenger", lang);
+const blogs = await getRecentBlogs(lang, 3);
 ---
 
 <Layout title="Welcome to Astro.">
@@ -25,13 +102,19 @@ const TrustPilotData = {
         <Hero heroImage={EmployerBackgroundImage}>
             <Fragment slot="left">
                 <Title>
-                    {t("employer.title")}
+                    {t("passenger.title")}
                 </Title>
-                <Subtitle variant="default">{t("employer.description")}</Subtitle>
+                <Subtitle variant="default">{t("passenger.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <Stats slot="floating" />
         </Hero>
         <Brands />
+        <HowZoefWorks data={HowZoefWorksData} />
+        <Accomplisments data={AccomplishmentsData} />
+        <Testimonials data={testimonials} />
+        <Faqs image={FaqsBlueImage} data={faqs} />
+        <Blogs data={blogs} />
+        <StoreBanner image={BannerBackgroundImage} />
     </main>
 </Layout>

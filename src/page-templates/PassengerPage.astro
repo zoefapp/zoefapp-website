@@ -7,6 +7,8 @@ const t = useTranslations(lang);
 import Layout from "~/layouts/Layout.astro";
 // Images
 import PassengerBackgroundImage from "~/assets/images/passenger-bg.png";
+import BannerBackgroundImage from "~/assets/images/passenger-banner.png";
+import FaqsGreenImage from "~/assets/images/faqs-green.png";
 // Icons
 import EuroIcon from "~/assets/images/euro-icon-green.png";
 import StarIcon from "~/assets/images/star.png";
@@ -109,8 +111,8 @@ const blogs = await getRecentBlogs(lang, 3);
         <Accomplisments data={AccomplishmentsData} />
         <HowZoefWorks data={HowZoefWorksData} />
         <Testimonials data={testimonials} />
-        <Faqs data={faqs} />
+        <Faqs image={FaqsGreenImage} data={faqs} />
         <Blogs data={blogs} />
-        <StoreBanner />
+        <StoreBanner image={BannerBackgroundImage} />
     </main>
 </Layout>

@@ -1,16 +1,15 @@
 ---
 interface Props {
     data: FAQ[];
+    image: ImageMetadata;
 }
-const { data } = Astro.props;
+const { data, image } = Astro.props;
 import type { FAQ } from "~/lib/faq";
 // Utils
 import { getLangFromUrl, useT } from "~/i18n/utils";
 import { Image } from "astro:assets";
 const lang = getLangFromUrl(Astro.url);
 const t = useT(Astro);
-// Images
-import FaqsGreenImage from "~/assets/images/faqs-green.png";
 // Components
 import Accordion from "./ui/Accordion.astro";
 import Button from "./ui/Button.astro";
@@ -29,13 +28,14 @@ import Subtitle from "./ui/Subtitle.astro";
                 class="flex flex-col items-center text-center w-full lg:w-1/2 bg-gray-50 rounded-2xl px-6 py-10 gap-4"
             >
                 <Image
-                src={FaqsGreenImage}
-                alt="FAQs Background"
+                    src={image}
+                    alt="FAQs Background"
                     width={300}
                     loading={"lazy"}
                     decoding={"async"}
                     format={"avif"}
-                    />
+                    quality={80}
+                />
                 <h2 class="font-bold">{t("faqs.side.title")}</h2>
                 <p class="text-balance">{t("faqs.side.description")}</p>
                 <Button variant="orange">{t("faqs.side.cta")}</Button>
