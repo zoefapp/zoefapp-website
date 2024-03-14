@@ -93,7 +93,7 @@ collections:
       - { label: "Company", name: "company", widget: "string", i18n: "duplicate" }
       - { label: "Stars", name: "stars", widget: "number", i18n: "duplicate" }
       - { label: "Date", name: "date", widget: "datetime", i18n: "duplicate" }
-      - { label: "Relevant For", name: "relevantFor", widget: "select", i18n: "duplicate", multiple: false, options: ${JSON.stringify(TestimonialRelevance.options)}
+      - { label: "Relevant For", name: "relevantFor", widget: "select", i18n: "duplicate", multiple: false, options: ${JSON.stringify(TestimonialRelevance.options)} }
       - { label: "Homepage Order", name: "homepageOrder", widget: "number", i18n: "duplicate" }
       - { label: "Testimonial", name: "testimonial", widget: "markdown", i18n: true }
 `
