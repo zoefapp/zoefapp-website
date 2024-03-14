@@ -57,16 +57,21 @@ collections:
     extension: md
     slug: "{{year}}-{{month}}/{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Source", name: "source", widget: "string" }
-      - { label: "URL", name: "url", widget: "string" }
-      - { label: "Featured Image", name: "img", widget: "image" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Published date", name: "date", widget: "datetime" }
+      - { label: "Header Image", name: "headerImage", widget: "image" }
+      - { label: "Meta Description", name: "metaDescription", widget: "string" }
+      - { label: "Meta Canonical Link", name: "metaCanonical", widget: "string" }
+      - { label: "Meta OG:Title", name: "metaOgTitle", widget: "string" }
+      - { label: "Meta OG:Description", name: "metaOgDescription", widget: "string" }
+      - { label: "Meta OG:Image", name: "metaOgImage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "faq" # Used in routes, e.g., /admin/collections/blog
     label: "FAQ" # Used in the UI
     folder: "src/content/faq" # The path to the folder where the documents are stored
+    summary: "{{question}}"
     i18n:
       structure: multiple_folders
     extension: yaml
@@ -84,6 +89,7 @@ collections:
     i18n: 
       structure: multiple_folders
     extension: yaml
+    summary: "{{date}} - {{company}} - {{person}}"
     format: yaml
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md

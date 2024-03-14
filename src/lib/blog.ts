@@ -8,6 +8,12 @@ export const BlogSchema = z.object({
     translationCode: z.string().optional(),
     date: z.date(),
     tags: z.array(z.string()),
+    headerImage: z.string().optional(),
+    metaDescription: z.string().optional(),
+    metaCanonical: z.string().optional(),
+    metaOgTitle: z.string().optional(),
+    metaOgDescription: z.string().optional(),
+    metaOgImage: z.string().optional(),
 })
 export type Blog = z.infer<typeof BlogSchema>;
 
