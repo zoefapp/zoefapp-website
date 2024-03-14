@@ -5,7 +5,6 @@ interface Props {
 import type { Testimonial } from "~/lib/testimonial";
 const { data } = Astro.props;
 // Utils
-import { getTestimonials } from "~/lib/testimonial";
 import { getLangFromUrl, useT } from "~/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useT(Astro);

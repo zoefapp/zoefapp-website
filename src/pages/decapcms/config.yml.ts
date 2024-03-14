@@ -1,3 +1,4 @@
+import { TestimonialRelevance } from "~/lib/testimonial"
 import { BRANCH_URL, GIT_BRANCH, BRANCH_HOSTNAME } from "./oauth/_config"
 
 export const prerender = true
@@ -81,7 +82,7 @@ collections:
     label: "Testimonials" # Used in the UI
     folder: "src/content/testimonial" # The path to the folder where the documents are stored
     i18n: 
-      structure: single_file
+      structure: multiple_folders
     extension: yaml
     format: yaml
     create: true # Allow users to create new documents in this collection
@@ -92,6 +93,7 @@ collections:
       - { label: "Company", name: "company", widget: "string", i18n: "duplicate" }
       - { label: "Stars", name: "stars", widget: "number", i18n: "duplicate" }
       - { label: "Date", name: "date", widget: "datetime", i18n: "duplicate" }
+      - { label: "Relevant For", name: "relevantFor", widget: "select", i18n: "duplicate", multiple: false, options: ${JSON.stringify(TestimonialRelevance.options)}
       - { label: "Homepage Order", name: "homepageOrder", widget: "number", i18n: "duplicate" }
       - { label: "Testimonial", name: "testimonial", widget: "markdown", i18n: true }
 `
