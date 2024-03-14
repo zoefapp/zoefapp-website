@@ -5,6 +5,11 @@
             "source": "/:lang/(.*)",
             "destination": "/:lang/404/",
             "statusCode": 404
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/en/404/",
+            "statusCode": 404
         }
     ]
 }
