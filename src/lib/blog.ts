@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import type { SupportedLanguages } from "~/i18n/constants";
 
 export const BlogSchema = z.object({
+    id: z.string(),
     title: z.string(),
     author: z.string(),
-    translationCode: z.string().optional(),
     date: z.date(),
     tags: z.array(z.string()),
     headerImage: z.string().optional(),

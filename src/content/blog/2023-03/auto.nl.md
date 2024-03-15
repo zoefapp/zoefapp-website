@@ -1,4 +1,5 @@
 ---
+id: auto
 title: Hello Auto
 author: Sander
 date: 2024-02-02T10:00:00Z
