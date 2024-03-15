@@ -59,17 +59,17 @@ collections:
     identifier_field: id
     fields: # The fields for each document, usually in front matter
       - { label: "Blog Identifier", name: "id", widget: "string", i18n: "duplicate" }
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Author", name: "author", widget: "string", i18n: "duplicate" }
       - { label: "Published date", name: "date", widget: "datetime", i18n: "duplicate" }
-      - { label: "Header Image", name: "headerImage", widget: "image", required: false }
-      - { label: "Meta Description", name: "metaDescription", widget: "string" }
-      - { label: "Meta Canonical Link", name: "metaCanonical", widget: "string", required: false }
-      - { label: "Meta OG:Title", name: "metaOgTitle", widget: "string" }
-      - { label: "Meta OG:Description", name: "metaOgDescription", widget: "string" }
-      - { label: "Meta OG:Image", name: "metaOgImage", widget: "image" }
-      - { label: "Tags", name: "tags", widget: "list", i18n: true, allow_add: true }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Header Image", name: "headerImage", widget: "image", required: false, i18n: true }
+      - { label: "Meta Description", name: "metaDescription", widget: "string", i18n: true }
+      - { label: "Meta Canonical Link", name: "metaCanonical", widget: "string", required: false, i18n: true }
+      - { label: "Meta OG:Title", name: "metaOgTitle", widget: "string", i18n: true }
+      - { label: "Meta OG:Description", name: "metaOgDescription", widget: "string", i18n: true }
+      - { label: "Meta OG:Image", name: "metaOgImage", widget: "image", i18n: true }
+      - { label: "Tags", name: "tags", widget: "list", i18n: false, allow_add: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "faq" # Used in routes, e.g., /admin/collections/blog
     label: "FAQ" # Used in the UI
