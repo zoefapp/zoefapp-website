@@ -2,6 +2,7 @@
 import { getCollection, z } from "astro:content";
 import { useRoutes } from "./utils";
 import type { Blog } from "~/lib/blog";
+import createSlug from "~/lib/createSlug";
 
 interface BlogContentEntry {
     id: string;
@@ -39,31 +40,32 @@ export async function getBlogPaths(lang: string): Promise<Paths[]> {
             props: { tag }
         }))
 
-    let blogPages = blogEntries.filter(e => e.id.endsWith(`.${lang}.md`)).map((entry) => ({
-        params: { slug: entry.slug.substring(0, entry.slug.length - lang.length) },
-        props: {
-            blog: {
-                ...entry,
-
-                // find translations 
-                translations: blogEntries
-                    .filter((translation) =>
-                        translation.data.translationCode == entry.data.translationCode &&
-                        translation.slug != entry.slug,
-                    )
-                    .map((translation) => {
-                        let blogLang = translation.id.split(".")[1]
-                        return {
-                            language: blogLang,
-                            title: translation.data.title,
-                            href: useRoutes(blogLang)(`blog`)(translation.slug),
-                        };
-                    }),
+    let blogPages = blogEntries.filter(e => e.id.endsWith(`.${lang}.md`)).map((entry) => {
+        let contentSlug = entry.slug.substring(0, entry.slug.length - lang.length)
+        let pathSlug = contentSlug.split('/')[0] + '/' + createSlug(entry.data.title)
+        return {
+            params: { slug: pathSlug },
+            props: {
+                blog: {
+                    ...entry,
+                    // TODO this can be done much more efficient
+                    translations: blogEntries
+                        .filter((otherEntry) => {
+                            let translationSlug = otherEntry.slug.substring(0, otherEntry.slug.length - lang.length)
+                            return otherEntry.data.id == entry.data.id && entry.id != otherEntry.id && translationSlug == contentSlug
+                        })
+                        .map((translation) => {
+                            let blogLang = translation.id.split(".")[1]
+                            return {
+                                language: blogLang,
+                                title: translation.data.title,
+                                href: useRoutes(blogLang)(`blog`)(translation.slug),
+                            };
+                        }),
+                },
             },
-        },
-    }));
-
-    console.log(blogPages);
+        }
+    });
 
     return [
         ...blogPages,
