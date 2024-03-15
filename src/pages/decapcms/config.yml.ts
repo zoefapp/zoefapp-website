@@ -92,7 +92,7 @@ collections:
     i18n: 
       structure: multiple_folders
     extension: yaml
-    summary: "{{date}}\n{{company}} - {{person}}"
+    summary: "{{date}}\\n{{company}} - {{person}}"
     format: yaml
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
