@@ -68,7 +68,7 @@ collections:
       - { label: "Meta OG:Title", name: "metaOgTitle", widget: "string" }
       - { label: "Meta OG:Description", name: "metaOgDescription", widget: "string" }
       - { label: "Meta OG:Image", name: "metaOgImage", widget: "image" }
-      - { label: "Tags", name: "tags", widget: "list", i18n: "duplicate", allow_add: true }
+      - { label: "Tags", name: "tags", widget: "list", i18n: true, allow_add: true }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "faq" # Used in routes, e.g., /admin/collections/blog
