@@ -18,8 +18,8 @@ interface Images {
 }
 const { data } = Astro.props;
 // Utils
-import { useT } from "~/i18n/utils";
-const t = useT(Astro);
+import { translations } from "~/i18n/utils";
+const t = translations(Astro);
 import { Image } from "astro:assets";
 
 // Components

@@ -10,8 +10,8 @@ type Accomplishment = {
 const { data } = Astro.props;
 // Utils
 import { Image } from "astro:assets";
-import { useT } from "~/i18n/utils";
-const t = useT(Astro);
+import { translations } from "~/i18n/utils";
+const t = translations(Astro);
 // Components
 import Subtitle from "./ui/Subtitle.astro";
 ---

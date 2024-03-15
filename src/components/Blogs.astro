@@ -1,20 +1,21 @@
 ---
+import { type BlogContentEntry, getBlogUrl } from "~/lib/blog";
+import { translations } from "~/i18n/utils";
+import { Image } from "astro:assets";
+
 interface Props {
-    data: Blog[];
+    data: BlogContentEntry[];
 }
 const { data } = Astro.props;
-import type { Blog } from "~/lib/blog";
-// Utils
-import { getRecentBlogs } from "~/lib/blog";
-import { getLangFromUrl, useT } from "~/i18n/utils";
-import { Image } from "astro:assets";
-const lang = getLangFromUrl(Astro.url);
-const t = useT(Astro);
+const lang = getLangFromUrl(Astro.url)
+const t = translations(Astro);
+
 // Images
 import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 // Components
 import Subtitle from "./ui/Subtitle.astro";
 import Button from "./ui/Button.astro";
+import { getLangFromUrl } from "~/i18n/utils";
 // Data
 ---
 
@@ -30,7 +31,7 @@ import Button from "./ui/Button.astro";
                     <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
                         <div class="relative ">
                             <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-skin-secondary rounded-[12px]">
-                                {blog.tags.join(", ")}
+                                {blog.data.tags.join(", ")}
                             </p>
                             <Image
                                 loading={"lazy"}
@@ -45,14 +46,14 @@ import Button from "./ui/Button.astro";
                         </div>
                         <div class="bg-white rounded-2xl max-lg:-translate-y-8 max-lg:px-5 max-lg:py-3 max-lg:w-4/5 max-lg:mx-auto">
                             <p class="opacity-60 text-xs">
-                                {blog.date.toLocaleDateString("en-US", {
+                                {blog.data.date.toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "long",
                                     day: "numeric",
                                 })}
                             </p>
-                            <a href={""} class="font-bold text-lg hover:underline w-max">
-                                {blog.title}
+                            <a href={getBlogUrl(lang, blog)} class="font-bold text-lg hover:underline w-max">
+                                {blog.data.title}
                             </a>
                         </div>
                     </section>

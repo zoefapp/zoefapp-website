@@ -1,10 +1,10 @@
 ---
-import type { BlogEntry } from "~/i18n/blog";
+import type { BlogContentEntry } from "~/lib/blog";
 import { useRoutesAstro } from "~/i18n/utils";
 import Layout from "~/layouts/Layout.astro";
 
 interface Props {
-    blog: BlogEntry;
+    blog: BlogContentEntry;
 }
 
 const { blog } = Astro.props;
@@ -18,7 +18,7 @@ const routes = useRoutesAstro(Astro)
         <h1>Blog: {blog.data.title}</h1>
         <Content />
         <ul>
-            {
+            <!-- {
                 blog.translations.map((translation) => (
                     <li>
                         <a href={translation.href}>
@@ -26,7 +26,7 @@ const routes = useRoutesAstro(Astro)
                         </a>
                     </li>
                 ))
-            }
+            } -->
         </ul>
         <ul>
             {
