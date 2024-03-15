@@ -1,6 +1,6 @@
 ---
 // Utils
-import { translations } from "~/i18n/utils";
+import { translations, useRoutesAstro } from "~/i18n/utils";
 const t = translations(Astro);
 import Logo from "../header/Logo.astro";
 import Input from "../ui/Input.astro";
@@ -8,73 +8,75 @@ import Button from "../ui/Button.astro";
 import { Icon } from "astro-icon/components";
 // Data
 
+const routes = useRoutesAstro(Astro)
+
 const FooterData = {
     products: [
         {
-            url: "/",
+            url: routes('passenger'),
             title: t("footer.link.product.first"),
         },
         {
-            url: "/",
+            url: routes('employer'),
             title: t("footer.link.product.second"),
         },
         {
-            url: "/",
+            url: routes('ticket-vendor'),
             title: t("footer.link.product.third"),
         },
     ],
     about: [
         {
-            url: "/",
-            title: t("footer.link.about.first"),
+            url: routes('aboutUs'),
+            title: t("footer.link.about.aboutus"),
         },
         {
-            url: "/",
-            title: t("footer.link.about.second"),
+            url: routes('contact'),
+            title: t("footer.link.about.contact"),
         },
         {
-            url: "/",
-            title: t("footer.link.about.third"),
+            url: routes('blogs'),
+            title: t("footer.link.about.blog"),
         },
     ],
     socials: [
         {
-            url: "/",
+            url: "https://www.facebook.com/zoefapp",
             icon: "simple-icons:facebook",
             text: "Facebook",
         },
         {
-            url: "/",
+            url: "http://instagram.com/zoef.app/",
             icon: "simple-icons:instagram",
             text: "Instagram",
         },
         {
-            url: "/",
+            url: "http://twitter.com/zoefapp",
             icon: "simple-icons:x",
             text: "X",
         },
         {
-            url: "/",
+            url: "https://www.linkedin.com/company/zoefapp/",
             icon: "simple-icons:linkedin",
             text: "Linkedin",
         },
         {
-            url: "/",
-            icon: "simple-icons:youtube",
-            text: "Youtube",
+            url: "https://www.tiktok.com/@zoef.app",
+            icon: "simple-icons:tiktok",
+            text: "Tiktok",
         },
     ],
     law: [
         {
-            url: "/",
+            url: routes('privacy'),
             title: t("footer.privacy"),
         },
         {
-            url: "/",
+            url: routes('terms'),
             title: t("footer.terms"),
         },
         {
-            url: "/",
+            url: routes('cookies'),
             title: t("footer.cookies"),
         },
     ],

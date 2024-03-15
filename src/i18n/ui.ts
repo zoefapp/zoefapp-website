@@ -55,9 +55,9 @@ export interface UiTranslations {
     "footer.link.product.second": string;
     "footer.link.product.third": string;
     "footer.link.about.title": string;
-    "footer.link.about.first": string;
-    "footer.link.about.second": string;
-    "footer.link.about.third": string;
+    "footer.link.about.aboutus": string;
+    "footer.link.about.blog": string;
+    "footer.link.about.contact": string;
     "footer.socials.title": string;
     "footer.copyright": string;
     "footer.privacy": string;
@@ -120,9 +120,9 @@ export const ui: UiProperties = {
         "footer.link.product.second": "Companies",
         "footer.link.product.third": "Ticket Sellers",
         "footer.link.about.title": "About Us",
-        "footer.link.about.first": "About Us",
-        "footer.link.about.second": "Blog",
-        "footer.link.about.third": "Contact",
+        "footer.link.about.aboutus": "About Us",
+        "footer.link.about.blog": "Blog",
+        "footer.link.about.contact": "Contact",
         "footer.socials.title": "Follow Us",
         "footer.copyright": "Copyright © 2019 Zoef. All rights reserved.",
         "footer.privacy": "Privacy Policy",
@@ -184,10 +184,10 @@ export const ui: UiProperties = {
         "footer.link.product.first": "Passagiers",
         "footer.link.product.second": "Bedrijven",
         "footer.link.product.third": "Ticket Verkopers",
-        "footer.link.about.title": "Over Us",
-        "footer.link.about.first": "Over Us",
-        "footer.link.about.second": "Blog",
-        "footer.link.about.third": "Contact",
+        "footer.link.about.title": "Over ons",
+        "footer.link.about.aboutus": "Over ons",
+        "footer.link.about.blog": "Blog",
+        "footer.link.about.contact": "Contact",
         "footer.socials.title": "Volg Ons",
         "footer.copyright": "Copyright © 2019 Zoef. Alle rechten voorbehouden.",
         "footer.privacy": "Privacybeleid",

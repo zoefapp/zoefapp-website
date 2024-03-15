@@ -8,6 +8,11 @@ export interface IRoutes {
   employer: string;
   "ticket-vendor": string;
   aboutUs: string;
+  contact: string;
+  privacy: string;
+  terms: string;
+  cookies: string;
+  blogs: string;
   blog: (slug: string) => string;
   blogTag: (tag: string) => string;
 }
@@ -21,13 +26,20 @@ export const routes: Routes = {
     'employer': 'employer',
     'ticket-vendor': 'ticket-vendor',
     'aboutUs': 'about-us',
+    'privacy': 'privacy',
+    'contact': 'contact',
+    'cookies': 'cookie-statement',
+    'terms': 'terms-and-conditions',
+    'blogs': 'article',
     "blog": (slug) => `article/${slug}`,
     blogTag: (tag) => `article/@${tag}`,
   },
   nl: {
     'passenger': 'passagier',
     'employer': 'werkgever',
+    'blogs': 'artikel',
     'ticket-vendor': 'ticketverkoper',
+    'terms': 'algemene-voorwaarden',
     'aboutUs': 'over-ons',
     "blog": (slug) => `artikel/${slug}`,
     blogTag: (tag) => `artikel/@${tag}`,
