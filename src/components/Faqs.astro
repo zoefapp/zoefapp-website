@@ -6,9 +6,8 @@ interface Props {
 const { data, image } = Astro.props;
 import type { FAQ } from "~/lib/faq";
 // Utils
-import { getLanguage, translations } from "~/i18n/utils";
+import { translations } from "~/i18n/utils";
 import { Image } from "astro:assets";
-const lang = getLanguage(Astro);
 const t = translations(Astro);
 // Components
 import Accordion from "./ui/Accordion.astro";

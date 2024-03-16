@@ -5,8 +5,7 @@ interface Props {
 import type { Testimonial } from "~/lib/testimonial";
 const { data } = Astro.props;
 // Utils
-import { getLanguage, translations } from "~/i18n/utils";
-const lang = getLanguage(Astro);
+import { translations } from "~/i18n/utils";
 const t = translations(Astro);
 // Components
 import Carousel from "./ui/Carousel.astro";
