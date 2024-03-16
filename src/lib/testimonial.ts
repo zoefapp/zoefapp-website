@@ -1,6 +1,6 @@
 import { z } from "astro/zod";
 import { getCollection } from "astro:content";
-import { SUPPORTED_LANGUAGES, type SupportedLanguages } from "~/i18n/constants";
+import { type SupportedLanguages } from "~/i18n/constants";
 
 export const TestimonialRelevance = z.enum(['passenger', 'ticketvendor', 'employer']);
 export type TestimonialRelevance = z.infer<typeof TestimonialRelevance>;

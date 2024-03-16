@@ -1,7 +1,7 @@
 ---
 // Utils
-import { getLangFromUrl, useRoutes, useTranslations } from "~/i18n/utils";
-const lang = getLangFromUrl(Astro.url);
+import { getLanguage, useRoutes, useTranslations } from "~/i18n/utils";
+const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
 // Components
@@ -40,7 +40,7 @@ const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-t
 >
     <aside class="flex w-full justify-between">
         <div class="flex w-full gap-12 items-center">
-            <Logo isEager />
+            <a href="/"><Logo isEager /></a>
             <Navigation />
         </div>
         <div class="hidden lg:flex justify-end gap-4 items-center">

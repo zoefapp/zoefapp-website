@@ -1,7 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+import { getLanguage, useTranslations } from "~/i18n/utils";
 import Button from "../ui/Button.astro";
-const lang = getLangFromUrl(Astro.url);
+const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 ---
 

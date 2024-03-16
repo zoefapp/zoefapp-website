@@ -1,6 +1,7 @@
-import { defineConfig, passthroughImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
+import { defineConfig } from "astro/config";
+import htmx from 'astro-htmx';
 
 import vercel from "@astrojs/vercel/serverless";
 
@@ -13,5 +14,9 @@ export default defineConfig({
         edgeMiddleware: true,
     }),
 
-    integrations: [tailwind({ applyBaseStyles: false }), icon()],
+    integrations: [
+        tailwind({ applyBaseStyles: false }), 
+        htmx(),
+        icon()
+    ],
 });

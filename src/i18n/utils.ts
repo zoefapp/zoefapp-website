@@ -3,10 +3,22 @@ import { DEFAULT_LANG, SUPPORTED_LANGUAGES, type SupportedLanguages } from "./co
 import { routes } from "./routes";
 import { ui } from "./ui";
 
-export function getLangFromUrl(url: URL | string) {
-    let lang = typeof url === "string" ? url : url.pathname.split("/")[1];
+function getLanguageFromUrl(astro: AstroGlobal): string | null {
+    let lang = astro.url.pathname.split("/")[1];
     if (SUPPORTED_LANGUAGES.includes(lang)) return lang;
-    return DEFAULT_LANG;
+    return null;
+}
+function getLanguageFromHeaders(astro: AstroGlobal): string | null {
+    return astro.request.headers.get("X-Site-Lang");
+}
+
+export function getLanguage(astro: AstroGlobal): string {
+    let fromUrl = getLanguageFromUrl(astro);
+    if (fromUrl !== null) return fromUrl;
+    console.log(fromUrl, astro.url)
+    let fromheader = getLanguageFromHeaders(astro);
+    if (fromheader !== null) return fromheader;
+    return DEFAULT_LANG
 }
 
 export function useTranslations(lang: SupportedLanguages) {
@@ -32,13 +44,8 @@ export function useRoutes(lang: SupportedLanguages) {
     };
 }
 
-// translate the current route to a given language
-export function translateRoute(path: string, toLang: SupportedLanguages) {
-    getLangFromUrl(path);
-}
-
 export function useRoutesAstro(astro: AstroGlobal) {
-    return useRoutes(getLangFromUrl(astro.url));
+    return useRoutes(getLanguage(astro));
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
@@ -47,7 +54,7 @@ export function useTranslatedPath(lang: keyof typeof ui) {
     };
 }
 
-export function translations(Astro: AstroGlobal) {
-    const lang = getLangFromUrl(Astro.url);
+export function translations(astro: AstroGlobal) {
+    const lang = getLanguage(astro);
     return useTranslations(lang);
 }

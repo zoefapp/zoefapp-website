@@ -1,13 +1,13 @@
 ---
 import { type BlogContentEntry, getBlogUrl } from "~/lib/blog";
-import { translations } from "~/i18n/utils";
+import { translations, getLanguage } from "~/i18n/utils";
 import { Image } from "astro:assets";
 
 interface Props {
     data: BlogContentEntry[];
 }
 const { data } = Astro.props;
-const lang = getLangFromUrl(Astro.url)
+const lang = getLanguage(Astro)
 const t = translations(Astro);
 
 // Images
@@ -15,7 +15,6 @@ import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 // Components
 import Subtitle from "./ui/Subtitle.astro";
 import Button from "./ui/Button.astro";
-import { getLangFromUrl } from "~/i18n/utils";
 // Data
 ---
 
