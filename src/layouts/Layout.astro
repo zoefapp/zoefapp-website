@@ -1,6 +1,6 @@
 ---
 import "~/styles/globals.css";
-import { getLangFromUrl } from "~/i18n/utils";
+import { getLanguage } from "~/i18n/utils";
 import Header from "~/components/header/Header.astro";
 import Footer from "~/components/footer/Footer.astro";
 
@@ -8,7 +8,7 @@ interface Props {
     title: string;
 }
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLanguage(Astro);
 
 const { title } = Astro.props;
 ---
@@ -27,7 +27,7 @@ const { title } = Astro.props;
         </script>
         <title>{lang} - {title}</title>
     </head>
-    <body class="font-mulish">
+    <body class="font-mulish" hx-headers={'{"x-site-lang":"'+lang+'"}'}>
         <Header />
         <slot />
         <Footer />

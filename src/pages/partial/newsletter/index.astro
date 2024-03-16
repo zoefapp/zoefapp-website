@@ -2,6 +2,7 @@
 export const partial = true
 export const prerender = false
 import NewsletterForm from './_form.astro';
+import {getLanguage} from '~/i18n/utils';
 
 /*
  Verification steps:
@@ -28,8 +29,10 @@ if (Astro.request.method === "POST") {
 } else {
     status = "form";
 }
+
+
 console.log(Astro.request.headers)
-console.log(Astro.url)
+console.log(getLanguage(Astro))
 ---
 
 {status == 'subscribed' && <p>Thank you for subscribing. We have sent an to confirm to {email}</p>}

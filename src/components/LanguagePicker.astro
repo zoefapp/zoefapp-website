@@ -1,11 +1,10 @@
 ---
-const URL = Astro.url;
-import { getLangFromUrl } from "~/i18n/utils";
+import { getLanguage } from "~/i18n/utils";
 import Dropdown from "./ui/Dropdown.astro";
 import { Icon } from "astro-icon/components";
 import { routes } from "~/i18n/routes";
 import { languages } from "../i18n/ui";
-const lang = getLangFromUrl(URL);
+const lang = getLanguage(Astro);
 ---
 
 <Dropdown buttonId="language-picker" menuId="language-menu">

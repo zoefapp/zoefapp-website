@@ -5,9 +5,9 @@ interface Props {
 }
 // Utils
 import type { Testimonial } from "~/lib/testimonial";
-import { getLangFromUrl } from "~/i18n/utils";
+import { getLanguage } from "~/i18n/utils";
 import { Icon } from "astro-icon/components";
-const lang = getLangFromUrl(Astro.url);
+const lang = getLanguage(Astro);
 import { Image } from "astro:assets";
 // Components
 import Subtitle from "./Subtitle.astro";
