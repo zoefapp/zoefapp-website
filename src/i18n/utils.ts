@@ -9,6 +9,10 @@ export function getLangFromUrl(url: URL | string) {
     return DEFAULT_LANG;
 }
 
+function getLang(astro: AstroGlobal) {
+
+}
+
 export function useTranslations(lang: SupportedLanguages) {
     return function t(key: keyof (typeof ui)[typeof DEFAULT_LANG]) {
         return ui[lang][key] || ui[DEFAULT_LANG][key];
