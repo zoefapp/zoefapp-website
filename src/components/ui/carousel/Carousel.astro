@@ -1,0 +1,142 @@
+---
+interface Props {
+    id: string;
+}
+// Components
+import { Icon } from "astro-icon/components";
+// Data
+const { id } = Astro.props;
+---
+
+<!-- <Subtitle className="font-bold" variant="secondary">{title}</Subtitle> -->
+<carousel-container data-name={id} class="flex flex-col gap-6 py-12">
+    <!-- Desktop Controls -->
+    <div class="ml-auto gap-4 hidden md:flex">
+        <button class={`${id}-prev`} aria-label="Previous">
+            <span class="sr-only">Previous</span>
+            <Icon
+                aria-hidden
+                class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1"
+                name="lucide:move-left"
+            />
+        </button>
+        <button class={`${id}-next`} aria-label="Next">
+            <span class="sr-only">Next</span>
+            <Icon
+                aria-hidden
+                class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1"
+                name="lucide:move-right"
+            />
+        </button>
+    </div>
+    <!-- Carousel -->
+    <section class={`${id}-container overflow-hidden w-full`}>
+        <aside class={`${id}-content flex gap-4 transition-transform duration-500 ease-in`} id={id}>
+            <slot />
+        </aside>
+    </section>
+    <!-- Mobile Controls -->
+    <div class="gap-4 md:hidden flex mx-auto">
+        <button class={`${id}-prev`} aria-label="Previous">
+            <span class="sr-only">Previous</span>
+            <Icon
+                aria-hidden
+                class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1"
+                name="lucide:move-left"
+            />
+        </button>
+        <button class={`${id}-next`} aria-label="Next">
+            <span aria-hidden class="sr-only">Next</span>
+            <Icon class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1" name="lucide:move-right" />
+        </button>
+    </div>
+</carousel-container>
+
+<script>
+    class CarouselContainer extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            // Read the message from the data attribute.
+            const name = this.dataset.name as string;
+            const carousel = document.getElementById(name);
+            let currentIndex = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const prevButtons = document.querySelectorAll(`.${name}-prev`);
+            const nextButtons = document.querySelectorAll(`.${name}-next`);
+
+            prevButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    prevSlide(name);
+                });
+            });
+
+            nextButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    nextSlide(name);
+                });
+            });
+
+            function nextSlide(id: string) {
+                currentIndex = (currentIndex + 1) % document.querySelectorAll(`.${id}-item`).length;
+                showSlide(currentIndex, id);
+            }
+
+            function prevSlide(id: string) {
+                currentIndex =
+                    (currentIndex - 1 + document.querySelectorAll(`.${id}-item`).length) %
+                    document.querySelectorAll(`.${id}-item`).length;
+                showSlide(currentIndex, id);
+            }
+
+            function showSlide(index: number, id: string) {
+                const carousel = document.getElementById(id);
+                const slide = document.querySelector(`.${id}-item`) as HTMLElement;
+                if (!carousel || !slide) {
+                    return;
+                }
+                const itemWidth = slide.offsetWidth;
+                const newPosition = -index * (itemWidth + 16);
+                carousel.style.transform = `translateX(${newPosition}px)`;
+            }
+
+            function handleSwipe(id: string, touchStartX: number, touchEndX: number, currentIndex: number) {
+                const swipeThreshold = 100; //Adjust this value based on your preference
+
+                const deltaX = touchEndX - touchStartX;
+
+                if (deltaX > swipeThreshold) {
+                    //Swipe left
+                    prevSlide(id);
+                } else if (deltaX < -swipeThreshold) {
+                    //Swipe right
+                    nextSlide(id);
+                }
+            }
+            showSlide(0, name);
+            if (carousel) {
+                carousel.addEventListener(
+                    "touchstart",
+                    (e) => {
+                        document.body.classList.add("overflow-hidden");
+                        touchStartX = e.touches[0].clientX;
+                    },
+                    { passive: true }
+                );
+
+                carousel.addEventListener("touchend", (e) => {
+                    touchEndX = e.changedTouches[0].clientX;
+                    handleSwipe(name, touchStartX, touchEndX, currentIndex);
+                    document.body.classList.remove("overflow-hidden");
+                });
+            }
+        }
+    }
+
+    // Check if the custom element is already defined
+    if (!customElements.get("carousel-container")) {
+        customElements.define("carousel-container", CarouselContainer);
+    }
+</script>
