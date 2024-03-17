@@ -9,8 +9,8 @@ interface Props {
 // Utils
 import { Image } from "astro:assets";
 // Images
-import TrustPilotStar from "~/assets/images/trustpilot-star.svg";
-import AppStoreLogo from "~/assets/images/appstore-icon.png";
+import TrustPilotStar from "~/assets/images/icons/trustpilot-star.svg";
+import AppStoreLogo from "~/assets/images/icons/appstore-icon.png";
 const { data } = Astro.props;
 ---
 
@@ -31,7 +31,7 @@ const { data } = Astro.props;
         <p class="inline-flex gap-2 items-center">
             <strong>{data.review_count}</strong> reviews on
             <Image class="w-6 h-6" src={AppStoreLogo} alt="App Store" loading={"eager"} decoding={"async"} />
-            <strong> {data.review_market}</strong>
+            <strong>{data.review_market}</strong>
         </p>
     </aside>
 </section>

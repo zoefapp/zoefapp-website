@@ -9,13 +9,13 @@ import { getRecentBlogs } from "~/lib/blog";
 // Layout
 import Layout from "~/layouts/Layout.astro";
 // Images
-import TicketVendorBackgroundImage from "~/assets/images/ticket-vendor-bg.png";
-import BannerBackgroundImage from "~/assets/images/passenger-banner.png";
+import TicketVendorBackgroundImage from "~/assets/images/backgrounds/ticket-vendor-bg.png";
+import BannerBackgroundImage from "~/assets/images/store-banner.png";
 import FaqsRedImage from "~/assets/images/faqs-red.png";
 // Icons
-import EuroIcon from "~/assets/images/euro-icon-green.png";
-import StarIcon from "~/assets/images/star.png";
-import ClockCheckIcon from "~/assets/images/clock-check.png";
+import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
+import StarIcon from "~/assets/images/icons/star.png";
+import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
 import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
 // Components
 import Title from "~/components/ui/Title.astro";
@@ -36,6 +36,17 @@ const TrustPilotData = {
     star_count: 5,
     review_market: "AppStore",
 };
+const StatsData = [
+    {
+        description: t("stats.first"),
+    },
+    {
+        description: t("stats.second"),
+    },
+    {
+        description: t("stats.third"),
+    },
+];
 const AccomplishmentsData = [
     {
         count: 2545,
@@ -107,7 +118,7 @@ const blogs = await getRecentBlogs(lang, 3);
                 <Subtitle variant="default">{t("passenger.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
-            <Stats slot="floating" />
+            <Stats data={StatsData} slot="floating" />
         </Hero>
         <Brands />
         <Accomplisments data={AccomplishmentsData} />

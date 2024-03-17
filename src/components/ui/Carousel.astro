@@ -10,7 +10,7 @@ import { Image } from "astro:assets";
 // Components
 import Subtitle from "./Subtitle.astro";
 // Icons
-import StarIcon from "~/assets/images/star-icon.png";
+import StarIcon from "~/assets/images/icons/star-icon.png";
 // Data
 const { data, title } = Astro.props;
 ---
@@ -75,7 +75,11 @@ const { data, title } = Astro.props;
     <div class="gap-4 md:hidden flex mx-auto">
         <button aria-label="Previous" onclick="prevSlide()">
             <span class="sr-only">Previous</span>
-            <Icon aria-hidden class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1" name="lucide:move-left" />
+            <Icon
+                aria-hidden
+                class="ring ring-orange-light bg-orange-light rounded-full w-7 h-7 p-1"
+                name="lucide:move-left"
+            />
         </button>
         <button aria-label="Next" onclick="nextSlide()">
             <span aria-hidden class="sr-only">Next</span>
