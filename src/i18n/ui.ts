@@ -20,6 +20,9 @@ export interface UiTranslations {
     "employer.description": string;
     "ticket-vendor.title": string;
     "ticket-vendor.description": string;
+    "stats.first": string;
+    "stats.second": string;
+    "stats.third": string;
     "compensation.title": string;
     "compensation.departure": string;
     "compensation.departure.placeholder": string;
@@ -85,6 +88,9 @@ export const ui: UiProperties = {
         "employer.description": "The platform for claiming compensation for train delays in public transport",
         "ticket-vendor.title": "Train delayed? \n Get your money back!",
         "ticket-vendor.description": "The platform for claiming compensation for train delays in public transport",
+        "stats.first": "Trains delayed",
+        "stats.second": "Trains delayed",
+        "stats.third": "Trains delayed",
         "compensation.title": "<strong>Check</strong> if you are entitled to <strong>a claim</strong>",
         "compensation.departure": "Departure Station",
         "compensation.departure.placeholder": "e.g. Amsterdam Central",
@@ -143,6 +149,9 @@ export const ui: UiProperties = {
         "employer.description": "De tool om compensatie aan te vragen voor vertraagde OV-treinreizen",
         "ticket-vendor.title": "Trein vertraagd? \n Vraag je geld terug!",
         "ticket-vendor.description": "De tool om compensatie aan te vragen voor vertraagde OV-treinreizen",
+        "stats.first": "Hoeveelheid compensaties",
+        "stats.second": "Hoeveelheid compensaties",
+        "stats.third": "Hoeveelheid compensaties",
         "compensation.title": "<strong>Bekijk</strong> of je recht hebt op <strong>een claim</strong>",
         "compensation.departure": "Vertrekstation",
         "compensation.departure.placeholder": "bijv. Amsterdam Centraal",

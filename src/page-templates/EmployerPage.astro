@@ -36,6 +36,17 @@ const TrustPilotData = {
     star_count: 5,
     review_market: "AppStore",
 };
+const StatsData = [
+    {
+        description: t("stats.first"),
+    },
+    {
+        description: t("stats.second"),
+    },
+    {
+        description: t("stats.third"),
+    },
+];
 const AccomplishmentsData = [
     {
         count: 2545,
@@ -107,7 +118,7 @@ const blogs = await getRecentBlogs(lang, 3);
                 <Subtitle variant="default">{t("passenger.description")}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
-            <Stats slot="floating" />
+            <Stats data={StatsData} slot="floating" />
         </Hero>
         <Brands />
         <HowZoefWorks data={HowZoefWorksData} />
