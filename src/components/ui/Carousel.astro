@@ -116,6 +116,7 @@ const { data, title } = Astro.props;
     document.getElementById("carousel").addEventListener(
         "touchstart",
         (e) => {
+            document.body.classList.add("overflow-hidden");
             touchStartX = e.touches[0].clientX;
         },
         { passive: true }
@@ -124,10 +125,11 @@ const { data, title } = Astro.props;
     document.getElementById("carousel").addEventListener("touchend", (e) => {
         touchEndX = e.changedTouches[0].clientX;
         handleSwipe();
+        document.body.classList.remove("overflow-hidden");
     });
 
     function handleSwipe() {
-        const swipeThreshold = 50; // Adjust this value based on your preference
+        const swipeThreshold = 100; // Adjust this value based on your preference
 
         const deltaX = touchEndX - touchStartX;
 
