@@ -1,0 +1,41 @@
+---
+interface Props {
+    name: string;
+}
+const { name } = Astro.props;
+---
+
+<accordion-container data-name={name} class="flex flex-col gap-5"> <slot /></accordion-container>
+
+<script>
+    class AccordionContainer extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            // Read the message from the data attribute.
+            const name = this.dataset.name;
+            const accordions = document.querySelectorAll(`.${name}`) as NodeListOf<HTMLElement>;
+            accordions.forEach((accordion) => {
+                const button = accordion.querySelector("button");
+                if (button) {
+                    button.addEventListener("click", () => {
+                        if (accordion.dataset.state === "inactive") {
+                            accordions.forEach((accordion) => {
+                                accordion.dataset.state = "inactive";
+                            });
+                            accordion.dataset.state = "active";
+                        } else {
+                            accordion.dataset.state = "inactive";
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    // Check if the custom element is already defined
+    if (!customElements.get("accordion-container")) {
+        customElements.define("accordion-container", AccordionContainer);
+    }
+</script>

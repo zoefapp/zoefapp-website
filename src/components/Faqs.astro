@@ -4,16 +4,19 @@ interface Props {
     image: ImageMetadata;
 }
 const { data, image } = Astro.props;
-import type { FAQ } from "~/lib/faq";
+import { getFaqs, type FAQ } from "~/lib/faq";
 // Utils
-import { translations } from "~/i18n/utils";
+import { translations, getLanguage, useTranslations } from "~/i18n/utils";
 import { Image } from "astro:assets";
 const t = translations(Astro);
+const lang = getLanguage(Astro);
 // Components
-import Accordion from "./ui/Accordion.astro";
 import Button from "./ui/Button.astro";
 import Subtitle from "./ui/Subtitle.astro";
+import AccordionContainer from "./ui/accordion/AccordionContainer.astro";
+import AccordionItem from "./ui/accordion/AccordionItem.astro";
 // Data
+const faqs = await getFaqs("passenger", lang);
 ---
 
 <section class="container py-16 flex flex-col gap-12">
@@ -21,7 +24,9 @@ import Subtitle from "./ui/Subtitle.astro";
         <Subtitle variant="secondary" set:html={t("faqs.title")} />
         <section class="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between">
             <aside class="flex items-center w-full lg:w-1/2">
-                <Accordion data={data} />
+                <AccordionContainer name="faqs">
+                    {faqs.map((faq) => <AccordionItem name="faqs" content={faq.answer} title={faq.question} />)}
+                </AccordionContainer>
             </aside>
             <aside
                 class="flex flex-col items-center text-center w-full lg:w-1/2 bg-gray-50 rounded-2xl px-6 py-10 gap-4"
