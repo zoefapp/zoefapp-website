@@ -1,8 +1,8 @@
 ---
-export const partial = true
-export const prerender = false
-import NewsletterForm from './_form.astro';
-import {getLanguage} from '~/i18n/utils';
+export const partial = true;
+export const prerender = false;
+import NewsletterForm from "./_form.astro";
+import { getLanguage } from "~/i18n/utils";
 
 /*
  Verification steps:
@@ -15,7 +15,7 @@ import {getLanguage} from '~/i18n/utils';
 
 let status: "form" | "subscribed" | "error" = "form";
 
-let email = ''
+let email = "";
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     email = formData.get("email")?.valueOf().toString() ?? "";
@@ -30,11 +30,10 @@ if (Astro.request.method === "POST") {
     status = "form";
 }
 
-
-console.log(Astro.request.headers)
-console.log(getLanguage(Astro))
+console.log(Astro.request.headers);
+console.log(getLanguage(Astro));
 ---
 
-{status == 'subscribed' && <p>Thank you for subscribing. We have sent an to confirm to {email}</p>}
-{status == 'error' && <p>Failed to subscribe</p>}
-{status == 'form' && <NewsletterForm></NewsletterForm>}
+{status == "subscribed" && <p>Thank you for subscribing. We have sent an to confirm to {email}</p>}
+{status == "error" && <p>Failed to subscribe</p>}
+{status == "form" && <NewsletterForm />}
