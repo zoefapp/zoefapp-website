@@ -8,6 +8,11 @@ let { name, placeholder } = Astro.props;
     import unidecode from 'unidecode'
     import { Trie } from "~/lib/trie.ts";
 
+    interface Station {
+        name: string,
+        id: string
+    }
+
     let trie = new Trie();
     fetch("/resources/stations.nl.trie.json.gz", {
         headers: { "Accept-Encoding": "gzip" },
@@ -24,7 +29,7 @@ let { name, placeholder } = Astro.props;
         searchInput: "",
         selectedIndex: -1,
         matches: [],
-        search(input) {
+        search(input:string) {
             this.open = true;
             this.selectedIndex = 0;
 
@@ -59,7 +64,7 @@ let { name, placeholder } = Astro.props;
                 this.selectedIndex = this.selectedIndex - 1;
             }
         },
-        select(station) {
+        select(station: Station) {
             if (station) {
                 this.station = station;
                 this.searchInput = station.name;
@@ -75,7 +80,7 @@ let { name, placeholder } = Astro.props;
                 this.searchInput = this.station.name;
             }
         }
-    }));
+    }) as any );
 </script>
 
 <div class="stationSelector" x-data="stationSelector">
