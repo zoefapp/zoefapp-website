@@ -30,6 +30,7 @@ import Blogs from "~/components/Blogs.astro";
 import StoreBanner from "~/components/Banner.astro";
 import Brands from "~/components/Brands.astro";
 import Stats from "~/components/Stats.astro";
+import SignUpForm from "~/pages/partial/signup/_form.astro";
 
 const TrustPilotData = {
     review_count: 336,
@@ -116,6 +117,7 @@ const blogs = await getRecentBlogs(lang, 3);
                     {t("passenger.title")}
                 </Title>
                 <Subtitle variant="default">{t("passenger.description")}</Subtitle>
+                <SignUpForm />
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <Stats data={StatsData} slot="floating" />
