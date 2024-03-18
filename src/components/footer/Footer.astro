@@ -3,38 +3,38 @@
 import { translations, useRoutesAstro } from "~/i18n/utils";
 const t = translations(Astro);
 import Logo from "../header/Logo.astro";
-import NewsletterForm from '~/pages/partial/newsletter/_form.astro'
+import NewsletterForm from "~/pages/partial/newsletter/_form.astro";
 import { Icon } from "astro-icon/components";
 // Data
 
-const routes = useRoutesAstro(Astro)
+const routes = useRoutesAstro(Astro);
 
 const FooterData = {
     products: [
         {
-            url: routes('passenger'),
+            url: routes("passenger"),
             title: t("footer.link.product.first"),
         },
         {
-            url: routes('employer'),
+            url: routes("employer"),
             title: t("footer.link.product.second"),
         },
         {
-            url: routes('ticket-vendor'),
+            url: routes("ticket-vendor"),
             title: t("footer.link.product.third"),
         },
     ],
     about: [
         {
-            url: routes('aboutUs'),
+            url: routes("aboutUs"),
             title: t("footer.link.about.aboutus"),
         },
         {
-            url: routes('contact'),
+            url: routes("contact"),
             title: t("footer.link.about.contact"),
         },
         {
-            url: routes('blogs'),
+            url: routes("blogs"),
             title: t("footer.link.about.blog"),
         },
     ],
@@ -67,15 +67,15 @@ const FooterData = {
     ],
     law: [
         {
-            url: routes('privacy'),
+            url: routes("privacy"),
             title: t("footer.privacy"),
         },
         {
-            url: routes('terms'),
+            url: routes("terms"),
             title: t("footer.terms"),
         },
         {
-            url: routes('cookies'),
+            url: routes("cookies"),
             title: t("footer.cookies"),
         },
     ],
@@ -87,7 +87,7 @@ const FooterData = {
         <section class="flex flex-col gap-5 md:w-1/2">
             <Logo />
             <h2 class="font-semibold">{t("footer.newsletter.title")}</h2>
-            <NewsletterForm></NewsletterForm>
+            <NewsletterForm />
             <p class="text-xs">{t("footer.newsletter.consent")}</p>
         </section>
         <section class="flex flex-wrap sm:justify-between md:w-1/2 gap-10 md:pr-16">

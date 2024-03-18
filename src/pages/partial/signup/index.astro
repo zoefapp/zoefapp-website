@@ -12,7 +12,7 @@ if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     email = formData.get("email")?.valueOf().toString() ?? "";
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     if (validEmail) {
         status = "success";
     } else {
@@ -23,6 +23,10 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-{status == "success" && <p>Thank you for subscribing. We have sent an to confirm to {email}</p>}
-{status == "error" && <p>Failed to subscribe</p>}
+{
+    status == "success" && (
+        <p class="font-bold">Thank you for signing up. We have sent you an confirmation email to {email}!</p>
+    )
+}
+{status == "error" && <p class="font-bold text-red-500">Failed to sign up. Email is not valid.</p>}
 {status == "form" && <SingupForm />}
