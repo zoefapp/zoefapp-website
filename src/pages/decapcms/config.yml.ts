@@ -15,6 +15,7 @@ backend:
   site_domain: ${BRANCH_HOSTNAME}
   base_url: ${BRANCH_URL}
 
+site_url: ${BRANCH_URL}
 publish_mode: editorial_workflow
 local_backend: false
 
@@ -56,6 +57,7 @@ collections:
     create: true # Allow users to create new documents in this collection
     format: frontmatter
     extension: md
+    preview_path: "/decapcms/preview/blog/{{slug}}"
     identifier_field: id
     fields: # The fields for each document, usually in front matter
       - { label: "Blog Identifier", name: "id", widget: "string", i18n: "duplicate" }
