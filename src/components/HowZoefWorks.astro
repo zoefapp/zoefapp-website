@@ -32,13 +32,13 @@ import Subtitle from "./ui/Subtitle.astro";
             <Subtitle variant="secondary" className="font-bold self-start lg:hidden">
                 {t("howzoefworks.title")}
             </Subtitle>
-            <aside class="flex w-full lg:w-1/2 overflow-clip">
+            <aside class="images-container flex w-full lg:w-1/2 overflow-clip">
                 {
                     data.images.map((image) => (
                         <div
                             id={image.id}
                             data-state={image.initialState}
-                            class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=active]:slide-in-from-right-32 data-[state=inactive]:hidden overflow-clip"
+                            class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=inactive]:hidden overflow-clip"
                         >
                             <Image
                                 src={image.image}
@@ -114,7 +114,20 @@ import Subtitle from "./ui/Subtitle.astro";
             swipeHandler();
         }
     });
+    document.querySelector(".images-container").addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartXX = e.touches[0].clientX;
+        },
+        { passive: true }
+    );
 
+    document.querySelector(".images-container").addEventListener("touchend", (e) => {
+        touchEndXX = e.changedTouches[0].clientX;
+        if (window.innerWidth < 1024) {
+            swipeHandler();
+        }
+    });
     const swipeHandler = () => {
         const container = document.querySelector(".swipe-container");
         const threshold = 50;

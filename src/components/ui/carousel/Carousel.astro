@@ -1,17 +1,17 @@
 ---
 interface Props {
     id: string;
+    swipeable?: boolean;
 }
 // Components
 import { Icon } from "astro-icon/components";
 // Data
-const { id } = Astro.props;
+const { id, swipeable = true } = Astro.props;
 ---
 
-<!-- <Subtitle className="font-bold" variant="secondary">{title}</Subtitle> -->
 <carousel-container data-name={id} class="flex flex-col gap-6 py-12">
     <!-- Desktop Controls -->
-    <div class="ml-auto gap-4 hidden md:flex">
+    <div style={`${swipeable ? "" : "display: none!important;"}`} class="ml-auto gap-4 hidden md:flex">
         <button class={`${id}-prev`} aria-label="Previous">
             <span class="sr-only">Previous</span>
             <Icon
@@ -36,7 +36,7 @@ const { id } = Astro.props;
         </aside>
     </section>
     <!-- Mobile Controls -->
-    <div class="gap-4 md:hidden flex mx-auto">
+    <div style={`${swipeable ? "" : "display: none!important;"}`} class="gap-4 md:hidden flex mx-auto">
         <button class={`${id}-prev`} aria-label="Previous">
             <span class="sr-only">Previous</span>
             <Icon
