@@ -21,9 +21,6 @@ import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import CompensationCheck from "~/components/CompensationCheck.astro";
 import Hero from "~/components/Hero.astro";
 import Accomplisments from "~/components/Accomplisments.astro";
-import { getFaqs } from "~/lib/faq";
-import { getTestimonials } from "~/lib/testimonial";
-import { getRecentBlogs } from "~/lib/blog";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
 import Faqs from "~/components/Faqs.astro";
@@ -91,9 +88,6 @@ const HowZoefWorksData = {
         },
     ],
 };
-const faqs = await getFaqs("passenger", lang);
-const testimonials = await getTestimonials("passenger", lang);
-const blogs = await getRecentBlogs(lang, 3);
 ---
 
 <Layout title="Welcome to Astro.">
@@ -110,9 +104,9 @@ const blogs = await getRecentBlogs(lang, 3);
         </Hero>
         <Accomplisments data={AccomplishmentsData} />
         <HowZoefWorks data={HowZoefWorksData} />
-        <Testimonials data={testimonials} />
-        <Faqs image={FaqsGreenImage} data={faqs} />
-        <Blogs data={blogs} />
+        <Testimonials />
+        <Faqs image={FaqsGreenImage} />
+        <Blogs />
         <StoreBanner type="store" />
     </main>
 </Layout>

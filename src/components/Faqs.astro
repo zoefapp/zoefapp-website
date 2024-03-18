@@ -1,9 +1,8 @@
 ---
 interface Props {
-    data: FAQ[];
     image: ImageMetadata;
 }
-const { data, image } = Astro.props;
+const {  image } = Astro.props;
 import { getFaqs, type FAQ } from "~/lib/faq";
 // Utils
 import { translations, getLanguage, useTranslations } from "~/i18n/utils";

@@ -3,14 +3,11 @@
 import { getLanguage, useTranslations } from "~/i18n/utils";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
-import { getFaqs } from "~/lib/faq";
-import { getTestimonials } from "~/lib/testimonial";
 import { getRecentBlogs } from "~/lib/blog";
 // Layout
 import Layout from "~/layouts/Layout.astro";
 // Images
 import EmployerBackgroundImage from "~/assets/images/backgrounds/employer-bg.png";
-import BannerBackgroundImage from "~/assets/images/store-banner.png";
 import FaqsBlueImage from "~/assets/images/faqs-blue.png";
 // Icons
 import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
@@ -103,8 +100,6 @@ const HowZoefWorksData = {
         },
     ],
 };
-const faqs = await getFaqs("passenger", lang);
-const testimonials = await getTestimonials("passenger", lang);
 const blogs = await getRecentBlogs(lang, 3);
 ---
 
@@ -124,9 +119,9 @@ const blogs = await getRecentBlogs(lang, 3);
         <Brands />
         <HowZoefWorks data={HowZoefWorksData} />
         <Accomplisments data={AccomplishmentsData} />
-        <Testimonials data={testimonials} />
-        <Faqs image={FaqsBlueImage} data={faqs} />
-        <Blogs data={blogs} />
+        <Testimonials />
+        <Faqs image={FaqsBlueImage} />
+        <Blogs />
         <StoreBanner type="signup" />
     </main>
 </Layout>

@@ -1,13 +1,9 @@
 ---
-import { type BlogContentEntry, getBlogUrl } from "~/lib/blog";
+import { getBlogUrl, getRecentBlogs } from "~/lib/blog";
 import { translations, getLanguage } from "~/i18n/utils";
 import { Image } from "astro:assets";
 
-interface Props {
-    data: BlogContentEntry[];
-}
-const { data } = Astro.props;
-const lang = getLanguage(Astro)
+const lang = getLanguage(Astro);
 const t = translations(Astro);
 
 // Images
@@ -16,6 +12,7 @@ import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 import Subtitle from "./ui/Subtitle.astro";
 import Button from "./ui/Button.astro";
 // Data
+const blogs = await getRecentBlogs(lang, 3);
 ---
 
 <section class="container py-16">
@@ -26,7 +23,7 @@ import Button from "./ui/Button.astro";
         </aside>
         <aside class="flex flex-col lg:flex-row gap-0 lg:gap-8">
             {
-                data.map((blog) => (
+                blogs.map((blog) => (
                     <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
                         <div class="relative ">
                             <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-skin-secondary rounded-[12px]">
