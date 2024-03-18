@@ -3,22 +3,5 @@
     "rewrites": [
     ],
     "headers": [
-        {
-            "source": "/resources/(.*).json.gz",
-            "headers": [
-                {
-                    "key": "Content-Encoding",
-                    "value": "gzip"
-                },
-                {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                },
-                {
-                    "key": "Content-Disposition",
-                    "value": ""
-                }
-            ]
-        }
     ]
 }

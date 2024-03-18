@@ -14,9 +14,7 @@ let { name, placeholder } = Astro.props;
     }
 
     let trie = new Trie();
-    fetch("/resources/stations.nl.trie.json.gz", {
-        headers: { "Accept-Encoding": "gzip" },
-    })
+    fetch("/resources/stations.nl.trie.json")
         .then((res) => res.json())
         .then((data) => new Trie(data))
         .then((newTrie) => {
