@@ -51,6 +51,8 @@ export interface UiTranslations {
     "blogs.cta": string;
     "store.title": string;
     "store.description": string;
+    "signup.title": string;
+    "signup.description": string;
     "footer.newsletter.title": string;
     "footer.newsletter.consent": string;
     "footer.link.product.title": string;
@@ -105,11 +107,13 @@ export const ui: UiProperties = {
         "accompaniment.third": "Minutes of delay compensated with Zoef since November",
         "howzoefworks.title": "How Zoef works",
         "howzoefworks.first.title": "Enter your delay",
-        "howzoefworks.first.description": "Specify how long your delay lasted, what your departure station was, where you wanted to go, and on which day and time you departed.",
+        "howzoefworks.first.description":
+            "Specify how long your delay lasted, what your departure station was, where you wanted to go, and on which day and time you departed.",
         "howzoefworks.second.title": "Choose your journey",
         "howzoefworks.second.description": "Select from the list the train journey where you experienced a delay.",
         "howzoefworks.third.title": "Enter your details",
-        "howzoefworks.third.description": "Let us know your name, public transport card number, and email address, and the bank account to which we may deposit your compensation.",
+        "howzoefworks.third.description":
+            "Let us know your name, public transport card number, and email address, and the bank account to which we may deposit your compensation.",
         "testimonials.title": "What our customers say",
         "faqs.title": "Frequently asked <strong>questions</strong>",
         "faqs.side.title": "Have another question?",
@@ -118,9 +122,13 @@ export const ui: UiProperties = {
         "blogs.title": "Read more in <strong>our blogs</strong>",
         "blogs.cta": "View all blogs",
         "store.title": "Download the app",
-        "store.description": "Are you familiar with our handy app? With this app, you can easily file your claim for a train delay. Don't wait any longer and download it right away!",
+        "store.description":
+            "Are you familiar with our handy app? With this app, you can easily file your claim for a train delay. Don't wait any longer and download it right away!",
+        "signup.title": "Sign Up",
+        "signup.description": "Get access to all of our features and get your compensation in minutes!",
         "footer.newsletter.title": "Subscribe to our newsletter to stay updated on features and releases.",
-        "footer.newsletter.consent": "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.",
+        "footer.newsletter.consent":
+            "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.",
         "footer.link.product.title": "The product for:",
         "footer.link.product.first": "Passengers",
         "footer.link.product.second": "Companies",
@@ -169,8 +177,7 @@ export const ui: UiProperties = {
         "howzoefworks.first.description":
             "Geef aan hoe lang je vertraging ongeveer duurde, wat je vertrekstation was, waar je naartoe wilde en op welke dag en tijd je vertrok.",
         "howzoefworks.second.title": "Kies jouw reis",
-        "howzoefworks.second.description":
-            "Selecteer in de lijst de treinreis waar jij vertraging opliep.",
+        "howzoefworks.second.description": "Selecteer in de lijst de treinreis waar jij vertraging opliep.",
         "howzoefworks.third.title": "Vul je gegevens in",
         "howzoefworks.third.description":
             "Laat ons weten wat je naam, OV-kaartnummer en email-adres zijn en op welke bankrekening wij jouw vergoeding mogen storten.",
@@ -185,6 +192,8 @@ export const ui: UiProperties = {
         "store.title": "Download de app",
         "store.description":
             "Ben je al bekend met onze handige app? Met deze app kun je jouw claim voor een treinvertraging veel eenvoudiger indienen. Wacht niet langer en download hem meteen!",
+        "signup.title": "Aanmelden",
+        "signup.description": "Krijg toegang tot al onze functies en ontvang uw vergoeding in enkele minuten!",
         "footer.newsletter.title":
             "Schrijf je in voor onze nieuwsbrief om op de hoogte te blijven van features en releases.",
         "footer.newsletter.consent":

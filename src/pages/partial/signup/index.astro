@@ -25,7 +25,9 @@ if (Astro.request.method === "POST") {
 
 {
     status == "success" && (
-        <p class="font-bold">Thank you for signing up. We have sent you an confirmation email to {email}!</p>
+        <p class="font-bold">
+            Thank you for signing up. We have sent an confirmation email to {email}!
+        </p>
     )
 }
 {status == "error" && <p class="font-bold text-red-500">Failed to sign up. Email is not valid.</p>}

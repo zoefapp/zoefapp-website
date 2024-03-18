@@ -27,7 +27,7 @@ import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
 import Faqs from "~/components/Faqs.astro";
 import Blogs from "~/components/Blogs.astro";
-import StoreBanner from "~/components/StoreBanner.astro";
+import StoreBanner from "~/components/Banner.astro";
 import Brands from "~/components/Brands.astro";
 import Stats from "~/components/Stats.astro";
 
@@ -126,6 +126,6 @@ const blogs = await getRecentBlogs(lang, 3);
         <Testimonials data={testimonials} />
         <Faqs image={FaqsRedImage} data={faqs} />
         <Blogs data={blogs} />
-        <StoreBanner image={BannerBackgroundImage} />
+        <StoreBanner type="signup" />
     </main>
 </Layout>
