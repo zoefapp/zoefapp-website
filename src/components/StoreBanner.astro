@@ -1,8 +1,4 @@
 ---
-interface Props {
-    image: ImageMetadata;
-}
-const { image } = Astro.props;
 // Utils
 import { Image } from "astro:assets";
 import { translations } from "~/i18n/utils";
@@ -10,10 +6,13 @@ const t = translations(Astro);
 // Images
 import AppStoreIcon from "~/assets/images/icons/app-store.png";
 import GooglePlayIcon from "~/assets/images/icons/google-play.png";
+import StoreBannerImage from "~/assets/images/store-banner.png";
 ---
 
 <section class="container py-16">
-    <section class="relative flex flex-col lg:flex-row gap-12 px-8 lg:items-center w-[90%] mx-auto lg:justify-between">
+    <section
+        class="relative flex flex-col lg:flex-row gap-12 px-8 md:px-12 lg:items-center w-[90%] mx-auto lg:justify-between"
+    >
         <aside class="flex flex-col gap-4 w-full lg:w-1/2 mt-10 lg:mt-20">
             <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-bold">{t("store.title")}</h2>
             <p class="text-balance">{t("store.description")}</p>
@@ -44,7 +43,7 @@ import GooglePlayIcon from "~/assets/images/icons/google-play.png";
         </aside>
         <aside class="w-full lg:w-1/2">
             <Image
-                src={image}
+                src={StoreBannerImage}
                 width={600}
                 alt="Store Banner Background"
                 class="w-full max-w-md h-full object-cover mx-auto lg:mx-0 lg:ml-auto"
