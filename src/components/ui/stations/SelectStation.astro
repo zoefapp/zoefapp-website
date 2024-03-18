@@ -4,7 +4,8 @@ let { name, placeholder } = Astro.props;
 
 <script>
     import Alpine from "alpinejs";
-    import type { reference } from "astro:content";
+    
+    import unidecode from 'unidecode'
     import { Trie } from "~/lib/trie.ts";
 
     let trie = new Trie();
@@ -22,23 +23,26 @@ let { name, placeholder } = Astro.props;
         open: false,
         searchInput: "",
         selectedIndex: -1,
-        matches: [
-            {
-                id: "test",
-                name: "Amsterdam Centraal",
-            },
-        ],
+        matches: [],
         search(input) {
             this.open = true;
             this.selectedIndex = 0;
 
+            input = input.trim()
+            input = unidecode(input.toLowerCase())
+
+            if (!input || input.length < 2) {
+                this.matches = []
+                return 
+            }
+
             this.matches = trie
-                .search([input])
+                .search(input.split(' '))
                 .filter((r) => {
-                    console.log(r);
                     return r.values.find((v) => v > 0);
                 })
                 .map((match) => {
+                    console.log(match)
                     return {
                         id: match.values.find((v) => v > 0),
                         name: match.key,

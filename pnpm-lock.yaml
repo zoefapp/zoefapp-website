@@ -62,6 +62,9 @@ dependencies:
   typescript:
     specifier: ^5.4.2
     version: 5.4.2
+  unidecode:
+    specifier: ^1.0.1
+    version: 1.0.1
 
 devDependencies:
   '@iconify-json/openmoji':
@@ -8113,6 +8116,11 @@ packages:
 
   /unherit@3.0.1:
     resolution: {integrity: sha512-akOOQ/Yln8a2sgcLj4U0Jmx0R5jpIg2IUyRrWOzmEbjBtGzBdHtSeFKgoEcoH4KYIG/Pb8GQ/BwtYm0GCq1Sqg==}
+    dev: false
+
+  /unidecode@1.0.1:
+    resolution: {integrity: sha512-9t2iq9jV5+FtXDDyNwMk6Tm0UjoOahc2aqA8B5gG0ED/DsFWHiMdKvEF/R+1gLGFHuzWaNZjbfj+Hf0KQYz+Yg==}
+    engines: {node: '>= 0.4.12'}
     dev: false
 
   /unified@10.1.2:
