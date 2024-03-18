@@ -1,9 +1,21 @@
 ---
-let {name, placeholder} = Astro.props
+let { name, placeholder } = Astro.props;
 ---
 
 <script>
     import Alpine from "alpinejs";
+    import type { reference } from "astro:content";
+    import { Trie } from "~/lib/trie.ts";
+
+    let trie = new Trie();
+    fetch("/resources/stations.nl.trie.json.gz", {
+        headers: { "Accept-Encoding": "gzip" },
+    })
+        .then((res) => res.json())
+        .then((data) => new Trie(data))
+        .then((newTrie) => {
+            trie = newTrie;
+        });
 
     Alpine.data("stationSelector", () => ({
         station: null,
@@ -17,20 +29,21 @@ let {name, placeholder} = Astro.props
             },
         ],
         search(input) {
-            this.station = null;
-            this.open = true
-            this.selectedIndex = 0
+            this.open = true;
+            this.selectedIndex = 0;
 
-            this.matches = [
-                {
-                    id: "test1",
-                    name: "Amsterdam Centraal",
-                },
-                {
-                    id: "test2",
-                    name: input,
-                },
-            ];
+            this.matches = trie
+                .search([input])
+                .filter((r) => {
+                    console.log(r);
+                    return r.values.find((v) => v > 0);
+                })
+                .map((match) => {
+                    return {
+                        id: match.values.find((v) => v > 0),
+                        name: match.key,
+                    };
+                });
         },
         nextResult() {
             if (this.selectedIndex < this.matches.length - 1) {
@@ -50,6 +63,14 @@ let {name, placeholder} = Astro.props
             }
             this.open = false;
         },
+        onblur() {
+            this.open = false;
+            if (!this.station) {
+                this.searchInput = "";
+            } else {
+                this.searchInput = this.station.name;
+            }
+        }
     }));
 </script>
 
@@ -57,20 +78,28 @@ let {name, placeholder} = Astro.props
     <input type="hidden" name={name} :value="station?.id" />
     <input
         type="text"
-        @focus="open = true"
+        autocomplete="off"
+        spellcheck="false"
+        @focus="search($event.target.value)"
         @keydown.down.prevent="nextResult()"
         @keydown.up.prevent="previousResult()"
         @keydown.enter.prevent="select(matches[selectedIndex])"
         @input="search($event.target.value)"
         x-model="searchInput"
-        @blur="open = false"
+        @blur="onblur()"
         class="border min-w-0 rounded-md px-3 py-1.5"
         placeholder={placeholder}
     />
     <div class="absolute z-10 bg-white border rounded-md shadow-md" x-show="open && matches.length > 0">
         <ul>
             <template x-for="(result, index) in matches" :key="result.id">
-                <li class="p-2 hover:bg-gray-100" :class="{'bg-gray-100': selectedIndex == index}" @mousedown="select(result)" x-text="result.name"></li>
+                <li
+                    class="p-2 hover:bg-gray-100"
+                    :class="{'bg-gray-100': selectedIndex == index}"
+                    @mousedown="select(result)"
+                    x-text="result.name"
+                >
+                </li>
             </template>
         </ul>
     </div>
