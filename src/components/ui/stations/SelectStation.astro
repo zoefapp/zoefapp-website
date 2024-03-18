@@ -1,0 +1,77 @@
+---
+let {name, placeholder} = Astro.props
+---
+
+<script>
+    import Alpine from "alpinejs";
+
+    Alpine.data("stationSelector", () => ({
+        station: null,
+        open: false,
+        searchInput: "",
+        selectedIndex: -1,
+        matches: [
+            {
+                id: "test",
+                name: "Amsterdam Centraal",
+            },
+        ],
+        search(input) {
+            this.station = null;
+            this.open = true
+            this.selectedIndex = 0
+
+            this.matches = [
+                {
+                    id: "test1",
+                    name: "Amsterdam Centraal",
+                },
+                {
+                    id: "test2",
+                    name: input,
+                },
+            ];
+        },
+        nextResult() {
+            if (this.selectedIndex < this.matches.length - 1) {
+                this.selectedIndex = this.selectedIndex + 1;
+            }
+        },
+        previousResult() {
+            if (this.selectedIndex > 0) {
+                this.selectedIndex = this.selectedIndex - 1;
+            }
+        },
+        select(station) {
+            if (station) {
+                this.station = station;
+                this.searchInput = station.name;
+                this.selectedIndex = this.matches.indexOf(station);
+            }
+            this.open = false;
+        },
+    }));
+</script>
+
+<div class="stationSelector" x-data="stationSelector">
+    <input type="hidden" name={name} :value="station?.id" />
+    <input
+        type="text"
+        @focus="open = true"
+        @keydown.down.prevent="nextResult()"
+        @keydown.up.prevent="previousResult()"
+        @keydown.enter.prevent="select(matches[selectedIndex])"
+        @input="search($event.target.value)"
+        x-model="searchInput"
+        @blur="open = false"
+        class="border min-w-0 rounded-md px-3 py-1.5"
+        placeholder={placeholder}
+    />
+    <div class="absolute z-10 bg-white border rounded-md shadow-md" x-show="open && matches.length > 0">
+        <ul>
+            <template x-for="(result, index) in matches" :key="result.id">
+                <li class="p-2 hover:bg-gray-100" :class="{'bg-gray-100': selectedIndex == index}" @mousedown="select(result)" x-text="result.name"></li>
+            </template>
+        </ul>
+    </div>
+</div>
