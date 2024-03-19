@@ -26,7 +26,7 @@ import { Image } from "astro:assets";
 import Subtitle from "./ui/Subtitle.astro";
 ---
 
-<section class="container py-24">
+<section class="container py-[60px]">
     <section class="flex flex-col gap-6 w-[90%] mx-auto">
         <section class="flex flex-col lg:flex-row-reverse gap-10 items-center">
             <Subtitle variant="secondary" className="font-bold self-start lg:hidden">
@@ -62,7 +62,7 @@ import Subtitle from "./ui/Subtitle.astro";
                         <button
                             id={button.id}
                             data-state={button.initialState}
-                            class="btns flex flex-col gap-3 py-8 lg:py-4 px-4 border-b lg:border-l lg:border-b-0 border-amber-300 data-[state=inactive]:border-blue-200 transition-colors min-w-[calc(75vw)] lg:min-w-0 w-full text-start data-[state=inactive]:opacity-50"
+                            class="btns flex flex-col gap-2 py-5 px-8 border-b lg:border-l-2 lg:border-b-0 border-amber-300 data-[state=inactive]:border-blue-200 transition-colors min-w-[calc(75vw)] lg:min-w-0 w-full text-start data-[state=inactive]:opacity-50"
                         >
                             <h4 class="font-bold text-lg">{button.title}</h4>
                             <p class="text-balance">{button.description}</p>

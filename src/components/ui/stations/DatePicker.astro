@@ -5,16 +5,16 @@ let { name, placeholder, className, id } = Astro.props;
 <script>
     import flatpicker from "flatpickr";
     import { Dutch } from "flatpickr/dist/l10n/nl.js";
-    import 'flatpickr/dist/themes/dark.css';
+    import "flatpickr/dist/themes/dark.css";
 
-    import Alpine from 'alpinejs';
+    import Alpine from "alpinejs";
     Alpine.data("flatpicker", () => {
-        let defaultDate = new Date(Date.now() - 3600 * 1000)
-        let flatpicker:any 
+        let defaultDate = new Date(Date.now() - 3600 * 1000);
+        let flatpicker: any;
         return {
             formattedDate: defaultDate.toISOString(),
             init() {
-                flatpicker = this
+                flatpicker = this;
             },
             settings: {
                 wrap: true,
@@ -22,34 +22,29 @@ let { name, placeholder, className, id } = Astro.props;
                 time_24hr: true,
                 minDate: new Date(Date.now() - 90 * 86400 * 1000),
                 maxDate: new Date(Date.now() - 10 * 60 * 1000),
-                dateFormat: 'd-m-Y H:i',
+                dateFormat: "d-m-Y H:i",
                 defaultDate,
-                onChange: (dates:Date[]) => {
-                    let date = dates[0]
+                onChange: (dates: Date[]) => {
+                    let date = dates[0];
                     if (date) {
-                        flatpicker.formattedDate = date.toISOString()
-                    } else { 
-                        flatpicker.formattedDate = null
+                        flatpicker.formattedDate = date.toISOString();
+                    } else {
+                        flatpicker.formattedDate = null;
                     }
-                }
-            }
-        }
-    })
+                },
+            },
+        };
+    });
 </script>
 
-<div
-    x-data="flatpicker"
-    x-init="flatpickr($refs.datetimewidget, settings);"
-    x-ref="datetimewidget"
-    class="flatpickr"
->
-        <input type="hidden" name={name} :value="formattedDate" />
-        <input
-            x-ref="datetime"
-            type="text"
-            id={id}
-            data-input
-            placeholder={placeholder}
-            class="w-full px-3 py-1.5  border rounded-md"
-        />
+<div x-data="flatpicker" x-init="flatpickr($refs.datetimewidget, settings);" x-ref="datetimewidget" class="flatpickr">
+    <input type="hidden" name={name} :value="formattedDate" />
+    <input
+        x-ref="datetime"
+        type="text"
+        id={id}
+        data-input
+        placeholder={placeholder}
+        class="w-full px-3 py-2 border rounded-md"
+    />
 </div>

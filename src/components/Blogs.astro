@@ -15,8 +15,8 @@ import Button from "./ui/Button.astro";
 const blogs = await getRecentBlogs(lang, 3);
 ---
 
-<section class="container py-16">
-    <section class="flex flex-col gap-20 w-[90%] mx-auto">
+<section class="container py-[60px]">
+    <section class="flex flex-col gap-8 w-[90%] mx-auto">
         <aside class="flex flex-col md:flex-row gap-4 justify-between">
             <Subtitle variant="secondary" set:html={t("blogs.title")} />
             <Button variant="orange">{t("blogs.cta")}</Button>
@@ -24,35 +24,35 @@ const blogs = await getRecentBlogs(lang, 3);
         <aside class="flex flex-col lg:flex-row gap-0 lg:gap-8">
             {
                 blogs.map((blog) => (
-                    <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
-                        <div class="relative ">
-                            <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-skin-secondary rounded-[12px]">
-                                {blog.data.tags.join(", ")}
-                            </p>
-                            <Image
-                                loading={"lazy"}
-                                src={BlogPlaceholderImage}
-                                alt="Blog Placeholder"
-                                class="rounded-xl"
-                                format="avif"
-                                decoding="async"
-                                quality={50}
-                                width={576}
-                            />
-                        </div>
-                        <div class="bg-white rounded-2xl max-lg:-translate-y-8 max-lg:px-5 max-lg:py-3 max-lg:w-4/5 max-lg:mx-auto">
-                            <p class="opacity-60 text-xs">
-                                {blog.data.date.toLocaleDateString("en-US", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                })}
-                            </p>
-                            <a href={getBlogUrl(lang, blog)} class="font-bold text-lg hover:underline w-max">
-                                {blog.data.title}
-                            </a>
-                        </div>
-                    </section>
+                    <a href={getBlogUrl(lang, blog)}>
+                        <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
+                            <div class="relative ">
+                                <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-[#66AE6E] rounded-[12px]">
+                                    {blog.data.tags.join(", ")}
+                                </p>
+                                <Image
+                                    loading={"lazy"}
+                                    src={BlogPlaceholderImage}
+                                    alt="Blog Placeholder"
+                                    class="rounded-xl"
+                                    format="avif"
+                                    decoding="async"
+                                    quality={50}
+                                    width={576}
+                                />
+                            </div>
+                            <div class="bg-white rounded-2xl max-lg:-translate-y-8 max-lg:px-5 max-lg:py-3 max-lg:w-4/5 max-lg:mx-auto">
+                                <p class="opacity-60 text-xs">
+                                    {blog.data.date.toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    })}
+                                </p>
+                                <p class="font-bold text-lg text-pretty hover:text-orange-light">{blog.data.title}</p>
+                            </div>
+                        </section>
+                    </a>
                 ))
             }
         </aside>

@@ -12,13 +12,13 @@ import EuroIcon from "~/assets/images/icons/euro-icon.png";
 
 <section
     id="floating"
-    class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-4 transform -translate-x-1/2 container flex flex-col justify-center min-h-compensation bg-transparent md:top-[calc(100%-(var(--compensation-height)/2))] top-[calc(100%+20px)]"
+    class="absolute left-1/2 w-[90%] z-10 gap-4 transform -translate-x-1/2 container flex flex-col justify-center min-h-compensation bg-transparent md:top-[calc(100%-(var(--compensation-height)/2))] top-[calc(100%+20px)]"
 >
     <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Testing</h2>
     <aside class="flex flex-col md:flex-row gap-4">
         {
             data.map((item) => (
-                <div class="flex flex-col gap-4 items-center justify-center p-5 w-full bg-white shadow-lg shadow-black/20 rounded-md border">
+                <div class="flex flex-col gap-4 items-center justify-center p-5 w-full bg-white shadow-lg shadow-black/20 rounded-2xl border">
                     <Image width={80} format="avif" loading="eager" decoding="async" src={EuroIcon} alt="Euro Icon" />
                     <p>{item.description}</p>
                 </div>

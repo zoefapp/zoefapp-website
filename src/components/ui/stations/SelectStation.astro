@@ -1,18 +1,17 @@
 ---
 let { name, placeholder, className, id } = Astro.props;
 import { cn } from "~/lib/utils";
-
 ---
 
 <script>
     import Alpine from "alpinejs";
-    
-    import unidecode from 'unidecode'
+
+    import unidecode from "unidecode";
     import { Trie } from "~/lib/trie.ts";
 
     interface Station {
-        name: string,
-        id: string
+        name: string;
+        id: string;
     }
 
     let trie = new Trie();
@@ -23,67 +22,71 @@ import { cn } from "~/lib/utils";
             trie = newTrie;
         });
 
-    Alpine.data("stationSelector", () => ({
-        station: null,
-        open: false,
-        searchInput: "",
-        selectedIndex: -1,
-        matches: [],
-        search(input:string) {
-            this.open = true;
-            this.selectedIndex = 0;
+    Alpine.data(
+        "stationSelector",
+        () =>
+            ({
+                station: null,
+                open: false,
+                searchInput: "",
+                selectedIndex: -1,
+                matches: [],
+                search(input: string) {
+                    this.open = true;
+                    this.selectedIndex = 0;
 
-            input = input.trim()
-            input = unidecode(input.toLowerCase())
+                    input = input.trim();
+                    input = unidecode(input.toLowerCase());
 
-            if (!input || input.length < 2) {
-                this.matches = []
-                return 
-            }
+                    if (!input || input.length < 2) {
+                        this.matches = [];
+                        return;
+                    }
 
-            this.matches = trie
-                .search(input.split(' '))
-                .filter((r) => {
-                    return r.values.find((v) => v > 0);
-                })
-                .map((match) => {
-                    console.log(match)
-                    return {
-                        id: match.values.find((v) => v > 0),
-                        name: match.key,
-                    };
-                });
-        },
-        nextResult() {
-            if (this.selectedIndex < this.matches.length - 1) {
-                this.selectedIndex = this.selectedIndex + 1;
-            }
-        },
-        previousResult() {
-            if (this.selectedIndex > 0) {
-                this.selectedIndex = this.selectedIndex - 1;
-            }
-        },
-        select(station: Station) {
-            if (station) {
-                this.station = station;
-                this.searchInput = station.name;
-                this.selectedIndex = this.matches.indexOf(station);
-            }
-            this.open = false;
-        },
-        onblur() {
-            this.open = false;
-            if (!this.station) {
-                this.searchInput = "";
-            } else {
-                this.searchInput = this.station.name;
-            }
-        }
-    }) as any );
+                    this.matches = trie
+                        .search(input.split(" "))
+                        .filter((r) => {
+                            return r.values.find((v) => v > 0);
+                        })
+                        .map((match) => {
+                            console.log(match);
+                            return {
+                                id: match.values.find((v) => v > 0),
+                                name: match.key,
+                            };
+                        });
+                },
+                nextResult() {
+                    if (this.selectedIndex < this.matches.length - 1) {
+                        this.selectedIndex = this.selectedIndex + 1;
+                    }
+                },
+                previousResult() {
+                    if (this.selectedIndex > 0) {
+                        this.selectedIndex = this.selectedIndex - 1;
+                    }
+                },
+                select(station: Station) {
+                    if (station) {
+                        this.station = station;
+                        this.searchInput = station.name;
+                        this.selectedIndex = this.matches.indexOf(station);
+                    }
+                    this.open = false;
+                },
+                onblur() {
+                    this.open = false;
+                    if (!this.station) {
+                        this.searchInput = "";
+                    } else {
+                        this.searchInput = this.station.name;
+                    }
+                },
+            }) as any
+    );
 </script>
 
-<div class={cn("stationSelector", className)} x-data="stationSelector" >
+<div class={cn("stationSelector", className)} x-data="stationSelector">
     <input type="hidden" name={name} :value="station?.id" />
     <input
         type="text"
@@ -97,7 +100,7 @@ import { cn } from "~/lib/utils";
         @input="search($event.target.value)"
         x-model="searchInput"
         @blur="onblur()"
-        class="w-full px-3 py-1.5  border rounded-md"
+        class="w-full px-3 py-2 border rounded-md"
         placeholder={placeholder}
     />
     <div class="absolute z-10 w-full bg-white border rounded-md shadow-md" x-show="open && matches.length > 0">

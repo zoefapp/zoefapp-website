@@ -17,6 +17,6 @@ const variants: SubtitleVariants = {
 };
 ---
 
-<h2 class={cn("lg:whitespace-pre-line max-lg:text-pretty", variants[variant], className)} {...Astro.props}>
+<h2 class={cn("lg:whitespace-pre-line max-lg:text-pretty font-bold", variants[variant], className)} {...Astro.props}>
     <slot />
 </h2>

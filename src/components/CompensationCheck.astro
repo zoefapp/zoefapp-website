@@ -5,30 +5,29 @@ import Label from "./ui/Label.astro";
 import Button from "./ui/Button.astro";
 import SelectStation from "./ui/stations/SelectStation.astro";
 import DatePicker from "./ui/stations/DatePicker.astro";
+import Subtitle from "./ui/Subtitle.astro";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
-const eligibilityRoute = useRoutes(lang)('eligibilityCheck');
+const eligibilityRoute = useRoutes(lang)("eligibilityCheck");
 ---
 
 <section
     id="floating"
     class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
 >
-    <h2 class="text-skin-secondary text-[clamp(1.4rem,4vw,1.7rem)]" set:html={t("compensation.title")} />
+    <Subtitle variant="secondary" set:html={t("compensation.title")} />
     <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end" hx-disable action={eligibilityRoute()}>
         <div class="relative flex flex-col gap-2 w-full">
             <Label className="font-bold" for="departure">{t("compensation.departure")}</Label>
-            <SelectStation name="departure" id="departure" placeholder={t("compensation.departure.placeholder")}></SelectStation>
+            <SelectStation name="departure" id="departure" placeholder={t("compensation.departure.placeholder")} />
         </div>
         <div class="relative flex flex-col gap-2 w-full">
             <Label className="font-bold" for="arrival">{t("compensation.arrival")}</Label>
-            <SelectStation name="arrival" id="arrival" placeholder={t("compensation.arrival.placeholder")}></SelectStation>
+            <SelectStation name="arrival" id="arrival" placeholder={t("compensation.arrival.placeholder")} />
         </div>
         <div class="flex flex-col gap-2 w-full">
             <Label className="font-bold" for="date">{t("compensation.time")}</Label>
-            <DatePicker
-                name="date"
-                placeholder={t("compensation.time.placeholder")}    ></DatePicker>
+            <DatePicker name="date" placeholder={t("compensation.time.placeholder")} />
         </div>
         <Button type="submit" variant="orange" className="min-w-max w-1/2">{t("compensation.cta")}</Button>
     </form>

@@ -39,7 +39,7 @@ const navLinks = [
         url: routes("blogs"),
         class: "passenger",
         state: currentPage === routes("blogs") ? "active" : "inactive",
-    }
+    },
 ];
 ---
 
@@ -51,9 +51,11 @@ const navLinks = [
                 <li
                     data-current={link.state}
                     style={`${link.state === "active" && `background-color: hsla(var(--${link.class}))`}`}
-                    class={`px-6 py-5`}
+                    class={`py-5`}
                 >
-                    <a href={link.url}>{link.title}</a>
+                    <a class="px-6 py-5" href={link.url}>
+                        {link.title}
+                    </a>
                 </li>
             ))
         }

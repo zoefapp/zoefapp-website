@@ -1,0 +1,44 @@
+---
+// Utils
+import { translations, getLanguage } from "~/i18n/utils";
+import { getBlogUrl, getRecentBlogs } from "~/lib/blog";
+import { Image } from "astro:assets";
+const lang = getLanguage(Astro);
+// Images
+import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
+// Data
+const firstBlog = await getRecentBlogs(lang, 1);
+---
+
+<section class="w-full rounded-2xl bg-skin-gradient">
+    <section class="container flex flex-col gap-6 py-8">
+        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold">Blog Articles</h1>
+        <aside class="relative">
+            <Image
+                width={1400}
+                class="max-h-[75vh] object-cover rounded-xl"
+                src={BlogPlaceholderImage}
+                alt="Blog Placeholder Image"
+            />
+            <p class="absolute top-5 left-5 px-5 py-2 text-base font-semibold bg-white text-skin-secondary rounded-xl">
+                {firstBlog[0].data.tags.join(", ")}
+            </p>
+            <section
+                class="md:absolute bottom-5 left-5 bg-white rounded-xl max-md:mt-2 md:rounded-xl flex flex-col py-4 px-5"
+            >
+                <p class="opacity-50 text-[clamp(0.5rem,4vw,0.8rem)]">
+                    {
+                        firstBlog[0].data.date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        })
+                    }
+                </p>
+                <a class="font-bold text-[clamp(1.4rem,4vw,1.8rem)]" href={getBlogUrl(lang, firstBlog[0])}>
+                    {firstBlog[0].data.title}
+                </a>
+            </section>
+        </aside>
+    </section>
+</section>

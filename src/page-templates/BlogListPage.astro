@@ -1,17 +1,10 @@
 ---
+import BlogHero from "~/components/BlogHero.astro";
 import Layout from "~/layouts/Layout.astro";
-
-
 ---
 
 <Layout title="Welcome to Astro.">
-    <main>
-        <h1>BlogList</h1>
+    <main class="theme-passenger px-2 max-md:px-0">
+        <BlogHero />
     </main>
 </Layout>
-
-<style>
-    body {
-        background-color: white;
-    }
-</style>
