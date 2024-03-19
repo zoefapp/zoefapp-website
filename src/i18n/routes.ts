@@ -1,5 +1,5 @@
 import type { DEFAULT_LANG, SupportedLanguages } from "./constants";
-
+import { CheckClaimForm } from "~/components/ui/stations/_check";
 /**
  * please ensure to only use string or function as value type
  */
@@ -15,6 +15,7 @@ export interface IRoutes {
   blogs: string;
   blog: (slug: string) => string;
   blogTag: (tag: string) => string;
+  eligibilityCheck: (form?: CheckClaimForm) => string
 }
 
 type Routes = { [DEFAULT_LANG]: IRoutes } & {
@@ -33,6 +34,7 @@ export const routes: Routes = {
     'blogs': 'article',
     "blog": (slug) => `article/${slug}`,
     blogTag: (tag) => `article/@${tag}`,
+    eligibilityCheck: (form) => `check/` // ?departure=${form.departure}&arrival=${form.arrival}&date=${form.date.toISOString()}
   },
   nl: {
     'passenger': 'passagier',
