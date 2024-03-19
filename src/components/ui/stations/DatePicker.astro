@@ -10,7 +10,7 @@ let { name, placeholder, className, id } = Astro.props;
     import Alpine from 'alpinejs';
     Alpine.data("flatpicker", () => {
         let defaultDate = new Date(Date.now() - 3600 * 1000)
-        let flatpicker 
+        let flatpicker:any 
         return {
             formattedDate: defaultDate.toISOString(),
             init() {
@@ -24,7 +24,7 @@ let { name, placeholder, className, id } = Astro.props;
                 maxDate: new Date(Date.now() - 10 * 60 * 1000),
                 dateFormat: 'd-m-Y H:i',
                 defaultDate,
-                onChange: (dates) => {
+                onChange: (dates:Date[]) => {
                     let date = dates[0]
                     if (date) {
                         flatpicker.formattedDate = date.toISOString()
