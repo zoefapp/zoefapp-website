@@ -1,0 +1,26 @@
+---
+import { useRoutesAstro } from "~/i18n/utils";
+import Layout from "~/layouts/Layout.astro";
+import {CheckClaimForm} from "~/components/ui/stations/_check.ts";
+interface Props {}
+
+const {} = Astro.props;
+
+let input = CheckClaimForm.safeParse({
+    departure: Astro.url.searchParams.get("departure"),
+    arrival: Astro.url.searchParams.get("arrival"),
+    date: Astro.url.searchParams.get("date"),
+});
+
+const routes = useRoutesAstro(Astro);
+---
+
+<Layout title="Welcome to Astro.">
+    <main>
+        {input.success ? (
+            <h1>success</h1>
+        ) : (
+            <h2>failure: {input.error}</h2>
+        )}
+    </main>
+</Layout>
