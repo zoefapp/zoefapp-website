@@ -3,6 +3,7 @@ import { getLanguage, useTranslations } from "~/i18n/utils";
 import Input from "./ui/Input.astro";
 import Label from "./ui/Label.astro";
 import Button from "./ui/Button.astro";
+import SelectStation from "./ui/stations/SelectStation.astro";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 ---
@@ -12,10 +13,10 @@ const t = useTranslations(lang);
     class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
 >
     <h2 class="text-skin-secondary text-[clamp(1.4rem,4vw,1.7rem)]" set:html={t("compensation.title")} />
-    <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end">
+    <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end" hx-disable action="/test">
         <div class="relative flex flex-col gap-2 w-full">
             <Label className="font-bold" for="departure">{t("compensation.departure")}</Label>
-            <Input name="departure" id="departure" type="text" placeholder={t("compensation.departure.placeholder")} />
+            <SelectStation name="departure" placeholder={t("compensation.departure.placeholder")}></SelectStation>
         </div>
         <div class="relative flex flex-col gap-2 w-full">
             <Label className="font-bold" for="arrival">{t("compensation.arrival")}</Label>

@@ -1,0 +1,113 @@
+---
+let { name, placeholder } = Astro.props;
+---
+
+<script>
+    import Alpine from "alpinejs";
+    
+    import unidecode from 'unidecode'
+    import { Trie } from "~/lib/trie.ts";
+
+    interface Station {
+        name: string,
+        id: string
+    }
+
+    let trie = new Trie();
+    fetch("/resources/stations.nl.trie.json")
+        .then((res) => res.json())
+        .then((data) => new Trie(data))
+        .then((newTrie) => {
+            trie = newTrie;
+        });
+
+    Alpine.data("stationSelector", () => ({
+        station: null,
+        open: false,
+        searchInput: "",
+        selectedIndex: -1,
+        matches: [],
+        search(input:string) {
+            this.open = true;
+            this.selectedIndex = 0;
+
+            input = input.trim()
+            input = unidecode(input.toLowerCase())
+
+            if (!input || input.length < 2) {
+                this.matches = []
+                return 
+            }
+
+            this.matches = trie
+                .search(input.split(' '))
+                .filter((r) => {
+                    return r.values.find((v) => v > 0);
+                })
+                .map((match) => {
+                    console.log(match)
+                    return {
+                        id: match.values.find((v) => v > 0),
+                        name: match.key,
+                    };
+                });
+        },
+        nextResult() {
+            if (this.selectedIndex < this.matches.length - 1) {
+                this.selectedIndex = this.selectedIndex + 1;
+            }
+        },
+        previousResult() {
+            if (this.selectedIndex > 0) {
+                this.selectedIndex = this.selectedIndex - 1;
+            }
+        },
+        select(station: Station) {
+            if (station) {
+                this.station = station;
+                this.searchInput = station.name;
+                this.selectedIndex = this.matches.indexOf(station);
+            }
+            this.open = false;
+        },
+        onblur() {
+            this.open = false;
+            if (!this.station) {
+                this.searchInput = "";
+            } else {
+                this.searchInput = this.station.name;
+            }
+        }
+    }) as any );
+</script>
+
+<div class="stationSelector" x-data="stationSelector">
+    <input type="hidden" name={name} :value="station?.id" />
+    <input
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        @focus="search($event.target.value)"
+        @keydown.down.prevent="nextResult()"
+        @keydown.up.prevent="previousResult()"
+        @keydown.enter.prevent="select(matches[selectedIndex])"
+        @input="search($event.target.value)"
+        x-model="searchInput"
+        @blur="onblur()"
+        class="border min-w-0 rounded-md px-3 py-1.5"
+        placeholder={placeholder}
+    />
+    <div class="absolute z-10 bg-white border rounded-md shadow-md" x-show="open && matches.length > 0">
+        <ul>
+            <template x-for="(result, index) in matches" :key="result.id">
+                <li
+                    class="p-2 hover:bg-gray-100"
+                    :class="{'bg-gray-100': selectedIndex == index}"
+                    @mousedown="select(result)"
+                    x-text="result.name"
+                >
+                </li>
+            </template>
+        </ul>
+    </div>
+</div>
