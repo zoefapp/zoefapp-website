@@ -26,7 +26,10 @@ export default {
                 werkgever: "hsla(var(--werkgever))",
                 "ticket-vendor": "hsla(var(--ticket-vendor))",
                 ticketverkoper: "hsla(var(--ticketverkoper))",
-                blog: "hsla(var(--blog))",
+                article: "hsla(var(--blog))",
+                artikel: "hsla(var(--blog))",
+                aboutUs: "hsla(var(--about-us))",
+                overUs: "hsla(var(--over-us))",
                 "avatar-border": "hsla(var(--avatar-border))",
                 skin: {
                     base: "hsla(var(--color-text-base))",

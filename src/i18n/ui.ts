@@ -14,6 +14,8 @@ export interface UiTranslations {
     "nav.link.about": string;
     "nav.link.blog": string;
     "nav.cta": string;
+    "nav.contact.description": string;
+    "nav.contact.cta": string;
     "passenger.title": string;
     "passenger.description": string;
     "employer.title": string;
@@ -84,6 +86,8 @@ export const ui: UiProperties = {
         "nav.link.about": "About Us",
         "nav.link.blog": "Blog",
         "nav.cta": "Check for Compensation",
+        "nav.contact.description": "Do you think you are entitled to a claim?",
+        "nav.contact.cta": "Contact Us",
         "passenger.title": "Train delayed? \n Get your money back!",
         "passenger.description": "The platform for claiming compensation for train delays in public transport",
         "employer.title": "Train delayed? \n Get your money back!",
@@ -151,6 +155,8 @@ export const ui: UiProperties = {
         "nav.link.about": "Over Ons",
         "nav.link.blog": "Blog",
         "nav.cta": "Check voor vergoeding",
+        "nav.contact.description": "Denk je dat je recht hebt op een claim?",
+        "nav.contact.cta": "Claim aanvragen",
         "passenger.title": "Trein vertraagd? \n Vraag je geld terug!",
         "passenger.description": "De tool om compensatie aan te vragen voor vertraagde OV-treinreizen",
         "employer.title": "Trein vertraagd? \n Vraag je geld terug!",

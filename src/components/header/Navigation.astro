@@ -4,11 +4,12 @@ import { routes as Routes } from "~/i18n/routes";
 import { languages } from "~/i18n/ui";
 import { getLanguage, useRoutes, useTranslations } from "~/i18n/utils";
 import Dropdown from "../ui/Dropdown.astro";
+import Subtitle from "../ui/Subtitle.astro";
+import Button from "../ui/Button.astro";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
 const currentPage = Astro.url.pathname.replace(/\/$/, "");
-
 const navLinks = [
     {
         title: t("nav.link.passenger"),
@@ -60,41 +61,90 @@ const navLinks = [
             ))
         }
     </ul>
-    <!-- Mobile Nav -->
-    <Dropdown className="block md:hidden ml-auto" buttonId="mobilenav-picker" menuId="mobilenav-menu">
-        <div slot="trigger" class="bg-brand p-1 text-passenger rounded-md">
-            <span class="sr-only">Menu Toggle</span>
-            <Icon aria-hidden name="lucide:align-justify" class="w-6 h-6" />
-        </div>
-        <ul slot="menu">
-            <li class="px-12 py-2 w-full">
-                <a class="whitespace-nowrap" href={navLinks[navLinks.length - 1].url}>
-                    {navLinks[navLinks.length - 1].title}
-                </a>
-            </li>
-            <li class="px-12 py-2 w-full">
-                <a class="whitespace-nowrap" href={navLinks[navLinks.length - 2].url}>
-                    {navLinks[navLinks.length - 2].title}
-                </a>
-            </li>
-            {
-                Object.entries(languages).map(([lang, label]) => (
-                    <li class="flex gap-2 px-12 py-2 w-full">
-                        {lang === "en" ? (
-                            <Icon name="openmoji:flag-united-kingdom" class="w-6 h-6" />
+    <div class="ml-auto flex gap-2 items-center md:hidden">
+        <Dropdown buttonId="language-picker" menuId="language-menu">
+            <Fragment slot="trigger">
+                <p class="flex items-center gap-2 font-bold">
+                    {lang.toUpperCase()}
+                    {
+                        lang === "en" ? (
+                            <Icon name="openmoji:flag-united-kingdom" class="w-8 h-8" />
                         ) : (
-                            <Icon name="openmoji:flag-netherlands" class="w-6 h-6" />
-                        )}
-                        <a href={`/${lang + "/" + Routes[lang].passenger}`}>{label}</a>
-                    </li>
-                ))
-            }
-        </ul>
-    </Dropdown>
+                            <Icon name="openmoji:flag-netherlands" class="w-8 h-8" />
+                        )
+                    }
+                </p>
+                <svg class="-mr-1 h-7 w-7" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"
+                    >
+                    </path>
+                </svg>
+            </Fragment>
+            <Fragment slot="menu">
+                {
+                    Object.entries(languages).map(([lang, label]) => (
+                        <li class="px-5 py-1.5">
+                            <a href={`/${lang + "/" + Routes[lang].passenger}`}>{label}</a>
+                        </li>
+                    ))
+                }
+            </Fragment>
+        </Dropdown>
+        <!-- Mobile Nav -->
+        <button id="mobilenav" class="bg-brand p-1 text-passenger rounded-md">
+            <span class="sr-only">Menu Toggle</span>
+            <Icon
+                aria-hidden
+                name="lucide:align-justify"
+                class="w-8 h-8"
+                style={`color: hsla(var(--${currentPage.split("/")[2]}));`}
+            />
+        </button>
+        <div
+            data-state="closed"
+            id="mobilenav-menu"
+            style={`background-color: hsla(var(--${currentPage.split("/")[2]}));`}
+            class={`absolute py-12 fill-mode-backwards data-[state=closed]:opacity-0 data-[state=open]:opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out-100 data-[state=open]:fade-in-0 data-[state=closed]:fade-out duration-500 inset-x-0 bottom-0 top-16 z-30 data-[state=closed]:pointer-events-none`}
+        >
+            <ul class="flex flex-col gap-4">
+                {
+                    navLinks.map((link) => (
+                        <li class="px-12 py-2 w-full">
+                            <a class="flex justify-between items-center whitespace-nowrap" href={link.url}>
+                                <Subtitle variant="default" className="font-bold">
+                                    {link.title}
+                                </Subtitle>
+                                <Icon name="lucide:move-right" class="w-6 h-6" />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+            <div class="flex flex-col items-center gap-4 mt-10">
+                <p>{t("nav.contact.description")}</p>
+                <Button variant="orange">{t("nav.contact.cta")}</Button>
+            </div>
+        </div>
+    </div>
 </nav>
 
-<!-- Dropdown Script -->
-<script itemscope is:inline>
+<!-- Menu Script -->
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("mobilenav");
+        const menu = document.getElementById("mobilenav-menu");
+        button.addEventListener("click", () => {
+            const menuState = menu.getAttribute("data-state");
+            document.body.classList.toggle("overflow-hidden");
+            menu.setAttribute("data-state", menuState === "open" ? "closed" : "open");
+        });
+    });
+</script>
+<!-- <script itemscope is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const button = document.getElementById("mobilenav-picker");
         const menu = document.getElementById("mobilenav-menu");
@@ -107,4 +157,4 @@ const navLinks = [
             }
         });
     });
-</script>
+</script> -->

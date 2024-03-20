@@ -7,7 +7,7 @@ import { languages } from "../i18n/ui";
 const lang = getLanguage(Astro);
 ---
 
-<Dropdown buttonId="language-picker" menuId="language-menu">
+<Dropdown buttonId="language-picker-btn" menuId="language-picker-menu">
     <Fragment slot="trigger">
         <p class="flex items-center gap-2 font-bold">
             {lang.toUpperCase()}
@@ -38,18 +38,3 @@ const lang = getLanguage(Astro);
         }
     </Fragment>
 </Dropdown>
-
-<script itemscope is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("language-picker");
-        const menu = document.getElementById("language-menu");
-
-        button.addEventListener("click", () => menu.classList.toggle("hidden"));
-
-        document.addEventListener("click", (event) => {
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.add("hidden");
-            }
-        });
-    });
-</script>

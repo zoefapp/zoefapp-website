@@ -13,12 +13,15 @@
         --werkgever: 188, 56%, 92%;
         --ticket-vendor: 13, 58%, 94%;
         --ticketverkoper: 13, 58%, 94%;
-        --blog: 97, 56%, 84%;
+        --article: 97, 56%, 84%;
+        --artikel: 97, 56%, 84%;
+        --about-us: var(--passenger);
+        --over-us: var(--passenger);
         --compensation-height: 215px;
         --bg-passenger: 97, 56%, 84%;
         --bg-employer: 188, 56%, 92%;
         --bg-ticket-vendor: 13, 58%, 94%;
-        --avatar-border:102, 51%, 82%;
+        --avatar-border: 102, 51%, 82%;
     }
 
     .theme-passenger {

@@ -39,7 +39,7 @@ const dataState = isCleared ? "true" : "false";
 ---
 
 <header
-    class={`container flex flex-col gap-4 h-28 md:h-16 md:items-center justify-center md:justify-between font-semibold bg-${currentPage} md:bg-transparent`}
+    class={`container flex flex-col gap-4 ${isCleared ? "h-32" : "h-16"} md:h-16 md:items-center justify-center md:justify-between font-semibold bg-${isCleared ? currentPage : "passenger"} md:bg-transparent`}
 >
     <aside class="flex w-full justify-between">
         <div class="flex w-full gap-12 items-center">
@@ -52,15 +52,15 @@ const dataState = isCleared ? "true" : "false";
         </div>
     </aside>
     <aside data-state={dataState} class="flex gap-2 items-center md:hidden data-[state=false]:hidden">
-        <p class="font-bold">{t("nav.dropdown.text")}</p>
-        <Dropdown buttonId="dropdown-btn" menuId="dropdown-menu">
+        <p class="font-bold text-lg">{t("nav.dropdown.text")}</p>
+        <Dropdown buttonId="dropdown-btnn" menuId="dropdown-menuu">
             <div
                 slot="trigger"
                 style={`color: hsla(var(--${currentPage}));`}
-                class="flex items-center px-2 text-base gap-2 bg-brand p-1 rounded-md"
+                class="flex items-center px-2 text-lg gap-2 bg-brand p-1 rounded-md"
             >
                 <p>{currentPage.charAt(0).toUpperCase() + currentPage.slice(1).split("-").join(" ")}</p>
-                <Icon aria-hidden name="lucide:chevron-down" class="w-4 h-4" />
+                <Icon aria-hidden name="lucide:chevron-down" class="w-5 h-5" />
             </div>
             <ul slot="menu">
                 {
@@ -77,18 +77,3 @@ const dataState = isCleared ? "true" : "false";
         </Dropdown>
     </aside>
 </header>
-
-<script itemscope is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("dropdown-btn");
-        const menu = document.getElementById("dropdown-menu");
-
-        button.addEventListener("click", () => menu.classList.toggle("hidden"));
-
-        document.addEventListener("click", (event) => {
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.add("hidden");
-            }
-        });
-    });
-</script>
