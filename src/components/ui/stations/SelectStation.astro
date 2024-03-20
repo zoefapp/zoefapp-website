@@ -101,6 +101,7 @@ import { Icon } from "astro-icon/components";
             @keydown.up.prevent="previousResult()"
             @keydown.enter.prevent="select(matches[selectedIndex])"
             @input="search($event.target.value)"
+            required
             x-model="searchInput"
             @blur="onblur()"
             class="absolute inset-0 w-full p-4 pl-10 border rounded-md"
