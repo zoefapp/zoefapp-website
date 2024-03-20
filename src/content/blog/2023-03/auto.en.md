@@ -1,6 +1,6 @@
 ---
-id: Alles Wat Je Moet Weten over Treinvertraging Compensatie
-title: Everything You Need to Know about Train Delay Compensation
+id: "Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten"
+title: "Compensation for Train Delays: Everything You Need to Know"
 author: Sander de Groot
 date: 2023-08-31T10:00:00.000Z
 headerImage: header-blog-alles-wat-je-moet-weten-over-treinvertraging-compensatie.jpg
