@@ -1,6 +1,7 @@
 ---
 let { name, placeholder, className, id } = Astro.props;
 import { cn } from "~/lib/utils";
+import { Icon } from "astro-icon/components";
 ---
 
 <script>
@@ -37,7 +38,7 @@ import { cn } from "~/lib/utils";
 
                     input = input.trim();
                     input = unidecode(input.toLowerCase());
-
+                    
                     if (!input || input.length < 2) {
                         this.matches = [];
                         return;
@@ -88,21 +89,24 @@ import { cn } from "~/lib/utils";
 
 <div class={cn("stationSelector", className)} x-data="stationSelector">
     <input type="hidden" name={name} :value="station?.id" />
-    <input
-        type="text"
-        autocomplete="off"
-        id={id}
-        spellcheck="false"
-        @focus="search($event.target.value)"
-        @keydown.down.prevent="nextResult()"
-        @keydown.up.prevent="previousResult()"
-        @keydown.enter.prevent="select(matches[selectedIndex])"
-        @input="search($event.target.value)"
-        x-model="searchInput"
-        @blur="onblur()"
-        class="w-full px-3 py-2 border rounded-md"
-        placeholder={placeholder}
-    />
+    <div class="relative w-full h-11">
+        <Icon class="absolute top-1/2 left-2 text-gray-400 -translate-y-1/2 w-5 h-5 z-10" name="lucide:train-front" />
+        <input
+            type="text"
+            autocomplete="off"
+            id={id}
+            spellcheck="false"
+            @focus="search($event.target.value)"
+            @keydown.down.prevent="nextResult()"
+            @keydown.up.prevent="previousResult()"
+            @keydown.enter.prevent="select(matches[selectedIndex])"
+            @input="search($event.target.value)"
+            x-model="searchInput"
+            @blur="onblur()"
+            class="absolute inset-0 w-full p-4 pl-10 border rounded-md"
+            placeholder={placeholder}
+        />
+    </div>
     <div class="absolute z-10 w-full bg-white border rounded-md shadow-md" x-show="open && matches.length > 0">
         <ul>
             <template x-for="(result, index) in matches" :key="result.id">
