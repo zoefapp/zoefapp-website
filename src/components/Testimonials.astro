@@ -12,11 +12,12 @@ import CarouselItem from "./ui/carousel/CarouselItem.astro";
 // Icons
 import StarIcon from "~/assets/images/icons/star-icon.png";
 import Subtitle from "./ui/Subtitle.astro";
+import EuroIconGreen from "~/assets/images/icons/euro-icon-green.png";
+import { Icon } from "astro-icon/components";
 ---
 
 <section class="container bg-gray-50 rounded-2xl p-5 md:px-10 lg:px-20 py-[60px]">
-    <Subtitle variant="secondary" set:html={t("testimonials.title")} />
-    <Carousel id="testimonials">
+    <Carousel id="testimonials" title={t("testimonials.title")}>
         {
             testimonials.map((item: Testimonial) => (
                 <CarouselItem id="testimonials">
@@ -26,7 +27,7 @@ import Subtitle from "./ui/Subtitle.astro";
                             alt="Avatar"
                             width={110}
                             height={110}
-                            class="rounded-md ring-1 ring-green-200"
+                            class="rounded-xl ring-1 ring-avatar-border p-1"
                             loading={"lazy"}
                             decoding={"async"}
                             format={"avif"}
@@ -39,7 +40,7 @@ import Subtitle from "./ui/Subtitle.astro";
                                     <Image
                                         width={32}
                                         height={32}
-                                        class="w-4 h-4 lg:w-8 lg:h-8"
+                                        class="w-4 h-4 lg:w-6 lg:h-6"
                                         format="avif"
                                         loading="lazy"
                                         decoding="async"
@@ -51,9 +52,16 @@ import Subtitle from "./ui/Subtitle.astro";
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-5">
-                        <p>{item.testimonial}</p>
-                    </div>
+                    <aside class="flex flex-col gap-5">
+                        <p>“{item.testimonial}”</p>
+                        <div class="flex items-center gap-2 mt-10">
+                            <Image src={EuroIconGreen} alt="Euro Icon" width={28} />
+                            <div class="flex items-center gap-2">
+                                <p class="text-2xl font-extrabold">2524</p>
+                                <p> terug gestort met Zoef</p>
+                            </div>
+                        </div>
+                    </aside>
                 </CarouselItem>
             ))
         }

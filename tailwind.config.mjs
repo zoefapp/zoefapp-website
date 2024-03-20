@@ -27,6 +27,7 @@ export default {
                 "ticket-vendor": "hsla(var(--ticket-vendor))",
                 ticketverkoper: "hsla(var(--ticketverkoper))",
                 blog: "hsla(var(--blog))",
+                "avatar-border": "hsla(var(--avatar-border))",
                 skin: {
                     base: "hsla(var(--color-text-base))",
                     secondary: "hsla(var(--color-text-secondary))",

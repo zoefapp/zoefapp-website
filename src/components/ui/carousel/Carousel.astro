@@ -1,34 +1,39 @@
 ---
 interface Props {
     id: string;
+    title: string;
     swipeable?: boolean;
 }
 // Components
 import { Icon } from "astro-icon/components";
+import Subtitle from "../Subtitle.astro";
 // Data
-const { id, swipeable = true } = Astro.props;
+const { id, swipeable = true, title } = Astro.props;
 ---
 
-<carousel-container data-name={id} class="flex flex-col gap-6 py-12">
+<carousel-container data-name={id} class="flex flex-col gap-8 py-12">
     <!-- Desktop Controls -->
-    <div style={`${swipeable ? "" : "display: none!important;"}`} class="ml-auto gap-4 hidden md:flex">
-        <button class={`${id}-prev`} aria-label="Previous">
-            <span class="sr-only">Previous</span>
-            <Icon
-                aria-hidden
-                class="ring ring-orange-light bg-orange-light rounded-full w-11 h-11 p-2"
-                name="lucide:move-left"
-            />
-        </button>
-        <button class={`${id}-next`} aria-label="Next">
-            <span class="sr-only">Next</span>
-            <Icon
-                aria-hidden
-                class="ring ring-orange-light bg-orange-light rounded-full w-11 h-11 p-2"
-                name="lucide:move-right"
-            />
-        </button>
-    </div>
+    <section class="flex items-center justify-between">
+        <Subtitle variant="secondary">{title}</Subtitle>
+        <div style={`${swipeable ? "" : "display: none!important;"}`} class="ml-auto gap-4 hidden md:flex">
+            <button class={`${id}-prev`} aria-label="Previous">
+                <span class="sr-only">Previous</span>
+                <Icon
+                    aria-hidden
+                    class="ring ring-orange-light bg-orange-light rounded-full w-11 h-11 p-2"
+                    name="lucide:move-left"
+                />
+            </button>
+            <button class={`${id}-next`} aria-label="Next">
+                <span class="sr-only">Next</span>
+                <Icon
+                    aria-hidden
+                    class="ring ring-orange-light bg-orange-light rounded-full w-11 h-11 p-2"
+                    name="lucide:move-right"
+                />
+            </button>
+        </div>
+    </section>
     <!-- Carousel -->
     <section class={`${id}-container overflow-hidden w-full`}>
         <aside class={`${id}-content flex gap-4 transition-transform duration-500 ease-in`} id={id}>
