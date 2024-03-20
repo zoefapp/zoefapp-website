@@ -42,6 +42,9 @@ export default {
             height: {
                 compensation: "var(--compensation-height)",
             },
+            boxShadow: {
+                custom: "0px 4px 35px 0px hsla(0, 0%, 0%, 0.15);",
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],

@@ -13,7 +13,7 @@ const eligibilityRoute = useRoutes(lang)("eligibilityCheck");
 
 <section
     id="floating"
-    class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-md shadow-black/20 md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
+    class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-custom md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
 >
     <Subtitle variant="secondary" set:html={t("compensation.title")} />
     <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end" hx-disable action={eligibilityRoute()}>
