@@ -25,7 +25,7 @@ const blogs = await getRecentBlogs(lang, 3);
             {
                 blogs.map((blog) => (
                     <a href={getBlogUrl(lang, blog)}>
-                        <section class="flex flex-col gap-4 w-full max-w-xl mx-auto">
+                        <section class="flex flex-col gap-4 w-full max-w-xl mx-auto group">
                             <div class="relative ">
                                 <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-[#66AE6E] rounded-[12px]">
                                     {blog.data.tags.join(", ")}
@@ -49,7 +49,9 @@ const blogs = await getRecentBlogs(lang, 3);
                                         day: "numeric",
                                     })}
                                 </p>
-                                <p class="font-bold text-lg text-pretty hover:text-orange-light">{blog.data.title}</p>
+                                <p class="font-bold text-lg text-pretty group-hover:text-orange-light transition-colors ">
+                                    {blog.data.title}
+                                </p>
                             </div>
                         </section>
                     </a>
