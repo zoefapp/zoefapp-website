@@ -72,6 +72,11 @@ const navLinks = [
                     {navLinks[navLinks.length - 1].title}
                 </a>
             </li>
+            <li class="px-12 py-2 w-full">
+                <a class="whitespace-nowrap" href={navLinks[navLinks.length - 2].url}>
+                    {navLinks[navLinks.length - 2].title}
+                </a>
+            </li>
             {
                 Object.entries(languages).map(([lang, label]) => (
                     <li class="flex gap-2 px-12 py-2 w-full">

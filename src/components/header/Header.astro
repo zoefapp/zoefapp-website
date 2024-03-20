@@ -11,7 +11,7 @@ import Logo from "./Logo.astro";
 import Navigation from "./Navigation.astro";
 import Dropdown from "../ui/Dropdown.astro";
 import { Icon } from "astro-icon/components";
-const currentPage = Astro.url.pathname.split("/")[2];
+const currentPage = Astro.url.pathname.replace(/\/$/, "").split("/")[2];
 // Data
 const navLinks = [
     {
@@ -33,6 +33,9 @@ const navLinks = [
 // Tailwind doesn't support dynamic classes, so this is a workaround
 // Don't delete the variable, it is used
 const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-ticket-vendor bg-ticketverkoper";
+const clearedCurrentPage = Astro.url.pathname.replace(/\/$/, "");
+const isCleared = navLinks.some((link) => link.url === clearedCurrentPage);
+const dataState = isCleared ? "true" : "false";
 ---
 
 <header
@@ -48,7 +51,7 @@ const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-t
             <CTAButton />
         </div>
     </aside>
-    <aside class="flex gap-2 items-center md:hidden">
+    <aside data-state={dataState} class="flex gap-2 items-center md:hidden data-[state=false]:hidden">
         <p class="font-bold">{t("nav.dropdown.text")}</p>
         <Dropdown buttonId="dropdown-btn" menuId="dropdown-menu">
             <div
