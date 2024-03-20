@@ -12,11 +12,11 @@ type SubtitleVariants = {
     [key in "default" | "secondary"]: string;
 };
 const variants: SubtitleVariants = {
-    default: "text-[clamp(1.3rem,2vw,1.5rem)] text-black",
-    secondary: "text-[clamp(22px,4vw,26px)] text-skin-secondary",
+    default: "text-[clamp(1.3rem,2vw,1.5rem)] text-black font-semibold",
+    secondary: "text-[clamp(22px,4vw,26px)] text-skin-secondary font-bold",
 };
 ---
 
-<h2 class={cn("lg:whitespace-pre-line max-lg:text-pretty font-bold", variants[variant], className)} {...Astro.props}>
+<h2 class={cn("lg:whitespace-pre-line max-lg:text-pretty", variants[variant], className)} {...Astro.props}>
     <slot />
 </h2>
