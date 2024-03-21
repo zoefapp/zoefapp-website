@@ -1,10 +1,24 @@
 ---
+import { Icon } from "astro-icon/components";
 import BlogHero from "~/components/BlogHero.astro";
+import BlogsGrid from "~/components/BlogsGrid.astro";
 import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
     <main class="theme-passenger px-2 max-md:px-0">
         <BlogHero />
+        <BlogsGrid />
+        <div class="container flex justify-center items-center pt-12 pb-20 gap-2">
+            <button>
+                <Icon name="lucide:chevron-left" class="w-6 h-6 text-skin-gradient" />
+            </button>
+            <div class="flex items-center gap-1">
+                {Array.from({ length: 5 }, (_, i) => <button class="p-2 font-semibold">{i + 1}</button>)}
+            </div>
+            <button>
+                <Icon name="lucide:chevron-right" class="w-6 h-6 text-skin-gradient" />
+            </button>
+        </div>
     </main>
 </Layout>

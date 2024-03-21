@@ -95,7 +95,13 @@ export async function getRecentBlogs(language: SupportedLanguages, limit: number
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .slice(0, limit)
 }
-
+export async function getBlogsLength(language: SupportedLanguages): Promise<number> {
+    let result = await getCollection("blog", entry => {
+        return entry.id.endsWith(`.${language}.md`)
+    })
+    return result.length
+    
+}
 export function getBlogUrl(language: SupportedLanguages, entry: BlogContentEntry) {
     let slug = getPathSlug(getContentSlug(entry, language), entry)
     return useRoutes(language)('blog')(slug)

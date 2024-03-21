@@ -1,6 +1,6 @@
 ---
 // Utils
-import { translations, getLanguage } from "~/i18n/utils";
+import { getLanguage } from "~/i18n/utils";
 import { getBlogUrl, getRecentBlogs } from "~/lib/blog";
 import { Image } from "astro:assets";
 const lang = getLanguage(Astro);
@@ -10,21 +10,25 @@ import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 const firstBlog = await getRecentBlogs(lang, 1);
 ---
 
-<section class="w-full rounded-b-2xl md:rounded-t-2xl bg-skin-gradient">
+<section class="relative w-full">
     <section class="container flex flex-col gap-6 py-8">
         <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold">Blog Articles</h1>
         <aside class="relative">
             <Image
-                width={1400}
-                class="max-h-[75vh] object-cover rounded-xl"
+                class="aspect-video object-cover rounded-lg"
                 src={BlogPlaceholderImage}
                 alt="Blog Placeholder Image"
+                format="webp"
+                decoding="async"
+                quality={80}
+                loading="eager"
+                fetchpriority="high"
             />
-            <p class="absolute top-5 left-5 px-5 py-2 text-base font-semibold bg-white text-skin-secondary rounded-xl">
+            <p class="absolute top-5 left-5 p-3 text-base font-semibold bg-white text-skin-secondary rounded-xl">
                 {firstBlog[0].data.tags.join(", ")}
             </p>
             <section
-                class="md:absolute bottom-5 left-5 bg-white rounded-xl max-md:mt-2 md:rounded-xl flex flex-col py-4 px-5"
+                class="md:absolute bottom-5 left-5 bg-white rounded-xl max-md:mt-2 md:rounded-2xl flex flex-col p-6"
             >
                 <p class="opacity-50 text-[clamp(0.5rem,4vw,0.8rem)]">
                     {
@@ -41,4 +45,8 @@ const firstBlog = await getRecentBlogs(lang, 1);
             </section>
         </aside>
     </section>
+    <div
+        class="absolute inset-x-0 top-0 bottom-[50%] md:bottom-[30%] lg:bottom-[10%] bg-skin-gradient rounded-b-3xl md:rounded-t-3xl -z-10"
+    >
+    </div>
 </section>
