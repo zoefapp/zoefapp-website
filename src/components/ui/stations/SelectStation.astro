@@ -88,7 +88,7 @@ import { Icon } from "astro-icon/components";
 </script>
 
 <div class={cn("stationSelector", className)} x-data="stationSelector">
-    <input type="hidden" name={name} :value="station?.id" />
+    <input type="hidden" name={name} :value="'tl:' + station?.id" />
     <div class="relative w-full h-11">
         <Icon class="absolute top-1/2 left-2 text-gray-400 -translate-y-1/2 w-5 h-5 z-10" name="lucide:train-front" />
         <input

@@ -4,6 +4,10 @@
     "compilerOptions": {
         "baseUrl": ".",
         "verbatimModuleSyntax": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": false,
         "paths": {
             "~/*": ["src/*"]
         },
