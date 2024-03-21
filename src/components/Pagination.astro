@@ -8,8 +8,8 @@ const { page } = Astro.props;
 ---
 
 <div class="container flex justify-center items-center pt-12 pb-20 gap-2">
-    <button onclick="previousPage()">
-        <Icon name="lucide:chevron-left" class="w-6 h-6 text-skin-gradient" />
+    <button aria-label="Previous" onclick="previousPage()">
+        <Icon aria-hidden name="lucide:chevron-left" class="w-6 h-6 text-skin-gradient" />
     </button>
     <div class="flex items-center gap-1">
         {
@@ -20,8 +20,8 @@ const { page } = Astro.props;
             ))
         }
     </div>
-    <button onclick="nextPage()">
-        <Icon name="lucide:chevron-right" class="w-6 h-6 text-skin-gradient" />
+    <button aria-label="Next" onclick="nextPage()">
+        <Icon aria-hidden name="lucide:chevron-right" class="w-6 h-6 text-skin-gradient" />
     </button>
 </div>
 
