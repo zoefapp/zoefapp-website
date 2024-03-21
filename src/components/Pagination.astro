@@ -1,0 +1,69 @@
+---
+interface Props {
+    page: string | number | null;
+}
+import { Icon } from "astro-icon/components";
+import { cn } from "~/lib/utils";
+const { page } = Astro.props;
+---
+
+<div class="container flex justify-center items-center pt-12 pb-20 gap-2">
+    <button onclick="previousPage()">
+        <Icon name="lucide:chevron-left" class="w-6 h-6 text-skin-gradient" />
+    </button>
+    <div class="flex items-center gap-1">
+        {
+            Array.from({ length: 5 }, (_, i) => (
+                <button data-page={i + 1} class={cn("nums p-2 font-semibold", i + 1 !== Number(page) && "opacity-50")}>
+                    {i + 1}
+                </button>
+            ))
+        }
+    </div>
+    <button onclick="nextPage()">
+        <Icon name="lucide:chevron-right" class="w-6 h-6 text-skin-gradient" />
+    </button>
+</div>
+
+<script>
+    window.onload = function () {
+        const url = new URL(window.location.href);
+        const currentPage = url.searchParams.get("page");
+        if (currentPage) return;
+        url.searchParams.set("page", "1");
+        history.pushState({}, "", url.toString());
+    };
+</script>
+
+<script is:inline>
+    function previousPage() {
+        const url = new URL(window.location.href);
+        const currentPage = url.searchParams.get("page");
+        if (currentPage === "1") return;
+        const previousPage = Number(currentPage) - 1;
+        url.searchParams.set("page", previousPage.toString());
+        window.location.href = url.toString();
+    }
+    function nextPage() {
+        const url = new URL(window.location.href);
+        const currentPage = url.searchParams.get("page");
+        console.log(currentPage);
+        if (currentPage === "5") return;
+        const nextPage = Number(currentPage) + 1;
+        url.searchParams.set("page", nextPage.toString());
+        window.location.href = url.toString();
+    }
+
+    function specificPage(page) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.location.href = url.toString();
+    }
+
+    const paginationsButtons = document.querySelectorAll(".nums");
+    paginationsButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            specificPage(button.innerHTML.trim());
+        });
+    });
+</script>

@@ -1,7 +1,11 @@
 ---
+interface Props {
+    blogs: BlogContentEntry[];
+}
+const { blogs } = Astro.props;
 // Utils
 import { getLanguage } from "~/i18n/utils";
-import { getRecentBlogs, getBlogsLength } from "~/lib/blog";
+import { getRecentBlogs, getBlogsLength, getBlogsWithPagination, type BlogContentEntry } from "~/lib/blog";
 import type { SupportedLanguages } from "~/i18n/constants";
 import { Icon } from "astro-icon/components";
 // Components
@@ -10,7 +14,6 @@ import BlogCard from "./BlogCard.astro";
 import Dropdown from "./ui/Dropdown.astro";
 // Data
 const lang = getLanguage(Astro);
-const blogs = await getRecentBlogs(lang, 10);
 const length = getBlogsLength(lang);
 
 const translate: { [key in SupportedLanguages]: string } = {
@@ -62,7 +65,10 @@ const categories = [
         >
             {
                 categories.map((category) => (
-                    <Button variant="filter" className={category.selected ? "bg-orange-light text-white" : "" + " categoryBtn"}>
+                    <Button
+                        variant="filter"
+                        className={category.selected ? "bg-orange-light text-white" : "" + " categoryBtn"}
+                    >
                         {category.name}
                     </Button>
                 ))
