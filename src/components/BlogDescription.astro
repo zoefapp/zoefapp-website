@@ -1,0 +1,10 @@
+---
+interface Props {
+    description: string;
+}
+const { description } = Astro.props;
+---
+
+<p class="lg:w-2/6 mt-8 mb-14 text-pretty font-opensans leading-relaxed">
+    {description}
+</p>

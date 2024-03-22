@@ -1,0 +1,42 @@
+---
+interface Props {
+    blog: BlogContentEntry;
+}
+// Utils
+import type { BlogContentEntry } from "~/lib/blog";
+import { Image } from "astro:assets";
+import BlogCategory from "./BlogCategory.astro";
+import BlogDate from "./BlogDate.astro";
+import BlogDescription from "./BlogDescription.astro";
+import BlogTitle from "./BlogTitle.astro";
+// Images
+const { blog } = Astro.props;
+const blogImage = import(`../content/blog/${blog.data.headerImage?.split(".")[0]}.jpg`);
+---
+
+<section class="relative w-full">
+    <section class="container flex flex-col gap-6 pt-24">
+        <BlogTitle title={blog.data.title} />
+        <div class="flex gap-4 items-center">
+            {blog.data.tags.map((tag) => <BlogCategory tag={tag} />)}
+            <BlogDate date={blog.data.date} />
+        </div>
+        <BlogDescription description={blog.data.metaDescription!} />
+        <aside>
+            <Image
+                class="aspect-video object-cover rounded-lg"
+                src={blogImage}
+                alt="Blog Placeholder Image"
+                format="webp"
+                decoding="async"
+                quality={80}
+                loading="eager"
+                fetchpriority="high"
+            />
+        </aside>
+    </section>
+    <div
+        class="absolute inset-x-0 top-0 bottom-[10%] md:bottom-[30%] lg:bottom-[30%] bg-skin-gradient rounded-b-3xl md:rounded-t-3xl -z-10"
+    >
+    </div>
+</section>

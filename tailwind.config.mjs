@@ -5,6 +5,7 @@ export default {
         extend: {
             fontFamily: {
                 mulish: ["Mulish", "sans-serif"],
+                opensans: ["Open Sans", "sans-serif"],
             },
             screens: {
                 "2xl": "1400px",

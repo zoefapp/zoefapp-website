@@ -1,0 +1,28 @@
+---
+import type { BlogContentEntry } from "~/lib/blog";
+
+interface Props {
+    blog: BlogContentEntry;
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+
+<section id="content" class="content px-2 2xl:px-0 lg:w-[calc(1400px/2)] mt-14 mx-auto flex flex-col gap-2">
+    <Content />
+</section>
+<style is:inline>
+    .content h1,
+    .content h2 {
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .content h2 {
+        margin-top: 56px;
+    }
+    p {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.9;
+    }
+</style>

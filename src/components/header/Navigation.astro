@@ -39,7 +39,7 @@ const navLinks = [
         title: t("nav.link.blog"),
         url: routes("blogs"),
         class: "passenger",
-        state: currentPage === routes("blogs") ? "active" : "inactive",
+        state: currentPage.includes(routes("blogs")) ? "active" : "inactive",
     },
 ];
 ---
