@@ -1,11 +1,11 @@
 ---
-let { name, placeholder, className, id } = Astro.props;
+let { name, placeholder, id } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
 <script>
-    import flatpicker from "flatpickr";
-    import { Dutch } from "flatpickr/dist/l10n/nl.js";
+    import "flatpickr";
+    // import { Dutch } from "flatpickr/dist/l10n/nl.js";
     import "flatpickr/dist/themes/dark.css";
 
     import Alpine from "alpinejs";

@@ -3,33 +3,29 @@
 import { getLanguage, useTranslations } from "~/i18n/utils";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
-import { getFaqs } from "~/lib/faq";
-import { getTestimonials } from "~/lib/testimonial";
-import { getRecentBlogs } from "~/lib/blog";
 // Layout
 import Layout from "~/layouts/Layout.astro";
 // Images
 import TicketVendorBackgroundImage from "~/assets/images/backgrounds/ticket-vendor-bg.png";
-import BannerBackgroundImage from "~/assets/images/store-banner.png";
 import FaqsRedImage from "~/assets/images/faqs-red.png";
 // Icons
+import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
+import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
 import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
 import StarIcon from "~/assets/images/icons/star.png";
-import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
-import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
 // Components
-import Title from "~/components/ui/Title.astro";
-import Subtitle from "~/components/ui/Subtitle.astro";
-import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
-import Hero from "~/components/Hero.astro";
 import Accomplisments from "~/components/Accomplisments.astro";
-import HowZoefWorks from "~/components/HowZoefWorks.astro";
-import Testimonials from "~/components/Testimonials.astro";
-import Faqs from "~/components/Faqs.astro";
-import Blogs from "~/components/Blogs.astro";
 import StoreBanner from "~/components/Banner.astro";
+import Blogs from "~/components/Blogs.astro";
 import Brands from "~/components/Brands.astro";
+import Faqs from "~/components/Faqs.astro";
+import Hero from "~/components/Hero.astro";
+import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Stats from "~/components/Stats.astro";
+import Testimonials from "~/components/Testimonials.astro";
+import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
+import Subtitle from "~/components/ui/Subtitle.astro";
+import Title from "~/components/ui/Title.astro";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
 
 const TrustPilotData = {
@@ -104,9 +100,6 @@ const HowZoefWorksData = {
         },
     ],
 };
-const faqs = await getFaqs("passenger", lang);
-const testimonials = await getTestimonials("passenger", lang);
-const blogs = await getRecentBlogs(lang, 3);
 ---
 
 <Layout title="Welcome to Astro.">

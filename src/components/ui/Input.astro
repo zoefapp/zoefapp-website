@@ -1,9 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { cn } from "~/lib/utils";
 interface Props extends Omit<HTMLAttributes<"input">, "class"> {
     className?: string;
 }
-import { cn } from "~/lib/utils";
 const { className, ...props } = Astro.props;
 ---
 

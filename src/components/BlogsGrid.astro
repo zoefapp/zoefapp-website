@@ -4,13 +4,13 @@ interface Props {
 }
 const { blogs } = Astro.props;
 // Utils
-import { getLanguage } from "~/i18n/utils";
-import { getRecentBlogs, getBlogsLength, getBlogsWithPagination, type BlogContentEntry } from "~/lib/blog";
-import type { SupportedLanguages } from "~/i18n/constants";
 import { Icon } from "astro-icon/components";
+import type { SupportedLanguages } from "~/i18n/constants";
+import { getLanguage } from "~/i18n/utils";
+import { getBlogsLength, type BlogContentEntry } from "~/lib/blog";
 // Components
-import Button from "./ui/Button.astro";
 import BlogCard from "./BlogCard.astro";
+import Button from "./ui/Button.astro";
 import Dropdown from "./ui/Dropdown.astro";
 // Data
 const lang = getLanguage(Astro);

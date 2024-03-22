@@ -1,19 +1,17 @@
 ---
 import { getTestimonials, type Testimonial } from "~/lib/testimonial";
 // Utils
-import { getLanguage, translations, useTranslations } from "~/i18n/utils";
+import { Image } from "astro:assets";
+import { getLanguage, useTranslations } from "~/i18n/utils";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const testimonials = await getTestimonials("passenger", lang);
-import { Image } from "astro:assets";
 // Components
 import Carousel from "./ui/carousel/Carousel.astro";
 import CarouselItem from "./ui/carousel/CarouselItem.astro";
 // Icons
-import StarIcon from "~/assets/images/icons/star-icon.png";
-import Subtitle from "./ui/Subtitle.astro";
 import EuroIconGreen from "~/assets/images/icons/euro-icon-green.png";
-import { Icon } from "astro-icon/components";
+import StarIcon from "~/assets/images/icons/star-icon.png";
 ---
 
 <section class="container bg-gray-50 rounded-2xl p-8 my-[60px]">

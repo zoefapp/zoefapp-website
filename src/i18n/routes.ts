@@ -34,7 +34,7 @@ export const routes: Routes = {
     'blogs': 'article',
     "blog": (slug) => `article/${slug}`,
     blogTag: (tag) => `article/@${tag}`,
-    eligibilityCheck: (form) => `check/` // ?departure=${form.departure}&arrival=${form.arrival}&date=${form.date.toISOString()}
+    eligibilityCheck: (_form) => `check/` // ?departure=${form.departure}&arrival=${form.arrival}&date=${form.date.toISOString()}
   },
   nl: {
     'passenger': 'passagier',

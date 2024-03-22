@@ -5,12 +5,12 @@ const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
 // Components
+import { Icon } from "astro-icon/components";
 import LanguagePicker from "../LanguagePicker.astro";
+import Dropdown from "../ui/Dropdown.astro";
 import CTAButton from "./CTAButton.astro";
 import Logo from "./Logo.astro";
 import Navigation from "./Navigation.astro";
-import Dropdown from "../ui/Dropdown.astro";
-import { Icon } from "astro-icon/components";
 const currentPage = Astro.url.pathname.replace(/\/$/, "").split("/")[2];
 // Data
 const navLinks = [
@@ -33,6 +33,7 @@ const navLinks = [
 // Tailwind doesn't support dynamic classes, so this is a workaround
 // Don't delete the variable, it is used
 const possibleClasses = "bg-passenger bg-passagier bg-employer bg-werkgever bg-ticket-vendor bg-ticketverkoper";
+possibleClasses;
 const clearedCurrentPage = Astro.url.pathname.replace(/\/$/, "");
 const isCleared = navLinks.some((link) => link.url === clearedCurrentPage);
 const dataState = isCleared ? "true" : "false";

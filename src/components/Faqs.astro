@@ -3,10 +3,10 @@ interface Props {
     image: ImageMetadata;
 }
 const {  image } = Astro.props;
-import { getFaqs, type FAQ } from "~/lib/faq";
+import { getFaqs } from "~/lib/faq";
 // Utils
-import { translations, getLanguage, useTranslations } from "~/i18n/utils";
 import { Image } from "astro:assets";
+import { getLanguage, translations } from "~/i18n/utils";
 const t = translations(Astro);
 const lang = getLanguage(Astro);
 // Components
