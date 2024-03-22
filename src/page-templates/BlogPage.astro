@@ -3,7 +3,6 @@ import type { BlogContentEntry } from "~/lib/blog";
 import Layout from "~/layouts/Layout.astro";
 import IndividualBlogHero from "~/components/IndividualBlogHero.astro";
 import BlogContent from "~/components/BlogContent.astro";
-import Banner from "~/components/Banner.astro";
 import Blogs from "~/components/Blogs.astro";
 
 interface Props {
@@ -17,7 +16,6 @@ const { blog } = Astro.props;
     <main class="theme-passenger px-2 max-md:px-0">
         <IndividualBlogHero blog={blog} />
         <BlogContent blog={blog} />
-        <Banner type="store" />
         <div class="container h-[1px] bg-[#CDCDCD] w-full my-[60px]"></div>
         <Blogs />
     </main>

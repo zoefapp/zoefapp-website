@@ -17,12 +17,13 @@ const firstBlog = await getRecentBlogs(lang, 1);
             <Image
                 class="aspect-video object-cover rounded-lg"
                 src={BlogPlaceholderImage}
+                sizes="(max-width: 1400px) 70vw, 1400px"
+                widths={[500, 900, 1400]}
                 alt="Blog Placeholder Image"
                 format="webp"
                 decoding="async"
                 quality={80}
                 loading="eager"
-                fetchpriority="high"
             />
             <p class="absolute top-5 left-5 p-3 text-base font-semibold bg-white text-skin-secondary rounded-xl">
                 {firstBlog[0].data.tags.join(", ")}
