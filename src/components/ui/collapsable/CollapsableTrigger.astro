@@ -1,0 +1,23 @@
+---
+interface Props {
+    className?: string;
+    showIcon?: boolean;
+}
+const { className, showIcon = true } = Astro.props;
+import { Icon } from "astro-icon/components";
+import { cn } from "~/lib/utils";
+---
+
+<button @click="open = !open" class={cn("", className)}>
+    <slot />
+    {
+        showIcon && (
+            <Icon
+                name="lucide:chevron-down"
+                size={18}
+                x-bind:class="{'rotate-180': open}"
+                class="w-6 h-6 shrink-0 transition-transform duration-300"
+            />
+        )
+    }
+</button>

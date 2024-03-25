@@ -1,0 +1,80 @@
+---
+interface Props {
+    type: "default" | "secondary";
+}
+const { type } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+{
+    type === "secondary" && (
+        <section class="flex items-center w-full">
+            <div class="relative flex w-full h-[2px] bg-gray-200">
+                <div class="relative group h-3 w-3 ring-2 ring-skin-gradient hover:ring-skin-secondary rounded-full -translate-y-1/2 bg-skin-gradient">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-skin-gradient rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-skin-gradient p-2 rounded-xl left-1/2 -translate-x-1/2">
+                        <Icon name="lucide:train-front" class="w-4 h-4" />
+                        <p class="font-opensans whitespace-nowrap">Maastricht Centraal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-between w-full h-[2px] border border-dashed border-red-500">
+                <div class="relative group h-3 w-3 ring-2 ring-red-500 hover:ring-red-800 rounded-full -translate-y-1/2 bg-red-500">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-red-500 rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-red-500 text-white p-2 rounded-lg left-1/2 -translate-x-1/2">
+                        <p class="font-opensans whitespace-nowrap">+3o min vertraging</p>
+                    </div>
+                </div>
+                <div class="relative group h-3 w-3 ring-2 ring-red-500 hover:ring-red-800 rounded-full -translate-y-1/2 bg-red-500 z-10">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-red-500 rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-red-500 text-white p-2 rounded-lg left-1/2 -translate-x-1/2">
+                        <p class="font-opensans whitespace-nowrap">+3o min vertraging</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex w-full h-[2px] bg-gray-200">
+                <div class="relative group h-3 w-3 ring-2 ring-skin-gradient hover:ring-skin-secondary rounded-full ml-auto -translate-y-1/2 bg-skin-gradient">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-skin-gradient rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-skin-gradient p-2 rounded-xl left-1/2 -translate-x-1/2">
+                        <Icon name="lucide:train-front" class="w-4 h-4" />
+                        <p class="font-opensans whitespace-nowrap">Den Haag Centraal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+{
+    type === "default" && (
+        <section class="flex items-center w-full">
+            <div class="relative flex w-full h-[2px] bg-gray-200">
+                <div class="relative group h-3 w-3 ring-2 ring-skin-gradient hover:ring-skin-secondary rounded-full -translate-y-1/2 bg-skin-gradient">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-skin-gradient rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-skin-gradient p-2 rounded-xl left-1/2 -translate-x-1/2">
+                        <Icon name="lucide:train-front" class="w-4 h-4" />
+                        <p class="font-opensans whitespace-nowrap">Maastricht Centraal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-between w-full h-[2px] border">
+                <div class="relative group h-3 w-3 ring-2 ring-skin-gradient hover:ring-skin-secondary rounded-full -translate-y-1/2 bg-skin-gradient">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-skin-gradient rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-skin-gradient p-2 rounded-lg left-1/2 -translate-x-1/2">
+                        <Icon name="lucide:train-front" class="w-4 h-4" />
+                        <p class="font-opensans whitespace-nowrap">Amsterdam Lelylaan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex w-full h-[2px] bg-gray-200">
+                <div class="relative group h-3 w-3 ring-2 ring-skin-gradient hover:ring-skin-secondary rounded-full ml-auto -translate-y-1/2 bg-skin-gradient">
+                    <div class="absolute hidden group-hover:block top-5 w-0 h-0 border-l-[10px] border-l-transparent border-t-[10px] border-t-skin-gradient rotate-180 border-r-[10px] border-r-transparent left-1/2 -translate-x-1/2" />
+                    <div class="absolute hidden group-hover:flex items-center gap-2 top-7 bg-skin-gradient p-2 rounded-xl left-1/2 -translate-x-1/2">
+                        <Icon name="lucide:train-front" class="w-4 h-4" />
+                        <p class="font-opensans whitespace-nowrap">Den Haag Centraal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
