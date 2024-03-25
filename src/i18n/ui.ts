@@ -70,6 +70,20 @@ export interface UiTranslations {
     "footer.privacy": string;
     "footer.terms": string;
     "footer.cookies": string;
+    "progress.hero.title": string;
+    "progress.hero.description": string;
+    "proggres.planned": string;
+    "proggres.delayed": string;
+    "proggres.delayed_description": string;
+    "station.departure": string;
+    "station.arrival": string;
+    "station.estimated_arrival": string;
+    "traveltime.normal": string;
+    "traveltime.delayed": string;
+    additional_transfers: string;
+    standart_transfers: string;
+    standard_travel_time: string;
+    additional_travel_time: string;
 }
 
 // require the default properties' translations but not the other languages as they will fall back to the default translation
@@ -146,6 +160,20 @@ export const ui: UiProperties = {
         "footer.privacy": "Privacy Policy",
         "footer.terms": "Terms of Service",
         "footer.cookies": "Cookies",
+        "progress.hero.title": "You may be entitled to a refund!",
+        "progress.hero.description": "Estimated delay: ",
+        "proggres.planned": "Planned trip",
+        "proggres.delayed": "Delayed travel",
+        "proggres.delayed_description": "From our calculation we estimate that you took the following route:",
+        "station.departure": "Departure station",
+        "station.arrival": "Desired destination",
+        "station.estimated_arrival": "Estimated arrival",
+        "traveltime.normal": "Normal travel time: ",
+        "traveltime.delayed": "Delayed travel time: ",
+        additional_transfers: "Additional transfers",
+        standart_transfers: "Standard transfers",
+        standard_travel_time: "Standard travel time",
+        additional_travel_time: "Additional travel time",
     },
     nl: {
         "nav.dropdown.text": "Ik ben:",
@@ -217,5 +245,19 @@ export const ui: UiProperties = {
         "footer.privacy": "Privacybeleid",
         "footer.terms": "Algemene voorwaarden",
         "footer.cookies": "Cookies",
+        "progress.hero.title": "Jij hebt mogelijk recht op teruggave!",
+        "progress.hero.description": "Geschatte vertraging: ",
+        "proggres.planned": "Geplande reis",
+        "proggres.delayed": "Vertraagde reis",
+        "proggres.delayed_description": "Uit onze berekening schatten wij dat je de volgende route nam:",
+        "station.departure": "Vertrek station",
+        "station.arrival": "Gewenste bestemming",
+        "station.estimated_arrival": "Mijn exit ",
+        "traveltime.normal": "Normale reistijd: ",
+        "traveltime.delayed": "Vertraagde reistijd: ",
+        additional_transfers: "Extra overstap",
+        standart_transfers: "Standaard overstap",
+        standard_travel_time: "Standaard reistijd",
+        additional_travel_time: "Extra reistijd",
     },
 } as const;
