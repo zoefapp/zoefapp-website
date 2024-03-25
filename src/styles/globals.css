@@ -17,6 +17,7 @@
         --artikel: 97, 56%, 84%;
         --about-us: var(--passenger);
         --over-us: var(--passenger);
+        --ticket-progress: 97, 56%, 84%;
         --compensation-height: 215px;
         --bg-passenger: 97, 56%, 84%;
         --bg-employer: 188, 56%, 92%;
@@ -56,6 +57,7 @@
         font-display: swap;
         font-weight: 300 800;
     }
+
     .loader {
         display: none;
     }
