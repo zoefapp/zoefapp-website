@@ -145,7 +145,6 @@ const { id, swipeable = true, title } = Astro.props;
                 carousel.addEventListener(
                     "touchstart",
                     (e) => {
-                        document.body.classList.add("overflow-hidden");
                         touchStartX = e.touches[0].clientX;
                     },
                     { passive: true }
@@ -154,7 +153,6 @@ const { id, swipeable = true, title } = Astro.props;
                 carousel.addEventListener("touchend", (e) => {
                     touchEndX = e.changedTouches[0].clientX;
                     handleSwipe(name, touchStartX, touchEndX);
-                    document.body.classList.remove("overflow-hidden");
                 });
             }
         }
