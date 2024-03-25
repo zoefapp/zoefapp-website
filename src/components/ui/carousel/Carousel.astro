@@ -128,7 +128,7 @@ const { id, swipeable = true, title } = Astro.props;
             }
 
             function handleSwipe(id: string, touchStartX: number, touchEndX: number) {
-                const swipeThreshold = 150; //Adjust this value based on your preference
+                const swipeThreshold = 100; //Adjust this value based on your preference
 
                 const deltaX = touchEndX - touchStartX;
 
