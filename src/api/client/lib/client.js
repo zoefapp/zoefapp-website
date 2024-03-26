@@ -7,4 +7,3 @@ export class ClientFetchHttpService {
         return fetch(req, { ...this.defaultOptions, ...options });
     }
 }
-//# sourceMappingURL=client.js.map

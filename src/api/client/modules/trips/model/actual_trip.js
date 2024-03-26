@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { UtcDate } from "../../../lib/date";
 import { StationReference } from "../../stations/domain/stations";
-import { IntermediaryStop, RouteLeg, TripRoute } from "~/modules/trips/model/route";
+import { IntermediaryStop, RouteLeg, TripRoute } from "../../../modules/trips/model/route";
 export const ActualIntermediaryStop = IntermediaryStop.extend({
     actualArrivalTime: UtcDate.nullable(),
     actualDepartureTime: UtcDate.nullable(),
@@ -21,4 +21,3 @@ export const ActualTrip = TripRoute.extend({
     actualArrivalTime: UtcDate.nullable().default(null),
     legs: z.array(ActualLeg).default([]),
 });
-//# sourceMappingURL=actual_trip.js.map

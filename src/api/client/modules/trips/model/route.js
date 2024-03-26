@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { StationReference } from "../../stations/domain/stations";
-import { UtcDate } from "~/lib/date";
+import { UtcDate } from "../../../lib/date";
 export const IntermediaryStop = z.object({
     station: StationReference.nullable().default(null),
     plannedArrivalTime: UtcDate.nullable().default(null),
@@ -23,4 +23,3 @@ export const TripRoute = z.object({
     plannedArrivalTime: UtcDate.nullable().default(null),
     legs: z.array(RouteLeg).default([]),
 });
-//# sourceMappingURL=route.js.map

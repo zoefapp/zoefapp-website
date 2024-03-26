@@ -1,4 +1,4 @@
-import { ClientHttpService } from '~/lib/client';
+import { ClientHttpService } from '../../lib/client';
 import { FromRouteCommand, TripApi } from './api';
 import { ActualTrip } from './model/actual_trip';
 export declare class HttpTripClient implements TripApi {

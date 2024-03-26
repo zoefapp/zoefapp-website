@@ -5,6 +5,7 @@ import Button from "./ui/Button.astro";
 import SelectStation from "./ui/stations/SelectStation.astro";
 import DatePicker from "./ui/stations/DatePicker.astro";
 import Subtitle from "./ui/Subtitle.astro";
+import Loading from "./ui/Loading.astro";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const eligibilityRoute = useRoutes(lang)("eligibilityCheck");
@@ -15,7 +16,7 @@ const eligibilityRoute = useRoutes(lang)("eligibilityCheck");
     class="absolute left-1/2 w-[90%] z-10 rounded-2xl gap-10 transform -translate-x-1/2 container flex flex-col justify-center p-5 md:p-10 min-h-compensation bg-white shadow-custom md:top-[calc(100%-(var(--compensation-height)/4))] lg:top-[calc(100%-(var(--compensation-height)/4))] xl:top-[calc(100%-(var(--compensation-height)/4))] top-[calc(100%-50px)]"
 >
     <Subtitle variant="secondary" set:html={t("compensation.title")} />
-    <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end" hx-disable action={eligibilityRoute()}>
+    <form class="flex flex-col lg:flex-row gap-4 items-start lg:items-end" hx-trigger="submit" hx-target="#compensation-check-result" hx-get="/partial/check" action={eligibilityRoute()}>
         <div class="relative flex flex-col gap-2 w-full">
             <Label className="font-bold" for="departure">{t("compensation.departure")}</Label>
             <SelectStation name="departure" id="departure" placeholder={t("compensation.departure.placeholder")} />
@@ -29,5 +30,8 @@ const eligibilityRoute = useRoutes(lang)("eligibilityCheck");
             <DatePicker name="date" placeholder={t("compensation.time.placeholder")} />
         </div>
         <Button type="submit" variant="orange" className="min-w-max w-1/2">{t("compensation.cta")}</Button>
+        <Loading></Loading>
     </form>
+    <div id="compensation-check-result"></div>
+
 </section>

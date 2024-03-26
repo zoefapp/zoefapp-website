@@ -122,4 +122,3 @@ export const Station = z.object({
     uicCode: z.string().optional(),
     longName: z.string(),
 });
-//# sourceMappingURL=stations.js.map

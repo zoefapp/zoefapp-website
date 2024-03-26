@@ -61,4 +61,3 @@ export const UtcDate = z.union([
     }
     throw new Error("Invalid date type argument");
 });
-//# sourceMappingURL=date.js.map

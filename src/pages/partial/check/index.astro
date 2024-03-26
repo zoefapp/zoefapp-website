@@ -1,0 +1,36 @@
+---
+export const partial = true;
+export const prerender = false;
+import { HttpEligibilityClient } from "~/api/client/client";
+import { ClientFetchHttpService } from '~/api/client/lib/client';
+import { Eligibilty, EligiblityCheck } from "~/api/client/modules/eligibility/model";
+
+let input = EligiblityCheck.safeParse({
+    departure: Astro.url.searchParams.get("departure"),
+    destination: Astro.url.searchParams.get("arrival"),
+    departureTime: Astro.url.searchParams.get("date"),
+});
+
+let trips: any[] = []
+
+
+let eligible : Eligibilty | null = null
+
+if (input.success) {
+    let baseUrl = import.meta.env.ZOEF_API_BASEURL
+
+    let api = new HttpEligibilityClient(baseUrl, new ClientFetchHttpService())
+
+    trips = await api.determineEligibility(input.data)
+    eligible ??= trips.find(t => t.eligible.outcome === 'probably')?.eligible
+    eligible ??= trips.find(t => t.eligible.outcome === 'maybe')?.eligible
+    eligible ??= trips.find(t => t.eligible.outcome === 'probably_not')?.eligible 
+    eligible ??= {
+        outcome: 'undetermined'
+    }
+}
+
+
+---
+
+<p>{JSON.stringify(eligible)}</p>

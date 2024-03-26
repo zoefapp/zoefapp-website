@@ -1,12 +1,12 @@
-export class HttpTripClient {
+export class HttpEligibilityClient {
     baseUrl;
     httpService;
     constructor(baseUrl, httpService) {
         this.baseUrl = baseUrl;
         this.httpService = httpService;
     }
-    async tripFromRouteV1(cmd) {
-        let result = await this.httpService.request(this.baseUrl + '/trips-fromRouteV1', {
+    async determineEligibility(cmd) {
+        let result = await this.httpService.request(this.baseUrl + '/eligibility-ondeparture', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
