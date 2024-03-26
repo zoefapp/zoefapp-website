@@ -10,6 +10,16 @@ const lang = getLanguage(Astro);
 const t = useTranslations(lang);
 const routes = useRoutes(lang);
 const currentPage = Astro.url.pathname.replace(/\/$/, "");
+
+const backgroundColor = () => {
+    if (currentPage === routes("employer")) {
+        return "bg-employer";
+    } else if (currentPage === routes("ticket-vendor")) {
+        return "bg-ticket-vendor";
+    } else {
+        return "bg-passenger";
+    }
+};
 const navLinks = [
     {
         title: t("nav.link.passenger"),
@@ -106,7 +116,7 @@ const navLinks = [
         <div
             data-state="closed"
             id="mobilenav-menu"
-            style={`background-color: hsla(var(--${currentPage.split("/")[2]}));`}
+            style={`background-color: hsla(var(--${backgroundColor()}));`}
             class={`absolute py-12 fill-mode-backwards data-[state=closed]:opacity-0 data-[state=open]:opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out-100 data-[state=open]:fade-in-0 data-[state=closed]:fade-out duration-500 inset-x-0 bottom-0 top-16 z-30 data-[state=closed]:pointer-events-none`}
         >
             <ul class="flex flex-col gap-4">

@@ -1,0 +1,76 @@
+---
+import Layout from "~/layouts/Layout.astro";
+// Images
+import AboutUsBackgroundImage from "~/assets/images/backgrounds/about-us-bg.png";
+// Utils
+import { Image } from "astro:assets";
+import Banner from "~/components/Banner.astro";
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="theme-passenger">
+        <section class="relative w-full">
+            <section class="container flex flex-col gap-6 pt-24 text-skin-base">
+                <h1 class="text-center text-[20px] font-bold">About Us</h1>
+                <h2
+                    class="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold md:w-1/2 text-balance md:mx-auto leading-tight"
+                >
+                    Velas livepeer fantom harmony siacoin. Tezos IOTA polygon.
+                </h2>
+                <aside class="mt-14">
+                    <Image
+                        class="aspect-video object-cover rounded-lg"
+                        src={AboutUsBackgroundImage}
+                        alt="Blog Placeholder Image"
+                        format="webp"
+                        decoding="async"
+                        quality={80}
+                        loading="eager"
+                        fetchpriority="high"
+                    />
+                </aside>
+            </section>
+            <div
+                class="absolute inset-x-0 top-0 bottom-[10%] md:bottom-[30%] lg:bottom-[30%] bg-skin-gradient rounded-b-3xl md:rounded-t-3xl -z-10"
+            >
+            </div>
+        </section>
+        <section class="container md:w-[calc(1400px/2.5)] mt-14 flex flex-col text-skin-base">
+            <aside class="flex flex-col gap-2">
+                <h2 class="font-bold text-[20px]">Nexo neo chiliz holo maker terra</h2>
+                <p class="font-opensans text-sm leading-relaxed">
+                    Celsius ox helium THETA IOTA zcash shiba-inu. Loopring USD tezos algorand hive. Celsius THETA quant
+                    kusama quant kava tezos stacks. Amp audius polymath neo hedera revain eCash hedera nexo zcash.
+                    Bancor polygon revain cardano livepeer. Holo amp BitTorrent monero secret polkadot polkadot amp
+                    hive. Kadena klaytn enjin serum monero gala.
+                </p>
+                <p class="font-opensans text-sm leading-relaxed">
+                    Amp digibyte bancor celo loopring. Loopring monero XRP horizen terra stacks cosmos decentraland dash
+                    loopring. Neo loopring monero bitcoin audius XRP gala amp holo. Telcoin terra polygon ankr helium
+                    celsius. Waves amp celo kadena loopring elrond loopring filecoin. Shiba-inu IOTA bitcoin secret dash
+                    ICON amp. Siacoin zcash klaytn polygon terra revain. Algorand amp velas enjin aave polkadot. Helium
+                    ox kava terra holo stellar ankr loopring chiliz. Celo stacks siacoin terra harmony shiba-inu. Serum
+                    enjin cosmos ipsum dai terra ankr kava.
+                </p>
+            </aside>
+            <aside class="flex flex-col gap-2 mt-14">
+                <h2 class="font-bold text-[20px]">Livepeer stacks</h2>
+                <p class="font-opensans text-sm leading-relaxed">
+                    Enjin hive secret avalanche polymath stacks BitTorrent golem polkadot litecoin. ICON telcoin
+                    loopring klaytn cosmos. Bancor audius uniswap terraUSD ipsum dai terraUSD cardano neo. Celo stellar
+                    bancor stellar quant uniswap decentraland solana velas ox. PancakeSwap siacoin flow serum litecoin
+                    zcash. Chainlink ankr kadena amp neo. Dai ipsum zcash elrond USD filecoin stacks. Golem stellar
+                    uniswap dai klaytn filecoin. Celo holo chainlink zcash polkadot quant. Helium filecoin tether
+                    loopring flow tether. Quant telcoin livepeer eCash fantom chiliz filecoin. Monero USD TRON dogecoin
+                    enjin zcash XRP. Crypto nexo helium monero golem shiba-inu arweave hedera elrond THETA.
+                </p>
+                <p class="font-opensans text-sm leading-relaxed">
+                    Fantom celsius decentraland klaytn stellar. Chiliz terraUSD uniswap revain filecoin ren vechain WAX.
+                    Fantom cardano siacoin elrond uniswap amp IOTA algorand. Bitcoin hedera digibyte WAX flow. Kava ankr
+                    cosmos helium EOS. ICON shiba-inu terra gala chainlink horizen. Zcash digibyte.
+                </p>
+            </aside>
+        </section>
+        <Banner type="store" />
+    </main>
+</Layout>
