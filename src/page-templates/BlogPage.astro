@@ -12,7 +12,14 @@ interface Props {
 const { blog } = Astro.props;
 ---
 
-<Layout title={blog.data.id}>
+<Layout 
+    title={blog.data.title} 
+    description={blog.data.metaDescription} 
+    author={blog.data.author}
+    ogImage={blog.data.metaOgImage}
+    ogTitle={blog.data.metaOgTitle}
+    ogType="article"
+    >
     <main class="theme-passenger px-2 max-md:px-0">
         <IndividualBlogHero blog={blog} />
         <BlogContent blog={blog} />

@@ -57,6 +57,10 @@ export interface UiTranslations {
     "signup.description": string;
     "footer.newsletter.title": string;
     "footer.newsletter.consent": string;
+    "newsletter.subscribe": string,
+    "newsletter.email.placeholder": string,
+    "newsletter.error": string,
+    "newsletter.subscribed": string,
     "footer.link.product.title": string;
     "footer.link.product.first": string;
     "footer.link.product.second": string;
@@ -144,6 +148,10 @@ export const ui: UiProperties = {
             "Are you familiar with our handy app? With this app, you can easily file your claim for a train delay. Don't wait any longer and download it right away!",
         "signup.title": "Sign Up",
         "signup.description": "Get access to all of our features and get your compensation in minutes!",
+        "newsletter.subscribe": "Subscribe",
+        "newsletter.email.placeholder": "Enter your email",
+        "newsletter.error": "An error occurred. Please try again.",
+        "newsletter.subscribed": "Great! We've sent you an email, please check your inbox to confirm your subscription.",
         "footer.newsletter.title": "Subscribe to our newsletter to stay updated on features and releases.",
         "footer.newsletter.consent":
             "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.",
@@ -232,6 +240,10 @@ export const ui: UiProperties = {
             "Schrijf je in voor onze nieuwsbrief om op de hoogte te blijven van features en releases.",
         "footer.newsletter.consent":
             "Door u te abonneren gaat u akkoord met ons Privacybeleid en geeft u toestemming om updates van ons bedrijf te ontvangen.",
+        "newsletter.subscribe": "Meld aan",
+        "newsletter.email.placeholder": "Vul je email in",
+        "newsletter.error": "Er is een fout opgetreden. Probeer het later opnieuw.",
+        "newsletter.subscribed": "Top! We hebben je een email gestuurd, check je inbox om je inschrijving te bevestigen.",
         "footer.link.product.title": "Het product voor:",
         "footer.link.product.first": "Passagiers",
         "footer.link.product.second": "Bedrijven",

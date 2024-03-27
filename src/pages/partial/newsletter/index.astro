@@ -2,7 +2,7 @@
 export const partial = true;
 export const prerender = false;
 import NewsletterForm from "./_form.astro";
-import { getLanguage } from "~/i18n/utils";
+import { getLanguage, useTranslations } from "~/i18n/utils";
 
 /*
  Verification steps:
@@ -30,10 +30,9 @@ if (Astro.request.method === "POST") {
     status = "form";
 }
 
-console.log(Astro.request.headers);
-console.log(getLanguage(Astro));
+const t = useTranslations(getLanguage(Astro))
 ---
 
-{status == "subscribed" && <p>Thank you for subscribing. We have sent an to confirm to {email}</p>}
-{status == "error" && <p>Failed to subscribe</p>}
+{status == "subscribed" && <p>{t('newsletter.subscribed')}</p>}
+{status == "error" && <p>{t('newsletter.error')}</p>}
 {status == "form" && <NewsletterForm />}

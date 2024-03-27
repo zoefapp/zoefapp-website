@@ -7,21 +7,26 @@ import Footer from "~/components/footer/Footer.astro";
 interface Props {
     title: string;
     description?: string;
+    keywords?: string;
+    author?: string;
+    ogTitle?: string;
+    ogType?: string;
+    ogUrl?: string;
+    ogImage?: string;
 }
 
 const lang = getLanguage(Astro);
 
-const { title, description } = Astro.props;
+const props = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Zoef.app" />
-        <meta name="lang" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="lang" content={lang} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
         <script>
             import "htmx.org";
@@ -29,8 +34,15 @@ const { title, description } = Astro.props;
             import AOS from "aos";
             AOS.init()
         </script>
-        <title>{title} | {lang.toUpperCase()}</title>
-        <meta name="description" content={description} />
+        <title>Zoef.app {props.title && `- ${props.title}`}</title>
+        <meta name="title" content={props.title && `- ${props.title}`} />
+        <meta name="description" content={props.description} />
+        {props.keywords && <meta name="keywords" content={props.keywords} />}
+        {props.author && <meta name="author" content={props.author} />}
+        {props.ogTitle && <meta property="og:title" content={props.ogTitle} />}
+        {props.ogType && <meta property="og:type" content={props.ogType} />}
+        {props.ogUrl && <meta property="og:url" content={props.ogUrl} />}
+        {props.ogImage && <meta property="og:image" content={props.ogImage} />}
     </head>
     <body class="font-mulish" hx-headers={'{"x-site-lang":"' + lang + '"}'}>
         <Header />

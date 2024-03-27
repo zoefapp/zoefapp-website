@@ -1,9 +1,16 @@
 ---
 import Input from "~/components/ui/Input.astro";
 import Button from "~/components/ui/Button.astro";
+import { getLanguage, useTranslations } from "~/i18n/utils";
+
+export const partial = true;
+export const prerender = false;
+
+const t = useTranslations(getLanguage(Astro))
+
 ---
 
 <form hx-post="/partial/newsletter" hx-swap="outerHTML" class="flex flex-col sm:flex-row gap-4">
-    <Input placeholder="Enter your email" required type="email" name="email" value="a@b.c"/>
-    <Button type="submit" variant="orange">Subscribe</Button>
+    <Input placeholder={t('newsletter.email.placeholder')} required type="email" name="email" />
+    <Button type="submit" variant="orange">{t('newsletter.subscribe')}</Button>
 </form>

@@ -2,13 +2,19 @@
 import Input from "~/components/ui/Input.astro";
 import Button from "~/components/ui/Button.astro";
 import { Icon } from "astro-icon/components";
+import { getLanguage, useTranslations } from "~/i18n/utils";
+
+export const partial = true;
+export const prerender = false;
+
+const t = useTranslations(getLanguage(Astro))
 ---
 
 <Fragment>
     <form hx-post="/partial/signup" hx-indicator="#loader" hx-swap="outerHTML" class="flex flex-col sm:flex-row gap-4">
         <Input placeholder="Enter your email" required type="email" name="email" value="a@b.c" className="lg:w-[70%]" />
         <Button type="submit" variant="orange" className="flex gap-3 items-center">
-            <p>Sign Up</p>
+            <p>{t('signup.title')}</p>
             <Icon name="lucide:loader-circle" class="w-5 h-5 animate-spin loader" id="loader" />
         </Button>
     </form>
