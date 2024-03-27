@@ -6,19 +6,29 @@ interface Props {
 }
 
 const { blog } = Astro.props;
-const { Content } = await blog.render();
+const { Content, headings } = await blog.render();
+
+const toc = headings.filter((heading) => heading.depth == 2);
 ---
 
 <section
     id="content"
-    class="relative container lg:pr-20 flex flex-col gap-8 lg:flex-row justify-between text-skin-base"
+    class="relative container lg:pr-20 flex flex-col gap-8 lg:flex-row justify-between text-skin-base pt-16 scroll-smooth"
 >
-    <ul
-        id="TOC"
-        class="lg:sticky h-max left-0 top-14 px-2 2xl:px-0 mt-14 flex flex-col gap-1 font-opensans list-disc list-inside text-orange-light text-sm text-start"
-    >
+    <div class="lg:sticky h-max left-0 top-14 px-2 2xl:px-0flex gap-1 font-opensans">
         <h2 class="text-skin-base font-bold mb-3 text-[clamp(16px,4vw,20px)]">Table of Contents</h2>
-    </ul>
+        <ul
+            class=" list-disc list-inside text-orange-light text-sm text-start"
+        >
+            {
+                toc.map((heading) => (
+                    <li class="pl-5">
+                        <a href={`#${heading.slug}`}>{heading.text}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
     <section class="content px-2 2xl:px-0 lg:w-1/2 mr-auto mt-14 flex flex-col gap-2">
         <Content />
     </section>
@@ -37,29 +47,3 @@ const { Content } = await blog.render();
         line-height: 1.9;
     }
 </style>
-<script is:inline>
-    const h1s = document.querySelectorAll(".content h1");
-    const h2s = document.querySelectorAll(".content h2");
-    const TOC = document.getElementById("TOC");
-    if (TOC) {
-        h1s.forEach((h1) => {
-            const li = document.createElement("li");
-            li.classList.add("pl-5");
-            const a = document.createElement("a");
-            a.href = `#${h1.id}`;
-            a.innerText = h1.innerText;
-            li.appendChild(a);
-            TOC.appendChild(li);
-        });
-
-        h2s.forEach((h2) => {
-            const li = document.createElement("li");
-            li.classList.add("pl-5");
-            const a = document.createElement("a");
-            a.href = `#${h2.id}`;
-            a.innerText = h2.innerText;
-            li.appendChild(a);
-            TOC.appendChild(li);
-        });
-    }
-</script>
