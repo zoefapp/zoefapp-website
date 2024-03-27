@@ -3,7 +3,7 @@ interface Props {
     blog: BlogContentEntry;
 }
 // Utils
-import type { BlogContentEntry } from "~/lib/blog";
+import { getBlogImagePath, type BlogContentEntry } from "~/lib/blog";
 import { Image } from "astro:assets";
 import BlogCategory from "./BlogCategory.astro";
 import BlogDate from "./BlogDate.astro";
@@ -11,7 +11,15 @@ import BlogDescription from "./BlogDescription.astro";
 import BlogTitle from "./BlogTitle.astro";
 // Images
 const { blog } = Astro.props;
-const blogImage = import(`../content/blog/${blog.data.headerImage?.split(".")[0]}.jpg`);
+
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
+
+
+const blogImagePath = getBlogImagePath(blog)
+const headerImagePath = blogImagePath + '/' + blog.data.headerImage
+const headerImage = images[headerImagePath] ? images[headerImagePath]() : import('/src/assets/images/blog-placeholder.png')
+
 ---
 
 <section class="relative w-full">
@@ -25,7 +33,7 @@ const blogImage = import(`../content/blog/${blog.data.headerImage?.split(".")[0]
         <aside>
             <Image
                 class="aspect-video object-cover rounded-lg"
-                src={blogImage}
+                src={headerImage}
                 alt="Blog Placeholder Image"
                 format="webp"
                 decoding="async"

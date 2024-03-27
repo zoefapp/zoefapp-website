@@ -19,8 +19,8 @@ site_url: ${BRANCH_URL}
 publish_mode: editorial_workflow
 local_backend: false
 
-media_folder: public/uploads
-public_folder: /uploads
+media_folder: src/assets/cms
+public_folder: src/assets/cms
 
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file

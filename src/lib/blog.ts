@@ -60,7 +60,10 @@ export async function getBlogPaths(lang: string): Promise<Paths[]> {
 
 }
 
-
+export function getBlogImagePath(blog: BlogContentEntry) {
+    let lastFolderPos = blog.id.lastIndexOf('/')
+    return '/src/content/blog/' + blog.id.substring(0, lastFolderPos)
+}
 
 /*
 translations: blogEntries
