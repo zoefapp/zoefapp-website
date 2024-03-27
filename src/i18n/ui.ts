@@ -38,12 +38,6 @@ export interface UiTranslations {
     "accompaniment.second": string;
     "accompaniment.third": string;
     "howzoefworks.title": string;
-    "howzoefworks.first.title": string;
-    "howzoefworks.first.description": string;
-    "howzoefworks.second.title": string;
-    "howzoefworks.second.description": string;
-    "howzoefworks.third.title": string;
-    "howzoefworks.third.description": string;
     "testimonials.title": string;
     "faqs.title": string;
     "faqs.side.title": string;
@@ -128,14 +122,6 @@ export const ui: UiProperties = {
         "accompaniment.second": "People have already filed a claim with Zoef",
         "accompaniment.third": "Minutes of delay compensated with Zoef since November",
         "howzoefworks.title": "How Zoef works",
-        "howzoefworks.first.title": "Enter your delay",
-        "howzoefworks.first.description":
-            "Specify how long your delay lasted, what your departure station was, where you wanted to go, and on which day and time you departed.",
-        "howzoefworks.second.title": "Choose your journey",
-        "howzoefworks.second.description": "Select from the list the train journey where you experienced a delay.",
-        "howzoefworks.third.title": "Enter your details",
-        "howzoefworks.third.description":
-            "Let us know your name, public transport card number, and email address, and the bank account to which we may deposit your compensation.",
         "testimonials.title": "What our customers say",
         "faqs.title": "Frequently asked questions",
         "faqs.side.title": "Have another question?",
@@ -215,14 +201,6 @@ export const ui: UiProperties = {
         "accompaniment.second": "Mensen hebben al een claim ingediend bij Zoef",
         "accompaniment.third": "Minuten vertraging gecompenseerd met Zoef sinds November",
         "howzoefworks.title": "Hoe Zoef werkt",
-        "howzoefworks.first.title": "Vul je vertraging in",
-        "howzoefworks.first.description":
-            "Geef aan hoe lang je vertraging ongeveer duurde, wat je vertrekstation was, waar je naartoe wilde en op welke dag en tijd je vertrok.",
-        "howzoefworks.second.title": "Kies jouw reis",
-        "howzoefworks.second.description": "Selecteer in de lijst de treinreis waar jij vertraging opliep.",
-        "howzoefworks.third.title": "Vul je gegevens in",
-        "howzoefworks.third.description":
-            "Laat ons weten wat je naam, OV-kaartnummer en email-adres zijn en op welke bankrekening wij jouw vergoeding mogen storten.",
         "testimonials.title": "Wat onze klanten noemen",
         "faqs.title": "Frequently asked questions",
         "faqs.side.title": "Heb je een andere vraag?",

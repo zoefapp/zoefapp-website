@@ -1,29 +1,22 @@
 ---
-interface Props {
-    data: {
-        buttons: Buttons[];
-        images: Images[];
-    };
-}
-interface Buttons {
-    id: string;
-    initialState: string;
-    title: string;
-    description: string;
-}
-interface Images {
-    id: string;
-    initialState: string;
-    image: ImageMetadata;
-}
-const { data } = Astro.props;
-// Utils
-import { translations } from "~/i18n/utils";
-const t = translations(Astro);
-import { Image } from "astro:assets";
-
-// Components
+import { getLanguage, translations } from "~/i18n/utils";
 import Subtitle from "./ui/Subtitle.astro";
+import { getCollection } from "astro:content";
+import { Image, getImage } from "astro:assets";
+
+const lang = getLanguage(Astro)
+const t = translations(Astro);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/howitworks/*/*.{jpeg,jpg,png,gif}');
+
+let howitworksCollection = await getCollection("howitworks", entry => entry.id.startsWith(lang))
+howitworksCollection.sort((a, b) => a.data.order - b.data.order)
+
+function getImage(path: string) {
+    let imagePath = `/src/content/howitworks/${lang}/${path}`
+    return images[imagePath]()
+}
+
 ---
 
 <section class="container py-[60px]">
@@ -34,14 +27,14 @@ import Subtitle from "./ui/Subtitle.astro";
             </Subtitle>
             <aside class="images-container flex w-full lg:w-1/2 overflow-clip">
                 {
-                    data.images.map((image) => (
+                    howitworksCollection.map((item, index) => (
                         <div
-                            id={image.id}
-                            data-state={image.initialState}
+                            id={item.id.replaceAll(/\W/g, '-').toLowerCase()}
+                            data-state={index == 0 ? 'active' : 'inactive'}
                             class="divs sm:max-w-lg lg:max-w-full mx-auto fill-mode-backwards data-[state=active]:animate-in data-[state=active]:duration-1000 data-[state=active]:fade-in data-[state=inactive]:hidden overflow-clip"
                         >
                             <Image
-                                src={image.image}
+                                src={getImage(item.data.image)}
                                 alt="How Zoef Works"
                                 format="avif"
                                 loading="lazy"
@@ -58,14 +51,14 @@ import Subtitle from "./ui/Subtitle.astro";
                     {t("howzoefworks.title")}
                 </Subtitle>
                 {
-                    data.buttons.map((button) => (
+                    howitworksCollection.map((item, index) => (
                         <button
-                            id={button.id}
-                            data-state={button.initialState}
+                            id={item.id.replaceAll(/\W/g, '-').toUpperCase()}
+                            data-state={index == 0 ? 'active' : 'inactive'}
                             class="btns flex flex-col gap-2 py-5 px-8 border-b lg:border-l-2 lg:border-b-0 border-amber-300 data-[state=inactive]:border-blue-200 transition-colors min-w-[calc(75vw)] lg:min-w-0 w-full text-start data-[state=inactive]:opacity-50"
                         >
-                            <h4 class="font-bold text-lg">{button.title}</h4>
-                            <p class="text-balance">{button.description}</p>
+                            <h4 class="font-bold text-lg">{item.data.title}</h4>
+                            <p class="text-balance">{item.data.description}</p>
                         </button>
                     ))
                 }

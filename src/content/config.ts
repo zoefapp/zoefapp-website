@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { BlogSchema } from '~/lib/blog';
 import { FaqSchema } from '~/lib/faq';
 import { TestimonialSchema } from '~/lib/testimonial';
@@ -22,12 +22,24 @@ const testimonialCollection = defineCollection({
   schema: TestimonialSchema,
 })
 
+/// FAQ
+const howitworksCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    order: z.number(),
+    title: z.string(),
+    description: z.string(),
+    image: z.string()
+  }),
+})
+
 
 // EXPORTS
 export const collections = {
   'blog': blogCollection,
   'faq': faqCollection,
-  'testimonial': testimonialCollection
+  'testimonial': testimonialCollection,
+  'howitworks': howitworksCollection
 };
 export type ContentCollection = keyof typeof collections
 

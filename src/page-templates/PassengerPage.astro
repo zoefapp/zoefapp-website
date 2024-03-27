@@ -9,22 +9,21 @@ import Layout from "~/layouts/Layout.astro";
 import PassengerBackgroundImage from "~/assets/images/backgrounds/passenger-bg.png";
 import FaqsGreenImage from "~/assets/images/faqs-green.png";
 // Icons
+import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
 import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
 import StarIcon from "~/assets/images/icons/star.png";
-import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
-import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
 // Components
-import Title from "~/components/ui/Title.astro";
-import Subtitle from "~/components/ui/Subtitle.astro";
-import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
-import CompensationCheck from "~/components/CompensationCheck.astro";
-import Hero from "~/components/Hero.astro";
 import Accomplisments from "~/components/Accomplisments.astro";
+import StoreBanner from "~/components/Banner.astro";
+import Blogs from "~/components/Blogs.astro";
+import CompensationCheck from "~/components/CompensationCheck.astro";
+import Faqs from "~/components/Faqs.astro";
+import Hero from "~/components/Hero.astro";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Testimonials from "~/components/Testimonials.astro";
-import Faqs from "~/components/Faqs.astro";
-import Blogs from "~/components/Blogs.astro";
-import StoreBanner from "~/components/Banner.astro";
+import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
+import Subtitle from "~/components/ui/Subtitle.astro";
+import Title from "~/components/ui/Title.astro";
 
 const TrustPilotData = {
     review_count: 336,
@@ -48,45 +47,6 @@ const AccomplishmentsData = [
         icon: ClockCheckIcon,
     },
 ];
-const HowZoefWorksData = {
-    buttons: [
-        {
-            id: "FIRST",
-            initialState: "active",
-            title: t("howzoefworks.first.title"),
-            description: t("howzoefworks.first.description"),
-        },
-        {
-            id: "SECOND",
-            initialState: "inactive",
-            title: t("howzoefworks.second.title"),
-            description: t("howzoefworks.second.description"),
-        },
-        {
-            id: "THIRD",
-            initialState: "inactive",
-            title: t("howzoefworks.third.title"),
-            description: t("howzoefworks.third.description"),
-        },
-    ],
-    images: [
-        {
-            id: "first",
-            initialState: "active",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "second",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "third",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-    ],
-};
 ---
 
 <Layout title={t("passenger.title")}  description={t("passenger.description")}>
@@ -102,7 +62,7 @@ const HowZoefWorksData = {
             <CompensationCheck slot="floating" />
         </Hero>
         <Accomplisments data={AccomplishmentsData} />
-        <HowZoefWorks data={HowZoefWorksData} />
+        <HowZoefWorks />
         <Testimonials />
         <Faqs image={FaqsGreenImage} />
         <Blogs />
