@@ -9,7 +9,6 @@ import Layout from "~/layouts/Layout.astro";
 import TicketVendorBackgroundImage from "~/assets/images/backgrounds/ticket-vendor-bg.png";
 import FaqsRedImage from "~/assets/images/faqs-red.png";
 // Icons
-import HowZoefWorksImage from "~/assets/images/how-zoef-works.png";
 import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
 import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
 import StarIcon from "~/assets/images/icons/star.png";
@@ -61,45 +60,7 @@ const AccomplishmentsData = [
         icon: ClockCheckIcon,
     },
 ];
-const HowZoefWorksData = {
-    buttons: [
-        {
-            id: "FIRST",
-            initialState: "active",
-            title: t("howzoefworks.first.title"),
-            description: t("howzoefworks.first.description"),
-        },
-        {
-            id: "SECOND",
-            initialState: "inactive",
-            title: t("howzoefworks.second.title"),
-            description: t("howzoefworks.second.description"),
-        },
-        {
-            id: "THIRD",
-            initialState: "inactive",
-            title: t("howzoefworks.third.title"),
-            description: t("howzoefworks.third.description"),
-        },
-    ],
-    images: [
-        {
-            id: "first",
-            initialState: "active",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "second",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-        {
-            id: "third",
-            initialState: "inactive",
-            image: HowZoefWorksImage,
-        },
-    ],
-};
+
 ---
 
 <Layout title={t("ticket-vendor.title")} description={t("ticket-vendor.description")}>
@@ -117,7 +78,7 @@ const HowZoefWorksData = {
         </Hero>
         <Brands />
         <Accomplisments data={AccomplishmentsData} />
-        <HowZoefWorks data={HowZoefWorksData} />
+        <HowZoefWorks />
         <Testimonials />
         <Faqs image={FaqsRedImage} />
         <Blogs />

@@ -1,8 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import { getLanguage, translations } from "~/i18n/utils";
 import Subtitle from "./ui/Subtitle.astro";
-import { getCollection } from "astro:content";
-import { Image, getImage } from "astro:assets";
 
 const lang = getLanguage(Astro)
 const t = translations(Astro);
