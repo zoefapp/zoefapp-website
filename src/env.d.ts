@@ -18,3 +18,7 @@ interface ImportMetaEnv {
   }
 
   import './api/zoef/modules/trips/api'
+
+  interface Window {
+    AOS: any;
+  }

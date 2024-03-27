@@ -25,6 +25,9 @@ const { title, description } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <script>
             import "htmx.org";
+            import 'aos/dist/aos.css'
+            import AOS from "aos";
+            AOS.init()
         </script>
         <title>{title} | {lang.toUpperCase()}</title>
         <meta name="description" content={description} />
