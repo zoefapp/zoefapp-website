@@ -26,6 +26,12 @@ if (Astro.request.method === "POST") {
     } else {
         status = "error";
     }
+
+    function timeout(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    await timeout(5000)
+
 } else {
     status = "form";
 }

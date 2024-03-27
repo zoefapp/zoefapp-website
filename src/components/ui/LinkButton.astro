@@ -1,6 +1,5 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-interface Props extends Omit<HTMLAttributes<"button">, "class"> {
+interface Props {
     variant?: "orange" | "default" | "filter";
     className?: ClassValue;
     href?: string;
@@ -15,7 +14,9 @@ type ButtonVariants = {
 };
 
 const buttonVariants: ButtonVariants = {
-    default: cx("bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm font-semibold w-full cursor-pointer"),
+    default: cx(
+        "bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm font-semibold w-full cursor-pointer"
+    ),
     orange: cx(
         "bg-orange-light hover:bg-orange-light/80 transition-colors duration-300 text-orange-dark w-max rounded-md px-4 py-3 text-sm font-bold cursor-pointer"
     ),
@@ -24,6 +25,7 @@ const buttonVariants: ButtonVariants = {
     ),
 };
 ---
-<button class={cn(buttonVariants[variant], className)} {...props}>
+
+<a class={cn(buttonVariants[variant], className)} {...props} href={Astro.props.href}>
     <slot />
-</button>
+</a>

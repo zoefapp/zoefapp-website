@@ -6,11 +6,12 @@ const {  image } = Astro.props;
 import { getFaqs } from "~/lib/faq";
 // Utils
 import { Image } from "astro:assets";
-import { getLanguage, translations } from "~/i18n/utils";
+import { getLanguage, translations, useRoutes } from "~/i18n/utils";
 const t = translations(Astro);
 const lang = getLanguage(Astro);
+const routes = useRoutes(lang)
 // Components
-import Button from "./ui/Button.astro";
+import LinkButton from "./ui/LinkButton.astro";
 import Subtitle from "./ui/Subtitle.astro";
 import AccordionContainer from "./ui/accordion/AccordionContainer.astro";
 import AccordionItem from "./ui/accordion/AccordionItem.astro";
@@ -41,7 +42,7 @@ const faqs = await getFaqs("passenger", lang);
                 />
                 <h2 class="font-bold">{t("faqs.side.title")}</h2>
                 <p class="text-balance">{t("faqs.side.description")}</p>
-                <Button variant="orange">{t("faqs.side.cta")}</Button>
+                <LinkButton variant="orange" href={routes('contact')}>{t("faqs.side.cta")}</LinkButton>
             </aside>
         </section>
     </section>
