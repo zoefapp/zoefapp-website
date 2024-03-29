@@ -16,7 +16,6 @@ tags:
   - law
 translationCode: 2023-03/world
 ---
-# Compensation for train delays as a student: What's the deal?
 
 **Did you know that as a student, you're entitled to compensation for train delays? Yes, you read that right! Even you can claim compensation when your train journey is delayed, despite traveling for free with public transpo**rt.
 
@@ -35,4 +34,4 @@ Although this may not sound like a huge amount, it's still a nice little extra. 
 
 In conclusion, don't forget that as a student, you also have the right to compensation for train delays. It may not be much, but it's still a nice gesture for the inconvenience you've experienced. So, claim your compensation and treat yourself to something tasty to ease the pain of that delayed train journey!
 
-Do you know if your train delay is eligible for compensation? Read it in our blog ["Compensation for train delays: Everything you need to know"](https://zoefapp.app/en/article/2023-03/compensation-for-train-delays-everything-you-need-to-know).
+Do you know if your train delay is eligible for compensation? Read it in our blog ["Compensation for train delays: Everything you need to know"](/en/article/2023-03/compensation-for-train-delays-everything-you-need-to-know).

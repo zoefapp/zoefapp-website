@@ -21,7 +21,6 @@ tags:
   - law
 translationCode: 2023-03/hello
 ---
-# Train passengers are leaving at least 19 million euros on the table
 
 It seems common scene: train passengers complaining about delays, while trains appear to be running less and less on time. A recent article even suggests that train passengers are leaving as much as 20 million euros in compensation unclaimed. But what's the reality? And what does this mean for you?
 
@@ -40,7 +39,7 @@ This means that passengers cumulatively experience a delay of 64 weeks every day
 
 ## Missed Compensation: Reality and Potential
 
-Due to only 10% of eligible journeys requesting compensation, passengers are missing out on millions of euros in compensation. A simple calculation shows that there are potentially 3.6 million claims per year, which would result in over 21 million euros in unclaimed compensation. It's important to note that not all delays qualify for compensation. Applying for compensation requires specific circumstances, such as a delay of at least 30 minutes. Want to read more about when a train delay qualifies for compensation? Then read our blog ["Compensation for Train Delays: Everything You Need to Know"](zoef.app/en/article/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
+Due to only 10% of eligible journeys requesting compensation, passengers are missing out on millions of euros in compensation. A simple calculation shows that there are potentially 3.6 million claims per year, which would result in over 21 million euros in unclaimed compensation. It's important to note that not all delays qualify for compensation. Applying for compensation requires specific circumstances, such as a delay of at least 30 minutes. Want to read more about when a train delay qualifies for compensation? Then read our blog ["Compensation for Train Delays: Everything You Need to Know"](/en/article/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
 
 ## Are We Right to Complain?
 

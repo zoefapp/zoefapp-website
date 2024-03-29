@@ -18,7 +18,6 @@ tags:
   - order
 translationCode: 2023-03/car
 ---
-# Alles Wat Je Moet Weten over Treinvertraging Compensatie
 
 Ben je gestrand door een vertraagde trein? Ontdek hoe je recht hebt op compensatie en hoe Zoef.app je kan helpen bij het claimen van je vergoeding.
 

@@ -21,7 +21,6 @@ tags:
   - justice
 translationCode: 2023-03/hello
 ---
-# Treinreizigers laten zeker 19 miljoen euro liggen
 
 **Het lijkt een alledaags tafereel: treinreizigers die klagen over vertragingen, terwijl de treinen steeds minder op tijd lijken te rijden. Een recent artikel stelt zelfs dat treinpassagiers maar liefst 20 miljoen euro aan compensatie laten liggen. Maar hoe zit het werkelijk? En wat betekent dit voor jou?**
 
@@ -46,10 +45,10 @@ Dit betekent dat reizigers cumulatief elke dag een vertraging van 64 weken oplop
 
 Doordat voor slechts 10% van de in aanmerking komende reizen een vergoeding wordt aangevraagd, lopen reizigers miljoenen euro's aan compensatie mis. Een simpele berekening laat zien dat er potentieel 3,6 miljoen claims per jaar zijn, wat zou resulteren in meer dan 21 miljoen euro aan ongeclaimde vergoedingen.
 
-Het is van belang te weten dat niet alle vertragingen in aanmerking komen voor vergoeding. Een vergoeding aanvragen vereist specifieke omstandigheden, zoals een vertraging van minstens 30 minuten. Wil je meer lezen over wanneer een treinvertraging in aanmerking komt voor een vergoeding? Lees dan onze blog [“Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten”](zoef.app/artikel/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
+Het is van belang te weten dat niet alle vertragingen in aanmerking komen voor vergoeding. Een vergoeding aanvragen vereist specifieke omstandigheden, zoals een vertraging van minstens 30 minuten. Wil je meer lezen over wanneer een treinvertraging in aanmerking komt voor een vergoeding? Lees dan onze blog [“Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten”](/artikel/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
 
 ## Klagen we terecht?
 
 Het is begrijpelijk dat reizigers klagen over vertragingen. Voor slechts 10% van de reizen die in aanmerking komen voor een vergoeding, wordt daadwerkelijk een claim ingediend. Stel je eens voor hoe de punctualiteit zou verbeteren als alle reizigers hun recht zouden uitoefenen. Het gaat om aanzienlijke bedragen die niet moeten worden onderschat.
 
-Het is dus van belang dat jij je recht hebt op compensatie bij treinvertragingen niet laat liggen. Claim dus jouw deel van de miljoenen verloren euro´s!
+Het is dus van belang dat jij je recht op compensatie bij treinvertragingen niet laat liggen. Claim dus jouw deel van de miljoenen verloren euro´s!

@@ -16,9 +16,7 @@ tags:
   - law
 translationCode: 2023-03/world
 ---
-# Vergoeding voor treinvertragingen als student: Hoe zit het?
 
-\
 **Wist je dat je als student ook recht hebt op compensatie bij treinvertragingen? Ja, je leest het goed! Ook jij kunt aanspraak maken op een vergoeding wanneer je treinreis vertraagd is, ondanks dat je gratis met het OV mag reizen.**
 
 ## Krijgen studenten een vergoeding bij een treinvertraging?
@@ -36,4 +34,4 @@ Hoewel dit misschien niet als een enorm bedrag klinkt, is het toch een leuke ext
 
 Kortom, vergeet niet dat je als student ook recht hebt op compensatie bij treinvertragingen. Het mag dan wel niet veel zijn, maar het is toch een mooie tegemoetkoming voor het ongemak dat je hebt ervaren. Dus, claim je vergoeding en trakteer jezelf op iets lekkers om de pijn van die vertraagde treinreis te verzachten!
 
-Wil je weten wanneer een treinvertraging in aanmerking komt voor een vergoeding? Lees dan onze blog ["Vergoeding voor treinvertraging: Alles wat je moet weten"](zoef.app/artikel/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
+Wil je weten wanneer een treinvertraging in aanmerking komt voor een vergoeding? Lees dan onze blog ["Vergoeding voor treinvertraging: Alles wat je moet weten"](/artikel/2023-03/vergoeding-voor-treinvertraging-alles-wat-je-moet-weten).
