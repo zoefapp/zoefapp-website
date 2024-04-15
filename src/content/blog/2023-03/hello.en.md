@@ -19,7 +19,6 @@ metaOgDescription: Elke dag zijn er weer klachten over treinvertragingen; het
 metaOgImage: img_9154.jpg
 tags:
   - law
-translationCode: 2023-03/hello
 ---
 
 It seems common scene: train passengers complaining about delays, while trains appear to be running less and less on time. A recent article even suggests that train passengers are leaving as much as 20 million euros in compensation unclaimed. But what's the reality? And what does this mean for you?

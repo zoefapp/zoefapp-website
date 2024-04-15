@@ -1,6 +1,6 @@
 ---
 // Utils
-import { getLanguage } from "~/i18n/utils";
+import { getLanguage, translations } from "~/i18n/utils";
 import { getBlogUrl, getRecentBlogs } from "~/lib/blog";
 import { Image } from "astro:assets";
 const lang = getLanguage(Astro);
@@ -8,11 +8,13 @@ const lang = getLanguage(Astro);
 import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 // Data
 const firstBlog = await getRecentBlogs(lang, 1);
+
+const t = translations(Astro)
 ---
 
 <section class="relative w-full">
     <section class="container flex flex-col gap-6 py-8">
-        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold">Blog Articles</h1>
+        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold">{t('blog.articles')}</h1>
         <aside class="relative">
             <Image
                 class="aspect-video object-cover rounded-lg"

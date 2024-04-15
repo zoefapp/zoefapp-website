@@ -1,6 +1,6 @@
 ---
-id: "Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten"
-title: "Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten"
+id: "Vergoeding voor Treinvertraging: alles wat je moet weten"
+title: "Vergoeding voor Treinvertraging: alles wat je moet weten"
 author: Sander de Groot
 date: 2023-08-31T10:00:00.000Z
 headerImage: header-blog-alles-wat-je-moet-weten-over-treinvertraging-compensatie.jpg
@@ -16,7 +16,6 @@ metaOgImage: oude-header-blog-1.webp
 tags:
   - law
   - order
-translationCode: 2023-03/car
 ---
 
 Ben je gestrand door een vertraagde trein? Ontdek hoe je recht hebt op compensatie en hoe Zoef.app je kan helpen bij het claimen van je vergoeding.

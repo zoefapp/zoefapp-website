@@ -1,48 +1,25 @@
 ---
 interface Props {
-    blogs: BlogContentEntry[];
+    blogs: BlogWithPagination;
 }
 const { blogs } = Astro.props;
 // Utils
 import { Icon } from "astro-icon/components";
-import type { SupportedLanguages } from "~/i18n/constants";
-import { getLanguage } from "~/i18n/utils";
-import { getBlogsLength, type BlogContentEntry } from "~/lib/blog";
+import { getLanguage, useTranslations } from "~/i18n/utils";
+import { type BlogWithPagination } from "~/lib/blog";
 // Components
 import BlogCard from "./BlogCard.astro";
 import Button from "./ui/Button.astro";
 import Dropdown from "./ui/Dropdown.astro";
 // Data
 const lang = getLanguage(Astro);
-const length = getBlogsLength(lang);
+const t = useTranslations(lang);
+const selectedTag = 'law'
 
-const translate: { [key in SupportedLanguages]: string } = {
-    en: "articles",
-    nl: "artikelen",
-};
-
-const categories = [
-    {
-        name: "All",
-        selected: true,
-    },
-    {
-        name: "Design",
-        selected: false,
-    },
-    {
-        name: "Development",
-        selected: false,
-    },
-    {
-        name: "Marketing",
-        selected: false,
-    },
-];
 ---
 
 <section class="container flex flex-col gap-6">
-    <aside class="grid grid-cols-2 grid-rows-2 gap-y-3">
+    <aside class="grid grid-cols-2 grid-rows-2 gap-y-3 hidden">
         <h2 class="text-[18px]">Filters</h2>
         <div class="flex gap-2 items-center justify-end col-start-2 lg:row-start-2 row-start-1 text-end">
             <Dropdown buttonId="filters-btn" menuId="filters-menu">
@@ -64,12 +41,12 @@ const categories = [
             class="flex row-start-2 col-start-1 items-center gap-3 col-span-2 lg:col-span-1 overflow-x-scroll hide-scrollbar"
         >
             {
-                categories.map((category) => (
+                blogs.tags.map((tag) => (
                     <Button
                         variant="filter"
-                        className={category.selected ? "bg-orange-light text-white" : "" + " categoryBtn"}
+                        className={tag == selectedTag ? "bg-orange-light text-white" : "" + " categoryBtn"}
                     >
-                        {category.name}
+                        {tag}
                     </Button>
                 ))
             }
@@ -77,9 +54,9 @@ const categories = [
         </div>
     </aside>
     <aside class="flex flex-col gap-4">
-        <h2>{length} {translate[lang]}</h2>
+        <h2>{blogs.total} {t('blog.articles')}</h2>
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3">
-            {blogs.map((blog) => <BlogCard blog={blog} />)}
+            {blogs.entries.map((blog) => <BlogCard blog={blog} />)}
         </section>
     </aside>
 </section>

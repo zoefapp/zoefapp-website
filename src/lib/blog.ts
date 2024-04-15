@@ -98,22 +98,28 @@ export async function getRecentBlogs(language: SupportedLanguages, limit: number
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .slice(0, limit)
 }
-export async function getBlogsLength(language: SupportedLanguages): Promise<number> {
-    let result = await getCollection("blog", entry => {
-        return entry.id.endsWith(`.${language}.md`)
-    })
-    return result.length
-    
+
+export interface BlogWithPagination {
+    entries: BlogContentEntry[]
+    total: number,
+    page: number,
+    tags: string[]
 }
 
-export async function getBlogsWithPagination(language: SupportedLanguages, limit: number, page: number): Promise<BlogContentEntry[]> {
+export async function getBlogsWithPagination(language: SupportedLanguages, limit: number, page: number): Promise<BlogWithPagination> {
     let result = await getCollection("blog", entry => {
         return entry.id.endsWith(`.${language}.md`)
     })
-    return result
+    let entries = result
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .slice((page - 1) * limit, page * limit)
-    
+    return {
+        page,
+        total: result.length,
+        entries,
+        tags: [...new Set(result.flatMap(e => e.data.tags))]
+    }
+
 }
 export function getBlogUrl(language: SupportedLanguages, entry: BlogContentEntry) {
     let slug = getPathSlug(getContentSlug(entry, language), entry)

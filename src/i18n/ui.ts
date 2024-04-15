@@ -39,6 +39,7 @@ export interface UiTranslations {
     "accompaniment.third": string;
     "howzoefworks.title": string;
     "testimonials.title": string;
+    "blog.articles": string;
     "faqs.title": string;
     "faqs.side.title": string;
     "faqs.side.description": string;
@@ -109,6 +110,7 @@ export const ui: UiProperties = {
         "stats.first": "Trains delayed",
         "stats.second": "Trains delayed",
         "stats.third": "Trains delayed",
+        
         "compensation.title": "Check if you are entitled to a claim",
         "compensation.departure": "Departure Station",
         "compensation.departure.placeholder": "e.g. Amsterdam Central",
@@ -127,6 +129,7 @@ export const ui: UiProperties = {
         "faqs.side.title": "Have another question?",
         "faqs.side.description": "If your question isn't answered, please contact us using the button below.",
         "faqs.side.cta": "Contact Us",
+        "blog.articles": "Articles",
         "blogs.title": "Read more in our blogs",
         "blogs.cta": "View all blogs",
         "store.title": "Download the app",
@@ -150,7 +153,7 @@ export const ui: UiProperties = {
         "footer.link.about.blog": "Blog",
         "footer.link.about.contact": "Contact",
         "footer.socials.title": "Follow Us",
-        "footer.copyright": "Copyright © 2019 Zoef. All rights reserved.",
+        "footer.copyright": `Copyright © ${(new Date()).getFullYear()} Zoef.app BV. All rights reserved.`,
         "footer.privacy": "Privacy Policy",
         "footer.terms": "Terms of Service",
         "footer.cookies": "Cookies",
@@ -188,6 +191,7 @@ export const ui: UiProperties = {
         "stats.first": "Hoeveelheid compensaties",
         "stats.second": "Hoeveelheid compensaties",
         "stats.third": "Hoeveelheid compensaties",
+        "blog.articles": "Artikelen",
         "compensation.title": "Bekijk of je recht hebt op een claim",
         "compensation.departure": "Vertrekstation",
         "compensation.departure.placeholder": "bijv. Amsterdam Centraal",
@@ -231,7 +235,7 @@ export const ui: UiProperties = {
         "footer.link.about.blog": "Blog",
         "footer.link.about.contact": "Contact",
         "footer.socials.title": "Volg Ons",
-        "footer.copyright": "Copyright © 2019 Zoef. Alle rechten voorbehouden.",
+        "footer.copyright": `Copyright © ${(new Date()).getFullYear()} Zoef.app BV. Alle rechten voorbehouden.`,
         "footer.privacy": "Privacybeleid",
         "footer.terms": "Algemene voorwaarden",
         "footer.cookies": "Cookies",

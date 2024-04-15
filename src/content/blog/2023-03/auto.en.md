@@ -1,6 +1,6 @@
 ---
-id: "Vergoeding voor Treinvertraging: Alles Wat Je Moet Weten"
-title: "Compensation for Train Delays: Everything You Need to Know"
+id: "Vergoeding voor Treinvertraging: alles wat je moet weten"
+title: "Compensation for train delays: everything you need to know"
 author: Sander de Groot
 date: 2023-08-31T10:00:00.000Z
 headerImage: header-blog-alles-wat-je-moet-weten-over-treinvertraging-compensatie.jpg
@@ -8,8 +8,7 @@ metaDescription: Everything you need to know about compensation for train
   delays. When are you entitled to compensation for a train delay and how does
   the claim process work?
 tags:
-  - law
-translationCode: 2023-03/car
+  - passagier
 ---
 # Everything You Need to Know about Train Delay Compensation
 

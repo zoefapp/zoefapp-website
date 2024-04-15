@@ -23,7 +23,7 @@ const headerImage = images[headerImagePath] ? images[headerImagePath]() : import
 ---
 
 <section class="relative w-full">
-    <section class="container flex flex-col gap-6 pt-24">
+    <section class="container flex flex-col pt-16 px-32">
         <BlogTitle title={blog.data.title} />
         <div class="flex gap-4 items-center">
             {blog.data.tags.map((tag) => <BlogCategory tag={tag} />)}
