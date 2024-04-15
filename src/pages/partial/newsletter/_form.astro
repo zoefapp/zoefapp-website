@@ -3,9 +3,12 @@ import Input from "~/components/ui/Input.astro";
 import Button from "~/components/ui/Button.astro";
 import { getLanguage, useTranslations } from "~/i18n/utils";
 import Loading from "~/components/ui/Loading.astro";
+import { NewsletterType } from "./_model";
 
 export const partial = true;
-export const prerender = false;
+export const prerender = false; // for multi-language support
+
+const type = NewsletterType.parse(Astro.url.searchParams.get('type') ?? 'website')
 
 const t = useTranslations(getLanguage(Astro))
 
@@ -13,6 +16,7 @@ const t = useTranslations(getLanguage(Astro))
 
 <form hx-post="/partial/newsletter" hx-swap="outerHTML" class="flex flex-col sm:flex-row gap-4">
     <Input placeholder={t('newsletter.email.placeholder')} required type="email" name="email" />
+    <input type="hidden" name={type} value="general" />
     <Button type="submit" variant="orange" data-hx-disabled-elt="this">{t('newsletter.subscribe')}</Button>
     <Loading></Loading>
 </form>
