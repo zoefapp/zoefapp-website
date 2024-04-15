@@ -1,26 +1,16 @@
 ---
-import { getEntry } from "astro:content";
 import Footer from "~/components/footer/Footer.astro";
 import Header from "~/components/header/Header.astro";
 import { getLanguage } from "~/i18n/utils";
 import type { PageProps } from "~/lib/page";
 import "~/styles/globals.css";
 
-interface Props extends PageProps {
-    pageContentId?: string // reference to a contentId in /content/pages/{id}
+interface Props {
+    page?: PageProps
 }
 
 const lang = getLanguage(Astro);
-
 const props = Astro.props;
-
-if (props.pageContentId) {
-    const pageContent = await getEntry('pages', `${lang}/${props.pageContentId}`);
-    if (pageContent) {
-        console.log(pageContent.data);
-        Object.assign(props, pageContent.data);
-    }
-}
 
 ---
 
@@ -38,15 +28,15 @@ if (props.pageContentId) {
             import AOS from "aos";
             AOS.init()
         </script>
-        <title>Zoef.app {props.title && `- ${props.title}`}</title>
-        <meta name="title" content={props.title && `- ${props.title}`} />
-        <meta name="description" content={props.description} />
-        {props.keywords && <meta name="keywords" content={props.keywords} />}
-        {props.author && <meta name="author" content={props.author} />}
-        {props.ogTitle && <meta property="og:title" content={props.ogTitle} />}
-        {props.ogType && <meta property="og:type" content={props.ogType} />}
-        {props.ogUrl && <meta property="og:url" content={props.ogUrl} />}
-        {props.ogImage && <meta property="og:image" content={props.ogImage} />}
+        <title>Zoef.app {props.page?.title && `- ${props.page?.title}`}</title>
+        <meta name="title" content={props.page?.title && `- ${props.page?.title}`} />
+        <meta name="description" content={props.page?.description} />
+        {props.page?.keywords && <meta name="keywords" content={props.page?.keywords} />}
+        {props.page?.author && <meta name="author" content={props.page?.author} />}
+        {props.page?.ogTitle && <meta property="og:title" content={props.page?.ogTitle} />}
+        {props.page?.ogType && <meta property="og:type" content={props.page?.ogType} />}
+        {props.page?.ogUrl && <meta property="og:url" content={props.page?.ogUrl} />}
+        {props.page?.ogImage && <meta property="og:image" content={props.page?.ogImage} />}
     </head>
     <body class="font-mulish" hx-headers={'{"x-site-lang":"' + lang + '"}'}>
         <Header />
