@@ -1,10 +1,34 @@
 ---
-import { getLanguage } from "~/i18n/utils";
+import { getLanguage, useRoutes } from "~/i18n/utils";
 import Dropdown from "./ui/Dropdown.astro";
 import { Icon } from "astro-icon/components";
-import { routes } from "~/i18n/routes";
+import { routes, type IRoutes } from "~/i18n/routes";
 import { languages } from "../i18n/ui";
+import type { SupportedLanguage } from "~/i18n/constants";
 const lang = getLanguage(Astro);
+
+function translateCurrentPath(otherLang: SupportedLanguage): string {
+    let otherLangRoutes = useRoutes(otherLang)
+
+    let firstLevel = Astro.url.pathname.split('/')[2]
+    let routeEntries = Object.entries(routes[lang])
+    for (let index in routeEntries) {
+        let routeKey = routeEntries[index][0] as keyof IRoutes
+        let routeValue = routeEntries[index][1]
+        if (typeof routeValue !== 'string' ) {
+            // we do not support moving between dynamic routes
+            continue
+        }
+
+        if (routeValue === firstLevel) {
+            return otherLangRoutes(routeKey) as string
+        }
+    }
+    // fallback to passenger route
+    return otherLangRoutes('passenger')
+}
+
+
 ---
 
 <Dropdown buttonId="language-picker-btn" menuId="language-picker-menu">
@@ -30,9 +54,9 @@ const lang = getLanguage(Astro);
     </Fragment>
     <Fragment slot="menu">
         {
-            Object.entries(languages).map(([lang, label]) => (
+            Object.entries(languages).map(([otherLang, label]) => (
                 <li class="px-5 py-1.5">
-                    <a href={`/${lang + "/" + routes[lang].passenger}`}>{label}</a>
+                    <a href={lang == otherLang ? '' : translateCurrentPath(otherLang)}>{label}</a>
                 </li>
             ))
         }

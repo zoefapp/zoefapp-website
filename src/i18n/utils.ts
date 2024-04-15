@@ -48,12 +48,6 @@ export function useRoutesAstro(astro: AstroGlobal) {
     return useRoutes(getLanguage(astro));
 }
 
-export function useTranslatedPath(lang: keyof typeof ui) {
-    return function translatePath(path: string, l: string = lang) {
-        return `/${l}${path}`;
-    };
-}
-
 export function translations(astro: AstroGlobal) {
     const lang = getLanguage(astro);
     return useTranslations(lang);
