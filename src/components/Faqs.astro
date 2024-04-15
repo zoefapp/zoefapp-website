@@ -1,9 +1,10 @@
 ---
 interface Props {
-    image: ImageMetadata;
+    image: ImageMetadata
+    relevantFor: FaqRelevance
 }
 const {  image } = Astro.props;
-import { getFaqs } from "~/lib/faq";
+import { FaqRelevance, getFaqs } from "~/lib/faq";
 // Utils
 import { Image } from "astro:assets";
 import { getLanguage, translations, useRoutes } from "~/i18n/utils";
@@ -16,9 +17,9 @@ import Subtitle from "./ui/Subtitle.astro";
 import AccordionContainer from "./ui/accordion/AccordionContainer.astro";
 import AccordionItem from "./ui/accordion/AccordionItem.astro";
 // Data
-const faqs = await getFaqs("passenger", lang);
+const faqs = await getFaqs(Astro.props.relevantFor, lang);
 ---
-
+{faqs.length > 0 && 
 <section class="container py-[60px] flex flex-col gap-12">
     <section class="w-[90%] mx-auto space-y-10">
         <Subtitle variant="secondary" set:html={t("faqs.title")} />
@@ -47,3 +48,4 @@ const faqs = await getFaqs("passenger", lang);
         </section>
     </section>
 </section>
+}

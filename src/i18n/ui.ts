@@ -110,7 +110,7 @@ export const ui: UiProperties = {
         "ticket-vendor.title": "Automate your compensation process with Zoef.app.",
         "ticket-vendor.description":
             "Reduce the time spent processing compensation claims and increase customer satisfaction.",
-        "stats.title": "What we fix for you",
+        "stats.title": "What Zoef does for you",
         "stats.first": "Trains delayed",
         "stats.second": "Trains delayed",
         "stats.third": "Trains delayed",
@@ -196,7 +196,7 @@ export const ui: UiProperties = {
         "ticket-vendor.title": "Automatiseer je compensatieproces met Zoef.app",
         "ticket-vendor.description":
             "Beperk de tijd die je kwijt bent aan het verwerken van compensatieclaims en verhoog de klanttevredenheid",
-        "stats.title": "Wat wij voor je fixen",
+        "stats.title": "Wat Zoef voor je doet",
         "stats.first": "Hoeveelheid compensaties",
         "stats.second": "Hoeveelheid compensaties",
         "stats.third": "Hoeveelheid compensaties",
