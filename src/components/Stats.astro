@@ -8,13 +8,16 @@ interface Props {
 const { data } = Astro.props;
 import { Image } from "astro:assets";
 import EuroIcon from "~/assets/images/icons/euro-icon.png";
+import { getLanguage, useTranslations } from "~/i18n/utils";
+const lang = getLanguage(Astro);
+const t = useTranslations(lang);
 ---
 
 <section
     id="floating"
-    class="absolute left-1/2 w-[90%] z-10 gap-4 transform -translate-x-1/2 container flex flex-col justify-center min-h-compensation bg-transparent md:top-[calc(100%-(var(--compensation-height)/2))] top-[calc(100%+20px)]"
+    class="absolute left-1/2 w-[90%] z-10 gap-4 transform -translate-x-1/2 container flex flex-col justify-center min-h-compensation bg-transparent md:top-[calc(100%-(var(--compensation-height)/2.7))] top-[calc(100%+20px)]"
 >
-    <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Testing</h2>
+    <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">{t("stats.title")}</h2>
     <aside class="flex flex-col md:flex-row gap-4">
         {
             data.map((item) => (

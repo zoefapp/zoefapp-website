@@ -22,6 +22,7 @@ export interface UiTranslations {
     "employer.description": string;
     "ticket-vendor.title": string;
     "ticket-vendor.description": string;
+    "stats.title": string;
     "stats.first": string;
     "stats.second": string;
     "stats.third": string;
@@ -107,11 +108,13 @@ export const ui: UiProperties = {
         "employer.title": "High public transportation costs? Save with Zoef.app!",
         "employer.description": "The platform for claiming compensation for train delays in public transport",
         "ticket-vendor.title": "Automate your compensation process with Zoef.app.",
-        "ticket-vendor.description": "Reduce the time spent processing compensation claims and increase customer satisfaction.",
+        "ticket-vendor.description":
+            "Reduce the time spent processing compensation claims and increase customer satisfaction.",
+        "stats.title": "What we fix for you",
         "stats.first": "Trains delayed",
         "stats.second": "Trains delayed",
         "stats.third": "Trains delayed",
-        
+
         "compensation.title": "Check if you are entitled to a claim",
         "compensation.departure": "Departure Station",
         "compensation.departure.placeholder": "e.g. Amsterdam Central",
@@ -142,7 +145,8 @@ export const ui: UiProperties = {
         "newsletter.subscribe": "Subscribe",
         "newsletter.email.placeholder": "Enter your email",
         "newsletter.error": "An error occurred. Please try again.",
-        "newsletter.subscribed": "Great! We've sent you an email, please check your inbox to confirm your subscription.",
+        "newsletter.subscribed":
+            "Great! We've sent you an email, please check your inbox to confirm your subscription.",
         "footer.newsletter.title": "Subscribe to our newsletter to stay updated on features and releases.",
         "footer.newsletter.consent":
             "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.",
@@ -155,7 +159,7 @@ export const ui: UiProperties = {
         "footer.link.about.blog": "Blog",
         "footer.link.about.contact": "Contact",
         "footer.socials.title": "Follow Us",
-        "footer.copyright": `Copyright © ${(new Date()).getFullYear()} Zoef.app BV. All rights reserved.`,
+        "footer.copyright": `Copyright © ${new Date().getFullYear()} Zoef.app BV. All rights reserved.`,
         "footer.privacy": "Privacy Policy",
         "footer.terms": "Terms of Service",
         "footer.cookies": "Cookies",
@@ -187,9 +191,12 @@ export const ui: UiProperties = {
         "passenger.title": "Trein vertraagd? \n Vraag je geld terug!",
         "passenger.description": "De tool om compensatie aan te vragen voor vertraagde OV-treinreizen",
         "employer.title": "Hoge OV-reiskosten? Bespaar met Zoef.app!",
-        "employer.description": "By automatically requesting compensation for delayed journeys, organizations can save up to 20% on their train travel expenses.",
+        "employer.description":
+            "By automatically requesting compensation for delayed journeys, organizations can save up to 20% on their train travel expenses.",
         "ticket-vendor.title": "Automatiseer je compensatieproces met Zoef.app",
-        "ticket-vendor.description": "Beperk de tijd die je kwijt bent aan het verwerken van compensatieclaims en verhoog de klanttevredenheid",
+        "ticket-vendor.description":
+            "Beperk de tijd die je kwijt bent aan het verwerken van compensatieclaims en verhoog de klanttevredenheid",
+        "stats.title": "Wat wij voor je fixen",
         "stats.first": "Hoeveelheid compensaties",
         "stats.second": "Hoeveelheid compensaties",
         "stats.third": "Hoeveelheid compensaties",
@@ -228,7 +235,8 @@ export const ui: UiProperties = {
         "newsletter.subscribe": "Meld aan",
         "newsletter.email.placeholder": "Vul je email in",
         "newsletter.error": "Er is een fout opgetreden. Probeer het later opnieuw.",
-        "newsletter.subscribed": "Top! We hebben je een email gestuurd, check je inbox om je inschrijving te bevestigen.",
+        "newsletter.subscribed":
+            "Top! We hebben je een email gestuurd, check je inbox om je inschrijving te bevestigen.",
         "footer.link.product.title": "Het product voor:",
         "footer.link.product.first": "Passagiers",
         "footer.link.product.second": "Bedrijven",
@@ -238,7 +246,7 @@ export const ui: UiProperties = {
         "footer.link.about.blog": "Blog",
         "footer.link.about.contact": "Contact",
         "footer.socials.title": "Volg Ons",
-        "footer.copyright": `Copyright © ${(new Date()).getFullYear()} Zoef.app BV. Alle rechten voorbehouden.`,
+        "footer.copyright": `Copyright © ${new Date().getFullYear()} Zoef.app BV. Alle rechten voorbehouden.`,
         "footer.privacy": "Privacybeleid",
         "footer.terms": "Algemene voorwaarden",
         "footer.cookies": "Cookies",
