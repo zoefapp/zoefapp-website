@@ -1,7 +1,10 @@
-person: some Person
-avatar: https://via.placeholder.com/110
-company: Some Company
+person: Sander de Groot
+avatar: ../sander.jpeg
+company: Zoef.app BV
 stars: 5
-date: 2024-01-01T10:00:00.000Z
+date: 2024-04-01T10:00:00.000Z
 homepageOrder: 10
-testimonial: "Uitzonderlijke service! Ze overtroffen mijn verwachtingen. Een absolute aanrader vanwege hun professionaliteit en kwalitatief werk."
+testimonial: "Uiteraard gebruik ik Zoef zelf als de trein vertraagd is. Het scheelt gewoon veel tijd en gedoe."
+compensation: 25
+relevantFor: 
+ - passenger

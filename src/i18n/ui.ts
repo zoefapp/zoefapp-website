@@ -39,6 +39,7 @@ export interface UiTranslations {
     "accompaniment.third": string;
     "howzoefworks.title": string;
     "testimonials.title": string;
+    "testimonials.compensation": string;
     "blog.articles": string;
     "faqs.title": string;
     "faqs.side.title": string;
@@ -125,6 +126,7 @@ export const ui: UiProperties = {
         "accompaniment.third": "Minutes of delay compensated with Zoef since November",
         "howzoefworks.title": "How Zoef works",
         "testimonials.title": "What our customers say",
+        "testimonials.compensation": "in received compensation",
         "faqs.title": "Frequently asked questions",
         "faqs.side.title": "Have another question?",
         "faqs.side.description": "If your question isn't answered, please contact us using the button below.",
@@ -206,6 +208,7 @@ export const ui: UiProperties = {
         "accompaniment.third": "Minuten vertraging gecompenseerd met Zoef sinds November",
         "howzoefworks.title": "Hoe Zoef werkt",
         "testimonials.title": "Wat onze klanten noemen",
+        "testimonials.compensation": "ontangen compensatie",
         "faqs.title": "Frequently asked questions",
         "faqs.side.title": "Heb je een andere vraag?",
         "faqs.side.description":
