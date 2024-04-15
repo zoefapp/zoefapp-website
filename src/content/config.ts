@@ -1,8 +1,14 @@
 import { defineCollection, z } from 'astro:content';
 import { BlogSchema } from '~/lib/blog';
 import { FaqSchema } from '~/lib/faq';
+import { PageProps } from '~/lib/page';
 import { TestimonialSchema } from '~/lib/testimonial';
 
+/// page content
+const pageCollection = defineCollection({
+  type: 'content',
+  schema: PageProps
+})
 
 /// BLOG
 const blogCollection = defineCollection({
@@ -39,7 +45,8 @@ export const collections = {
   'blog': blogCollection,
   'faq': faqCollection,
   'testimonial': testimonialCollection,
-  'howitworks': howitworksCollection
+  'howitworks': howitworksCollection,
+  'pages': pageCollection
 };
 export type ContentCollection = keyof typeof collections
 

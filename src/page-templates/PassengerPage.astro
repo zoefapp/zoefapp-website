@@ -26,7 +26,7 @@ import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
 
 const TrustPilotData = {
-    review_count: 336,
+    review_count: 20,
     star_count: 5,
     review_market: "AppStore",
 };
@@ -49,7 +49,7 @@ const AccomplishmentsData = [
 ];
 ---
 
-<Layout title={t("passenger.title")}  description={t("passenger.description")}>
+<Layout title={t("passenger.title")} description={t("passenger.description")} pageContentId="passenger">
     <main class="theme-passenger px-5 max-md:px-0">
         <Hero heroImage={PassengerBackgroundImage}>
             <Fragment slot="left">

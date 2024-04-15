@@ -1,23 +1,27 @@
 ---
-import "~/styles/globals.css";
-import { getLanguage } from "~/i18n/utils";
-import Header from "~/components/header/Header.astro";
+import { getEntry } from "astro:content";
 import Footer from "~/components/footer/Footer.astro";
+import Header from "~/components/header/Header.astro";
+import { getLanguage } from "~/i18n/utils";
+import type { PageProps } from "~/lib/page";
+import "~/styles/globals.css";
 
-interface Props {
-    title: string;
-    description?: string;
-    keywords?: string;
-    author?: string;
-    ogTitle?: string;
-    ogType?: string;
-    ogUrl?: string;
-    ogImage?: string;
+interface Props extends PageProps {
+    pageContentId?: string // reference to a contentId in /content/pages/{id}
 }
 
 const lang = getLanguage(Astro);
 
 const props = Astro.props;
+
+if (props.pageContentId) {
+    const pageContent = await getEntry('pages', `${lang}/${props.pageContentId}`);
+    if (pageContent) {
+        console.log(pageContent.data);
+        Object.assign(props, pageContent.data);
+    }
+}
+
 ---
 
 <!doctype html>
@@ -50,3 +54,4 @@ const props = Astro.props;
         <Footer />
     </body>
 </html>
+~/lib/page

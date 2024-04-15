@@ -28,7 +28,7 @@ import Title from "~/components/ui/Title.astro";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
 
 const TrustPilotData = {
-    review_count: 336,
+    review_count: 20,
     star_count: 5,
     review_market: "AppStore",
 };
@@ -68,9 +68,9 @@ const AccomplishmentsData = [
         <Hero heroImage={TicketVendorBackgroundImage}>
             <Fragment slot="left">
                 <Title>
-                    {t("passenger.title")}
+                    {t("ticket-vendor.title")}
                 </Title>
-                <Subtitle variant="default">{t("passenger.description")}</Subtitle>
+                <Subtitle variant="default">{t("ticket-vendor.description")}</Subtitle>
                 <SignUpForm />
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
