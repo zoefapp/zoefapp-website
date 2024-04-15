@@ -25,6 +25,7 @@ import Testimonials from "~/components/Testimonials.astro";
 import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
+import type { PageProps } from "~/lib/page";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
 
 const TrustPilotData = {
@@ -61,9 +62,15 @@ const AccomplishmentsData = [
     },
 ];
 
+
+const pageProps: PageProps = {
+    title: t("ticket-vendor.title"),
+    description: t("ticket-vendor.description"),
+}
+
 ---
 
-<Layout title={t("ticket-vendor.title")} description={t("ticket-vendor.description")}>
+<Layout page={pageProps}>
     <main class="theme-ticket-vendor px-2 max-md:px-0">
         <Hero heroImage={TicketVendorBackgroundImage}>
             <Fragment slot="left">

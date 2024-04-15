@@ -6,7 +6,7 @@ import { TestimonialSchema } from '~/lib/testimonial';
 
 /// page content
 const pageCollection = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: PageProps
 })
 

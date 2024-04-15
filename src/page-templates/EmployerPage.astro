@@ -26,6 +26,7 @@ import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
+import type { PageProps } from "~/lib/page";
 const TrustPilotData = {
     review_count: 20,
     star_count: 5,
@@ -59,9 +60,15 @@ const AccomplishmentsData = [
         icon: ClockCheckIcon,
     },
 ];
+
+const pageProps: PageProps = {
+    title: t("employer.title"),
+    description: t("employer.description"),
+}
+
 ---
 
-<Layout title={t("employer.title")} description={t("employer.description")}>
+<Layout page={pageProps}>
     <main class="theme-employer px-2 max-md:px-0">
         <Hero heroImage={EmployerBackgroundImage}>
             <Fragment slot="left">

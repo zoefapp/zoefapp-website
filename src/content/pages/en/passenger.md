@@ -1,4 +1,4 @@
-
+---
 title: "Is your train delayed? Get a compensation!"
 description: 'Passenger'
 keywords: 'passenger,train delay,compensation,refund,railway,train,travel'
@@ -7,3 +7,4 @@ ogTitle: 'Train delayed? Get compensation!'
 ogType: 'website'
 #ogUrl: 'string';
 ogImage: ''
+---

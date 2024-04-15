@@ -5,21 +5,26 @@ import IndividualBlogHero from "~/components/IndividualBlogHero.astro";
 import BlogContent from "~/components/BlogContent.astro";
 import Blogs from "~/components/Blogs.astro";
 import Banner from "~/components/Banner.astro";
+import type { PageProps } from "~/lib/page";
 
 interface Props {
     blog: BlogContentEntry;
 }
 
 const { blog } = Astro.props;
+
+const pageProps: PageProps = {
+    title: blog.data.title,
+    description: blog.data.metaDescription,
+    author: blog.data.author,
+    ogImage: blog.data.metaOgImage,
+    ogTitle: blog.data.metaOgTitle,
+    ogType: "article",
+}
 ---
 
 <Layout 
-    title={blog.data.title} 
-    description={blog.data.metaDescription} 
-    author={blog.data.author}
-    ogImage={blog.data.metaOgImage}
-    ogTitle={blog.data.metaOgTitle}
-    ogType="article"
+    page={pageProps}
     >
     <main class="theme-passenger px-2 max-md:px-0">
         <IndividualBlogHero blog={blog} />
