@@ -13,10 +13,14 @@ import BlogTitle from "./BlogTitle.astro";
 const { blog } = Astro.props;
 
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
+const images = import.meta.glob<{ default: ImageMetadata }>([
+    '/src/assets/*.{jpeg,jpg,png,gif,webp}', 
+    '/src/content/blog/**/*.{jpeg,jpg,png,gif,webp}'
+]);
 
 
 const blogImagePath = getBlogImagePath(blog)
+console.log(blogImagePath, blog.data.headerImage)
 const headerImagePath = blogImagePath + '/' + blog.data.headerImage
 const headerImage = images[headerImagePath] ? images[headerImagePath]() : import('/src/assets/images/blog-placeholder.png')
 
