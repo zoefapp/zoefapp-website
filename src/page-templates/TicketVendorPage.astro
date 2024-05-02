@@ -22,17 +22,16 @@ import Hero from "~/components/Hero.astro";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Stats from "~/components/Stats.astro";
 import Testimonials from "~/components/Testimonials.astro";
-import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
-import type { PageProps } from "~/lib/page";
+import { getPageContent } from "~/lib/page";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
 
-const TrustPilotData = {
-    review_count: 20,
-    star_count: 5,
-    review_market: "AppStore",
-};
+// const TrustPilotData = {
+//     review_count: 20,
+//     star_count: 5,
+//     review_market: "AppStore",
+// };
 const StatsData = [
     {
         description: t("stats.first"),
@@ -62,24 +61,19 @@ const AccomplishmentsData = [
     },
 ];
 
-
-const pageProps: PageProps = {
-    title: t("ticket-vendor.title"),
-    description: t("ticket-vendor.description"),
-}
-
+let pageContent = await getPageContent(getLanguage(Astro), "employer");
 ---
 
-<Layout page={pageProps}>
+<Layout page={pageContent.data}>
     <main class="theme-ticket-vendor px-2 max-md:px-0">
         <Hero heroImage={TicketVendorBackgroundImage}>
             <Fragment slot="left">
                 <Title>
-                    {t("ticket-vendor.title")}
+                    {pageContent.data.title}
                 </Title>
-                <Subtitle variant="default">{t("ticket-vendor.description")}</Subtitle>
+                <Subtitle variant="default">{pageContent.data.title}</Subtitle>
                 <SignUpForm />
-                <TrustPilotRatings data={TrustPilotData} />
+                <!-- <TrustPilotRatings data={TrustPilotData} /> -->
             </Fragment>
             <Stats data={StatsData} slot="floating" />
         </Hero>
@@ -87,7 +81,7 @@ const pageProps: PageProps = {
         <Accomplisments data={AccomplishmentsData} />
         <HowZoefWorks />
         <Testimonials relevantFor="ticketvendor" />
-        <Faqs image={FaqsRedImage} relevantFor="ticketvendor"/>
+        <Faqs image={FaqsRedImage} relevantFor="ticketvendor" />
         <Blogs />
         <StoreBanner type="signup" />
     </main>

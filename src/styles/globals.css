@@ -74,4 +74,12 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+
+    .z-text-content p {
+        @apply mb-6; /* Adjust the value as needed */
+    }
+
+    a {
+        @apply text-blue-900;
+    }
 }

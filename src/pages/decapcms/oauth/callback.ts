@@ -53,7 +53,6 @@ export const GET: APIRoute = async ({ url, redirect }) => {
       headers: { "Content-Type": "text/html" },
     });
   } catch (err) {
-    console.log(err);
     return redirect("/?error=😡");
   }
 };

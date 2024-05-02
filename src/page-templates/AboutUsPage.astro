@@ -1,7 +1,7 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 // Images
-import AboutUsBackgroundImage from "~/assets/images/backgrounds/about-us-bg.png";
+import AboutUsBackgroundImage from "~/assets/images/backgrounds/about-us-bg.jpg";
 // Utils
 import { Image } from "astro:assets";
 import Banner from "~/components/Banner.astro";
@@ -17,13 +17,13 @@ let { Content } = await pageContent.render()
     <main class="theme-passenger">
         <section class="relative w-full">
             <section class="container flex flex-col gap-6 pt-24 text-skin-base">
-                <h1 class="text-center text-[20px] font-bold">About Us</h1>
+                <h1 class="text-center text-[20px] font-bold">{pageContent.data.title}</h1>
                 <h2
                     class="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold md:w-1/2 text-balance md:mx-auto leading-tight"
                 >
-                    A better experience with Zoef.app.
+                    {pageContent.data.description}
                 </h2>
-                <aside class="mt-14">
+                <aside class="mt-14 justify-center items-center flex">
                     <Image
                         class="aspect-video object-cover rounded-lg"
                         src={AboutUsBackgroundImage}
@@ -41,7 +41,7 @@ let { Content } = await pageContent.render()
             >
             </div>
         </section>
-        <section class="container md:w-[calc(1400px/2.5)] mt-14 flex flex-col text-skin-base">
+        <section class="container md:w-[calc(1400px/2.5)] mt-14 flex flex-col text-skin-base z-text-content">
             <Content />
         </section>
         <Banner type="store" />

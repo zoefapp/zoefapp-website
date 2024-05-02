@@ -24,7 +24,7 @@ const faqs = await getFaqs(Astro.props.relevantFor, lang);
     <section class="w-[90%] mx-auto space-y-10">
         <Subtitle variant="secondary" set:html={t("faqs.title")} />
         <section class="flex flex-col lg:flex-row gap-12 lg:gap-20 justify-between">
-            <aside class="flex items-center w-full lg:w-1/2">
+            <aside class="flex items-start w-full lg:w-1/2">
                 <AccordionContainer name="faqs">
                     {faqs.map((faq) => <AccordionItem name="faqs" content={faq.answer} title={faq.question} />)}
                 </AccordionContainer>

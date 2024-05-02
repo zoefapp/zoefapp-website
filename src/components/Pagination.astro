@@ -47,7 +47,6 @@ const { page } = Astro.props;
     function nextPage() {
         const url = new URL(window.location.href);
         const currentPage = url.searchParams.get("page");
-        console.log(currentPage);
         if (currentPage === "5") return;
         const nextPage = Number(currentPage) + 1;
         url.searchParams.set("page", nextPage.toString());

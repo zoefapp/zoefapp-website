@@ -25,8 +25,8 @@ import Testimonials from "~/components/Testimonials.astro";
 import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
+import { getPageContent } from "~/lib/page";
 import SignUpForm from "~/pages/partial/signup/_form.astro";
-import type { PageProps } from "~/lib/page";
 const TrustPilotData = {
     review_count: 20,
     star_count: 5,
@@ -61,21 +61,18 @@ const AccomplishmentsData = [
     },
 ];
 
-const pageProps: PageProps = {
-    title: t("employer.title"),
-    description: t("employer.description"),
-}
+let pageContent = await getPageContent(getLanguage(Astro), "employer")
 
 ---
 
-<Layout page={pageProps}>
+<Layout page={pageContent.data}>
     <main class="theme-employer px-2 max-md:px-0">
         <Hero heroImage={EmployerBackgroundImage}>
             <Fragment slot="left">
                 <Title>
-                    {t("employer.title")}
+                    {pageContent.data.title}
                 </Title>
-                <Subtitle variant="default">{t("employer.description")}</Subtitle>
+                <Subtitle variant="default">{pageContent.data.description}</Subtitle>
                 <SignUpForm />
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>

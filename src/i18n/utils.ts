@@ -15,7 +15,6 @@ function getLanguageFromHeaders(astro: AstroGlobal): string | null {
 export function getLanguage(astro: AstroGlobal): string {
     let fromUrl = getLanguageFromUrl(astro);
     if (fromUrl !== null) return fromUrl;
-    console.log(fromUrl, astro.url)
     let fromheader = getLanguageFromHeaders(astro);
     if (fromheader !== null) return fromheader;
     return DEFAULT_LANG

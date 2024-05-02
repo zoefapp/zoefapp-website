@@ -35,7 +35,7 @@ import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
         <div class="bg-white rounded-2xl max-lg:-translate-y-8 max-lg:px-5 max-lg:py-3 max-lg:w-4/5 max-lg:mx-auto">
             <p class="opacity-60 text-xs">
                 {
-                    blog.data.date.toLocaleDateString("en-US", {
+                    blog.data.date.toLocaleDateString(lang, {
                         year: "numeric",
                         month: "long",
                         day: "numeric",

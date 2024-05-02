@@ -59,7 +59,6 @@ const { buttonId, menuId, className } = Astro.props;
             const menu = document.getElementById(menuId);
             if (!button || !menu) return;
             button.addEventListener("click", () => {
-                console.log("clicked");
                 menu.classList.toggle("hidden");
             });
 

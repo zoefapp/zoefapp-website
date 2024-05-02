@@ -1,5 +1,6 @@
 ---
 title: Over ons
+description: Het verhaal achter Zoef.app
 ---
 
 Treinen vormen een buitengewoon transportmiddel: **snel, comfortabel, stil en vaak elektrisch aangedreven**. Het uitgestrekte spoorwegnetwerk biedt ongekende mogelijkheden.

@@ -16,12 +16,6 @@ export interface UiTranslations {
     "nav.cta": string;
     "nav.contact.description": string;
     "nav.contact.cta": string;
-    "passenger.title": string;
-    "passenger.description": string;
-    "employer.title": string;
-    "employer.description": string;
-    "ticket-vendor.title": string;
-    "ticket-vendor.description": string;
     "stats.title": string;
     "stats.first": string;
     "stats.second": string;
@@ -103,13 +97,6 @@ export const ui: UiProperties = {
         "nav.cta": "Check for Compensation",
         "nav.contact.description": "Do you think you are entitled to a claim?",
         "nav.contact.cta": "Contact Us",
-        "passenger.title": "Train delayed? \n Get your money back!",
-        "passenger.description": "The platform for claiming compensation for train delays in public transport",
-        "employer.title": "High public transportation costs? Save with Zoef.app!",
-        "employer.description": "The platform for claiming compensation for train delays in public transport",
-        "ticket-vendor.title": "Automate your compensation process with Zoef.app.",
-        "ticket-vendor.description":
-            "Reduce the time spent processing compensation claims and increase customer satisfaction.",
         "stats.title": "What Zoef does for you",
         "stats.first": "Trains delayed",
         "stats.second": "Trains delayed",
@@ -188,14 +175,6 @@ export const ui: UiProperties = {
         "nav.cta": "Check voor vergoeding",
         "nav.contact.description": "Denk je dat je recht hebt op een claim?",
         "nav.contact.cta": "Claim aanvragen",
-        "passenger.title": "Trein vertraagd? \n Vraag je geld terug!",
-        "passenger.description": "De tool om compensatie aan te vragen voor vertraagde OV-treinreizen",
-        "employer.title": "Hoge OV-reiskosten? Bespaar met Zoef.app!",
-        "employer.description":
-            "By automatically requesting compensation for delayed journeys, organizations can save up to 20% on their train travel expenses.",
-        "ticket-vendor.title": "Automatiseer je compensatieproces met Zoef.app",
-        "ticket-vendor.description":
-            "Beperk de tijd die je kwijt bent aan het verwerken van compensatieclaims en verhoog de klanttevredenheid",
         "stats.title": "Wat Zoef voor je doet",
         "stats.first": "Hoeveelheid compensaties",
         "stats.second": "Hoeveelheid compensaties",

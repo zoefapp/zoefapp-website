@@ -50,7 +50,6 @@ import { Icon } from "astro-icon/components";
                             return r.values.find((v) => v > 0);
                         })
                         .map((match) => {
-                            console.log(match);
                             return {
                                 id: match.values.find((v) => v > 0),
                                 name: match.key,

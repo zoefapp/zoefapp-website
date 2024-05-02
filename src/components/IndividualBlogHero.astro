@@ -20,7 +20,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>([
 
 
 const blogImagePath = getBlogImagePath(blog)
-console.log(blogImagePath, blog.data.headerImage)
 const headerImagePath = blogImagePath + '/' + blog.data.headerImage
 const headerImage = images[headerImagePath] ? images[headerImagePath]() : import('/src/assets/images/blog-placeholder.png')
 

@@ -1,5 +1,6 @@
 ---
 title: About us
+description: The story behind Zoef.app
 ---
 
 Trains represent an extraordinary mode of transportation: **fast, comfortable, quiet, and often electrically powered**. The extensive railway network offers unparalleled possibilities.

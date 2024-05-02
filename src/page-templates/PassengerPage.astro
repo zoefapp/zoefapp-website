@@ -24,7 +24,7 @@ import Testimonials from "~/components/Testimonials.astro";
 import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
-import type { PageProps } from "~/lib/page";
+import { getPageContent } from "~/lib/page";
 
 const TrustPilotData = {
     review_count: 20,
@@ -49,21 +49,17 @@ const AccomplishmentsData = [
     },
 ];
 
-const pageProps: PageProps = {
-    title: t("passenger.title"),
-    description: t("passenger.description"),
-}
-
+let pageContent = await getPageContent(getLanguage(Astro), "passenger")
 ---
 
-<Layout page={pageProps}>
+<Layout page={pageContent.data}>
     <main class="theme-passenger px-5 max-md:px-0">
         <Hero homePage heroImage={PassengerBackgroundImage}>
             <Fragment slot="left">
                 <Title>
-                    {t("passenger.title")}
+                    {pageContent.data.title}
                 </Title>
-                <Subtitle variant="default">{t("passenger.description")}</Subtitle>
+                <Subtitle variant="default">{pageContent.data.description}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <CompensationCheck slot="floating" />
