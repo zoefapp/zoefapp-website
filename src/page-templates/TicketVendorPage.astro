@@ -34,13 +34,13 @@ import SignUpForm from "~/pages/partial/signup/_form.astro";
 // };
 const StatsData = [
     {
-        description: t("stats.first"),
+        description: 'Automatische bepaling of een claim gegrond is. ',
     },
     {
-        description: t("stats.second"),
+        description: "Volledig automatische financiële afhandeling."
     },
     {
-        description: t("stats.third"),
+        description: "Geautomatiseerde communicatie met de reiziger.",
     },
 ];
 const AccomplishmentsData = [
@@ -61,7 +61,7 @@ const AccomplishmentsData = [
     },
 ];
 
-let pageContent = await getPageContent(getLanguage(Astro), "employer");
+let pageContent = await getPageContent(getLanguage(Astro), "ticketvendor");
 ---
 
 <Layout page={pageContent.data}>
@@ -71,7 +71,7 @@ let pageContent = await getPageContent(getLanguage(Astro), "employer");
                 <Title>
                     {pageContent.data.title}
                 </Title>
-                <Subtitle variant="default">{pageContent.data.title}</Subtitle>
+                <Subtitle variant="default">{pageContent.data.description}</Subtitle>
                 <SignUpForm />
                 <!-- <TrustPilotRatings data={TrustPilotData} /> -->
             </Fragment>
