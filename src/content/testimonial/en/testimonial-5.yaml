@@ -1,6 +1,8 @@
-person: some Person
-company: Some Company
+person: Elisabetta
+company: Intus Workforce Solutions
 stars: 5
 date: 2024-01-01T10:00:00.000Z
 homepageOrder: 10
-testimonial: "Exceptional service! They exceeded my expectations. Highly recommended for their professionalism and quality work."
+testimonial: "Travel expenses are a big expense for us. With Zoef.app we can easily save!"
+relevantFor:
+  - employer

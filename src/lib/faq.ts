@@ -9,7 +9,7 @@ export const FaqSchema = z.object({
     question: z.string(),
     answer: z.string(),
     homepageOrder: z.number().optional(),
-    relevantFor: z.array(FaqRelevance).default(['passenger', 'ticketvendor', 'employer'])
+    relevantFor: z.array(FaqRelevance).default([])
 })
 export type FAQ = z.infer<typeof FaqSchema>;
 

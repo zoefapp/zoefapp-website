@@ -1,6 +1,9 @@
-person: some Person
-company: Some Company
+person: Derek Blakenburg
+company: Zoef.app BV
 stars: 5
-date: 2024-01-01T10:00:00.000Z
-homepageOrder: 10
-testimonial: "Outstanding experience! The team delivered superb results promptly. I'm impressed and will definitely return for more."
+date: 2024-04-01T10:00:00.000Z
+homepageOrder: 20
+testimonial: "I am often late, and can now easily see the status of my claims via the app!"
+compensation: 31
+relevantFor: 
+ - passenger

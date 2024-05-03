@@ -1,6 +1,8 @@
-person: some Person
-company: Some Company
+person: Filip de Jonge
+company: Choo-Choo
 stars: 5
 date: 2024-01-01T10:00:00.000Z
 homepageOrder: 10
-testimonial: "Outstanding experience! The team delivered superb results promptly. I'm impressed and will definitely return for more."
+testimonial: "Zoef.app saves us so much time. By outsourcing the entire claim process, we can focus on our core business!"
+relevantFor:
+  - ticketvendor

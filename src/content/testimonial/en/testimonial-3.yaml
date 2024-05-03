@@ -1,6 +1,8 @@
-person: some Person
-company: Some Company
+person: Marijn Clevers
 stars: 5
 date: 2024-01-01T10:00:00.000Z
-homepageOrder: 10
-testimonial: "Exceptional service! They exceeded my expectations. Highly recommended for their professionalism and quality work."
+homepageOrder: 30
+testimonial: "I never have to search for where I can submit my claim!"
+compensation: 12
+relevantFor: 
+ - passenger

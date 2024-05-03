@@ -16,10 +16,9 @@ export const TestimonialSchema = z.object({
     date: z.date(),
     testimonial: z.string(),
     homepageOrder: z.number().optional(),
-    relevantFor: z.array(TestimonialRelevance).default(['passenger', 'ticketvendor', 'employer'])
+    relevantFor: z.array(TestimonialRelevance).default([])
 })
 export type Testimonial = z.infer<typeof TestimonialSchema>;
-
 
 export async function getTestimonials(relevance: TestimonialRelevance, language: SupportedLanguages): Promise<TestimonialContentEntry[]> {
     let result = await getCollection("testimonial", entry => {
