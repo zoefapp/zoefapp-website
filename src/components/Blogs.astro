@@ -26,7 +26,7 @@ const routes = useRoutes(lang)
         <aside class="flex flex-col lg:flex-row gap-0 lg:gap-8">
             {
                 blogs.map((blog) => (
-                    <a href={getBlogUrl(lang, blog)}>
+                    <a href={getBlogUrl(lang, blog)} class="text-skin-base">
                         <section class="flex flex-col gap-4 w-full max-w-xl mx-auto group">
                             <div class="relative">
                                 <p class="absolute capitalize font-bold top-5 left-5 px-5 py-2 text-xs bg-white text-[#66AE6E] rounded-[12px]">

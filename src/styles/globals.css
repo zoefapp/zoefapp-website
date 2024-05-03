@@ -29,7 +29,6 @@
         --color-text-base: 101, 69%, 9%;
         --color-text-secondary: 127, 31%, 44%;
         --color-gradient: 97, 56%, 84%;
-
     }
 
     .theme-employer {
@@ -76,11 +75,12 @@
     }
 
     .z-text-content p {
-        @apply mb-6; /* Adjust the value as needed */
+        @apply mb-6; 
     }
 
-    a {
-        @apply text-blue-900;
+    main a {
+        --tw-text-opacity: 1;
+        color: #FF9900;
     }
 
     .stylish-marker {

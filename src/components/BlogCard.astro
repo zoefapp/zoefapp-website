@@ -13,7 +13,7 @@ const lang = getLanguage(Astro);
 import BlogPlaceholderImage from "~/assets/images/blog-placeholder.png";
 ---
 
-<a href={getBlogUrl(lang, blog)}>
+<a href={getBlogUrl(lang, blog)} class="text-skin-base">
     <section class="flex flex-col gap-4 w-full max-w-xl mx-auto group">
         <div class="relative">
             <p
