@@ -79,7 +79,7 @@ let pageContent = await getPageContent(getLanguage(Astro), "employer")
             <Stats data={StatsData} slot="floating" />
         </Hero>
         <Brands />
-        <HowZoefWorks />
+        <HowZoefWorks type="employer"/>
         <Accomplisments data={AccomplishmentsData} />
         <Testimonials relevantFor="employer" />
         <Faqs image={FaqsBlueImage} relevantFor="employer" />

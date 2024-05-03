@@ -79,7 +79,8 @@ let pageContent = await getPageContent(getLanguage(Astro), "ticketvendor");
         </Hero>
         <Brands />
         <Accomplisments data={AccomplishmentsData} />
-        <HowZoefWorks />
+        <HowZoefWorks type="ticketvendor-a" />
+        <HowZoefWorks type="ticketvendor-b" orientation="right" />
         <Testimonials relevantFor="ticketvendor" />
         <Faqs image={FaqsRedImage} relevantFor="ticketvendor" />
         <Blogs />
