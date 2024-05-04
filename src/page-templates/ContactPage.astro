@@ -1,0 +1,34 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Banner from "~/components/Banner.astro";
+import { getPageContent } from "~/lib/page";
+import { getLanguage } from "~/i18n/utils";
+
+let pageContent = await getPageContent(getLanguage(Astro), "contactus");
+let { Content } = await pageContent.render();
+---
+
+<Layout page={pageContent?.data}>
+    <main class="theme-passenger">
+        <section class="relative w-full">
+            <section class="container flex flex-col gap-6 pt-24 text-skin-base">
+                <h1 class="text-center text-[20px] font-bold">{pageContent.data.title}</h1>
+                <h2
+                    class="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold md:w-1/2 text-balance md:mx-auto leading-tight"
+                >
+                    {pageContent.data.description}
+                </h2>
+                <aside class="mt-14 justify-center items-center flex">
+                    <div class="aspect-video object-cover rounded-lg bg-white w-full shadow-lg p-16">
+                        <Content />
+                    </div>
+                </aside>
+            </section>
+            <div
+                class="absolute inset-x-0 top-0 bottom-[10%] md:bottom-[30%] lg:bottom-[30%] bg-skin-gradient rounded-b-3xl md:rounded-t-3xl -z-10"
+            >
+            </div>
+        </section>
+        <Banner type="store" />
+    </main>
+</Layout>
