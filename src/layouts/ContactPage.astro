@@ -6,6 +6,7 @@ interface Props {
 import Layout from "~/layouts/Layout.astro";
 import Banner from "~/components/Banner.astro";
 import type { PageContentEntry } from "~/lib/page";
+import ContactForm from "~/components/contact/ContactForm.astro";
 
 let pageContent = Astro.props.page
 let { Content } = await pageContent.render()
@@ -23,7 +24,9 @@ let { Content } = await pageContent.render()
                 </h2>
                 <aside class="mt-14 justify-center items-center flex">
                     <div class="aspect-video object-cover rounded-lg bg-white w-full shadow-lg p-16">
-                        <Content />
+                        <ContactForm>
+                            <Content />
+                        </ContactForm>
                     </div>
                 </aside>
             </section>

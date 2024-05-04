@@ -3,4 +3,6 @@ title: Neem contact op
 description: Heeft u vragen? Neem contact op
 ---
 
-Content
+# Neem contact op
+Heb je vragen of opmerkingen, laat het ons weten!
+
