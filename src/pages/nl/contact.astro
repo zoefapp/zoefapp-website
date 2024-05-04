@@ -1,6 +1,11 @@
 ---
-import AboutUsPage from "~/page-templates/ContactPage.astro";
+import ContactLayout from "~/layouts/ContactPage.astro";
 export const prerender = true;
+
+import { getPageContent } from "~/lib/page";
+import { getLanguage } from "~/i18n/utils";
+
+let pageContent = await getPageContent(getLanguage(Astro), "contactus");
 ---
 
-<AboutUsPage />
+<ContactLayout page={pageContent} />

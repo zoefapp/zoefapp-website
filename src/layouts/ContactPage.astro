@@ -1,14 +1,17 @@
 ---
+interface Props {
+    page: PageContentEntry
+}
+
 import Layout from "~/layouts/Layout.astro";
 import Banner from "~/components/Banner.astro";
-import { getPageContent } from "~/lib/page";
-import { getLanguage } from "~/i18n/utils";
+import type { PageContentEntry } from "~/lib/page";
 
-let pageContent = await getPageContent(getLanguage(Astro), "contactus");
-let { Content } = await pageContent.render();
+let pageContent = Astro.props.page
+let { Content } = await pageContent.render()
 ---
 
-<Layout page={pageContent?.data}>
+<Layout page={pageContent.data}>
     <main class="theme-passenger">
         <section class="relative w-full">
             <section class="container flex flex-col gap-6 pt-24 text-skin-base">
