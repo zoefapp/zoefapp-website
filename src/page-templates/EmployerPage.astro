@@ -21,7 +21,6 @@ import Faqs from "~/components/Faqs.astro";
 import Hero from "~/components/Hero.astro";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
 import Stats from "~/components/Stats.astro";
-import Testimonials from "~/components/Testimonials.astro";
 import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
@@ -84,6 +83,6 @@ let pageContent = await getPageContent(getLanguage(Astro), "employer")
         <!-- <Testimonials relevantFor="employer" /> -->
         <Faqs image={FaqsBlueImage} relevantFor="employer" />
         <Blogs />
-        <StoreBanner type="signup" />
+        <StoreBanner type="productsignup" newsletter="EMPLOYER" />
     </main>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 interface Props {
-    type: "store" | "signup";
+    type: "store" | "productsignup";
+    newsletter?: "EMPLOYER" | "TICKETVENDOR";
 }
 const { type } = Astro.props;
 // Utils
@@ -50,7 +51,7 @@ import SignUpForm from "~/pages/partial/signup/_form.astro";
                         </a>
                     </div>
                 ) : (
-                    <SignUpForm />
+                    <SignUpForm type={Astro.props.newsletter!}/>
                 )
             }
         </aside>

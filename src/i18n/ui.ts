@@ -50,6 +50,8 @@ export interface UiTranslations {
     "newsletter.email.placeholder": string;
     "newsletter.error": string;
     "newsletter.subscribed": string;
+    "productsignup.title": string;
+    "productsignup.description": string;
     "productsignup.subscribe": string;
     "productsignup.email.placeholder": string;
     "productsignup.error": string;
@@ -135,6 +137,9 @@ export const ui: UiProperties = {
         "newsletter.subscribed":
             "Great! We've sent you an email, please check your inbox to confirm your subscription.",
 
+
+        "productsignup.title": "Test",
+        "productsignup.description": "Test2",
         "productsignup.subscribe": "Sign Up",
         "productsignup.email.placeholder": "Enter your email",
         "productsignup.subscribed": "Thanks, you will hear from us soon!",
@@ -215,7 +220,8 @@ export const ui: UiProperties = {
             "Schrijf je in voor onze nieuwsbrief om op de hoogte te blijven van features en releases.",
         "footer.newsletter.consent":
             "Door u te abonneren gaat u akkoord met ons Privacybeleid en geeft u toestemming om updates van ons bedrijf te ontvangen.",
-
+        "productsignup.title": "Test",
+        "productsignup.description": "Test2",
         "productsignup.subscribe": "Meld aan",
         "productsignup.email.placeholder": "Vul je email in",
         "productsignup.subscribed": "Bedankt, je hoort snel van ons!",
