@@ -5,6 +5,7 @@ const t = translations(Astro);
 import Logo from "../header/Logo.astro";
 import NewsletterForm from "~/pages/partial/newsletter/_form.astro";
 import { Icon } from "astro-icon/components";
+import { socials } from "~/lib/socials";
 // Data
 
 const routes = useRoutesAstro(Astro);
@@ -36,33 +37,6 @@ const FooterData = {
         {
             url: routes("blogs"),
             title: t("footer.link.about.blog"),
-        },
-    ],
-    socials: [
-        {
-            url: "https://www.facebook.com/zoefapp",
-            icon: "simple-icons:facebook",
-            text: "Facebook",
-        },
-        {
-            url: "http://instagram.com/zoef.app/",
-            icon: "simple-icons:instagram",
-            text: "Instagram",
-        },
-        {
-            url: "http://twitter.com/zoefapp",
-            icon: "simple-icons:x",
-            text: "X",
-        },
-        {
-            url: "https://www.linkedin.com/company/zoefapp/",
-            icon: "simple-icons:linkedin",
-            text: "Linkedin",
-        },
-        {
-            url: "https://www.tiktok.com/@zoef.app",
-            icon: "simple-icons:tiktok",
-            text: "Tiktok",
         },
     ],
     law: [
@@ -123,7 +97,7 @@ const FooterData = {
                 <h2 class="font-bold">{t("footer.socials.title")}</h2>
                 <ul class="flex flex-col gap-3">
                     {
-                        FooterData.socials.map((social) => (
+                        socials.map((social) => (
                             <li class="flex gap-4 items-center text-[14px]">
                                 <Icon name={social.icon} class="w-5 h-5" aria-label={social.text} />
                                 <a class="hover:underline" href={social.url} target="_blank" rel="noopener noreferrer">

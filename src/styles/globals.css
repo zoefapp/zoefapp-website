@@ -103,4 +103,17 @@
         box-decoration-break: clone;
         padding: 0.125em 0.25em;
       }
+
+    .content h1,
+    .content h2 {
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .content h2 {
+        margin-top: 56px;
+    }
+    .content p {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.9;
+    }
 }
