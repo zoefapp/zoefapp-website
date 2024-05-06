@@ -44,14 +44,16 @@ export interface UiTranslations {
     "blogs.cta": string;
     "store.title": string;
     "store.description": string;
-    "signup.title": string;
-    "signup.description": string;
     "footer.newsletter.title": string;
     "footer.newsletter.consent": string;
-    "newsletter.subscribe": string,
-    "newsletter.email.placeholder": string,
-    "newsletter.error": string,
-    "newsletter.subscribed": string,
+    "newsletter.subscribe": string;
+    "newsletter.email.placeholder": string;
+    "newsletter.error": string;
+    "newsletter.subscribed": string;
+    "productsignup.subscribe": string;
+    "productsignup.email.placeholder": string;
+    "productsignup.error": string;
+    "productsignup.subscribed": string;
     "footer.link.product.title": string;
     "footer.link.product.first": string;
     "footer.link.product.second": string;
@@ -127,13 +129,17 @@ export const ui: UiProperties = {
         "store.title": "Download the app",
         "store.description":
             "Are you familiar with our handy app? With this app, you can easily file your claim for a train delay. Don't wait any longer and download it right away!",
-        "signup.title": "Sign Up",
-        "signup.description": "Get access to all of our features and get your compensation in minutes!",
         "newsletter.subscribe": "Subscribe",
         "newsletter.email.placeholder": "Enter your email",
         "newsletter.error": "An error occurred. Please try again.",
         "newsletter.subscribed":
             "Great! We've sent you an email, please check your inbox to confirm your subscription.",
+
+        "productsignup.subscribe": "Sign Up",
+        "productsignup.email.placeholder": "Enter your email",
+        "productsignup.subscribed": "Thanks, you will hear from us soon!",
+        "productsignup.error": "An error occurred. Please try again.",
+
         "footer.newsletter.title": "Subscribe to our newsletter to stay updated on features and releases.",
         "footer.newsletter.consent":
             "By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.",
@@ -205,12 +211,15 @@ export const ui: UiProperties = {
         "store.title": "Download de app",
         "store.description":
             "Ben je al bekend met onze handige app? Met deze app kun je jouw claim voor een treinvertraging veel eenvoudiger indienen. Wacht niet langer en download hem meteen!",
-        "signup.title": "Aanmelden",
-        "signup.description": "Krijg toegang tot al onze functies en ontvang uw vergoeding in enkele minuten!",
         "footer.newsletter.title":
             "Schrijf je in voor onze nieuwsbrief om op de hoogte te blijven van features en releases.",
         "footer.newsletter.consent":
             "Door u te abonneren gaat u akkoord met ons Privacybeleid en geeft u toestemming om updates van ons bedrijf te ontvangen.",
+
+        "productsignup.subscribe": "Meld aan",
+        "productsignup.email.placeholder": "Vul je email in",
+        "productsignup.subscribed": "Bedankt, je hoort snel van ons!",
+        "productsignup.error": "Er is een fout opgetreden, wilt u het later opnieuw proberen?",
         "newsletter.subscribe": "Meld aan",
         "newsletter.email.placeholder": "Vul je email in",
         "newsletter.error": "Er is een fout opgetreden. Probeer het later opnieuw.",

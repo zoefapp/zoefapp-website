@@ -58,4 +58,4 @@ const t = useTranslations(getLanguage(Astro));
 
 {status == "subscribed" && <p>{t("newsletter.subscribed")}</p>}
 {status == "error" && <p>{t("newsletter.error")}</p>}
-{status != "form" && <NewsletterForm type={type} email={email} />}
+{status != "subscribed" && <NewsletterForm type={type} email={email} />}

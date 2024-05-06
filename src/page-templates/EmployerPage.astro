@@ -73,7 +73,7 @@ let pageContent = await getPageContent(getLanguage(Astro), "employer")
                     {pageContent.data.title}
                 </Title>
                 <Subtitle variant="default">{pageContent.data.description}</Subtitle>
-                <SignUpForm />
+                <SignUpForm type="EMPLOYER" />
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
             <Stats data={StatsData} slot="floating" />
