@@ -1,8 +1,11 @@
 ---
 export const partial = true;
 export const prerender = false;
-import NewsletterForm from "./_form.astro";
+import { HttpWebsiteClient } from "~/api/client/client";
+import { ClientFetchHttpService } from "~/api/client/lib/client";
+import { NewsletterSignupBody } from "~/api/client/modules/website/api";
 import { getLanguage, useTranslations } from "~/i18n/utils";
+import NewsletterForm from "./_form.astro";
 
 /*
  Verification steps:
@@ -15,30 +18,44 @@ import { getLanguage, useTranslations } from "~/i18n/utils";
 
 let status: "form" | "subscribed" | "error" = "form";
 
+let type = "NEWSLETTER";
+
 let email = "";
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
-    email = formData.get("email")?.valueOf().toString() ?? "";
-    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    if (validEmail) {
-        status = "subscribed";
+    email = formData.get("email")?.valueOf().toString() ?? "";
+    let newsletter = formData.get("newsletter")?.valueOf().toString() ?? "NEWSLETTER";
+
+    let postBody = NewsletterSignupBody.safeParse({
+        email,
+        newsletter,
+    });
+
+    type = newsletter
+
+    if (postBody.success) {
+        try {
+            let baseUrl = import.meta.env.ZOEF_API_BASEURL;
+            let api = new HttpWebsiteClient(baseUrl, new ClientFetchHttpService());
+            await api.signupNewsletter(postBody.data);
+
+            status = "subscribed";
+        } catch (e) {
+            console.error(e);
+            status = "error";
+        }
     } else {
+        console.log(postBody.error);
         status = "error";
     }
-
-    function timeout(ms: number) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    await timeout(5000)
-
 } else {
     status = "form";
 }
 
-const t = useTranslations(getLanguage(Astro))
+const t = useTranslations(getLanguage(Astro));
 ---
 
-{status == "subscribed" && <p>{t('newsletter.subscribed')}</p>}
-{status == "error" && <p>{t('newsletter.error')}</p>}
-{status == "form" && <NewsletterForm />}
+{status == "subscribed" && <p>{t("newsletter.subscribed")}</p>}
+{status == "error" && <p>{t("newsletter.error")}</p>}
+{status != "form" && <NewsletterForm type={type} email={email} />}
