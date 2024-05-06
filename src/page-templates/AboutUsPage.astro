@@ -23,18 +23,18 @@ let { Content } = await pageContent.render()
                 >
                     {pageContent.data.description}
                 </h2>
-                <aside class="mt-14 justify-center items-center flex">
+                <div class="mt-14 justify-center items-center flex">
                     <Image
-                        class="aspect-video object-cover rounded-lg"
+                        class="aspect-video object-cover rounded-lg lg:w-3/4"
                         src={AboutUsBackgroundImage}
                         alt="Blog Placeholder Image"
                         format="webp"
                         decoding="async"
-                        quality={80}
+                        quality={100}
                         loading="eager"
                         fetchpriority="high"
                     />
-                </aside>
+                </div>
             </section>
             <div
                 class="absolute inset-x-0 top-0 bottom-[10%] md:bottom-[30%] lg:bottom-[30%] bg-skin-gradient rounded-b-3xl md:rounded-t-3xl -z-10"
