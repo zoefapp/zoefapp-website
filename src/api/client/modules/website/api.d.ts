@@ -1,4 +1,6 @@
 import { z } from "zod";
+export declare const NewsletterSignup: z.ZodEnum<["NEWSLETTER", "EMPLOYEE", "TICKETVENDOR"]>;
+export type NewsletterSignup = z.infer<typeof NewsletterSignup>;
 export declare const NewsletterSignupBody: z.ZodObject<{
     email: z.ZodString;
     newsletter: z.ZodEnum<["NEWSLETTER", "EMPLOYEE", "TICKETVENDOR"]>;
