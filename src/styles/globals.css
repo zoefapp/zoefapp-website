@@ -116,4 +116,13 @@
         font-family: "Open Sans", sans-serif;
         line-height: 1.9;
     }
+
+    .content ul {
+        list-style-type: disc;
+        padding-left: 30px
+    }
+
+    .brightness-25 {
+        filter: brightness(25%);
+    }
 }

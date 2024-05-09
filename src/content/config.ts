@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { BlogSchema } from '~/lib/blog';
+import { PeopleSchema } from '~/lib/people';
 import { FaqSchema } from '~/lib/faq';
 import { PageProps } from '~/lib/page';
 import { TestimonialSchema } from '~/lib/testimonial';
@@ -28,7 +29,6 @@ const testimonialCollection = defineCollection({
   schema: TestimonialSchema,
 })
 
-/// FAQ
 const howitworksCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -39,6 +39,11 @@ const howitworksCollection = defineCollection({
   }),
 })
 
+const people = defineCollection({
+  type: 'data',
+  schema: PeopleSchema,
+})
+
 
 // EXPORTS
 export const collections = {
@@ -46,7 +51,8 @@ export const collections = {
   'faq': faqCollection,
   'testimonial': testimonialCollection,
   'howitworks': howitworksCollection,
-  'pages': pageCollection
+  'pages': pageCollection,
+  'people': people,
 };
 export type ContentCollection = keyof typeof collections
 

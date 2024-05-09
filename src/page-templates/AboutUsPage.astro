@@ -7,10 +7,13 @@ import { Image } from "astro:assets";
 import Banner from "~/components/Banner.astro";
 import { getPageContent } from "~/lib/page";
 import { getLanguage } from "~/i18n/utils";
+import { Icon } from "astro-icon/components";
+import { getPeople } from "~/lib/people"
+import PeopleProfilePhoto from "~/components/PeopleProfilePhoto.astro";
 
-
-let pageContent = await getPageContent(getLanguage(Astro), "aboutus")
-let { Content } = await pageContent.render()
+let people = await getPeople();
+let pageContent = await getPageContent(getLanguage(Astro), "aboutus");
+let { Content } = await pageContent.render();
 ---
 
 <Layout page={pageContent?.data}>
@@ -24,16 +27,23 @@ let { Content } = await pageContent.render()
                     {pageContent.data.description}
                 </h2>
                 <div class="mt-14 justify-center items-center flex">
-                    <Image
-                        class="aspect-video object-cover rounded-lg lg:w-3/4"
-                        src={AboutUsBackgroundImage}
-                        alt="Blog Placeholder Image"
-                        format="webp"
-                        decoding="async"
-                        quality={100}
-                        loading="eager"
-                        fetchpriority="high"
-                    />
+                    <div class="relative lg:w-3/4">
+                        <Image
+                            class="rounded-lg brightness-25"
+                            src={AboutUsBackgroundImage}
+                            alt="Blog Placeholder Image"
+                            format="webp"
+                            decoding="async"
+                            quality={100}
+                            loading="eager"
+                            fetchpriority="high"
+                        />
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                            <div class="content w-1/2">
+                                <Content />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <div
@@ -41,8 +51,56 @@ let { Content } = await pageContent.render()
             >
             </div>
         </section>
-        <section class="container md:w-[calc(1400px/2.5)] mt-14 flex flex-col text-skin-base z-text-content">
-            <Content />
+        <section class="container grid grid-cols-1 md:grid-cols-2 gap-4 mt-16 w-[90%]">
+            <div class="p-6 content">
+                <Content />
+            </div>
+            <div class="p-6">
+                <Image
+                    class="rounded-lg brightness-25"
+                    src={AboutUsBackgroundImage}
+                    alt="Blog Placeholder Image"
+                    format="webp"
+                    decoding="async"
+                    quality={100}
+                    loading="eager"
+                    fetchpriority="high"
+                />
+            </div>
+        </section>
+
+        <section class="container bg-gray-50 w-[90%] p-8 rounded-2xl mt-16">
+            <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Who's making it all work?</h2>
+            <div class="flex justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {
+                        people.map((person) => (
+                            <div class="p-6 flex flex-col items-center rounded-lg">
+                                <PeopleProfilePhoto person={person}  />
+                                <h2 class="text-lg font-bold flex gap-2 items-center">
+                                    {person.data.countryIcon && <Icon name={person.data.countryIcon} aria-label={person.data.country ?? ''} />}
+                                    {person.data.name}
+                                </h2>
+                                <p class="text-sm">{person.data.title}</p>
+                                <ul class="mt-4 flex space-x-4">
+                                    {person.data.socials.map((social) => (
+                                        <li class="flex gap-4 items-center text-[14px]">
+                                            <a
+                                                class="hover:underline"
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Icon name={social.icon} class="w-5 h-5" aria-label={social.label} />
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </section>
         <Banner type="store" />
     </main>

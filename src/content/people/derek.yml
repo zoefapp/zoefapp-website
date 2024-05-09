@@ -1,0 +1,8 @@
+name: Derek Blakenburg
+title: Creative genius
+order: 2
+photo: derek.jpeg
+socials:
+  - url: https://www.linkedin.com/in/derek-blakenburg-517167169/
+    icon: simple-icons:linkedin
+    label: LinkedIn

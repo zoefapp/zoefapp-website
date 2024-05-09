@@ -1,0 +1,10 @@
+name: Sander de Groot
+title: Owner
+country: Netherlands
+order: 1
+countryIcon: openmoji:flag-netherlands
+photo: sander.jpeg
+socials:
+  - url: https://linkedin.com/in/sdg91
+    icon: simple-icons:linkedin
+    label: LinkedIn
