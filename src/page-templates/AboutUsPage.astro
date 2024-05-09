@@ -8,7 +8,7 @@ import Banner from "~/components/Banner.astro";
 import { getPageContent } from "~/lib/page";
 import { getLanguage } from "~/i18n/utils";
 import { Icon } from "astro-icon/components";
-import { getPeople } from "~/lib/people"
+import { getPeople } from "~/lib/people";
 import PeopleProfilePhoto from "~/components/PeopleProfilePhoto.astro";
 
 let people = await getPeople();
@@ -71,35 +71,35 @@ let { Content } = await pageContent.render();
 
         <section class="container bg-gray-50 w-[90%] p-8 rounded-2xl mt-16">
             <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Who's making it all work?</h2>
-            <div class="flex justify-center">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {
-                        people.map((person) => (
-                            <div class="p-6 flex flex-col items-center rounded-lg">
-                                <PeopleProfilePhoto person={person}  />
-                                <h2 class="text-lg font-bold flex gap-2 items-center">
-                                    {person.data.countryIcon && <Icon name={person.data.countryIcon} aria-label={person.data.country ?? ''} />}
-                                    {person.data.name}
-                                </h2>
-                                <p class="text-sm">{person.data.title}</p>
-                                <ul class="mt-4 flex space-x-4">
-                                    {person.data.socials.map((social) => (
-                                        <li class="flex gap-4 items-center text-[14px]">
-                                            <a
-                                                class="hover:underline"
-                                                href={social.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <Icon name={social.icon} class="w-5 h-5" aria-label={social.label} />
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))
-                    }
-                </div>
+            <div class="flex justify-center flex-wrap gap-4">
+                {
+                    people.map((person) => (
+                        <div class="p-6 flex flex-col items-center rounded-lg">
+                            <PeopleProfilePhoto person={person} />
+                            <h2 class="text-lg font-bold flex gap-2 items-center">
+                                {person.data.countryIcon && (
+                                    <Icon name={person.data.countryIcon} aria-label={person.data.country ?? ""} />
+                                )}
+                                {person.data.name}
+                            </h2>
+                            <p class="text-sm">{person.data.title}</p>
+                            <ul class="mt-4 flex space-x-4">
+                                {person.data.socials.map((social) => (
+                                    <li class="flex gap-4 items-center text-[14px]">
+                                        <a
+                                            class="hover:underline"
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Icon name={social.icon} class="w-5 h-5" aria-label={social.label} />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))
+                }
             </div>
         </section>
         <Banner type="store" />
