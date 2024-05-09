@@ -6,7 +6,7 @@ import AboutUsBackgroundImage from "~/assets/images/backgrounds/about-us-bg.jpg"
 import { Image } from "astro:assets";
 import Banner from "~/components/Banner.astro";
 import { getPageContent } from "~/lib/page";
-import { getLanguage } from "~/i18n/utils";
+import { getLanguage, useTranslations } from "~/i18n/utils";
 import { Icon } from "astro-icon/components";
 import { getPeople } from "~/lib/people";
 import PeopleProfilePhoto from "~/components/PeopleProfilePhoto.astro";
@@ -14,6 +14,9 @@ import PeopleProfilePhoto from "~/components/PeopleProfilePhoto.astro";
 let people = await getPeople();
 let pageContent = await getPageContent(getLanguage(Astro), "aboutus");
 let { Content } = await pageContent.render();
+
+const lang = getLanguage(Astro);
+const t = useTranslations(lang);
 ---
 
 <Layout page={pageContent?.data}>
@@ -70,7 +73,7 @@ let { Content } = await pageContent.render();
         </section>
 
         <section class="container bg-gray-50 w-[90%] p-8 rounded-2xl mt-16">
-            <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">Who's making it all work?</h2>
+            <h2 class="text-skin-secondary font-bold text-[clamp(1.4rem,4vw,1.7rem)]">{t('aboutus.people.header')}</h2>
             <div class="flex justify-center flex-wrap gap-4">
                 {
                     people.map((person) => (

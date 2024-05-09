@@ -35,6 +35,7 @@ export interface UiTranslations {
     "howzoefworks.title": string;
     "testimonials.title": string;
     "testimonials.compensation": string;
+    "aboutus.people.header": string;
     "blog.articles": string;
     "faqs.title": string;
     "faqs.side.title": string;
@@ -175,6 +176,8 @@ export const ui: UiProperties = {
         standart_transfers: "Standard transfers",
         standard_travel_time: "Standard travel time",
         additional_travel_time: "Additional travel time",
+
+        "aboutus.people.header": "Who is making this possible?"
     },
     nl: {
         "nav.dropdown.text": "Ik ben:",
@@ -258,5 +261,7 @@ export const ui: UiProperties = {
         standart_transfers: "Standaard overstap",
         standard_travel_time: "Standaard reistijd",
         additional_travel_time: "Extra reistijd",
+
+        "aboutus.people.header": "Wie maakt Zoef.app mogelijk?"
     },
 } as const;
