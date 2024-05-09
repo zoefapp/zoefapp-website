@@ -115,6 +115,7 @@
     .content p {
         font-family: "Open Sans", sans-serif;
         line-height: 1.9;
+        margin-bottom: 10px;
     }
 
     .content ul {

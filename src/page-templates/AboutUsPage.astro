@@ -27,7 +27,7 @@ const t = useTranslations(lang);
                 <h2
                     class="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold md:w-1/2 text-balance md:mx-auto leading-tight"
                 >
-                    {pageContent.data.description}
+                    {pageContent.data.subtitle}
                 </h2>
                 <div class="mt-14 justify-center items-center flex">
                     <div class="relative lg:w-3/4">
@@ -41,9 +41,9 @@ const t = useTranslations(lang);
                             loading="eager"
                             fetchpriority="high"
                         />
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
-                            <div class="content w-1/2">
-                                <Content />
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-2xl italic">
+                            <div class="content w-3/4">
+                                "{pageContent.data.description}" - Zoef.app
                             </div>
                         </div>
                     </div>

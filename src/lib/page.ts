@@ -6,6 +6,7 @@ export type PageContentEntry = CollectionEntry<"pages">
 
 export const PageProps = z.object({
     title: z.string().optional(),
+    subtitle: z.string().optional(),
     description: z.string().optional(),
     keywords: z.string().optional(),
     author: z.string().optional(),
