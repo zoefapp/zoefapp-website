@@ -14,7 +14,6 @@ const t = translations(Astro);
 
 let orientation = Astro.props.orientation || "left";
 let orientationClass = orientation === "right" ? "lg:flex-row" : "lg:flex-row-reverse";
-console.log(orientationClass);
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/content/howitworks/**/*.{jpeg,jpg,png,gif}");
 
@@ -148,7 +147,7 @@ const instanceId = "A" + Math.ceil(Math.random() * 10000).toString();
             // Next
             if (delta > threshold) {
                 let currentBtn = instance.querySelector(".btns[data-state=active]");
-                let currentImage = instance.getElementById(currentBtn.id.toLowerCase());
+                let currentImage = instance.querySelector('#' + currentBtn.id.toLowerCase());
                 if (currentBtn.nextElementSibling && currentBtn.nextElementSibling.hasAttribute("data-state")) {
                     container.scrollBy({
                         left: window.innerWidth * 0.75,
