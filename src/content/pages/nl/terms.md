@@ -1,5 +1,5 @@
 ---
-title: Algemene voorwarden
+title: Algemene voorwaarden
 ---
 
 ## Algemene voorwaarden
