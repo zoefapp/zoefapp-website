@@ -20,6 +20,8 @@ export interface UiTranslations {
     "stats.first": string;
     "stats.second": string;
     "stats.third": string;
+    "content.tableofcontents": string,
+    "content.lastupdated": string,
     "compensation.title": string;
     "compensation.departure": string;
     "compensation.departure.placeholder": string;
@@ -106,6 +108,9 @@ export const ui: UiProperties = {
         "stats.first": "Trains delayed",
         "stats.second": "Trains delayed",
         "stats.third": "Trains delayed",
+
+        "content.tableofcontents": "Table of contents",
+        "content.lastupdated": "Last updated:",
 
         "compensation.title": "Check if you are entitled to a claim",
         "compensation.departure": "Departure Station",
@@ -194,6 +199,8 @@ export const ui: UiProperties = {
         "stats.second": "Hoeveelheid compensaties",
         "stats.third": "Hoeveelheid compensaties",
         "blog.articles": "Artikelen",
+        "content.tableofcontents": "Inhoudsopgave",
+        "content.lastupdated": "Laatste update op:",
         "compensation.title": "Bekijk of je recht hebt op een claim",
         "compensation.departure": "Vertrekstation",
         "compensation.departure.placeholder": "bijv. Amsterdam Centraal",

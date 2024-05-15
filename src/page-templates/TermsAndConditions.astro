@@ -1,7 +1,23 @@
 ---
+interface Props {
+    type: "privacy" | "terms";
+}
+
 import Layout from "~/layouts/Layout.astro";
-// Utils
 import { Icon } from "astro-icon/components";
+import { getLanguage, useRoutes, useTranslations } from "~/i18n/utils";
+import { getPageContent } from "~/lib/page";
+
+const lang = getLanguage(Astro);
+const t = useTranslations(lang);
+const r = useRoutes(lang)
+
+
+let pageContent = await getPageContent(lang, Astro.props.type)
+
+const { Content, headings } = await pageContent.render()
+const toc = headings.filter((heading) => heading.depth == 2);
+
 ---
 
 <Layout>
@@ -11,20 +27,24 @@ import { Icon } from "astro-icon/components";
                 class="container gap-8 font-bold flex flex-col md:flex-row md:items-center justify-between pt-20 pb-8"
             >
                 <aside class="gap-3 flex flex-col md:w-1/2">
-                    <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] text-skin-base font-bold">Terms & Condition</h1>
-                    <p class="text-[15px] font-bold">Last updated: December 20, 2023</p>
+                    <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] text-skin-base font-bold">{pageContent.data.title}</h1>
+                    {pageContent.data.lastUpdated && (
+                        <p class="text-[15px] font-bold">{t('content.lastupdated')} {pageContent.data.lastUpdated.toLocaleDateString()}</p>
+                    )}
                 </aside>
                 <aside class="flex gap-4">
-                    <button
-                        class="flex items-center gap-1 border border-skin-base md:border-none rounded-lg px-3 py-2 font-bold"
+                    <a
+                        class="flex items-center gap-1 border border-skin-base md:border-none rounded-lg px-3 py-2 font-bold text-black"
+                        href={r('terms')}
                     >
-                        <p>Privacy policy</p>
+                        <p>{t('footer.terms')}</p>
                         <Icon name="lucide:arrow-right" class="md:hidden w-4 h-4 shrink-0" />
                     </button>
-                    <button
-                        class="flex items-center gap-1 border border-skin-base md:border-none rounded-lg px-3 py-2 font-bold"
+                    <a
+                        class="flex items-center gap-1 border border-skin-base md:border-none rounded-lg px-3 py-2 font-bold text-black"
+                        href={r('privacy')}
                     >
-                        <p>Cookie settings</p>
+                        <p>{t('footer.privacy')}</p>
                         <Icon name="lucide:arrow-right" class="md:hidden w-4 h-4 shrink-0" />
                     </button>
                 </aside>
@@ -33,79 +53,20 @@ import { Icon } from "astro-icon/components";
         </section>
         <section class="container flex flex-col lg:flex-row gap-4">
             <ul
-                id="TOC"
                 class="lg:sticky h-max left-0 top-14 px-2 2xl:px-0 mt-14 flex flex-col gap-1 font-opensans list-disc list-inside text-orange-light text-sm text-start"
             >
-                <h2 class="text-skin-base font-bold mb-3 text-[clamp(16px,4vw,20px)]">Table of Contents</h2>
+                <h2 class="text-skin-base font-bold mb-3 text-[clamp(16px,4vw,20px)]">{t('content.tableofcontents')}</h2>
+                {
+                    toc.map((heading) => (
+                        <li class="pl-5">
+                            <a href={`#${heading.slug}`}>{heading.text}</a>
+                        </li>
+                    ))
+                }
             </ul>
-            <section class="content container md:w-[calc(1400px/2.5)] mt-14 flex flex-col text-skin-base">
-                <aside class="flex flex-col gap-2">
-                    <h2 class="font-bold text-[20px]">Nexo neo chiliz holo maker terra</h2>
-                    <p class="font-opensans text-sm leading-relaxed">
-                        Celsius ox helium THETA IOTA zcash shiba-inu. Loopring USD tezos algorand hive. Celsius THETA
-                        quant kusama quant kava tezos stacks. Amp audius polymath neo hedera revain eCash hedera nexo
-                        zcash. Bancor polygon revain cardano livepeer. Holo amp BitTorrent monero secret polkadot
-                        polkadot amp hive. Kadena klaytn enjin serum monero gala.
-                    </p>
-                    <p class="font-opensans text-sm leading-relaxed">
-                        Amp digibyte bancor celo loopring. Loopring monero XRP horizen terra stacks cosmos decentraland
-                        dash loopring. Neo loopring monero bitcoin audius XRP gala amp holo. Telcoin terra polygon ankr
-                        helium celsius. Waves amp celo kadena loopring elrond loopring filecoin. Shiba-inu IOTA bitcoin
-                        secret dash ICON amp. Siacoin zcash klaytn polygon terra revain. Algorand amp velas enjin aave
-                        polkadot. Helium ox kava terra holo stellar ankr loopring chiliz. Celo stacks siacoin terra
-                        harmony shiba-inu. Serum enjin cosmos ipsum dai terra ankr kava.
-                    </p>
-                </aside>
-                <aside class="flex flex-col gap-2 mt-14">
-                    <h2 class="font-bold text-[20px]">Livepeer stacks</h2>
-                    <p class="font-opensans text-sm leading-relaxed">
-                        Enjin hive secret avalanche polymath stacks BitTorrent golem polkadot litecoin. ICON telcoin
-                        loopring klaytn cosmos. Bancor audius uniswap terraUSD ipsum dai terraUSD cardano neo. Celo
-                        stellar bancor stellar quant uniswap decentraland solana velas ox. PancakeSwap siacoin flow
-                        serum litecoin zcash. Chainlink ankr kadena amp neo. Dai ipsum zcash elrond USD filecoin stacks.
-                        Golem stellar uniswap dai klaytn filecoin. Celo holo chainlink zcash polkadot quant. Helium
-                        filecoin tether loopring flow tether. Quant telcoin livepeer eCash fantom chiliz filecoin.
-                        Monero USD TRON dogecoin enjin zcash XRP. Crypto nexo helium monero golem shiba-inu arweave
-                        hedera elrond THETA.
-                    </p>
-                    <p class="font-opensans text-sm leading-relaxed">
-                        Fantom celsius decentraland klaytn stellar. Chiliz terraUSD uniswap revain filecoin ren vechain
-                        WAX. Fantom cardano siacoin elrond uniswap amp IOTA algorand. Bitcoin hedera digibyte WAX flow.
-                        Kava ankr cosmos helium EOS. ICON shiba-inu terra gala chainlink horizen. Zcash digibyte.
-                    </p>
-                </aside>
+            <section class="content container md:w-3/4 mt-14 flex flex-col text-skin-base">
+                <Content />
             </section>
         </section>
     </main>
 </Layout>
-
-<script is:inline>
-    const h1s = document.querySelectorAll(".content h1");
-    const h2s = document.querySelectorAll(".content h2");
-    const TOC = document.getElementById("TOC");
-
-    h2s.forEach((h2) => {
-        h2.id = h2.innerText.replace(/\s/g, "-").toLowerCase();
-    });
-    if (TOC) {
-        h1s.forEach((h1) => {
-            const li = document.createElement("li");
-            li.classList.add("pl-5");
-            const a = document.createElement("a");
-            a.href = `#${h1.id}`;
-            a.innerText = h1.innerText;
-            li.appendChild(a);
-            TOC.appendChild(li);
-        });
-
-        h2s.forEach((h2) => {
-            const li = document.createElement("li");
-            li.classList.add("pl-5");
-            const a = document.createElement("a");
-            a.href = `#${h2.id}`;
-            a.innerText = h2.innerText;
-            li.appendChild(a);
-            TOC.appendChild(li);
-        });
-    }
-</script>

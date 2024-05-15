@@ -123,6 +123,15 @@
         padding-left: 30px
     }
 
+    .content ol {
+        list-style-type: decimal;
+        padding-left: 30px
+    }
+
+    .content li {
+        padding-bottom: 8px;
+    }
+
     .brightness-25 {
         filter: brightness(25%);
     }

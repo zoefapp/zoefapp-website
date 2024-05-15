@@ -1,4 +1,5 @@
 ---
+import { getLanguage, useTranslations } from "~/i18n/utils";
 import type { BlogContentEntry } from "~/lib/blog";
 
 interface Props {
@@ -9,6 +10,8 @@ const { blog } = Astro.props;
 const { Content, headings } = await blog.render();
 
 const toc = headings.filter((heading) => heading.depth == 2);
+const lang = getLanguage(Astro);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -16,7 +19,7 @@ const toc = headings.filter((heading) => heading.depth == 2);
     class="container flex flex-col gap-8 lg:flex-row justify-between text-skin-base pt-16 scroll-smooth"
 >
     <div class="lg:sticky h-max left-0 top-14 px-2 2xl:px-0flex gap-1 font-opensans">
-        <h2 class="text-skin-base font-bold mb-3 text-[clamp(16px,4vw,20px)]">Table of Contents</h2>
+        <h2 class="text-skin-base font-bold mb-3 text-[clamp(16px,4vw,20px)]">{t('content.tableofcontents')}</h2>
         <ul
             class=" list-disc list-inside text-orange-light text-sm text-start"
         >

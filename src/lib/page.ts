@@ -14,6 +14,7 @@ export const PageProps = z.object({
     ogType: z.string().optional(),
     ogUrl: z.string().optional(),
     ogImage: z.string().optional(),
+    lastUpdated: z.coerce.date().optional()
 })
 export type PageProps = z.infer<typeof PageProps>
 

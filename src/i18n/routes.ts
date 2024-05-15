@@ -11,7 +11,6 @@ export interface IRoutes {
   contact: string;
   privacy: string;
   terms: string;
-  cookies: string;
   blogs: string;
   blog: (slug: string) => string;
   blogTag: (tag: string) => string;
@@ -29,7 +28,6 @@ export const routes: Routes = {
     'aboutUs': 'about-us',
     'privacy': 'privacy',
     'contact': 'contact',
-    'cookies': 'cookie-statement',
     'terms': 'terms-and-conditions',
     'blogs': 'article',
     "blog": (slug) => `article/${slug}`,
