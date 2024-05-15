@@ -2,6 +2,7 @@
 /// <reference types="astro/client" />
 interface Window {
     Alpine: import('alpinejs').Alpine;
+    AOS: any;
 }
 
 interface ImportMetaEnv {
@@ -18,7 +19,3 @@ interface ImportMetaEnv {
   }
 
   import './api/zoef/modules/trips/api'
-
-  interface Window {
-    AOS: any;
-  }
