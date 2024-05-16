@@ -51,9 +51,10 @@ const instanceId = "A" + Math.ceil(Math.random() * 10000).toString();
                         >
                             <Image
                                 src={getImage(item.data.image)}
-                                alt="How Zoef Works"
+                                alt={"Image demonstrating" + item.data.title}
                                 format="avif"
-                                loading="lazy"
+                                loading="eager"
+                                quality={100}
                                 decoding="async"
                                 class="mx-auto"
                                 width={700}
