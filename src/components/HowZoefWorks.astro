@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { getLanguage, translations } from "~/i18n/utils";
 import Subtitle from "./ui/Subtitle.astro";
+import {resolve} from 'path';
 
 const lang = getLanguage(Astro);
 const t = translations(Astro);
@@ -23,8 +24,13 @@ let howitworksCollection = await getCollection("howitworks", (entry) => {
 howitworksCollection.sort((a, b) => a.data.order - b.data.order);
 
 function getImage(path: string) {
-    let imagePath = `/src/content/howitworks/${Astro.props.type}/${lang}/${path}`;
-    return images[imagePath]();
+    let imagePath = resolve(`/src/content/howitworks/`, Astro.props.type, lang, path);
+    console.log(imagePath)
+    let imageFn = images[imagePath]
+    if (!imageFn) {
+        throw `Image ${imagePath} not found`
+    }
+    return imageFn();
 }
 
 const instanceId = "A" + Math.ceil(Math.random() * 10000).toString();
