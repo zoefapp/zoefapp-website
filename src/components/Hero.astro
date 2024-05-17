@@ -16,13 +16,11 @@ import { Image } from "astro:assets";
     <aside class="w-full max-h-[700px] max-w-2xl max-lg:mx-auto lg:w-1/2 rounded-[100px] md:rounded-2xl overflow-clip">
         <Image
             class="w-full h-full object-bottom object-cover"
-            format="avif"
-            loading="eager"
+            loading="lazy"
             decoding="async"
-            width={800}
+            width={700}
             src={heroImage}
             alt="Background"
-            quality={100}
         />
     </aside>
     <slot name="floating" />
