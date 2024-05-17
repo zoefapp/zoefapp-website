@@ -141,11 +141,9 @@ export const ui: UiProperties = {
         "newsletter.email.placeholder": "Enter your email",
         "newsletter.error": "An error occurred. Please try again.",
         "newsletter.subscribed":
-            "Great! We've sent you an email, please check your inbox to confirm your subscription.",
-
-
-        "productsignup.title": "Test",
-        "productsignup.description": "Test2",
+            "Great, thanks for subscribing!",
+        "productsignup.title": "Want to know more?",
+        "productsignup.description": "Leave your e-mail address and we will be in touch with you!",
         "productsignup.subscribe": "Sign Up",
         "productsignup.email.placeholder": "Enter your email",
         "productsignup.subscribed": "Thanks, you will hear from us soon!",
@@ -240,7 +238,7 @@ export const ui: UiProperties = {
         "newsletter.email.placeholder": "Vul je email in",
         "newsletter.error": "Er is een fout opgetreden. Probeer het later opnieuw.",
         "newsletter.subscribed":
-            "Top! We hebben je een email gestuurd, check je inbox om je inschrijving te bevestigen.",
+            "Top! Bedankt voor het aanmelden.",
         "footer.link.product.title": "Het product voor:",
         "footer.link.product.first": "Passagiers",
         "footer.link.product.second": "Bedrijven",
