@@ -2,6 +2,7 @@
 interface Props {
     variant?: "orange" | "default" | "filter";
     className?: ClassValue;
+    target?: string;
     href?: string;
 }
 const { variant = "default", className, ...props } = Astro.props;

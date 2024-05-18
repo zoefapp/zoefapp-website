@@ -16,7 +16,7 @@ import StarIcon from "~/assets/images/icons/star.png";
 import Accomplisments from "~/components/Accomplisments.astro";
 import StoreBanner from "~/components/Banner.astro";
 import Blogs from "~/components/Blogs.astro";
-import CompensationCheck from "~/components/CompensationCheck.astro";
+import CompensationCheck from "~/components/compensation/CompensationCheck.astro";
 import Faqs from "~/components/Faqs.astro";
 import Hero from "~/components/Hero.astro";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
@@ -25,6 +25,7 @@ import TrustPilotRatings from "~/components/TrustPilotRatings.astro";
 import Subtitle from "~/components/ui/Subtitle.astro";
 import Title from "~/components/ui/Title.astro";
 import { getPageContent } from "~/lib/page";
+import CompensationCheckModal from "~/components/compensation/CompensationCheckModal.astro";
 
 const TrustPilotData = {
     review_count: 20,
@@ -49,7 +50,7 @@ const AccomplishmentsData = [
     },
 ];
 
-let pageContent = await getPageContent(getLanguage(Astro), "passenger")
+let pageContent = await getPageContent(getLanguage(Astro), "passenger");
 ---
 
 <Layout page={pageContent.data}>
@@ -71,4 +72,5 @@ let pageContent = await getPageContent(getLanguage(Astro), "passenger")
         <Blogs />
         <StoreBanner type="store" />
     </main>
+    <CompensationCheckModal />
 </Layout>

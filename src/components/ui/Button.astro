@@ -1,26 +1,31 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+
+type Variants = "default" | "orange" | "filter" | "gray";
+type ButtonConfig = {
+    [key in Variants]: string;
+};
+
 interface Props extends Omit<HTMLAttributes<"button">, "class"> {
-    variant?: "orange" | "default" | "filter";
+    variant?: Variants;
     className?: ClassValue;
-    href?: string;
 }
 const { variant = "default", className, ...props } = Astro.props;
 import { cn } from "~/lib/utils";
 import type { ClassValue } from "clsx";
 import { cx } from "class-variance-authority";
 
-type ButtonVariants = {
-    [key in "default" | "orange" | "filter"]: string;
-};
 
-const buttonVariants: ButtonVariants = {
+const buttonVariants: ButtonConfig = {
     default: cx("bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm font-semibold w-full cursor-pointer"),
     orange: cx(
         "bg-orange-light hover:bg-orange-light/80 transition-colors duration-300 text-orange-dark w-max rounded-md px-4 py-3 text-sm font-bold cursor-pointer"
     ),
     filter: cx(
         "border border-orange-light text-orange-light hover:bg-orange-light hover:text-white transition-colors font-semibold rounded-full px-4 py-2 min-w-32 whitespace-nowrap cursor-pointer"
+    ),
+    gray: cx(
+        "bg-gray-100 text-orange-light hover:text-black transition-colors font-semibold rounded-md px-4 py-2 min-w-32 whitespace-nowrap cursor-pointer"
     ),
 };
 ---

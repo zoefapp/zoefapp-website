@@ -18,6 +18,7 @@ export default {
                 },
             },
             colors: {
+                zgray: "#F4F4F4",
                 brand: "hsla(var(--brand))",
                 "orange-light": "hsla(var(--orange-light))",
                 "orange-dark": "hsla(var(--orange-dark))",

@@ -23,7 +23,15 @@ export interface UiTranslations {
     "content.tableofcontents": string,
     "content.lastupdated": string,
     "compensation.title": string;
+    "compensation.note": string;
     "compensation.departure": string;
+    "compensation.download": string;
+    "compensation.change": string;
+    "compensation.result.probably": string;
+    "compensation.result.undetermined": string;
+    "compensation.result.problem": string;
+    "compensation.result.maybe": string;
+    "compensation.result.probably_not": string;
     "compensation.departure.placeholder": string;
     "compensation.arrival": string;
     "compensation.arrival.placeholder": string;
@@ -113,6 +121,7 @@ export const ui: UiProperties = {
         "content.lastupdated": "Last updated:",
 
         "compensation.title": "Check if you are entitled to a claim",
+        "compensation.note": "This service is a work in progress and may not give the expected response",
         "compensation.departure": "Departure Station",
         "compensation.departure.placeholder": "e.g. Amsterdam Central",
         "compensation.arrival": "Destination Station",
@@ -120,6 +129,13 @@ export const ui: UiProperties = {
         "compensation.time": "Time",
         "compensation.time.placeholder": "Friday 15 Feb. 11:05",
         "compensation.cta": "Check my compensation",
+        "compensation.change": "Change journey",
+        "compensation.download": "Download our app",
+        "compensation.result.probably": "You are probably entitled to a claim. Download our app and we will take care of everything.",
+        "compensation.result.undetermined": "We can't determine if you are entitled to a claim. If you believe you are eligible, file a claim in our app and we will take care of everything.",
+        "compensation.result.problem": "Unfortunately, a problem occured. We cannot determine your eligibility at the moment. You can always file a claim in our app.",
+        "compensation.result.probably_not": "You are probably not entitled to a claim. If you believe you are eligible anyway, file a claim in our app.",
+        "compensation.result.maybe": "You may be entitled to a claim. Download our app and we will take care of everything.",
         "accompaniment.title": "What we've already achieved",
         "accompaniment.first": "Euros refunded to our users",
         "accompaniment.second": "People have already filed a claim with Zoef",
@@ -200,6 +216,7 @@ export const ui: UiProperties = {
         "content.tableofcontents": "Inhoudsopgave",
         "content.lastupdated": "Laatste update op:",
         "compensation.title": "Bekijk of je recht hebt op een claim",
+        "compensation.note": "Deze dienst is nog in ontwikkeling en kan onjuiste antwoorden geven",
         "compensation.departure": "Vertrekstation",
         "compensation.departure.placeholder": "bijv. Amsterdam Centraal",
         "compensation.arrival": "Gewenst station",
@@ -207,6 +224,11 @@ export const ui: UiProperties = {
         "compensation.time": "Tijd",
         "compensation.time.placeholder": "Vrijdag 15 Feb. 11:05",
         "compensation.cta": "Check mijn vergoeding",
+        "compensation.result.probably": "Je hebt waarschijnlijk recht op een claim. Download onze app en wij regelen alles voor je.",
+        "compensation.result.undetermined": "We kunnen niet bepalen of je recht hebt op een claim. Als je denkt dat je in aanmerking komt, dien dan een claim in via onze app en wij regelen alles voor je.",
+        "compensation.result.problem": "Helaas is er een probleem opgetreden. We kunnen je recht op vergoeding op dit moment niet bepalen. Je kunt altijd een claim indienen via onze app.",
+        "compensation.result.maybe": "Je komt mogelijk in aanmerking voor een claim. Download onze app en wij regelen alles voor je.",
+        "compensation.result.probably_not": "Je hebt waarschijnlijk geen recht op een claim. Als je toch denkt dat je in aanmerking komt, dien dan een claim in via onze app.",
         "accompaniment.title": "Wat we al bereikt hebben",
         "accompaniment.first": "Euro terug gestort naar onze gebruikers",
         "accompaniment.second": "Mensen hebben al een claim ingediend bij Zoef",
@@ -266,7 +288,6 @@ export const ui: UiProperties = {
         standart_transfers: "Standaard overstap",
         standard_travel_time: "Standaard reistijd",
         additional_travel_time: "Extra reistijd",
-
         "aboutus.people.header": "Wie maakt Zoef.app mogelijk?"
     },
 } as const;
