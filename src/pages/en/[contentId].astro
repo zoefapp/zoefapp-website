@@ -1,0 +1,26 @@
+---
+import { getPageContent } from '~/lib/page';
+
+export const prerender = true
+
+// TODO: add all pages with a particular property in the markdown
+export async function getStaticPaths() {
+    let euFormContent = await getPageContent('en', 'fill_euform')
+    return [
+        {
+            params: {
+                contentId: 'euform'
+            },
+            props: {
+                page: euFormContent
+            }
+        }
+    ]
+}
+
+const PageContent = Astro.props.page
+const {Content} = await PageContent.render()
+
+---
+
+<Content />
