@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import DatePicker from "~/components/ui/stations/DatePicker.astro";
+export const prerender = true;
+
+export async function getStaticPaths(this: any) {
+    let pages = await getCollection('pages')
+    let result = pages.map((page) => {
+        return {
+            params: {
+                pageId: page.slug
+            },
+            props: {
+                page: page,
+            },
+        };
+    });
+    return result
+}
+
+const PageContent = Astro.props.page;
+const { Content } = await PageContent.render();
+---
+
+<Content />
+<div class="hidden">
+    <!-- TODO: until the bug is fixed we need to load a date picker outside of MDX rendering  -->
+    <DatePicker />
+</div>
