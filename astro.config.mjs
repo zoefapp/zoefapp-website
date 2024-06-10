@@ -19,7 +19,9 @@ export default defineConfig({
         tailwind({
             applyBaseStyles: false,
         }),
-        mdx(),
+        mdx({
+            
+        }),
         htmx(),
         icon(),
         alpinejs(),
