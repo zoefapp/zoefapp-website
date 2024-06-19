@@ -1,21 +1,29 @@
 ---
+export interface Astro {
+    name: string;
+    placeholder: string;
+    id: string;
+    "x-model"?: string;
+}
 let { name, placeholder, id } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
 <script>
-    import "flatpickr";
+    import flatpickr from "flatpickr";
     // import { Dutch } from "flatpickr/dist/l10n/nl.js";
     import "flatpickr/dist/themes/dark.css";
 
     import Alpine from "alpinejs";
-    Alpine.data("flatpicker", () => {
-        let defaultDate = new Date(Date.now() - 3600 * 1000);
-        let flatpicker: any;
+    Alpine.data("flatpickerData", () => {
+        let data:any; // ugly hack around the 'this' problem
         return {
-            formattedDate: defaultDate.toISOString(),
+            formattedDate: new Date(Date.now() - 3600 * 1000).toISOString(),
+            chosenDate: new Date(Date.now() - 3600 * 1000),
             init() {
-                flatpicker = this;
+                flatpickr(this.$refs.datetimewidget, this.settings);
+                data = this;
+                this.chosenDate = new Date(Date.now() - 3600 * 1000);
             },
             settings: {
                 wrap: true,
@@ -24,13 +32,16 @@ import { Icon } from "astro-icon/components";
                 minDate: new Date(Date.now() - 90 * 86400 * 1000),
                 maxDate: new Date(Date.now() - 10 * 60 * 1000),
                 dateFormat: "d-m-Y H:i",
-                defaultDate,
-                onChange: (dates: Date[]) => {
+                defaultDate: new Date(Date.now() - 3600 * 1000),
+                onChange(dates: Date[]) {
                     let date = dates[0];
+                    console.log("on change: ", this);
                     if (date) {
-                        flatpicker.formattedDate = date.toISOString();
+                        data.formattedDate = date.toISOString();
+                        data.chosenDate = date;
                     } else {
-                        flatpicker.formattedDate = null;
+                        data.formattedDate = "";
+                        this.chosenDate = null;
                     }
                 },
             },
@@ -38,7 +49,13 @@ import { Icon } from "astro-icon/components";
     });
 </script>
 
-<div x-data="flatpicker" x-init="flatpickr($refs.datetimewidget, settings);" x-ref="datetimewidget" class="flatpickr">
+<div
+    x-data="flatpickerData()"
+    x-ref="datetimewidget"
+    class="flatpickr"
+    x-modelable="chosenDate"
+    x-model={Astro.props["x-model"]}
+>
     <input type="hidden" name={name} :value="formattedDate" />
     <div class="relative h-11">
         <Icon name="lucide:clock" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-gray-400 w-5 h-5" />
