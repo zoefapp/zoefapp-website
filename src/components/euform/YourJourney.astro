@@ -1,0 +1,22 @@
+---
+import DatePicker from '../ui/stations/DatePicker.astro'
+import Input from './Input.astro'
+---
+
+<fieldset>
+    <legend>Planned departure</legend>
+    <div>
+        <Input name="planned.departureStation" type="text" value="test" label="Departure station" />
+        <DatePicker name="planned.departureDate" placeholder="Departure date" x-model="formData.planned.departureDate" />
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Planned Arrival</legend>
+    <div>
+        <Input name="planned.destinationStation" type="text" label="Destination station" />
+        <DatePicker name="planned.arrivalDate" placeholder="Departure date" />
+    </div>
+</fieldset>
+
+<input type="button" value="Next" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" />

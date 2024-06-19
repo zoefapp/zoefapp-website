@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<"input"> {
+    name: string,
+    label?: string
+}
+let bindProperty = `formData.${Astro.props.name}`
+
+let id = Astro.props.id || Math.random().toString(36).substring(7)
+---
+
+{Astro.props.label && <label for={id}>{Astro.props.label}</label>}
+<input {...Astro.props} x-model={bindProperty} class="inset-0 p-1 border rounded-md" id={id}/>

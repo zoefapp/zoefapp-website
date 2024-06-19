@@ -1,0 +1,46 @@
+---
+import DatePicker from '../ui/stations/DatePicker.astro'
+import Input from './Input.astro'
+---
+
+<fieldset>
+    <legend>What is applicable to you?</legend>
+    <div class="flex items-start">
+        <div class="flex-1 flex space-x-2">
+            <Input
+            type="checkbox" name="requestReason.delay" id="requestReason.delay" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+            <label for="requestReason.delay" class="block">
+                <h3>Delay</h3>
+                <p><i>You experienced a delay</i></p>
+            </label>
+        </div>
+        <div class="flex-1">
+            <div class="flex-1 flex space-x-2">
+                <Input type="checkbox" name="requestReason.cancellation" id="requestReason.cancellation" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                <label for="requestReason.cancellation" class="block">
+                    <h3>Cancellation</h3>
+                    <p><i>A train was cancelled</i></p>
+                </label>
+            </div>
+        </div>
+        <div class="flex-1">
+            <div class="flex-1 flex space-x-2">
+                <Input type="checkbox" name="requestReason.missedConnection" id="requestReason.missedConnection" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                <label for="requestReason.missedConnection" class="block">
+                    <h3>Missed a connection</h3>
+                    <p><i>I missed a connection due to a delay or cancellation</i></p>
+                </label>
+            </div>
+        </div>
+    </ul>
+</fieldset>
+
+<fieldset>
+    <legend>Your actual arrival</legend>
+    <div>
+        <DatePicker name="actual.departureDate" placeholder="Departure date" />
+        <DatePicker name="actual.arrivalDate" placeholder="Departure date" />
+        <Input name="actual.missedConnectionAt" type="text" label="Missed connection at" />
+        <Input name="actual.trainNumber" type="text" label="Train number" />
+    </div>
+</fieldset>
