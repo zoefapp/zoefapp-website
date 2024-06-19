@@ -9,14 +9,14 @@ let { name, placeholder, id } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
-<script>
+<script type="text/javascript">
     import flatpickr from "flatpickr";
     // import { Dutch } from "flatpickr/dist/l10n/nl.js";
     import "flatpickr/dist/themes/dark.css";
 
     import Alpine from "alpinejs";
     Alpine.data("flatpickerData", () => {
-        let data:any; // ugly hack around the 'this' problem
+        let data; // ugly hack around the 'this' problem
         return {
             formattedDate: new Date(Date.now() - 3600 * 1000).toISOString(),
             chosenDate: new Date(Date.now() - 3600 * 1000),
@@ -33,9 +33,8 @@ import { Icon } from "astro-icon/components";
                 maxDate: new Date(Date.now() - 10 * 60 * 1000),
                 dateFormat: "d-m-Y H:i",
                 defaultDate: new Date(Date.now() - 3600 * 1000),
-                onChange(dates: Date[]) {
+                onChange(dates) {
                     let date = dates[0];
-                    console.log("on change: ", this);
                     if (date) {
                         data.formattedDate = date.toISOString();
                         data.chosenDate = date;
