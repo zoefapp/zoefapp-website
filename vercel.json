@@ -2,6 +2,9 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "rewrites": [
     ],
+    "redirects": [
+        { "source": "/@banner", "destination": "/en/ticket-vendor", "permanent": false }
+    ],
     "headers": [
     ]
 }
