@@ -1,58 +1,171 @@
- ---
-export interface Astro {
+---
+export interface Astro {}
 
-}
-
-import WhatHappened from './WhatHappened.astro'
-import YourJourney from './YourJourney.astro'
-import YourRequest from './YourRequest.astro'
-import YourData from './YourData.astro'
+import WhatHappened from "./WhatHappened.astro";
+import YourJourney from "./YourJourney.astro";
+import YourRequest from "./YourRequest.astro";
+import YourData from "./YourData.astro";
 ---
 
-<form class="w-full " x-data="euFormFlow()">
-    <!-- <YourJourney></YourJourney> -->
-    <WhatHappened></WhatHappened>
-    <!-- <YourRequest></YourRequest> -->
-    <!-- <YourData></YourData> -->
+<form id="euForm" class="w-full bg-skin-gradient text-skin-base p-8 rounded-md my-8" x-data="euFormFlow()">
+    <YourRequest />
+    <YourJourney />
+    <WhatHappened />
+    <YourData />
+    <!-- Control Buttons  -->
+    <div class="flex gap-4 items-center justify-center py-6">
+        <button
+            type="button"
+            x-on:click="prevStep()"
+            x-show="step > 2"
+            class="bg-skin-secondary hover:bg-skin-base transition-colors duration-200 text-white font-bold py-2 px-4 rounded-full"
+        >
+            Back
+        </button>
+        <button
+            type="button"
+            x-on:click="nextStep()"
+            x-show="1 < step && step < 3"
+            class="bg-skin-secondary hover:bg-skin-base transition-colors duration-200 text-white font-bold py-2 px-4 rounded-full"
+        >
+            Next
+        </button>
+        <button
+            type="submit"
+            x-show="step === 3"
+            x-on:click="submitForm()"
+            class="bg-skin-secondary hover:bg-skin-base transition-colors duration-200 text-white font-bold py-2 px-4 rounded-full"
+        >
+            Submit
+        </button>
+        <button
+            x-show="step === 1"
+            x-on:click="processTicket()"
+            class="bg-skin-secondary hover:bg-skin-base transition-colors duration-200 text-white font-bold py-2 px-4 rounded-full"
+        >
+            Proceed
+        </button>
+    </div>
+    <div class="toast"></div>
 </form>
 
 <script is:inline>
-
     function euFormFlow() {
-
         return {
-            step: 1,
+            step: 2,
+            totalRows: 3,
             formData: {
                 requestReason: {
                     delay: true,
                     cancellation: true,
+                    missedConnection: true,
                 },
                 actual: {},
+                /**
+                 * Sander will this be an object? not array? to store all data of YourJourney rows?
+                 * I was thinking like this:
+                 *
+                 * planned: [
+                 * {
+                 *     departureDate: "2022-01-01",
+                 *     arrivalDate: "2022-01-01",
+                 * },
+                 * {
+                 *     departureDate: "2022-01-01",
+                 *     arrivalDate: "2022-01-01",
+                 * }
+                 * ]
+                 *
+                 * since we could have more than one row,
+                 * i think this should be array or did i misunderstand something?
+                 */
                 planned: {},
             },
             log() {
-                console.log(this.formData)
+                console.log(this.formData);
             },
             nextStep() {
                 if (this.step < 3) {
                     this.step++;
+                    // alert("Step " + this.step);
                 }
             },
             prevStep() {
                 if (this.step > 1) {
                     this.step--;
+                    // alert("Step " + this.step);
                 }
             },
             submitForm() {
+                // prevent default
+                event.preventDefault();
+                const form = document.getElementById("euForm");
+                const formDataa = new FormData(form);
+                for (let entry of formDataa.entries()) {
+                    console.log(entry[0] + ": " + entry[1]);
+                }
+                console.log("Form submitted!\n" + JSON.stringify(Object.fromEntries(formDataa.entries())));
                 // Handle form submission logic here
-                alert('Form submitted!\n' + JSON.stringify(this.formData));
-            }
-        }
+                // alert("Form submitted!\n" + JSON.stringify(this.formData));
+            },
+            processTicket() {
+                // prevent default
+                event.preventDefault();
+                // Handle ticket processing logic here
+
+                const fileInput = document.querySelector("#file-upload");
+
+                /*
+                 * Is there a file selected?
+                 */
+
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    this.genereateToast("Please select a file to upload.");
+                    return;
+                }
+                this.genereateToast("Ticket processed!");
+                this.nextStep();
+                /*
+                 * Sander
+                 *
+                 * 1- Should at least one of the this.formData.requestReason checkboxes
+                 * selected?
+                 *
+                 * 2- Should user be able to select more than one reason?
+                 *
+                 */
+            },
+            genereateToast(message) {
+                const toast = document.querySelector(".toast");
+                toast.classList.add("show");
+                toast.innerText = message;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 3000);
+            },
+            // For YourJourney Part
+            addRow() {
+                if (this.totalRows === 10) {
+                    this.genereateToast("Maximum number of rows reached.");
+                    return;
+                }
+                this.totalRows++;
+                console.log(this.totalRows);
+            },
+            removeRow() {
+                if (this.totalRows === 1) {
+                    this.genereateToast("Minimum number of rows reached.");
+                    return;
+                }
+                this.totalRows--;
+            },
+            updateRow(i) {},
+        };
     }
 </script>
 
-
-<form>
+<!-- <form>
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -343,4 +456,4 @@ import YourData from './YourData.astro'
             >Save</button
         >
     </div>
-</form>
+</form> -->

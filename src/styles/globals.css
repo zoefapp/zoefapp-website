@@ -75,7 +75,7 @@
     }
 
     .z-text-content p {
-        @apply mb-6; 
+        @apply mb-6;
     }
 
     main a {
@@ -84,34 +84,32 @@
     }
 
     .stylish-marker {
-        background: linear-gradient(
-            100deg,
-            rgba(255, 221, 64, 0) 0.9%,
-            rgba(255, 221, 64, 1) 2.4%,
-            rgba(255, 221, 64, 0.5) 5.8%,
-            rgba(255, 221, 64, 0.1) 93%,
-            rgba(255, 221, 64, 0.7) 96%,
-            rgba(255, 221, 64, 0) 98%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 221, 64, 0) 0%,
-            rgba(255, 221, 64, 0.3) 7.9%,
-            rgba(255, 221, 64, 0) 15%
-          );
+        background: linear-gradient(100deg,
+                rgba(255, 221, 64, 0) 0.9%,
+                rgba(255, 221, 64, 1) 2.4%,
+                rgba(255, 221, 64, 0.5) 5.8%,
+                rgba(255, 221, 64, 0.1) 93%,
+                rgba(255, 221, 64, 0.7) 96%,
+                rgba(255, 221, 64, 0) 98%),
+            linear-gradient(180deg,
+                rgba(255, 221, 64, 0) 0%,
+                rgba(255, 221, 64, 0.3) 7.9%,
+                rgba(255, 221, 64, 0) 15%);
         border-radius: 0.125em;
         box-decoration-break: clone;
         padding: 0.125em 0.25em;
-      }
+    }
 
     .content h1,
     .content h2 {
         font-weight: 700;
         font-size: 20px;
     }
+
     .content h2 {
         margin-top: 56px;
     }
+
     .content p {
         font-family: "Open Sans", sans-serif;
         line-height: 1.9;
@@ -134,5 +132,31 @@
 
     .brightness-25 {
         filter: brightness(25%);
+    }
+
+    /* Toast */
+
+    .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 10px;
+        background-color: #4D9356;
+        color: #fff;
+        border-radius: 5px;
+        opacity: 0;
+        /* Start fully transparent */
+        transform: translateY(20px);
+        /* Move it down initially */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        /* Gradual transition */
+    }
+
+    .toast.show {
+        opacity: 1;
+        /* Fully opaque */
+        transform: translateY(0);
+        /* Move to original position */
     }
 }

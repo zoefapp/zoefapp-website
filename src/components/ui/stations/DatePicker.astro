@@ -3,9 +3,10 @@ export interface Astro {
     name: string;
     placeholder: string;
     id: string;
+    label?: string;
     "x-model"?: string;
 }
-let { name, placeholder, id } = Astro.props;
+let { name, placeholder, id, label } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
@@ -16,7 +17,7 @@ import { Icon } from "astro-icon/components";
 
     import Alpine from "alpinejs";
     Alpine.data("flatpickerData", () => {
-        let data:any; // ugly hack around the 'this' problem
+        let data: any; // ugly hack around the 'this' problem
         return {
             formattedDate: new Date(Date.now() - 3600 * 1000).toISOString(),
             chosenDate: new Date(Date.now() - 3600 * 1000),
@@ -52,10 +53,11 @@ import { Icon } from "astro-icon/components";
 <div
     x-data="flatpickerData()"
     x-ref="datetimewidget"
-    class="flatpickr"
+    class="flatpickr mt-auto"
     x-modelable="chosenDate"
     x-model={Astro.props["x-model"]}
 >
+    <label for={id} class="text-sm font-semibold">{label}</label>
     <input type="hidden" name={name} :value="formattedDate" />
     <div class="relative h-11">
         <Icon name="lucide:clock" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-gray-400 w-5 h-5" />

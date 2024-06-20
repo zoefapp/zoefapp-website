@@ -1,22 +1,60 @@
 ---
-import DatePicker from '../ui/stations/DatePicker.astro'
-import Input from './Input.astro'
+import { Icon } from "astro-icon/components";
+import DatePicker from "../ui/stations/DatePicker.astro";
+import Input from "./Input.astro";
+// Lucide Icons
+import {} from "@iconify-json/lucide";
 ---
 
-<fieldset>
-    <legend>Planned departure</legend>
-    <div>
-        <Input name="planned.departureStation" type="text" value="test" label="Departure station" />
-        <DatePicker name="planned.departureDate" placeholder="Departure date" x-model="formData.planned.departureDate" />
+<section class="grid gap-4" x-show="step === 2">
+    <template x-for="i in totalRows">
+        <fieldset class="flex gap-2 justify-between" :key="i">
+            <!-- We need to make this input names/ids dynamic somehow -->
+            <div class="grid grid-cols-2 gap-4">
+                <Input
+                    name="planned.departureStation"
+                    type="text"
+                    value="test"
+                    label="Departure station"
+                    placeholder="Departure station"
+                />
+                <DatePicker
+                    name="planned.departureDate"
+                    placeholder="Departure date"
+                    label="Departure date"
+                    x-model="formData.planned.departureDate"
+                />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <Input
+                    name="planned.destinationStation"
+                    type="text"
+                    label="Destination station"
+                    placeholder="Destination station"
+                />
+                <DatePicker name="planned.arrivalDate" placeholder="Departure date" label="Departure date" />
+            </div>
+            <Input name="planned.trainNumber" type="text" label="Train number" placeholder="Train number" />
+        </fieldset>
+    </template>
+    <div class="flex gap-2 items-center mt-4">
+        <button
+            @click="addRow()"
+            type="button"
+            title="Add row"
+            class="bg-skin-secondary hover:bg-skin-base rounded-md p-1 transition-colors duration-200"
+        >
+            <Icon name="lucide:plus" class="w-6 h-6 text-skin-gradient" />
+        </button>
+        <button
+            @click="removeRow()"
+            type="button"
+            title="Remove row"
+            class="bg-skin-secondary hover:bg-skin-base rounded-md p-1 transition-colors duration-200"
+        >
+            <Icon name="lucide:minus" class="w-6 h-6 text-skin-gradient" />
+        </button>
     </div>
-</fieldset>
+</section>
 
-<fieldset>
-    <legend>Planned Arrival</legend>
-    <div>
-        <Input name="planned.destinationStation" type="text" label="Destination station" />
-        <DatePicker name="planned.arrivalDate" placeholder="Departure date" />
-    </div>
-</fieldset>
-
-<input type="button" value="Next" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" />
+<!-- <input type="button" value="Next" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" /> -->

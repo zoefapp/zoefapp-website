@@ -1,23 +1,73 @@
 ---
-import Input from './Input.astro'
+import Input from "./Input.astro";
+
+const requestReasons = [
+    {
+        name: "delay",
+        label: "Reimbursment of my ticket(s)",
+        description:
+            "due to a cancelled or delayed train or missed connection which would lead to an expected delay at arrival at the final destination of 60 minutes or more.",
+    },
+    {
+        name: "cancellation",
+        label: "Cancellation of my ticket(s)",
+        description:
+            "due to a cancelled or delayed train or missed connection which would lead to an expected delay at arrival at the final destination of 60 minutes or more.",
+    },
+    {
+        name: "missedConnection",
+        label: "Missed connection",
+        description:
+            "due to a cancelled or delayed train or missed connection which would lead to an expected delay at arrival at the final destination of 60 minutes or more.",
+    },
+];
 ---
 
-<fieldset>
-    <legend>What do you want from the railway provider?</legend>
-
-    <div class="reimbursement">
+<fieldset class="grid gap-5" x-show="step === 1">
+    <legend class="text-3xl font-bold pb-6">What do you want from the railway provider?</legend>
+    {
+        requestReasons.map((reason) => (
+            <div class="reimbursement flex gap-4 items-start">
+                <Input
+                    type="checkbox"
+                    name={`requestReason.${reason.name}`}
+                    id={`requestReason.${reason.name}`}
+                    class="mt-2 h-4 w-4 accent-skin-secondary"
+                />
+                <label for={`requestReason.${reason.name}`} class="grid gap-1">
+                    <h3 class="text-lg font-semibold leading-none">{reason.label}</h3>
+                    <i class="text-sm leading-none">{reason.description}</i>
+                </label>
+            </div>
+        ))
+    }
+    <!-- <div class="reimbursement">
         <Input
-            type="checkbox" name="requestReason.delay" id="requestReason.delay" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
-            <label for="requestReason.delay" class="block">
-                <h3>Reimbursment of my ticket(s)</h3>
-                <p><i>due to a cancelled or delayed train or missed connection which would lead to an expected delay at arrival at the final destination of 60 minutes or more.</i></p>
-            </label>
+            type="checkbox"
+            name="requestReason.delay"
+            id="requestReason.delay"
+            class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+        />
+        <label for="requestReason.delay" class="block">
+            <h3>Reimbursment of my ticket(s)</h3>
+            <p>
+                <i>
+                    due to a cancelled or delayed train or missed connection which would lead to an expected delay at
+                    arrival at the final destination of 60 minutes or more.
+                </i>
+            </p>
+        </label>
     </div>
 
     <div class="flex items-start">
         <div class="flex-1">
             <div class="flex-1 flex space-x-2">
-                <Input type="checkbox" name="requestReason.cancellation" id="requestReason.cancellation" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                <Input
+                    type="checkbox"
+                    name="requestReason.cancellation"
+                    id="requestReason.cancellation"
+                    class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
                 <label for="requestReason.cancellation" class="block">
                     <h3>Compensation</h3>
                     <p><i>For delay at Arrival</i></p>
@@ -26,23 +76,29 @@ import Input from './Input.astro'
         </div>
         <div class="flex-1">
             <div class="flex-1 flex space-x-2">
-                <Input type="checkbox" name="requestReason.missedConnection" id="requestReason.missedConnection" class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                <Input
+                    type="checkbox"
+                    name="requestReason.missedConnection"
+                    id="requestReason.missedConnection"
+                    class="mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
                 <label for="requestReason.missedConnection" class="block">
                     <h3>Reimbursement of costs</h3>
                     <p><i>For using other providers of transport services or other costs like accomodation</i></p>
                 </label>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="col-span-full">
-        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900"
-            >Cover photo</label
+    <div class="grid gap-4">
+        <h3 class="text-xl font-semibold">Your Ticket</h3>
+        <div
+            id="drop-area"
+            class="flex justify-center items-center rounded-lg border border-dashed border-skin-secondary px-6 py-10 aspect-[4/1]"
         >
-        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
             <div class="text-center">
                 <svg
-                    class="mx-auto h-12 w-12 text-gray-300"
+                    class="mx-auto h-16 w-16 text-skin-secondary"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -50,13 +106,12 @@ import Input from './Input.astro'
                     <path
                         fill-rule="evenodd"
                         d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                        clip-rule="evenodd"></path>
+                        clip-rule="evenodd"
+                    >
+                    </path>
                 </svg>
                 <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                    <label
-                        for="file-upload"
-                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                    >
+                    <label for="file-upload" class="font-bold hover:underline cursor-pointer">
                         <span>Upload a file</span>
                         <input id="file-upload" name="file-upload" type="file" class="sr-only" />
                     </label>
@@ -67,3 +122,21 @@ import Input from './Input.astro'
         </div>
     </div>
 </fieldset>
+
+<script>
+    const dropArea = document.querySelector("#drop-area") as HTMLElement;
+    const fileInput = document.querySelector("#file-upload") as HTMLInputElement;
+    if (dropArea) {
+        dropArea.addEventListener("drop", (event: DragEvent) => {
+            event.preventDefault();
+            if (event.dataTransfer) {
+                const { files } = event.dataTransfer;
+                if (files) {
+                    fileInput.files = files;
+                    fileInput.dispatchEvent(new Event("change"));
+                    console.log(files[0], "from file input");
+                }
+            }
+        });
+    }
+</script>
