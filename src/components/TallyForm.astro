@@ -24,7 +24,7 @@ let formUrl = `https://tally.so/embed/${Astro.props.formId}?alignLeft=1&hideTitl
         }
     });
     document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
-        iframe['data-tally-src'] = iframe['data-tally-src'] + params
+        iframe.dataset.tallySrc = iframe.dataset.tallySrc + params
     })
     var d = document,
         w = "https://tally.so/widgets/embed.js",
