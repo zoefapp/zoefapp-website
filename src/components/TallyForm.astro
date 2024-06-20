@@ -19,8 +19,9 @@ let formUrl = `https://tally.so/embed/${Astro.props.formId}?alignLeft=1&hideTitl
 <script is:inline>
     let params = ''
     new URLSearchParams(window.location.search).forEach((value, key) => {
-        if (key.startsWith('t_'))
-        params += `&${key.substring(2)}=${value}`;
+        if (key.startsWith('t_')) {
+            params += `&${key.substring(2)}=${value}`;
+        }
     });
     document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
         iframe['data-tally-src'] = iframe['data-tally-src'] + params
