@@ -1,8 +1,9 @@
 ---
-import { getLanguage, useTranslations } from "~/i18n/utils";
-import Button from "../ui/Button.astro";
+import { getLanguage, useRoutes, useTranslations } from "~/i18n/utils";
+import LinkButton from "../ui/LinkButton.astro";
 const lang = getLanguage(Astro);
 const t = useTranslations(lang);
+const r = useRoutes(lang)
 ---
 
-<Button variant="orange" >{t("nav.cta")}</Button>
+<LinkButton variant="orange" href={r('passenger') + '#floating'}>{t("nav.cta")}</LinkButton>
