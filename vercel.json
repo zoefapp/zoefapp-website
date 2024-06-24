@@ -3,6 +3,7 @@
     "rewrites": [
     ],
     "redirects": [
+        { "source": "/@shirt", "destination": "/en/ticket-vendor", "permanent": false },
         { "source": "/@banner", "destination": "/en/ticket-vendor", "permanent": false }
     ],
     "headers": [
