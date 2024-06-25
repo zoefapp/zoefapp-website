@@ -1,20 +1,27 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "exclude": ["node_modules", "dist"],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "verbatimModuleSyntax": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "paths": {
-            "~/*": ["src/*"]
-        },
-        "plugins": [
-            {
-                "name": "@astrojs/ts-plugin"
-            }
-        ]
-    }
+  "extends": "astro/tsconfigs/strict",
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
