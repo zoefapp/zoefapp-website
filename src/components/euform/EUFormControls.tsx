@@ -1,15 +1,27 @@
-import RButton from "../ui/RButton";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-const EUFormControls = () => {
+import EUFormProgress from "./EUFormProgress";
+import EUFormStepButtons from "./EUFormStepButtons";
+const EUFormControls = ({ children }: { children: React.ReactNode }) => {
+    // example, not permanent
+    const steps = [
+        {
+            id: 1,
+            title: "Ticket Upload",
+        },
+        {
+            id: 2,
+            title: "Your Journey",
+        },
+        {
+            id: 3,
+            title: "What Happened",
+        },
+    ];
+
     return (
-        <section className="flex gap-2 items-center">
-            <RButton title="Previous">
-                <ChevronLeft size={20} />
-            </RButton>
-            <RButton title="Next">
-                <ChevronRight size={20} />
-            </RButton>
-            <RButton title="Submit">Submit</RButton>
+        <section className="flex flex-col items-center gap-8 w-full">
+            <EUFormProgress steps={steps} />
+            {children}
+            <EUFormStepButtons steps={steps} />
         </section>
     );
 };
