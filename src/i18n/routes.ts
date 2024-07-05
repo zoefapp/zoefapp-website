@@ -14,7 +14,8 @@ export interface IRoutes {
   blogs: string;
   blog: (slug: string) => string;
   blogTag: (tag: string) => string;
-  eligibilityCheck: (form?: CheckClaimForm) => string
+  eligibilityCheck: (form?: CheckClaimForm) => string;
+  euformPDFLanding: string; 
 }
 
 type Routes = { [DEFAULT_LANG]: IRoutes } & {
@@ -32,7 +33,8 @@ export const routes: Routes = {
     'blogs': 'article',
     "blog": (slug) => `article/${slug}`,
     blogTag: (tag) => `article/@${tag}`,
-    eligibilityCheck: (_form) => `check/` // ?departure=${form.departure}&arrival=${form.arrival}&date=${form.date.toISOString()}
+    eligibilityCheck: (_form) => `check/`, // ?departure=${form.departure}&arrival=${form.arrival}&date=${form.date.toISOString()},
+    euformPDFLanding: 'ticket-vendor/euform',
   },
   nl: {
     'passenger': 'passagier',
@@ -43,5 +45,6 @@ export const routes: Routes = {
     'aboutUs': 'over-ons',
     "blog": (slug) => `artikel/${slug}`,
     blogTag: (tag) => `artikel/@${tag}`,
+    euformPDFLanding: 'ticketverkoper/euform',
   },
 }
