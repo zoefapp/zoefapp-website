@@ -11,17 +11,27 @@ const steps = [
     {
         id: 1,
         title: "Ticket Upload",
-        fields: ["ticket", "title"],
+        fields: ["ticket", "ticketSchema"],
     },
     {
         id: 2,
         title: "Your Journey",
-        fields: ["age"],
+        fields: ["plannedRoute"],
     },
     {
         id: 3,
         title: "What Happened",
-        fields: ["name"],
+        fields: ["whatHappened"],
+    },
+    {
+        id: 4,
+        title: "Additional Costs",
+        fields: ["additionalCosts"],
+    },
+    {
+        id: 5,
+        title: "Personal Information",
+        fields: ["passenger", "additionalInformation", "payment"],
     },
 ];
 
