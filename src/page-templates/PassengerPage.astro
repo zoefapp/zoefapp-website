@@ -1,19 +1,12 @@
 ---
 // Utils
-import { getLanguage, useTranslations } from "~/i18n/utils";
-const lang = getLanguage(Astro);
-const t = useTranslations(lang);
+import { getLanguage } from "~/i18n/utils";
 // Layout
 import Layout from "~/layouts/Layout.astro";
 // Images
 import PassengerBackgroundImage from "~/assets/images/backgrounds/passenger-bg2.png";
 import FaqsGreenImage from "~/assets/images/faqs-green.png";
-// Icons
-import ClockCheckIcon from "~/assets/images/icons/clock-check.png";
-import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
-import StarIcon from "~/assets/images/icons/star.png";
 // Components
-import Accomplisments from "~/components/Accomplisments.astro";
 import StoreBanner from "~/components/Banner.astro";
 import Blogs from "~/components/Blogs.astro";
 import CompensationCheck from "~/components/compensation/CompensationCheck.astro";
@@ -32,23 +25,6 @@ const TrustPilotData = {
     star_count: 5,
     review_market: "AppStore",
 };
-const AccomplishmentsData = [
-    {
-        count: 600,
-        description: t("accompaniment.first"),
-        icon: EuroIcon,
-    },
-    {
-        count: 100,
-        description: t("accompaniment.second"),
-        icon: StarIcon,
-    },
-    {
-        count: 4000,
-        description: t("accompaniment.third"),
-        icon: ClockCheckIcon,
-    },
-];
 
 let pageContent = await getPageContent(getLanguage(Astro), "passenger");
 ---
@@ -65,7 +41,6 @@ let pageContent = await getPageContent(getLanguage(Astro), "passenger");
             </Fragment>
             <CompensationCheck slot="floating" />
         </Hero>
-        <Accomplisments data={AccomplishmentsData} />
         <HowZoefWorks type="passenger" />
         <Testimonials relevantFor="passenger" />
         <Faqs image={FaqsGreenImage} relevantFor="passenger" />
