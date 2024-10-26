@@ -3,7 +3,8 @@ import { DEFAULT_LANG } from "../i18n/constants";
 import { useRoutes } from "../i18n/utils";
 
 export const prerender = false;
-let language = Astro.preferredLocale ?? DEFAULT_LANG;
+const acceptLanguage = Astro.request.headers.get('accept-language')?.substring(0, 2).toLowerCase();
+let language = acceptLanguage ?? DEFAULT_LANG;
 let routes = useRoutes(language);
 
 // by default redirect to the localized version of the passenger page
