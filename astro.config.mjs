@@ -13,7 +13,6 @@ export default defineConfig({
     build: {},
     output: "hybrid",
     adapter: vercel({
-        edgeMiddleware: true,
     }),
     integrations: [
         tailwind({
