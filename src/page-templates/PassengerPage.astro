@@ -7,9 +7,7 @@ import Layout from "~/layouts/Layout.astro";
 import PassengerBackgroundImage from "~/assets/images/backgrounds/passenger-bg2.png";
 import FaqsGreenImage from "~/assets/images/faqs-green.png";
 // Components
-import StoreBanner from "~/components/Banner.astro";
 import Blogs from "~/components/Blogs.astro";
-import CompensationCheck from "~/components/compensation/CompensationCheck.astro";
 import Faqs from "~/components/Faqs.astro";
 import Hero from "~/components/Hero.astro";
 import HowZoefWorks from "~/components/HowZoefWorks.astro";
@@ -39,13 +37,11 @@ let pageContent = await getPageContent(getLanguage(Astro), "passenger");
                 <Subtitle variant="default">{pageContent.data.description}</Subtitle>
                 <TrustPilotRatings data={TrustPilotData} />
             </Fragment>
-            <CompensationCheck slot="floating" />
         </Hero>
         <HowZoefWorks type="passenger" />
         <Testimonials relevantFor="passenger" />
         <Faqs image={FaqsGreenImage} relevantFor="passenger" />
         <Blogs />
-        <StoreBanner type="store" />
     </main>
     <CompensationCheckModal />
 </Layout>

@@ -14,7 +14,6 @@ import EuroIcon from "~/assets/images/icons/euro-icon-green.png";
 import StarIcon from "~/assets/images/icons/star.png";
 // Components
 import Accomplisments from "~/components/Accomplisments.astro";
-import StoreBanner from "~/components/Banner.astro";
 import Blogs from "~/components/Blogs.astro";
 import Brands from "~/components/Brands.astro";
 import Faqs from "~/components/Faqs.astro";
@@ -83,6 +82,5 @@ let pageContent = await getPageContent(getLanguage(Astro), "employer")
         <!-- <Testimonials relevantFor="employer" /> -->
         <Faqs image={FaqsBlueImage} relevantFor="employer" />
         <Blogs />
-        <StoreBanner type="productsignup" newsletter="EMPLOYER" />
     </main>
 </Layout>
