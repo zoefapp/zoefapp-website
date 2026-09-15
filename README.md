@@ -1,3 +1,17 @@
 # zoefapp-website
 
-Static landing page for Zoef.app BV. A single `index.html`, no build step, deployed on Vercel.
+Landing page for Zoef.app BV — a minimal [Astro](https://astro.build) site with a single page.
+
+## Development
+
+```sh
+mise install
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```sh
+pnpm build
+```
