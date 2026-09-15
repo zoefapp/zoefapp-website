@@ -1,9 +1,0 @@
----
-import { getLanguage, useRoutes, useTranslations } from "~/i18n/utils";
-import LinkButton from "../ui/LinkButton.astro";
-const lang = getLanguage(Astro);
-const t = useTranslations(lang);
-const r = useRoutes(lang)
----
-
-<LinkButton variant="orange" href={r('passenger') + '#floating'}>{t("nav.cta")}</LinkButton>
